@@ -1,51 +1,5 @@
 import { Building2, Star, Users, ArrowRight, MapPin } from "lucide-react";
-
-const companies = [
-   {
-      name: "NovaTech",
-      field: "Software Product",
-      rating: "4.8",
-      employees: "500-1000",
-      location: "TP. HCM",
-      openJobs: 12,
-      color: "#6366f1",
-      bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
-      initial: "N",
-   },
-   {
-      name: "GreenRetail",
-      field: "Ecommerce",
-      rating: "4.5",
-      employees: "200-500",
-      location: "Hà Nội",
-      openJobs: 8,
-      color: "#10b981",
-      bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
-      initial: "G",
-   },
-   {
-      name: "Medigo Labs",
-      field: "HealthTech",
-      rating: "4.7",
-      employees: "100-200",
-      location: "TP. HCM",
-      openJobs: 5,
-      color: "#0ea5e9",
-      bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)",
-      initial: "M",
-   },
-   {
-      name: "Finverse",
-      field: "Fintech",
-      rating: "4.6",
-      employees: "1000+",
-      location: "Đà Nẵng",
-      openJobs: 18,
-      color: "#f59e0b",
-      bg: "linear-gradient(135deg, #fffbeb, #fde68a)",
-      initial: "F",
-   },
-];
+import { useState, useEffect } from "react";
 
 const fieldColors: Record<string, { bg: string; text: string }> = {
    "Software Product": { bg: "#eef2ff", text: "#4f46e5" },
@@ -55,6 +9,40 @@ const fieldColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function CompaniesPage() {
+   const [companies, setCompanies] = useState<any[]>([]);
+
+   useEffect(() => {
+      fetch("http://localhost:8080/api/companies")
+         .then(res => res.json())
+         .then(data => {
+            const mapped = data.map((c: any) => {
+               // Render various colors based on id (just to make it look dynamic)
+               const colors = ["#6366f1", "#10b981", "#0ea5e9", "#f59e0b"];
+               const bgs = [
+                  "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+                  "linear-gradient(135deg, #ecfdf5, #d1fae5)",
+                  "linear-gradient(135deg, #f0f9ff, #bae6fd)",
+                  "linear-gradient(135deg, #fffbeb, #fde68a)"
+               ];
+               const cIndex = c.id % 4;
+
+               return {
+                  name: c.name,
+                  field: "Software Product", // Default or map properly if joined with category
+                  rating: "4.8", // Hardcoded mock
+                  employees: c.size || "100-200",
+                  location: "TP.HCM", // Hardcoded mock
+                  openJobs: 15, // Hardcoded mock
+                  color: colors[cIndex],
+                  bg: bgs[cIndex],
+                  initial: c.name ? c.name.charAt(0).toUpperCase() : "C",
+               };
+            });
+            setCompanies(mapped);
+         })
+         .catch(err => console.error("API error:", err));
+   }, []);
+
    return (
       <div className="space-y-8">
          {/* Hero */}
