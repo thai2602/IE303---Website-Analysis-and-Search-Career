@@ -23,8 +23,18 @@ npm run dev
 
 ---
 
-## Backend Environment (Python)
-# Viết cấu hình cho Backend ở dưới dòng này (VD: FastAPI, Django hoặc Flask)
-# fastapi==0.104.1
-# uvicorn==0.24.0.post1
-# sqlalchemy==2.0.23
+## Backend Environment (Java / Spring Boot)
+Các gói thư viện và framework chính (được quản lý bằng file `backend/pom.xml`):
+- `Spring Web` : Xây dựng RESTful API
+- `Spring Data JPA` : Giao tiếp CSDL
+- `Oracle JDBC Driver` : Kết nối Oracle Database (`ojdbc11`)
+- `Spring Security` & `JJWT` : Xác thực và cấp phát JWT token
+- `Lombok` & `MapStruct` : Tự động sinh getter/setter và map dữ liệu DTO
+- `Spring Validation` : Validate dữ liệu đầu vào
+- `SpringDoc OpenAPI` : Sinh tài liệu API tự động (Swagger UI)
+
+### Hướng dẫn chạy Backend nội bộ:
+```bash
+cd backend
+mvn spring-boot:run
+```
