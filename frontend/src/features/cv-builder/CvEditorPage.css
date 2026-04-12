@@ -1,0 +1,241 @@
+/* ============================================================
+   CvEditorPage.css – Styles for the CV Editor
+   All accent-color values reference --cv-accent set on .cved-preview
+   ============================================================ */
+
+/* ---------- Two-column layout ---------- */
+.cved-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  min-height: calc(100vh - 80px);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .cved-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Editor panel ---------- */
+.cved-panel {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  position: sticky;
+  top: 24px;
+}
+
+.cved-panel-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cved-panel-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* ---------- Form ---------- */
+.cved-form {
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cved-section {
+  margin-bottom: 28px;
+}
+
+.cved-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7c3aed;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f5f3ff;
+}
+
+.cved-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+  margin-top: 14px;
+}
+
+.cved-label:first-of-type {
+  margin-top: 0;
+}
+
+.cved-input,
+.cved-select,
+.cved-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 13px;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-family: inherit;
+}
+
+.cved-input:focus,
+.cved-select:focus,
+.cved-textarea:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+  background: #fff;
+}
+
+.cved-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.cved-btn-save {
+  width: 100%;
+  padding: 11px;
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.cved-btn-save:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.cved-btn-save:active {
+  transform: none;
+}
+
+/* ---------- Live preview ---------- */
+/*
+ * The JS sets --cv-accent on the .cved-preview element.
+ * All children reference it via var(--cv-accent), keeping
+ * dynamic theming without multiple inline style props.
+ */
+.cved-preview {
+  padding: 4px 0;
+}
+
+.cved-cv-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 600px;
+}
+
+/* CV header bar — color driven by var(--cv-accent) */
+.cved-cv-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 32px;
+  color: #fff;
+  background: var(--cv-accent, #7c3aed);
+  transition: background 0.3s;
+}
+
+.cved-cv-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.cved-cv-name {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 3px;
+}
+
+.cved-cv-role {
+  font-size: 13px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* CV body */
+.cved-cv-body {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Section heading color driven by var(--cv-accent) */
+.cved-cv-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 8px;
+  color: var(--cv-accent, #7c3aed);
+  transition: color 0.3s;
+}
+
+.cved-cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.cved-cv-placeholder {
+  color: #cbd5e1;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.cved-cv-summary {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Skeleton placeholders */
+.cved-skeleton-block {
+  height: 10px;
+  border-radius: 99px;
+  background: #e2e8f0;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.cved-skeleton-block--short {
+  width: 65%;
+}
