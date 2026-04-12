@@ -1,9 +1,134 @@
 import { Link } from "react-router-dom";
 import { Eye, EyeOff, Sparkles, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+declare global {
+   interface Window {
+      google?: {
+         accounts: {
+            id: {
+               initialize: (config: {
+                  client_id: string;
+                  callback: (response: { credential?: string }) => void;
+               }) => void;
+               prompt: () => void;
+            };
+         };
+      };
+   }
+}
 
 export default function LoginPage() {
    const [showPassword, setShowPassword] = useState(false);
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const [loading, setLoading] = useState(false);
+   const [errorMessage, setErrorMessage] = useState("");
+   const navigate = useNavigate();
+   const isGoogleInitializedRef = useRef(false);
+   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
+   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined;
+
+   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setErrorMessage("");
+      setLoading(true);
+
+      try {
+         const response = await fetch(`${apiBaseUrl}/api/auth/login`, {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+         });
+
+         if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || "Dang nhap that bai");
+         }
+
+         const data = await response.json();
+         if (!data.accessToken) {
+            throw new Error("Khong nhan duoc token tu he thong");
+         }
+
+         localStorage.setItem("accessToken", data.accessToken);
+         localStorage.setItem("tokenType", data.tokenType ?? "Bearer");
+         navigate("/");
+      } catch (error) {
+         if (error instanceof TypeError) {
+            setErrorMessage("Không thể kết nối với backend");
+         } else {
+            setErrorMessage(error instanceof Error ? error.message : "Đăng nhập thất bại. Vui lòng thử lại.");
+         }
+      } finally {
+         setLoading(false);
+      }
+   };
+
+   const loginWithSystemToken = async (accessToken: string, tokenType?: string) => {
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("tokenType", tokenType ?? "Bearer");
+      navigate("/");
+   };
+
+   const handleGoogleLogin = () => {
+      setErrorMessage("");
+
+      if (!googleClientId) {
+         setErrorMessage("Thiếu VITE_GOOGLE_CLIENT_ID trong frontend/.env");
+         return;
+      }
+
+      if (!window.google?.accounts?.id) {
+         setErrorMessage("Google SDK chưa sẵn sàng, vui lòng tải lại trang.");
+         return;
+      }
+
+      if (!isGoogleInitializedRef.current) {
+         window.google.accounts.id.initialize({
+            client_id: googleClientId,
+            callback: async (googleResponse: { credential?: string }) => {
+               if (!googleResponse.credential) {
+                  setErrorMessage("Không lấy được Google idToken.");
+                  return;
+               }
+
+               setLoading(true);
+               try {
+                  const response = await fetch(`${apiBaseUrl}/api/auth/google`, {
+                     method: "POST",
+                     headers: {
+                        "Content-Type": "application/json",
+                     },
+                     body: JSON.stringify({ idToken: googleResponse.credential }),
+                  });
+
+                  if (!response.ok) {
+                     const errorText = await response.text();
+                     throw new Error(errorText || "Đăng nhập Google thất bại");
+                  }
+
+                  const data = await response.json();
+                  if (!data.accessToken) {
+                     throw new Error("Không nhận được token từ hệ thống");
+                  }
+
+                  await loginWithSystemToken(data.accessToken, data.tokenType);
+               } catch (error) {
+                  setErrorMessage(error instanceof Error ? error.message : "Đăng nhập Google thất bại");
+               } finally {
+                  setLoading(false);
+               }
+            },
+         });
+         isGoogleInitializedRef.current = true;
+      }
+
+      window.google.accounts.id.prompt();
+   };
 
    return (
       <div style={{ display: "flex", gap: "32px", alignItems: "flex-start", flexWrap: "wrap" }}>
@@ -92,7 +217,7 @@ export default function LoginPage() {
                   </Link>
                </p>
 
-               <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                   {/* Email */}
                   <div>
                      <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#374151", marginBottom: "8px" }}>
@@ -101,6 +226,9 @@ export default function LoginPage() {
                      <input
                         type="email"
                         placeholder="ban@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.currentTarget.value)}
+                        required
                         style={{
                            width: "100%", borderRadius: "12px",
                            border: "1.5px solid #e2e8f0", padding: "11px 14px",
@@ -124,6 +252,9 @@ export default function LoginPage() {
                         <input
                            type={showPassword ? "text" : "password"}
                            placeholder="••••••••"
+                           value={password}
+                           onChange={(e) => setPassword(e.currentTarget.value)}
+                           required
                            style={{
                               width: "100%", borderRadius: "12px",
                               border: "1.5px solid #e2e8f0", padding: "11px 44px 11px 14px",
@@ -134,6 +265,7 @@ export default function LoginPage() {
                            onBlur={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }}
                         />
                         <button
+                           type="button"
                            onClick={() => setShowPassword(!showPassword)}
                            style={{
                               position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)",
@@ -145,18 +277,26 @@ export default function LoginPage() {
                      </div>
                   </div>
 
-                  <button style={{
+                  {errorMessage ? (
+                     <p style={{ fontSize: "13px", color: "#dc2626", marginTop: "-6px" }}>{errorMessage}</p>
+                  ) : null}
+
+                  <button
+                     type="submit"
+                     disabled={loading}
+                     style={{
                      width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
                      background: "linear-gradient(135deg, #10b981, #059669)",
                      color: "#fff", borderRadius: "12px", padding: "13px",
                      fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
                      boxShadow: "0 8px 25px rgba(16,185,129,0.4)",
                      transition: "transform 0.2s, box-shadow 0.2s",
+                     opacity: loading ? 0.7 : 1,
                   }}
                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(16,185,129,0.5)"; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(16,185,129,0.4)"; }}
                   >
-                     Đăng nhập <ArrowRight style={{ width: 16, height: 16 }} />
+                     {loading ? "Đang đăng nhập..." : "Đăng nhập"} <ArrowRight style={{ width: 16, height: 16 }} />
                   </button>
 
                   {/* Divider */}
@@ -167,13 +307,15 @@ export default function LoginPage() {
                   </div>
 
                   {/* Social login */}
-                  <button style={{
+                  <button type="button" style={{
                      width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
                      background: "#fff", color: "#374151",
                      border: "1.5px solid #e2e8f0", borderRadius: "12px", padding: "11px",
                      fontSize: "14px", fontWeight: 600, cursor: "pointer",
                      transition: "border-color 0.2s",
                   }}
+                     onClick={handleGoogleLogin}
+                     disabled={loading}
                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#94a3b8"; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "#e2e8f0"; }}
                   >
@@ -185,7 +327,7 @@ export default function LoginPage() {
                      </svg>
                      Tiếp tục với Google
                   </button>
-               </div>
+               </form>
             </div>
          </div>
       </div>
