@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { BookOpenText, CheckCircle, Clock, ChevronRight, TrendingUp, Lightbulb, MessageSquare, Shield, Search, Building, Users, Heart, Tag, X } from "lucide-react";
+import { CheckCircle, Clock, ChevronRight, TrendingUp, Lightbulb, MessageSquare, Shield, Search, Building, Users, Heart, Tag, X } from "lucide-react";
 import articleBanner1 from "../../assets/banner/company/image_1.png";
 import articleBanner2 from "../../assets/banner/company/image_2.png";
 import articleBanner3 from "../../assets/banner/company/image_3.png";
