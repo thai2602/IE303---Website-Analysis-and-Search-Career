@@ -1,569 +1,758 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
    ArrowRight,
    Briefcase,
    Building2,
-   CalendarDays,
-   Clock3,
    FileText,
-   Flame,
    MapPin,
-   Sparkles,
-   TrendingUp,
+   Compass,
+   ShieldCheck,
    Users,
    Wallet,
-   Zap,
+   Star,
 } from "lucide-react";
+import {
+   LineChart,
+   Line,
+   BarChart,
+   Bar,
+   PieChart,
+   Pie,
+   Cell,
+   XAxis,
+   YAxis,
+   CartesianGrid,
+   Tooltip,
+   Legend,
+   ResponsiveContainer,
+} from "recharts";
+import bannerImage from "../../assets/image.png";
+import mascotImage from "../../assets/linh_vật_web_xóa nền.png";
+import companyLogo1 from "../../assets/company_logo/image_1.png";
+import companyLogo4 from "../../assets/company_logo/image_4.png";
+import companyLogo7 from "../../assets/company_logo/image_7.png";
+import companyLogo8 from "../../assets/company_logo/image_8.png";
+import { readAuthUser } from "../../utils/auth";
+import { hasCreatedCv } from "../../utils/cv";
 
 const quickLinks = [
    {
       title: "Tìm việc nhanh",
-      desc: "Lọc theo vị trí, cấp bậc, hình thức làm việc và lương mong muốn.",
+      desc: "Tìm đúng cơ hội theo vị trí, cấp bậc, hình thức làm việc và mức thu nhập kỳ vọng.",
       to: "/tim-viec",
       icon: Briefcase,
       accent: "#059669",
       bg: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
-      badge: "3,200+ việc làm",
    },
    {
       title: "Danh sách công ty",
-      desc: "So sánh môi trường, đánh giá và cơ hội ứng tuyển theo ngành.",
+      desc: "Đánh giá doanh nghiệp theo văn hóa, phúc lợi và nhu cầu tuyển dụng theo từng ngành.",
       to: "/cong-ty",
       icon: Building2,
       accent: "#0284c7",
       bg: "linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%)",
-      badge: "500+ công ty",
    },
    {
       title: "Kho CV mẫu",
-      desc: "Chọn bố cục CV phù hợp với ngành nghề và cấp độ kinh nghiệm.",
+      desc: "Lựa chọn mẫu CV chuyên nghiệp theo ngành nghề và cấp độ kinh nghiệm của bạn.",
       to: "/cv-mau",
       icon: FileText,
       accent: "#7c3aed",
       bg: "linear-gradient(135deg, #f5f3ff 0%, #ddd6fe 100%)",
-      badge: "40+ mẫu CV",
    },
 ];
 
-const featuredJobs = [
+// Dữ liệu cơ hội việc làm top ngành nghề nổi bật
+const topIndustryJobs = [
    {
-      title: "Frontend React Developer",
-      company: "NovaTech",
-      place: "TP. HCM",
-      type: "Full-time",
-      salary: "25–35 triệu",
-      tags: ["React", "TypeScript", "Figma"],
-      companyColor: "#059669",
-      hot: true,
+      industry: "Công nghệ thông tin",
+      color: "#059669",
+      jobs: [
+         {
+            title: "Lập trình viên Frontend React",
+            company: "NovaTech",
+            place: "TP. HCM",
+            salary: "25–35 triệu",
+            tags: ["React", "TypeScript"],
+         },
+         {
+            title: "Kỹ sư Backend Node.js",
+            company: "ScaleHub",
+            place: "Đà Nẵng",
+            salary: "30–45 triệu",
+            tags: ["Node.js", "MongoDB"],
+         },
+         {
+            title: "Kỹ sư DevOps",
+            company: "CloudTech",
+            place: "Hà Nội",
+            salary: "35–50 triệu",
+            tags: ["Docker", "AWS"],
+         },
+      ],
    },
    {
-      title: "UI/UX Designer",
-      company: "BluePixel",
-      place: "Hà Nội",
-      type: "Hybrid",
-      salary: "18–28 triệu",
-      tags: ["Figma", "Research", "Design System"],
-      companyColor: "#0284c7",
-      hot: false,
+      industry: "Tài chính - Ngân hàng",
+      color: "#0284c7",
+      jobs: [
+         {
+            title: "Chuyên viên tín dụng",
+            company: "FinBank",
+            place: "TP. HCM",
+            salary: "18–30 triệu",
+            tags: ["Phân tích", "Tín dụng"],
+         },
+         {
+            title: "Nhân viên ngân hàng",
+            company: "VietBank",
+            place: "Hà Nội",
+            salary: "12–20 triệu",
+            tags: ["Khách hàng", "Giao dịch"],
+         },
+         {
+            title: "Kế toán viên",
+            company: "Finverse",
+            place: "Đà Nẵng",
+            salary: "15–25 triệu",
+            tags: ["Kế toán", "Báo cáo"],
+         },
+      ],
    },
    {
-      title: "Backend Node.js Engineer",
-      company: "ScaleHub",
-      place: "Đà Nẵng",
-      type: "Remote",
-      salary: "30–45 triệu",
-      tags: ["Node.js", "MongoDB", "Docker"],
-      companyColor: "#7c3aed",
-      hot: true,
+      industry: "Kinh doanh - Buôn bán",
+      color: "#7c3aed",
+      jobs: [
+         {
+            title: "Nhân viên kinh doanh",
+            company: "SalesPro",
+            place: "TP. HCM",
+            salary: "15–25 triệu",
+            tags: ["Bán hàng", "Khách hàng"],
+         },
+         {
+            title: "Trưởng phòng kinh doanh",
+            company: "BizHub",
+            place: "Hà Nội",
+            salary: "30–50 triệu",
+            tags: ["Lãnh đạo", "Chiến lược"],
+         },
+         {
+            title: "Nhân viên kinh doanh BĐS",
+            company: "RealEstate Plus",
+            place: "Đà Nẵng",
+            salary: "20–35 triệu",
+            tags: ["Bất động sản", "Tư vấn"],
+         },
+      ],
    },
 ];
 
-const bannerHighlights = [
-   "3,200+ việc làm mới",
-   "500+ doanh nghiệp tuyển dụng",
-   "Tư vấn CV và lương theo ngành",
-   "Cập nhật cơ hội mỗi ngày",
+// Dữ liệu công ty nổi bật
+const featuredCompanies = [
+   {
+      name: "NovaTech",
+      rating: "4.8",
+      employees: "500-1000",
+      location: "TP. HCM",
+      openJobs: 24,
+      color: "#059669",
+      initial: "N",
+      avatar: companyLogo1,
+      category: "Technology",
+   },
+   {
+      name: "BluePixel",
+      rating: "4.7",
+      employees: "100-500",
+      location: "Hà Nội",
+      openJobs: 12,
+      color: "#0284c7",
+      initial: "B",
+      avatar: companyLogo7,
+      category: "Design",
+   },
+   {
+      name: "ScaleHub",
+      rating: "4.9",
+      employees: "1000+",
+      location: "Đà Nẵng",
+      openJobs: 18,
+      color: "#7c3aed",
+      initial: "S",
+      avatar: companyLogo8,
+      category: "Technology",
+   },
+   {
+      name: "CloudWorks",
+      rating: "4.6",
+      employees: "200-500",
+      location: "TP. HCM",
+      openJobs: 15,
+      color: "#ea580c",
+      initial: "C",
+      avatar: companyLogo4,
+      category: "Technology",
+   },
 ];
 
-const webOrbitItems = [
+// Dữ liệu tuyển dụng theo tháng
+const recruitmentTrendData = [
+   { month: "T1", jobs: 450, companies: 85, salary: 28 },
+   { month: "T2", jobs: 520, companies: 92, salary: 29 },
+   { month: "T3", jobs: 580, companies: 102, salary: 30 },
+   { month: "T4", jobs: 720, companies: 118, salary: 31 },
+   { month: "T5", jobs: 890, companies: 135, salary: 33 },
+   { month: "T6", jobs: 1050, companies: 156, salary: 34 },
+];
+
+// Dữ liệu phân bố việc làm theo ngành
+const jobDistributionData = [
+   { name: "Công nghệ", value: 780, color: "#059669" },
+   { name: "Marketing", value: 450, color: "#0284c7" },
+   { name: "Thiết kế", value: 320, color: "#7c3aed" },
+   { name: "Nhân sự", value: 280, color: "#ea580c" },
+   { name: "Bán hàng", value: 370, color: "#facc15" },
+];
+
+// Dữ liệu mức lương theo vị trí
+const salaryByPositionData = [
+   { position: "Intern", salary: 5, applicants: 450 },
+   { position: "Junior", salary: 12, applicants: 680 },
+   { position: "Senior", salary: 28, applicants: 320 },
+   { position: "Lead", salary: 40, applicants: 180 },
+   { position: "Manager", salary: 50, applicants: 120 },
+];
+
+const companyHighlights = [
    {
-      label: "Tìm kiếm nhanh",
-      text: "Lọc theo vị trí, ngành, mức lương và hình thức làm việc.",
+      title: "Công ty đã xác minh",
+      desc: "Nhà tuyển dụng được kiểm duyệt trước khi đăng tin.",
       accent: "#059669",
+      icon: ShieldCheck,
    },
    {
-      label: "Công ty rõ ràng",
-      text: "Thông tin doanh nghiệp, môi trường và phúc lợi được trình bày gọn.",
+      title: "Phủ sóng 34 tỉnh thành",
+      desc: "Cơ hội việc làm rộng khắp, dễ chọn nơi làm phù hợp.",
       accent: "#0284c7",
+      icon: Compass,
    },
    {
-      label: "CV hỗ trợ",
-      text: "Mẫu CV và gợi ý nội dung giúp bạn hoàn thiện hồ sơ nhanh hơn.",
+      title: "Minh bạch thu nhập",
+      desc: "Khoảng lương hiển thị rõ trước khi bạn ứng tuyển.",
       accent: "#7c3aed",
-   },
-   {
-      label: "Cơ hội cập nhật",
-      text: "Việc mới và nội dung hướng dẫn được làm mới mỗi ngày.",
-      accent: "#f59e0b",
+      icon: Wallet,
    },
 ];
 
-const jobCards = [
-   {
-      title: "3,200+ việc làm",
-      desc: "Dữ liệu tuyển dụng được làm mới liên tục theo từng ngành.",
-      accent: "#059669",
-   },
-   {
-      title: "28 ngành nghề",
-      desc: "Từ công nghệ, thiết kế đến kinh doanh và vận hành.",
-      accent: "#0284c7",
-   },
-   {
-      title: "Mức lương rõ ràng",
-      desc: "Dễ so sánh thu nhập để chọn đúng vị trí mong muốn.",
-      accent: "#7c3aed",
-   },
-];
-
-const companyCards = [
-   {
-      title: "500+ công ty",
-      desc: "Các doanh nghiệp đồng hành đến từ nhiều lĩnh vực khác nhau.",
-      accent: "#0284c7",
-   },
-   {
-      title: "95% xác thực",
-      desc: "Ưu tiên nhà tuyển dụng có thông tin minh bạch và nhu cầu thật.",
-      accent: "#059669",
-   },
-   {
-      title: "63 tỉnh thành",
-      desc: "Kết nối cơ hội trên toàn quốc và nhiều vị trí remote.",
-      accent: "#7c3aed",
-   },
-];
-
-const stats = [
-   { label: "Việc làm mới/tuần", value: "1.2K+", icon: TrendingUp },
-   { label: "Ứng viên hài lòng", value: "98%", icon: Users },
-   { label: "Kết nối thành công", value: "15K+", icon: Zap },
+const bannerMarketStats = [
+   { label: "Việc mới hôm nay", value: "25", accent: "#f59e0b" },
+   { label: "Việc làm đang tuyển", value: "320+", accent: "#22c55e" },
+   { label: "Ứng viên hài lòng", value: "98%", accent: "#6366f1" },
 ];
 
 const platformStats = [
-   { value: "3,200+", label: "Việc làm đang tuyển dụng" },
-   { value: "500+", label: "Doanh nghiệp hợp tác" },
-   { value: "120K+", label: "Hồ sơ ứng viên" },
-   { value: "15K+", label: "Kết nối thành công" },
+   { value: "320+", label: "Việc làm đang tuyển dụng" },
+   { value: "50+", label: "Doanh nghiệp hợp tác" },
+   { value: "12k+", label: "Hồ sơ ứng viên" },
+   { value: "1.5k+", label: "Kết nối thành công" },
    { value: "98%", label: "Độ hài lòng" },
    { value: "24/7", label: "Hỗ trợ cập nhật" },
 ];
 
-function OrbitSection({
-   title,
-   centerIcon: CenterIcon,
-   centerBg,
-   accent,
-   items,
-   linkTo,
-   linkLabel,
-}: {
-   title: string;
-   centerIcon: typeof Briefcase;
-   centerBg: string;
-   accent: string;
-   items: Array<{ label: string; text: string; accent: string }>;
-   linkTo: string;
-   linkLabel: string;
-}) {
-   const [topLeft, topRight, bottomLeft, bottomRight] = items;
+const platformGrowthData = [
+   { month: "T1", value: 1200 },
+   { month: "T2", value: 1450 },
+   { month: "T3", value: 1680 },
+   { month: "T4", value: 1970 },
+   { month: "T5", value: 2230 },
+   { month: "T6", value: 2480 },
+];
 
+// ============ COMPONENTS ============
+
+function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
    return (
-      <section className="space-y-5">
-         <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-               <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">{title}</h2>
+      <Link
+         to="/cong-ty"
+         className="group relative overflow-hidden rounded-[20px] border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      >
+         <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start gap-3">
+               <div
+                  className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-slate-100"
+               >
+                  {company.avatar ? (
+                     <img src={company.avatar} alt={company.name} className="h-full w-full object-cover" />
+                  ) : (
+                     <span className="font-bold text-white" style={{ color: company.color }}>
+                        {company.initial}
+                     </span>
+                  )}
+               </div>
+               <div className="flex-1">
+                  <h3 className="font-bold text-slate-900">{company.name}</h3>
+                  <p className="mt-1 text-xs text-slate-500">{company.category}</p>
+               </div>
             </div>
-            <Link to={linkTo} className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-600">
-               {linkLabel} <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2 py-1">
+               <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+               <span className="text-xs font-bold text-amber-700">{company.rating}</span>
+            </div>
          </div>
-
-         <article className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm">
-            <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr_1.1fr] lg:items-stretch">
-               <div className="flex flex-col justify-between gap-4 p-6 lg:p-8">
-                  <div className="rounded-[26px] border border-slate-200 bg-slate-50 p-5">
-                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{topLeft.label}</p>
-                     <p className="mt-3 text-sm leading-7 text-slate-600">{topLeft.text}</p>
-                  </div>
-                  <div className="rounded-[26px] border border-slate-200 bg-slate-50 p-5">
-                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{bottomLeft.label}</p>
-                     <p className="mt-3 text-sm leading-7 text-slate-600">{bottomLeft.text}</p>
-                  </div>
-               </div>
-
-               <div className="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 px-6 py-10 lg:py-12">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.12),transparent_46%)]" />
-                  <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200/80" />
-                  <div className="absolute left-1/2 top-1/2 h-[240px] w-[240px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200/70" />
-
-                  <div className="relative grid h-[220px] w-[220px] place-items-center rounded-[42px] border border-white/80 bg-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.35)]">
-                     <div className="grid h-28 w-28 place-items-center rounded-[34px] border border-white/70" style={{ background: centerBg, color: accent }}>
-                        <CenterIcon className="h-14 w-14" />
-                     </div>
-                  </div>
-               </div>
-
-               <div className="flex flex-col justify-between gap-4 p-6 lg:p-8">
-                  <div className="rounded-[26px] border border-slate-200 bg-slate-50 p-5">
-                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{topRight.label}</p>
-                     <p className="mt-3 text-sm leading-7 text-slate-600">{topRight.text}</p>
-                  </div>
-                  <div className="rounded-[26px] border border-slate-200 bg-slate-50 p-5">
-                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{bottomRight.label}</p>
-                     <p className="mt-3 text-sm leading-7 text-slate-600">{bottomRight.text}</p>
-                  </div>
-               </div>
+         <div className="mt-4 space-y-2 text-sm text-slate-600">
+            <div className="flex items-center gap-2">
+               <MapPin className="h-3.5 w-3.5 text-slate-400" />
+               <span className="text-xs">{company.location}</span>
             </div>
-         </article>
-      </section>
+            <div className="flex items-center gap-2">
+               <Users className="h-3.5 w-3.5 text-slate-400" />
+               <span className="text-xs">{company.employees}</span>
+            </div>
+         </div>
+         <div className="mt-4 rounded-lg bg-emerald-50 px-3 py-2">
+            <p className="text-xs font-semibold text-emerald-700">{company.openJobs} việc mở</p>
+         </div>
+      </Link>
    );
 }
 
-function SplitCardSection({
-   title,
-   linkTo,
-   linkLabel,
-   mainTitle,
-   mainDesc,
-   mainAccent,
-   mainIcon: MainIcon,
-   cards,
-   reverse = false,
+function TopIndustryCard({
+   industry,
+   appliedJobIds,
+   onApply,
 }: {
-   title: string;
-   linkTo: string;
-   linkLabel: string;
-   mainTitle: string;
-   mainDesc: string;
-   mainAccent: string;
-   mainIcon: typeof Briefcase;
-   cards: Array<{ title: string; desc: string; accent: string }>;
-   reverse?: boolean;
+   industry: (typeof topIndustryJobs)[0];
+   appliedJobIds: Set<string>;
+   onApply: (industryName: string, job: (typeof topIndustryJobs)[0]["jobs"][0]) => void;
 }) {
    return (
-      <section className="space-y-5">
-         <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-               <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">{title}</h2>
-            </div>
-            <Link to={linkTo} className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-600">
-               {linkLabel} <ArrowRight className="h-4 w-4" />
-            </Link>
+      <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+         <div className="flex items-center gap-3 mb-4">
+            <div
+               className="h-3 w-3 rounded-full"
+               style={{ backgroundColor: industry.color }}
+            />
+            <h3 className="text-lg font-bold text-slate-900">{industry.industry}</h3>
          </div>
-
-         <article className="grid gap-5 overflow-hidden rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[0.95fr_1.05fr] lg:p-8">
-            <div className={`flex items-center ${reverse ? "lg:order-2" : ""}`}>
-               <div className="w-full rounded-[30px] border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 p-6">
-                  <div className="flex items-center gap-4">
-                     <div className="grid h-16 w-16 shrink-0 place-items-center rounded-[22px] border border-white/70 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.35)]" style={{ background: `linear-gradient(135deg, ${mainAccent}22, ${mainAccent}10)`, color: mainAccent }}>
-                        <MainIcon className="h-8 w-8" />
-                     </div>
-                     <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Điểm nhấn</p>
-                        <h3 className="mt-1 text-2xl font-bold tracking-tight text-slate-900">{mainTitle}</h3>
-                     </div>
-                  </div>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">{mainDesc}</p>
-               </div>
-            </div>
-
-            <div className={`grid gap-3 ${reverse ? "lg:order-1" : ""}`}>
-               {cards.map((card, index) => (
-                  <div
-                     key={card.title}
-                     className={`rounded-[24px] border border-slate-200 bg-slate-50 p-5 ${index === 0 ? "lg:ml-8" : index === 2 ? "lg:mr-8" : ""}`}
-                  >
-                     <div className="flex items-start gap-3">
-                        <span className="mt-1 h-3 w-3 rounded-full shrink-0" style={{ background: card.accent }} />
-                        <div>
-                           <h4 className="text-base font-bold tracking-tight text-slate-900">{card.title}</h4>
-                           <p className="mt-1 text-sm leading-7 text-slate-600">{card.desc}</p>
+         <div className="space-y-3">
+            {industry.jobs.map((job, index) => (
+               <div key={index} className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
+                  <div className="flex items-start justify-between gap-3">
+                     <div className="flex-1">
+                        <h4 className="font-semibold text-slate-900 text-sm">{job.title}</h4>
+                        <p className="text-xs text-slate-600 mt-1">{job.company}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                              <MapPin className="h-3 w-3 text-slate-500" />
+                              {job.place}
+                           </span>
+                           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                              <Wallet className="h-3 w-3 text-emerald-600" />
+                              {job.salary}
+                           </span>
                         </div>
                      </div>
                   </div>
-               ))}
-            </div>
-         </article>
-      </section>
+                  <div className="flex flex-wrap gap-1 mt-3">
+                     {job.tags.map((tag) => (
+                        <span
+                           key={tag}
+                           className="rounded-full bg-white px-2 py-1 text-[10px] font-medium text-slate-600 border border-slate-200"
+                        >
+                           {tag}
+                        </span>
+                     ))}
+                  </div>
+                  <button
+                     type="button"
+                     onClick={() => onApply(industry.industry, job)}
+                     disabled={appliedJobIds.has(`${industry.industry}-${job.company}-${job.title}`)}
+                     className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                     {appliedJobIds.has(`${industry.industry}-${job.company}-${job.title}`) ? "Đã ứng tuyển" : "Ứng tuyển"}
+                  </button>
+               </div>
+            ))}
+         </div>
+         <Link
+            to="/tim-viec"
+            className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
+         >
+            Xem thêm <ArrowRight className="h-4 w-4" />
+         </Link>
+      </div>
    );
 }
 
 export default function HomePage() {
+   const [appliedJobIds, setAppliedJobIds] = useState<Set<string>>(() => {
+      try {
+         const raw = localStorage.getItem("jobpilot_applications");
+         if (!raw) return new Set<string>();
+         const saved = JSON.parse(raw) as Array<{ id?: string; company?: string; title?: string; industry?: string }>;
+         const ids = saved
+            .map((item) => item.id ?? `${item.industry ?? ""}-${item.company ?? ""}-${item.title ?? ""}`)
+            .filter((id): id is string => Boolean(id));
+         return new Set(ids);
+      } catch {
+         return new Set<string>();
+      }
+   });
+   const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
+
+   useEffect(() => {
+      if (!toast) {
+         return;
+      }
+
+      const timeoutId = window.setTimeout(() => setToast(null), 2600);
+      return () => window.clearTimeout(timeoutId);
+   }, [toast]);
+
+   const showToast = (message: string, kind: "success" | "error" = "success") => {
+      setToast({ message, kind });
+   };
+
+   const handleApplyJob = (industryName: string, job: (typeof topIndustryJobs)[0]["jobs"][0]) => {
+      if (!readAuthUser()) {
+         showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error");
+         return;
+      }
+
+      if (!hasCreatedCv()) {
+         showToast("Bạn chưa có CV. Vui lòng tạo CV trước khi ứng tuyển.", "error");
+         return;
+      }
+
+      const id = `${industryName}-${job.company}-${job.title}`;
+      if (appliedJobIds.has(id)) {
+         showToast("Bạn đã ứng tuyển vị trí này rồi.", "error");
+         return;
+      }
+
+      const application = {
+         id,
+         company: job.company,
+         title: job.title,
+         salary: job.salary,
+         place: job.place,
+         industry: industryName,
+         appliedAt: new Date().toLocaleString("vi-VN"),
+         status: "Đang chờ xác nhận",
+         trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi.",
+      };
+
+      try {
+         const raw = localStorage.getItem("jobpilot_applications");
+         const current = raw ? (JSON.parse(raw) as Array<Record<string, string>>) : [];
+         const updated = [application, ...current.filter((item) => item.id !== id)];
+         localStorage.setItem("jobpilot_applications", JSON.stringify(updated));
+         setAppliedJobIds((prev) => new Set([...prev, id]));
+         showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
+      } catch {
+         showToast("Không thể lưu hồ sơ ứng tuyển vào trình duyệt.", "error");
+      }
+   };
+
    return (
-      <div className="space-y-10">
-         <section className="relative overflow-hidden rounded-[28px] border border-emerald-900/10 bg-slate-950 px-6 py-8 text-white shadow-[0_30px_80px_-24px_rgba(15,23,42,0.55)] md:px-10 md:py-12">
+      <div className="space-y-12">
+         {/* ===== BANNER SECTION ===== */}
+         <section className="relative overflow-hidden rounded-[28px] border border-slate-500/40 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 py-10 text-white shadow-[0_30px_90px_-26px_rgba(15,23,42,0.25)] md:px-10 md:py-12">
             <div className="home-banner-orb home-banner-orb-1" />
             <div className="home-banner-orb home-banner-orb-2" />
-            <div className="home-banner-grid pointer-events-none absolute inset-0 opacity-20" />
+            <div className="home-banner-grid pointer-events-none absolute inset-0 opacity-18" />
 
-            <div className="relative grid gap-8 lg:grid-cols-[1.3fr_0.9fr] lg:items-center">
-               <div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200">
-                     <Sparkles className="h-3.5 w-3.5" />
-                     JobPilot
-                  </span>
-
-                  <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-5xl">
-                     Việc tốt, công ty tốt, ứng tuyển nhanh.
-                  </h1>
-
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
-                     JobPilot tổng hợp việc làm mới mỗi ngày, giới thiệu về doanh nghiệp, hỗ trợ tối ưu CV và gợi ý cơ hội phù hợp để bạn ra quyết định nhanh hơn.
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-3">
-                     <Link
-                        to="/tim-viec"
-                        className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
-                     >
-                        Khám phá việc làm <ArrowRight className="h-4 w-4" />
-                     </Link>
-                     <Link
-                        to="/dang-ky"
-                        className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-colors duration-200 hover:bg-white/15"
-                     >
-                        Tạo tài khoản miễn phí
-                     </Link>
-                  </div>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-                     {bannerHighlights.map((item) => (
-                        <span
-                           key={item}
-                           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200"
-                        >
-                           <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                           {item}
-                        </span>
-                     ))}
-                  </div>
-
-                  <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                     {stats.map(({ label, value, icon: Icon }) => (
-                        <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-                           <div className="flex items-center gap-3">
-                              <div className="grid h-10 w-10 place-items-center rounded-xl bg-emerald-400/15 text-emerald-300">
-                                 <Icon className="h-4 w-4" />
-                              </div>
-                              <div>
-                                 <p className="text-lg font-bold leading-none text-white">{value}</p>
-                                 <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">
-                                    {label}
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                     ))}
-                  </div>
-               </div>
-
-               <div className="relative">
-                  <div className="home-banner-card rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl">
-                     <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div className="relative grid gap-10">
+               <div className="relative rounded-[32px] border border-slate-600/40 bg-slate-800/85 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-xl lg:p-8">
+                  <img
+                     src={bannerImage}
+                     alt="Banner accent"
+                     className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90"
+                  />
+                  <div className="absolute inset-0 bg-slate-900/70" />
+                  <div className="relative flex flex-col items-center gap-3 text-center">
+                     <div className="ai-mascot-wrap inline-flex h-36 w-36 md:h-40 md:w-40 lg:h-44 lg:w-44">
+                        <img src={mascotImage} alt="Linh vật AI" className="ai-mascot-image rounded-2xl" />
+                     </div>
+                     <div className="w-full">
                         <div>
-                           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200">Việc làm nổi bật</p>
-                           <h2 className="mt-2 text-xl font-bold text-white">Cơ hội mới trong ngày</h2>
-                        </div>
-                        <div className="rounded-full bg-amber-400/15 px-3 py-1 text-xs font-semibold text-amber-200">
-                           Live
+                           <h1 className="text-2xl font-semibold tracking-tight leading-[1.4] md:leading-[1.5] text-transparent bg-gradient-to-r from-amber-200 via-white to-amber-500 bg-clip-text lg:text-5xl py-2">   TÌM VIỆC DỄ, ỨNG TUYỂN NHANH
+                           </h1>
+                           <p className="mt-5 text-base leading-8 text-amber-100/90 md:text-lg">
+                              JobPilot tổng hợp việc làm mới mỗi ngày, giới thiệu doanh nghiệp uy tín và hỗ trợ tối ưu hồ sơ để bạn ứng tuyển nhanh, chính xác.
+                           </p>
                         </div>
                      </div>
 
-                     <div className="mt-4 space-y-3">
-                        {featuredJobs.map((job, index) => (
-                           <div
-                              key={job.title}
-                              className="home-banner-list-item rounded-2xl border border-white/10 bg-slate-950/60 p-4"
-                              style={{ animationDelay: `${index * 120}ms` }}
-                           >
-                              <div className="flex items-start justify-between gap-3">
-                                 <div>
-                                    <div className="flex items-center gap-2">
-                                       {job.hot ? (
-                                          <span className="inline-flex items-center gap-1 rounded-full bg-amber-400/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-amber-200">
-                                             <Flame className="h-3 w-3" /> Hot
-                                          </span>
-                                       ) : null}
-                                       <span className="text-sm font-semibold text-white">{job.title}</span>
-                                    </div>
-                                    <p className="mt-1 text-sm text-slate-300">{job.company}</p>
-                                 </div>
-                                 <div className="grid h-10 w-10 place-items-center rounded-xl text-sm font-bold text-white" style={{ background: job.companyColor }}>
-                                    {job.company.slice(0, 1)}
-                                 </div>
-                              </div>
+                     <div className="flex flex-wrap items-center justify-center gap-6">
+                        <Link
+                           to="/tim-viec"
+                           className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+                        >
+                           Khám phá việc làm <ArrowRight className="h-4 w-4" />
+                        </Link>
+                        <Link
+                           to="/dang-ky"
+                           className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-colors duration-200 hover:bg-white/15"
+                        >
+                           Tạo tài khoản miễn phí
+                        </Link>
+                     </div>
 
-                              <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-300">
-                                 <span className="inline-flex items-center gap-1.5">
-                                    <MapPin className="h-3.5 w-3.5 text-emerald-300" /> {job.place}
-                                 </span>
-                                 <span className="inline-flex items-center gap-1.5">
-                                    <Clock3 className="h-3.5 w-3.5 text-emerald-300" /> {job.type}
-                                 </span>
-                                 <span className="inline-flex items-center gap-1.5">
-                                    <Wallet className="h-3.5 w-3.5 text-emerald-300" /> {job.salary}
-                                 </span>
-                              </div>
-
-                              <div className="mt-3 flex flex-wrap gap-2">
-                                 {job.tags.map((tag) => (
-                                    <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-200">
-                                       {tag}
-                                    </span>
-                                 ))}
-                              </div>
+                     <div className="mt-6 grid gap-10 sm:grid-cols-3">
+                        {bannerMarketStats.map((stat) => (
+                           <div key={stat.label} className="rounded-3xl border border-amber-300/20 bg-slate-950/70 px-4 py-3">
+                              <p className="text-[10px] uppercase tracking-[0.24em] text-amber-200">{stat.label}</p>
+                              <p className="mt-2 text-2xl font-semibold text-white" style={{ color: stat.accent }}>
+                                 {stat.value}
+                              </p>
                            </div>
                         ))}
                      </div>
                   </div>
+               </div>
 
-                  <div className="home-banner-float absolute -right-2 -top-4 rounded-2xl border border-white/10 bg-white px-4 py-3 text-slate-900 shadow-xl">
-                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-600">Cập nhật hôm nay</p>
-                     <p className="mt-1 text-sm font-bold">+128 việc mới</p>
+            </div>
+         </section>
+
+         {/* ===== RECRUITMENT STATISTICS SECTION ===== */}
+         <section className="space-y-6">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+               <div>
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                     Tình hình tuyển dụng hiện tại
+                  </h2>
+                  <p className="mt-2 text-slate-600">Xu hướng thị trường việc làm theo từng tháng</p>
+               </div>
+               <span className="rounded-full border border-emerald-200/70 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700">
+                  Cập nhật hàng tháng
+               </span>
+            </div>
+
+            <div className="grid gap-6">
+               {/* Recruitment Trend Chart */}
+               <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+                  <h3 className="text-lg font-bold text-slate-900">Tăng trưởng việc làm & Công ty</h3>
+                  <p className="mt-1 text-sm text-slate-600">Số lượng việc làm mới và công ty tuyển dụng mỗi tháng</p>
+
+                  <div className="mt-6">
+                     <ResponsiveContainer width="100%" height={300}>
+                        <LineChart data={recruitmentTrendData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+                           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                           <XAxis dataKey="month" />
+                           <YAxis />
+                           <Tooltip
+                              contentStyle={{
+                                 backgroundColor: "#fff",
+                                 border: "1px solid #e2e8f0",
+                                 borderRadius: "8px",
+                              }}
+                           />
+                           <Legend />
+                           <Line
+                              type="monotone"
+                              dataKey="jobs"
+                              stroke="#059669"
+                              name="Số việc làm"
+                              strokeWidth={2}
+                              dot={{ fill: "#059669", r: 4 }}
+                           />
+                           <Line
+                              type="monotone"
+                              dataKey="companies"
+                              stroke="#0284c7"
+                              name="Số công ty tuyển"
+                              strokeWidth={2}
+                              dot={{ fill: "#0284c7", r: 4 }}
+                           />
+                        </LineChart>
+                     </ResponsiveContainer>
+                  </div>
+               </div>
+
+               {/* Job Distribution & Salary Charts */}
+               <div className="grid gap-6 lg:grid-cols-2">
+                  {/* Job Distribution Pie Chart */}
+                  <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+                     <h3 className="text-lg font-bold text-slate-900">Phân bố việc làm theo ngành</h3>
+                     <p className="mt-1 text-sm text-slate-600">Tổng {jobDistributionData.reduce((a, b) => a + b.value, 0)}+ việc làm mở</p>
+
+                     <div className="mt-6">
+                        <ResponsiveContainer width="100%" height={250}>
+                           <PieChart>
+                              <Pie
+                                 data={jobDistributionData}
+                                 cx="50%"
+                                 cy="50%"
+                                 labelLine={false}
+                                 label={({ name, value }) => `${name}: ${value}`}
+                                 outerRadius={80}
+                                 fill="#8884d8"
+                                 dataKey="value"
+                              >
+                                 {jobDistributionData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.color} />
+                                 ))}
+                              </Pie>
+                              <Tooltip />
+                           </PieChart>
+                        </ResponsiveContainer>
+                     </div>
+                  </div>
+
+                  {/* Salary by Position */}
+                  <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+                     <h3 className="text-lg font-bold text-slate-900">Mức lương theo cấp độ</h3>
+                     <p className="mt-1 text-sm text-slate-600">Mức lương trung bình (triệu VND)</p>
+
+                     <div className="mt-6">
+                        <ResponsiveContainer width="100%" height={250}>
+                           <BarChart data={salaryByPositionData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+                              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                              <XAxis dataKey="position" />
+                              <YAxis />
+                              <Tooltip
+                                 contentStyle={{
+                                    backgroundColor: "#fff",
+                                    border: "1px solid #e2e8f0",
+                                    borderRadius: "8px",
+                                 }}
+                              />
+                              <Bar dataKey="salary" fill="#7c3aed" name="Lương (triệu)" radius={[8, 8, 0, 0]} />
+                           </BarChart>
+                        </ResponsiveContainer>
+                     </div>
                   </div>
                </div>
             </div>
          </section>
 
-         <OrbitSection
-            title="Nền tảng tìm việc toàn diện"
-            centerIcon={Sparkles}
-            centerBg="linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)"
-            accent="#059669"
-            items={webOrbitItems}
-            linkTo="/cam-nang"
-            linkLabel="Xem cẩm nang"
-         />
+         {/* ===== FEATURED COMPANIES SECTION ===== */}
+         <section className="space-y-6">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+               <div>
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                     Doanh nghiệp uy tín hàng đầu
+                  </h2>
+                  <p className="mt-2 text-slate-600">Những công ty hàng đầu đang tuyển dụng</p>
+               </div>
+               <Link to="/cong-ty" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-600">
+                  Xem tất cả công ty <ArrowRight className="h-4 w-4" />
+               </Link>
+            </div>
 
-         <SplitCardSection
-            title="Tình hình tuyển dụng hiện tại"
-            linkTo="/tim-viec"
-            linkLabel="Bắt đầu tìm việc"
-            mainTitle="Việc làm"
-            mainDesc="Nổi bật các cơ hội, mức lương và vị trí để bạn chọn nhanh hơn."
-            mainAccent="#059669"
-            mainIcon={Briefcase}
-            cards={jobCards}
-         />
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+               {featuredCompanies.map((company) => (
+                  <CompanyCard key={company.name} company={company} />
+               ))}
+            </div>
+         </section>
 
-         <SplitCardSection
-            title="Doanh nghiệp uy tín"
-            linkTo="/cong-ty"
-            linkLabel="Xem công ty"
-            mainTitle="Công ty"
-            mainDesc="Giới thiệu rõ lĩnh vực, quy mô và môi trường làm việc trước khi ứng tuyển."
-            mainAccent="#0284c7"
-            mainIcon={Building2}
-            cards={companyCards}
-            reverse
-         />
+         {/* ===== COMPANY HIGHLIGHTS ===== */}
+         <section className="rounded-[24px] border border-slate-200/80 bg-gradient-to-br from-slate-50/80 to-slate-100/60 p-8">
+            <h3 className="text-lg font-bold text-slate-900">Tại sao chọn JobPilot</h3>
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+               {companyHighlights.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                     <div key={item.title} className="flex flex-col items-start gap-3">
+                        <div className="grid h-12 w-12 place-items-center rounded-lg text-white" style={{ background: item.accent }}>
+                           <Icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-slate-900">{item.title}</h4>
+                           <p className="mt-1 text-sm text-slate-600">{item.desc}</p>
+                        </div>
+                     </div>
+                  );
+               })}
+            </div>
+         </section>
 
+         {/* ===== PLATFORM STATS ===== */}
          <section className="rounded-[28px] border border-emerald-100/60 bg-gradient-to-br from-emerald-50/80 via-white to-cyan-50/60 p-6 shadow-[0_12px_32px_-8px_rgba(5,150,105,0.08)] md:p-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
                <div>
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-3xl">
-                     Thống kê phát triển JobPilot
+                     Thống kê tăng trưởng JobPilot
                   </h2>
+                  <p className="mt-2 text-slate-600">Những con số ấn tượng và xu hướng phát triển của nền tảng</p>
                </div>
                <span className="rounded-full border border-emerald-200/70 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700">
                   Cập nhật hàng tuần
                </span>
             </div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-               {platformStats.map((item) => (
-                  <article key={item.label} className="group rounded-[24px] border border-emerald-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:border-emerald-200">
-                     <p className="text-4xl font-black tracking-tight text-emerald-700">{item.value}</p>
-                     <p className="mt-3 text-sm font-semibold text-slate-600">{item.label}</p>
-                  </article>
-               ))}
+            <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {platformStats.map((item) => (
+                     <article key={item.label} className="group rounded-[24px] border border-emerald-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:border-emerald-200">
+                        <p className="text-4xl font-black tracking-tight text-emerald-700">{item.value}</p>
+                        <p className="mt-3 text-sm font-semibold text-slate-600">{item.label}</p>
+                     </article>
+                  ))}
+               </div>
+
+               <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+                  <div className="flex items-center justify-between gap-4">
+                     <div>
+                        <h3 className="text-lg font-bold text-slate-900">Biểu đồ tăng trưởng</h3>
+                        <p className="mt-1 text-sm text-slate-600">Lượt kết nối ứng viên theo từng tháng</p>
+                     </div>
+                     <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                        6 tháng
+                     </span>
+                  </div>
+
+                  <div className="mt-6 h-56">
+                     <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={platformGrowthData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
+                           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                           <XAxis dataKey="month" tickLine={false} axisLine={false} />
+                           <YAxis tickLine={false} axisLine={false} />
+                           <Tooltip
+                              contentStyle={{
+                                 backgroundColor: "#fff",
+                                 border: "1px solid #e2e8f0",
+                                 borderRadius: "8px",
+                              }}
+                           />
+                           <Bar dataKey="value" fill="#059669" radius={[8, 8, 0, 0]} />
+                        </BarChart>
+                     </ResponsiveContainer>
+                  </div>
+               </div>
             </div>
          </section>
 
+         {/* ===== TOP INDUSTRY JOBS ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
                <div>
                   <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                     Cơ hội việc làm nổi bật
+                     Cơ hội việc làm top ngành nghề nổi bật
                   </h2>
+                  <p className="mt-2 text-slate-600">Khám phá cơ hội việc làm trong các ngành hot nhất</p>
                </div>
                <Link to="/tim-viec" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-600">
                   Xem tất cả <ArrowRight className="h-4 w-4" />
                </Link>
             </div>
 
-            <div className="grid gap-5 lg:grid-cols-3">
-               {featuredJobs.map((job) => (
-                  <article key={job.title} className="group overflow-hidden rounded-[24px] border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                     <div className="p-6">
-                        <div className="flex items-start justify-between gap-4">
-                           <div className="flex items-start gap-3">
-                              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl font-bold text-white" style={{ background: job.companyColor }}>
-                                 {job.company.slice(0, 1)}
-                              </div>
-                              <div>
-                                 <div className="flex flex-wrap items-center gap-2">
-                                    {job.hot ? (
-                                       <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-amber-700">
-                                          <Flame className="h-3 w-3" /> Hot
-                                       </span>
-                                    ) : null}
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-700">
-                                       Mới
-                                    </span>
-                                 </div>
-                                 <h3 className="mt-3 max-w-xs text-lg font-bold tracking-tight text-slate-900">{job.title}</h3>
-                                 <p className="mt-1 text-sm font-semibold text-slate-600">{job.company}</p>
-                              </div>
-                           </div>
-                        </div>
-
-                        <div className="mt-5 space-y-2.5 text-sm text-slate-600">
-                           <div className="flex items-center gap-2.5">
-                              <MapPin className="h-4 w-4 text-emerald-600" />
-                              <span>{job.place}</span>
-                           </div>
-                           <div className="flex items-center gap-2.5">
-                              <CalendarDays className="h-4 w-4 text-emerald-600" />
-                              <span>{job.type}</span>
-                           </div>
-                           <div className="flex items-center gap-2.5 font-semibold text-slate-900">
-                              <Wallet className="h-4 w-4 text-emerald-600" />
-                              <span>{job.salary}</span>
-                           </div>
-                        </div>
-
-                        <div className="mt-4 flex flex-wrap gap-2">
-                           {job.tags.map((tag) => (
-                              <span key={tag} className="rounded-full border border-slate-200/80 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-600">
-                                 {tag}
-                              </span>
-                           ))}
-                        </div>
-
-                        <Link
-                           to="/tim-viec"
-                           className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition-transform duration-200 group-hover:translate-x-0.5"
-                        >
-                           Xem chi tiết <ArrowRight className="h-4 w-4" />
-                        </Link>
-                     </div>
-                  </article>
+            <div className="grid gap-6 lg:grid-cols-3">
+               {topIndustryJobs.map((industry) => (
+                  <TopIndustryCard
+                     key={industry.industry}
+                     industry={industry}
+                     appliedJobIds={appliedJobIds}
+                     onApply={handleApplyJob}
+                  />
                ))}
             </div>
          </section>
 
+         {/* ===== CTA SECTION ===== */}
          <section className="rounded-[28px] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-8 shadow-lg md:px-10 md:py-12">
             <div className="space-y-6 lg:space-y-4 lg:flex lg:items-center lg:justify-between">
                <div className="max-w-2xl">
@@ -578,11 +767,12 @@ export default function HomePage() {
                   to="/dang-ky"
                   className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-bold tracking-tight text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 lg:shrink-0"
                >
-                  Đăng ký tài khoản <Sparkles className="h-4 w-4" />
+                  Đăng ký tài khoản
                </Link>
             </div>
          </section>
 
+         {/* ===== QUICK LINKS ===== */}
          <section>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
                <div>
@@ -604,15 +794,9 @@ export default function HomePage() {
                         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: `${item.accent}08` }} />
                         <div className="relative p-7">
                            <div className="flex items-center justify-between gap-4">
-                              <div
-                                 className="grid h-12 w-12 place-items-center rounded-xl text-white shadow-md"
-                                 style={{ background: item.accent }}
-                              >
+                              <div className="grid h-12 w-12 place-items-center rounded-xl text-white shadow-md" style={{ background: item.accent }}>
                                  <Icon className="h-5 w-5" />
                               </div>
-                              <span className="rounded-full bg-white/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-700 backdrop-blur">
-                                 {item.badge}
-                              </span>
                            </div>
                            <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">{item.title}</h3>
                            <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
@@ -625,6 +809,18 @@ export default function HomePage() {
                })}
             </div>
          </section>
+
+         {toast && (
+            <div style={{ position: "fixed", left: "50%", top: 24, transform: "translateX(-50%)", zIndex: 1300, minWidth: "min(520px, calc(100vw - 24px))" }}>
+               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "14px 16px", borderRadius: 14, border: `1px solid ${toast.kind === "success" ? "#86efac" : "#fca5a5"}`, background: toast.kind === "success" ? "linear-gradient(135deg, #f0fdf4, #ffffff)" : "linear-gradient(135deg, #fff1f2, #ffffff)", boxShadow: "0 18px 50px rgba(15,23,42,0.16)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                     <div style={{ width: 10, height: 10, borderRadius: 999, background: toast.kind === "success" ? "#16a34a" : "#dc2626", flexShrink: 0 }} />
+                     <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{toast.message}</p>
+                  </div>
+                  <button onClick={() => setToast(null)} style={{ border: "none", background: "transparent", color: "#64748b", cursor: "pointer", fontWeight: 700 }}>×</button>
+               </div>
+            </div>
+         )}
       </div>
    );
 }
