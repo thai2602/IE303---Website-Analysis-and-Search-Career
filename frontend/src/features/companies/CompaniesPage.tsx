@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Star, Users, ArrowRight, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
@@ -113,6 +114,10 @@ const companyBannerItems = [
       description: "Ứng tuyển vào những vị trí backend, DevOps và cloud trong môi trường công nghệ cao.",
    },
 ];
+=======
+import { Building2, Star, Users, ArrowRight, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+>>>>>>> 81c544ae19c41f2ac35754edda45fd808ff5a2ae
 
 export const companies: CompanyItem[] = [
    { name: "NovaTech", field: "Technology", rating: "4.8", employees: "500-1000", location: "TP. HCM", openJobs: 5, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "N", description: "Công ty phần mềm tập trung vào sản phẩm doanh nghiệp.", benefits: ["Thưởng dự án", "BHYT", "Hybrid"], positions: [{ title: "Frontend React Developer", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.", skills: ["React", "TypeScript", "Figma"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Product Owner", salary: "35–50 triệu", workingHours: "9:00 - 18:00", description: "Lãnh đạo roadmap sản phẩm, hợp tác cùng đội kinh doanh và kỹ thuật.", skills: ["Product", "Stakeholder", "Strategy"] }, { title: "QA Automation Engineer", salary: "22–32 triệu", workingHours: "8:30 - 17:30", description: "Thiết kế kịch bản kiểm thử tự động cho sản phẩm nội bộ.", skills: ["Testing", "Selenium", "Automation"] }, { title: "UI Engineer", salary: "24–34 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống component và thiết kế tương tác trong thư viện UI.", skills: ["HTML", "CSS", "React"] }] },
@@ -168,6 +173,7 @@ const fieldColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function CompaniesPage() {
+<<<<<<< HEAD
    const location = useLocation();
    const [selectedCompany, setSelectedCompany] = useState<CompanyItem | null>(null);
    const [selectedPosition, setSelectedPosition] = useState<any>(null);
@@ -476,6 +482,42 @@ export default function CompaniesPage() {
       </article>
    );
 
+=======
+   const [companies, setCompanies] = useState<any[]>([]);
+
+   useEffect(() => {
+      fetch("http://localhost:8080/api/companies")
+         .then(res => res.json())
+         .then(data => {
+            const mapped = data.map((c: any) => {
+               // Render various colors based on id (just to make it look dynamic)
+               const colors = ["#6366f1", "#10b981", "#0ea5e9", "#f59e0b"];
+               const bgs = [
+                  "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+                  "linear-gradient(135deg, #ecfdf5, #d1fae5)",
+                  "linear-gradient(135deg, #f0f9ff, #bae6fd)",
+                  "linear-gradient(135deg, #fffbeb, #fde68a)"
+               ];
+               const cIndex = c.id % 4;
+
+               return {
+                  name: c.name,
+                  field: "Software Product", // Default or map properly if joined with category
+                  rating: "4.8", // Hardcoded mock
+                  employees: c.size || "100-200",
+                  location: "TP.HCM", // Hardcoded mock
+                  openJobs: 15, // Hardcoded mock
+                  color: colors[cIndex],
+                  bg: bgs[cIndex],
+                  initial: c.name ? c.name.charAt(0).toUpperCase() : "C",
+               };
+            });
+            setCompanies(mapped);
+         })
+         .catch(err => console.error("API error:", err));
+   }, []);
+
+>>>>>>> 81c544ae19c41f2ac35754edda45fd808ff5a2ae
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}

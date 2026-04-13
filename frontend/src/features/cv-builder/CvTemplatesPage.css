@@ -1,0 +1,348 @@
+/* ============================================================
+   CvTemplatesPage.css
+   All per-template dynamic colors come from CSS custom properties
+   (--t-accent, --t-preview, --t-line-N) set on the <article> element.
+   ============================================================ */
+
+/* ---------- Hero section ---------- */
+.cvtp-hero {
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cvtp-hero-blob-1 {
+  position: absolute;
+  top: -50px;
+  right: -30px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(196, 181, 253, 0.2);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.cvtp-hero-blob-2 {
+  position: absolute;
+  bottom: -40px;
+  left: 30%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.15);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.cvtp-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(196, 181, 253, 0.25);
+  border: 1px solid rgba(196, 181, 253, 0.4);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 11px;
+  color: #ddd6fe;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.cvtp-hero-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+.cvtp-hero-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.cvtp-hero-title-accent {
+  color: #c4b5fd;
+}
+
+.cvtp-hero-desc {
+  color: #c4b5fd;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---------- Template grid ---------- */
+.cvtp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .cvtp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .cvtp-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Template card ---------- */
+.cvtp-card {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.cvtp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--t-accent) 20%, transparent);
+}
+
+/* ---------- Card preview area ---------- */
+.cvtp-preview {
+  position: relative;
+  padding: 24px 20px;
+  height: 160px;
+  /* background driven by --t-preview */
+  background: var(--t-preview, linear-gradient(135deg, #f5f3ff, #ede9fe));
+}
+
+/* Mini CV skeleton */
+.cvtp-skeleton {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 12px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cvtp-skeleton-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cvtp-skeleton-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* color driven by --t-accent */
+  background: var(--t-accent, #7c3aed);
+}
+
+.cvtp-skeleton-name-line {
+  width: 60px;
+  height: 5px;
+  border-radius: 99px;
+  margin-bottom: 3px;
+  background: var(--t-line-0, #c4b5fd);
+}
+
+.cvtp-skeleton-title-line {
+  width: 40px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--t-line-1, #ddd6fe);
+}
+
+/* Generic skeleton content lines — each reads its own line color var */
+.cvtp-skeleton-line {
+  height: 3px;
+  border-radius: 99px;
+  margin-bottom: 4px;
+  opacity: 0.6;
+}
+
+.cvtp-skeleton-line--0 { background: var(--t-line-0, #c4b5fd); }
+.cvtp-skeleton-line--1 { background: var(--t-line-1, #ddd6fe); }
+.cvtp-skeleton-line--2 { background: var(--t-line-2, #ede9fe); }
+.cvtp-skeleton-line--3 { background: var(--t-line-3, #c4b5fd); }
+.cvtp-skeleton-line--4 { background: var(--t-line-4, #ddd6fe); }
+
+/* Hover overlay */
+.cvtp-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* tinted background from --t-accent */
+  background: color-mix(in srgb, var(--t-accent) 8%, transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.cvtp-preview:hover .cvtp-overlay {
+  opacity: 1;
+}
+
+.cvtp-btn-preview {
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  /* text color from --t-accent */
+  color: var(--t-accent, #7c3aed);
+  transition: opacity 0.15s;
+}
+
+.cvtp-btn-preview:hover {
+  opacity: 0.85;
+}
+
+.cvtp-btn-preview svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- Card body ---------- */
+.cvtp-card-body {
+  padding: 18px 20px;
+}
+
+.cvtp-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cvtp-card-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cvtp-card-tag {
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  /* colors from --t-accent */
+  background: color-mix(in srgb, var(--t-accent) 10%, transparent);
+  color: var(--t-accent, #7c3aed);
+}
+
+.cvtp-card-level {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.cvtp-card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.cvtp-btn-use {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  /* background & shadow from --t-accent */
+  background: var(--t-accent, #7c3aed);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--t-accent) 30%, transparent);
+  transition: opacity 0.15s;
+}
+
+.cvtp-btn-use:hover {
+  opacity: 0.88;
+}
+
+.cvtp-btn-use svg {
+  width: 12px;
+  height: 12px;
+}
+
+.cvtp-btn-download {
+  width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #64748b;
+  transition: background 0.15s;
+}
+
+.cvtp-btn-download:hover {
+  background: #f1f5f9;
+}
+
+.cvtp-btn-download svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Bottom CTA ---------- */
+.cvtp-cta {
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  border: 1px solid #ddd6fe;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cvtp-cta-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #4c1d95;
+  margin-bottom: 4px;
+}
+
+.cvtp-cta-desc {
+  font-size: 13px;
+  color: #7c3aed;
+  margin: 0;
+}
+
+.cvtp-btn-cta {
+  background: #7c3aed;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+  transition: opacity 0.2s;
+}
+
+.cvtp-btn-cta:hover {
+  opacity: 0.9;
+}
