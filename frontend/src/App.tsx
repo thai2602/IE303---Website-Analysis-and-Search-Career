@@ -6,6 +6,7 @@ import HomePage from "./features/home/HomePage";
 import JobsPage from "./features/jobs/JobsPage";
 import CompaniesPage from "./features/companies/CompaniesPage";
 import CvTemplatesPage from "./features/cv-builder/CvTemplatesPage";
+import CvEditorPage from "./features/cv-builder/CvEditorPage";
 import UtilitiesPage from "./features/utilities/UtilitiesPage";
 import HandbookPage from "./features/blog/HandbookPage";
 import LoginPage from "./features/auth/LoginPage";
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="/tim-viec" element={<JobsPage />} />
             <Route path="/cong-ty" element={<CompaniesPage />} />
             <Route path="/cv-mau" element={<CvTemplatesPage />} />
+            <Route path="/cv-editor" element={<CvEditorPage />} />
             <Route path="/tien-ich" element={<UtilitiesPage />} />
             <Route path="/cam-nang" element={<HandbookPage />} />
             <Route path="/dang-nhap" element={<LoginPage />} />
