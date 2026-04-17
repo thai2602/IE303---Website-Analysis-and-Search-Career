@@ -2,8 +2,11 @@ package com.jobportal.modules.auth;
 
 import com.jobportal.modules.auth.payload.JwtAuthenticationResponse;
 import com.jobportal.modules.auth.payload.LoginRequest;
+import com.jobportal.modules.auth.payload.RegisterRequest;
 import com.jobportal.modules.auth.payload.GoogleLoginRequest;
+import com.jobportal.modules.user.Role;
 import com.jobportal.modules.user.User;
+import com.jobportal.modules.user.RoleRepository;
 import com.jobportal.security.CustomUserDetails;
 import com.jobportal.security.JwtTokenProvider;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -16,6 +19,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
+
+import jakarta.validation.Valid;
 
 import java.net.URI;
 import java.net.URLEncoder;
@@ -40,6 +46,9 @@ public class AuthController {
 
     @Autowired
     private com.jobportal.modules.user.UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
     
     @Autowired
     private org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
@@ -51,14 +60,29 @@ public class AuthController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody LoginRequest loginRequest) {
-        if (userRepository.findByEmail(loginRequest.getEmail()).isPresent()) {
+    @Transactional
+    public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
+        String normalizedEmail = registerRequest.getEmail().trim().toLowerCase();
+
+        if (userRepository.findByEmail(normalizedEmail).isPresent()) {
             return ResponseEntity.badRequest().body("Email is already taken!");
         }
+
+        Role candidateRole = roleRepository.findByName("ROLE_CANDIDATE")
+                .orElseGet(() -> {
+                    Role role = new Role();
+                    role.setName("ROLE_CANDIDATE");
+                    return roleRepository.save(role);
+                });
+
         com.jobportal.modules.user.User user = new com.jobportal.modules.user.User();
-        user.setEmail(loginRequest.getEmail());
-        user.setPassword(passwordEncoder.encode(loginRequest.getPassword()));
+        user.setEmail(normalizedEmail);
+        user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+        user.setAuthProvider("LOCAL");
+        user.setStatus("ACTIVE");
+        user.getRoles().add(candidateRole);
         userRepository.save(user);
+
         return ResponseEntity.ok("User registered successfully");
     }
 
