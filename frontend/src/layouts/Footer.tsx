@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -10,7 +9,7 @@ export default function Footer() {
          <div className="absolute -left-20 bottom-10 h-56 w-56 rounded-full bg-emerald-500/10 blur-3xl" />
          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
          <div className="relative mx-auto max-w-[1200px] px-4 py-14 md:px-6">
-            <div className="grid grid-cols-1 gap-6 rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_-30px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4 lg:p-8">
+            <div className="grid grid-cols-1 gap-6 rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_-30px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-3 lg:p-8">
                {/* Brand */}
                <div>
                   <div className="flex items-center gap-2.5 mb-4">
@@ -36,25 +35,6 @@ export default function Footer() {
                         100 Nguyen Van Cu, Quan 1, TP Ho Chi Minh
                      </span>
                   </div>
-               </div>
-
-               {/* Company */}
-               <div>
-                  <h4 className="text-sm font-semibold text-white mb-4">Điều hướng</h4>
-                  <ul className="flex flex-col gap-2.5">
-                     {[
-                        { label: "Trang chủ", href: "/" },
-                        { label: "Tìm việc", href: "/tim-viec" },
-                        { label: "Công ty", href: "/cong-ty" },
-                        { label: "CV mẫu", href: "/cv-mau" },
-                     ].map((item) => (
-                        <li key={item.href}>
-                           <Link to={item.href} className="text-sm text-white/60 hover:text-emerald-300 transition-colors">
-                              {item.label}
-                           </Link>
-                        </li>
-                     ))}
-                  </ul>
                </div>
 
                {/* Services */}
