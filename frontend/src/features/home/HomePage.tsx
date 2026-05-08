@@ -11,6 +11,9 @@ import {
    Users,
    Wallet,
    Star,
+   TrendingUp,
+   PieChart as PieChartIcon,
+   BarChart3,
 } from "lucide-react";
 import {
    LineChart,
@@ -27,7 +30,6 @@ import {
    Legend,
    ResponsiveContainer,
 } from "recharts";
-import bannerImage from "../../assets/image.png";
 import mascotImage from "../../assets/linh_vật_web_xóa nền.png";
 import companyLogo1 from "../../assets/company_logo/image_1.png";
 import companyLogo4 from "../../assets/company_logo/image_4.png";
@@ -275,12 +277,12 @@ function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
    return (
       <Link
          to="/cong-ty"
-         className="group relative overflow-hidden rounded-[20px] border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+         className="group relative overflow-hidden rounded-[20px] border border-gray-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
       >
          <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
                <div
-                  className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-slate-100"
+                  className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-gray-100"
                >
                   {company.avatar ? (
                      <img src={company.avatar} alt={company.name} className="h-full w-full object-cover" />
@@ -291,8 +293,8 @@ function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
                   )}
                </div>
                <div className="flex-1">
-                  <h3 className="font-bold text-slate-900">{company.name}</h3>
-                  <p className="mt-1 text-xs text-slate-500">{company.category}</p>
+                  <h3 className="font-bold text-gray-900">{company.name}</h3>
+                  <p className="mt-1 text-xs text-slate-700">{company.category}</p>
                </div>
             </div>
             <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2 py-1">
@@ -300,13 +302,13 @@ function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
                <span className="text-xs font-bold text-amber-700">{company.rating}</span>
             </div>
          </div>
-         <div className="mt-4 space-y-2 text-sm text-slate-600">
+         <div className="mt-4 space-y-2 text-sm text-slate-700">
             <div className="flex items-center gap-2">
-               <MapPin className="h-3.5 w-3.5 text-slate-400" />
+               <MapPin className="h-3.5 w-3.5 text-gray-400" />
                <span className="text-xs">{company.location}</span>
             </div>
             <div className="flex items-center gap-2">
-               <Users className="h-3.5 w-3.5 text-slate-400" />
+               <Users className="h-3.5 w-3.5 text-gray-400" />
                <span className="text-xs">{company.employees}</span>
             </div>
          </div>
@@ -327,24 +329,24 @@ function TopIndustryCard({
    onApply: (industryName: string, job: (typeof topIndustryJobs)[0]["jobs"][0]) => void;
 }) {
    return (
-      <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
+      <div className="rounded-[24px] border border-gray-200/80 bg-white p-6 shadow-sm">
          <div className="flex items-center gap-3 mb-4">
             <div
                className="h-3 w-3 rounded-full"
                style={{ backgroundColor: industry.color }}
             />
-            <h3 className="text-lg font-bold text-slate-900">{industry.industry}</h3>
+            <h3 className="text-lg font-bold text-gray-900">{industry.industry}</h3>
          </div>
          <div className="space-y-3">
             {industry.jobs.map((job, index) => (
-               <div key={index} className="rounded-lg border border-slate-100 bg-slate-50/50 p-4">
+               <div key={index} className="rounded-lg border border-gray-100 bg-gray-50/50 p-4">
                   <div className="flex items-start justify-between gap-3">
                      <div className="flex-1">
-                        <h4 className="font-semibold text-slate-900 text-sm">{job.title}</h4>
-                        <p className="text-xs text-slate-600 mt-1">{job.company}</p>
+                        <h4 className="font-semibold text-gray-900 text-sm">{job.title}</h4>
+                        <p className="text-xs text-slate-700 mt-1">{job.company}</p>
                         <div className="mt-3 flex flex-wrap gap-2">
-                           <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                              <MapPin className="h-3 w-3 text-slate-500" />
+                           <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                              <MapPin className="h-3 w-3 text-slate-600" />
                               {job.place}
                            </span>
                            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
@@ -358,7 +360,7 @@ function TopIndustryCard({
                      {job.tags.map((tag) => (
                         <span
                            key={tag}
-                           className="rounded-full bg-white px-2 py-1 text-[10px] font-medium text-slate-600 border border-slate-200"
+                           className="rounded-full bg-white px-2 py-1 text-[10px] font-medium text-slate-700 border border-gray-200"
                         >
                            {tag}
                         </span>
@@ -368,7 +370,7 @@ function TopIndustryCard({
                      type="button"
                      onClick={() => onApply(industry.industry, job)}
                      disabled={appliedJobIds.has(`${industry.industry}-${job.company}-${job.title}`)}
-                     className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-slate-300"
+                     className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-semibold text-white transition-colors hover:bg-emerald-500 disabled:cursor-not-allowed disabled:bg-gray-300"
                   >
                      {appliedJobIds.has(`${industry.industry}-${job.company}-${job.title}`) ? "Đã ứng tuyển" : "Ứng tuyển"}
                   </button>
@@ -377,7 +379,7 @@ function TopIndustryCard({
          </div>
          <Link
             to="/tim-viec"
-            className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
+            className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-slate-800 hover:text-slate-900 transition-colors"
          >
             Xem thêm <ArrowRight className="h-4 w-4" />
          </Link>
@@ -458,83 +460,88 @@ export default function HomePage() {
    return (
       <div className="space-y-12">
          {/* ===== BANNER SECTION ===== */}
-         <section className="relative overflow-hidden rounded-[28px] border border-slate-500/40 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 py-10 text-white shadow-[0_30px_90px_-26px_rgba(15,23,42,0.25)] md:px-10 md:py-12">
+         <section className="relative overflow-hidden rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 px-6 py-10 shadow-[0_4px_16px_rgba(16,185,129,0.08)] md:px-10 md:py-14">
             <div className="home-banner-orb home-banner-orb-1" />
             <div className="home-banner-orb home-banner-orb-2" />
-            <div className="home-banner-grid pointer-events-none absolute inset-0 opacity-18" />
 
-            <div className="relative grid gap-10">
-               <div className="relative rounded-[32px] border border-slate-600/40 bg-slate-800/85 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-xl lg:p-8">
-                  <img
-                     src={bannerImage}
-                     alt="Banner accent"
-                     className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-slate-900/70" />
-                  <div className="relative flex flex-col items-center gap-3 text-center">
-                     <div className="ai-mascot-wrap inline-flex h-36 w-36 md:h-40 md:w-40 lg:h-44 lg:w-44">
-                        <img src={mascotImage} alt="Linh vật AI" className="ai-mascot-image rounded-2xl" />
-                     </div>
-                     <div className="w-full">
-                        <div>
-                           <h1 className="text-2xl font-semibold tracking-tight leading-[1.4] md:leading-[1.5] text-transparent bg-gradient-to-r from-amber-200 via-white to-amber-500 bg-clip-text lg:text-5xl py-2">   TÌM VIỆC DỄ, ỨNG TUYỂN NHANH
-                           </h1>
-                           <p className="mt-5 text-base leading-8 text-amber-100/90 md:text-lg">
-                              JobPilot tổng hợp việc làm mới mỗi ngày, giới thiệu doanh nghiệp uy tín và hỗ trợ tối ưu hồ sơ để bạn ứng tuyển nhanh, chính xác.
-                           </p>
-                        </div>
-                     </div>
+            <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
+               <div className="space-y-6">
+                  <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                     Nền tảng tìm việc đáng tin cậy
+                  </span>
 
-                     <div className="flex flex-wrap items-center justify-center gap-6">
-                        <Link
-                           to="/tim-viec"
-                           className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
-                        >
-                           Khám phá việc làm <ArrowRight className="h-4 w-4" />
-                        </Link>
-                        <Link
-                           to="/dang-ky"
-                           className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-colors duration-200 hover:bg-white/15"
-                        >
-                           Tạo tài khoản miễn phí
-                        </Link>
-                     </div>
+                  <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                     Tìm việc dễ, ứng tuyển nhanh
+                  </h1>
 
-                     <div className="mt-6 grid gap-10 sm:grid-cols-3">
-                        {bannerMarketStats.map((stat) => (
-                           <div key={stat.label} className="rounded-3xl border border-amber-300/20 bg-slate-950/70 px-4 py-3">
-                              <p className="text-[10px] uppercase tracking-[0.24em] text-amber-200">{stat.label}</p>
-                              <p className="mt-2 text-2xl font-semibold text-white" style={{ color: stat.accent }}>
-                                 {stat.value}
-                              </p>
-                           </div>
-                        ))}
-                     </div>
+                  <p className="max-w-2xl text-base leading-7 text-emerald-800">
+                     JobPilot tổng hợp việc làm mới mỗi ngày, giới thiệu doanh nghiệp uy tín và hỗ trợ tối ưu hồ sơ để bạn ứng tuyển nhanh, chính xác.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                     <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-emerald-700">
+                        Khám phá việc làm <ArrowRight className="h-4 w-4" />
+                     </Link>
+                     <Link to="/dang-ky" className="inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-700 shadow-sm hover:bg-emerald-50">
+                        Tạo tài khoản miễn phí
+                     </Link>
                   </div>
                </div>
 
+               <div className="relative mx-auto w-full max-w-[420px]">
+                  <div className="relative overflow-hidden rounded-lg border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+                     <div className="flex flex-col items-center text-center gap-4">
+                        <div className="ai-mascot-wrap inline-flex h-32 w-32 md:h-36 md:w-36">
+                           <img src={mascotImage} alt="Linh vật" className="ai-mascot-image rounded-lg" />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900">Gợi ý việc phù hợp</h3>
+                        <p className="text-sm text-slate-700">Giao diện gọn, màu sáng dễ nhìn, tập trung vào nội dung.</p>
+
+                        <div className="mt-4 grid w-full gap-2 sm:grid-cols-3">
+                           {bannerMarketStats.map((stat) => (
+                              <div key={stat.label} className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-left">
+                                 <p className="text-[10px] uppercase tracking-wide text-slate-900 font-semibold">{stat.label}</p>
+                                 <p className="mt-1 text-lg font-semibold" style={{ color: stat.accent }}>{stat.value}</p>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </section>
 
          {/* ===== RECRUITMENT STATISTICS SECTION ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
-               <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                     Tình hình tuyển dụng hiện tại
-                  </h2>
-                  <p className="mt-2 text-slate-600">Xu hướng thị trường việc làm theo từng tháng</p>
+               <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                     <TrendingUp className="h-6 w-6" />
+                  </div>
+                  <div>
+                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                        Tình hình tuyển dụng hiện tại
+                     </h2>
+                     <p className="mt-1 text-sm text-slate-900 font-medium">Xu hướng thị trường việc làm theo từng tháng</p>
+                  </div>
                </div>
-               <span className="rounded-full border border-emerald-200/70 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700">
+               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700 flex-shrink-0">
                   Cập nhật hàng tháng
                </span>
             </div>
 
             <div className="grid gap-6">
                {/* Recruitment Trend Chart */}
-               <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
-                  <h3 className="text-lg font-bold text-slate-900">Tăng trưởng việc làm & Công ty</h3>
-                  <p className="mt-1 text-sm text-slate-600">Số lượng việc làm mới và công ty tuyển dụng mỗi tháng</p>
+               <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/50 to-white p-6 shadow-sm">
+                  <div className="flex items-start gap-3">
+                     <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                        <TrendingUp className="h-5 w-5" />
+                     </div>
+                     <div>
+                        <h3 className="text-lg font-bold text-slate-900">Tăng trưởng việc làm & Công ty</h3>
+                        <p className="mt-0.5 text-sm text-slate-700">Số lượng việc làm mới và công ty tuyển dụng mỗi tháng</p>
+                     </div>
+                  </div>
 
                   <div className="mt-6">
                      <ResponsiveContainer width="100%" height={300}>
@@ -574,9 +581,16 @@ export default function HomePage() {
                {/* Job Distribution & Salary Charts */}
                <div className="grid gap-6 lg:grid-cols-2">
                   {/* Job Distribution Pie Chart */}
-                  <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
-                     <h3 className="text-lg font-bold text-slate-900">Phân bố việc làm theo ngành</h3>
-                     <p className="mt-1 text-sm text-slate-600">Tổng {jobDistributionData.reduce((a, b) => a + b.value, 0)}+ việc làm mở</p>
+                  <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/30 to-white p-6 shadow-sm">
+                     <div className="flex items-start gap-3">
+                        <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                           <PieChartIcon className="h-5 w-5" />
+                        </div>
+                        <div>
+                           <h3 className="text-lg font-bold text-slate-900">Phân bố việc làm theo ngành</h3>
+                           <p className="mt-0.5 text-sm text-slate-700">Tổng <span className="font-bold">{jobDistributionData.reduce((a, b) => a + b.value, 0)}+</span> việc làm mở</p>
+                        </div>
+                     </div>
 
                      <div className="mt-6">
                         <ResponsiveContainer width="100%" height={250}>
@@ -602,9 +616,16 @@ export default function HomePage() {
                   </div>
 
                   {/* Salary by Position */}
-                  <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
-                     <h3 className="text-lg font-bold text-slate-900">Mức lương theo cấp độ</h3>
-                     <p className="mt-1 text-sm text-slate-600">Mức lương trung bình (triệu VND)</p>
+                  <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/30 to-white p-6 shadow-sm">
+                     <div className="flex items-start gap-3">
+                        <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                           <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                           <h3 className="text-lg font-bold text-slate-900">Mức lương theo cấp độ</h3>
+                           <p className="mt-0.5 text-sm text-slate-700">Mức lương trung bình (triệu VND)</p>
+                        </div>
+                     </div>
 
                      <div className="mt-6">
                         <ResponsiveContainer width="100%" height={250}>
@@ -631,14 +652,19 @@ export default function HomePage() {
          {/* ===== FEATURED COMPANIES SECTION ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
-               <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                     Doanh nghiệp uy tín hàng đầu
-                  </h2>
-                  <p className="mt-2 text-slate-600">Những công ty hàng đầu đang tuyển dụng</p>
+               <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-100 text-blue-700 flex-shrink-0">
+                     <Building2 className="h-6 w-6" />
+                  </div>
+                  <div>
+                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                        Doanh nghiệp uy tín hàng đầu
+                     </h2>
+                     <p className="mt-1 text-sm text-emerald-700 font-medium">Những công ty hàng đầu đang tuyển dụng</p>
+                  </div>
                </div>
-               <Link to="/cong-ty" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-600">
-                  Xem tất cả công ty <ArrowRight className="h-4 w-4" />
+               <Link to="/cong-ty" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800 flex-shrink-0">
+                  Xem tất cả <ArrowRight className="h-4 w-4" />
                </Link>
             </div>
 
@@ -650,9 +676,14 @@ export default function HomePage() {
          </section>
 
          {/* ===== COMPANY HIGHLIGHTS ===== */}
-         <section className="rounded-[24px] border border-slate-200/80 bg-gradient-to-br from-slate-50/80 to-slate-100/60 p-8">
-            <h3 className="text-lg font-bold text-slate-900">Tại sao chọn JobPilot</h3>
-            <div className="mt-6 grid gap-6 md:grid-cols-3">
+         <section className="rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-8">
+            <div className="flex items-start gap-3 mb-6">
+               <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                  <Star className="h-6 w-6" />
+               </div>
+               <h2 className="text-2xl font-bold text-slate-900">Tại sao chọn JobPilot</h2>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
                {companyHighlights.map((item) => {
                   const Icon = item.icon;
                   return (
@@ -662,7 +693,7 @@ export default function HomePage() {
                         </div>
                         <div>
                            <h4 className="font-bold text-slate-900">{item.title}</h4>
-                           <p className="mt-1 text-sm text-slate-600">{item.desc}</p>
+                           <p className="mt-1 text-sm text-emerald-800">{item.desc}</p>
                         </div>
                      </div>
                   );
@@ -671,36 +702,41 @@ export default function HomePage() {
          </section>
 
          {/* ===== PLATFORM STATS ===== */}
-         <section className="rounded-[28px] border border-emerald-100/60 bg-gradient-to-br from-emerald-50/80 via-white to-cyan-50/60 p-6 shadow-[0_12px_32px_-8px_rgba(5,150,105,0.08)] md:p-8">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-               <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-3xl">
-                     Thống kê tăng trưởng JobPilot
-                  </h2>
-                  <p className="mt-2 text-slate-600">Những con số ấn tượng và xu hướng phát triển của nền tảng</p>
+         <section className="rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 shadow-[0_4px_16px_rgba(16,185,129,0.08)] md:p-8">
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+               <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
+                     <TrendingUp className="h-6 w-6" />
+                  </div>
+                  <div>
+                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-3xl">
+                        Thống kê tăng trưởng JobPilot
+                     </h2>
+                     <p className="mt-1 text-sm text-emerald-700 font-medium">Những con số ấn tượng và xu hướng phát triển của nền tảng</p>
+                  </div>
                </div>
-               <span className="rounded-full border border-emerald-200/70 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700">
+               <span className="rounded-full border border-emerald-300 bg-white px-4 py-1.5 text-xs font-semibold text-emerald-700 flex-shrink-0">
                   Cập nhật hàng tuần
                </span>
             </div>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {platformStats.map((item) => (
-                     <article key={item.label} className="group rounded-[24px] border border-emerald-100/80 bg-white/80 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:border-emerald-200">
-                        <p className="text-4xl font-black tracking-tight text-emerald-700">{item.value}</p>
-                        <p className="mt-3 text-sm font-semibold text-slate-600">{item.label}</p>
+                     <article key={item.label} className="group rounded-[12px] border border-emerald-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-emerald-300">
+                        <p className="text-4xl font-bold tracking-tight text-emerald-700">{item.value}</p>
+                        <p className="mt-3 text-sm font-semibold text-emerald-800">{item.label}</p>
                      </article>
                   ))}
                </div>
 
-               <div className="rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-sm">
-                  <div className="flex items-center justify-between gap-4">
+               <div className="rounded-[12px] border border-emerald-200 bg-white p-6 shadow-sm">
+                  <div className="flex items-start justify-between gap-4 mb-4">
                      <div>
                         <h3 className="text-lg font-bold text-slate-900">Biểu đồ tăng trưởng</h3>
-                        <p className="mt-1 text-sm text-slate-600">Lượt kết nối ứng viên theo từng tháng</p>
+                        <p className="mt-1 text-sm text-emerald-700">Lượt kết nối ứng viên theo từng tháng</p>
                      </div>
-                     <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                     <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 flex-shrink-0">
                         6 tháng
                      </span>
                   </div>
@@ -718,7 +754,7 @@ export default function HomePage() {
                                  borderRadius: "8px",
                               }}
                            />
-                           <Bar dataKey="value" fill="#059669" radius={[8, 8, 0, 0]} />
+                           <Bar dataKey="value" fill="#10b981" radius={[8, 8, 0, 0]} />
                         </BarChart>
                      </ResponsiveContainer>
                   </div>
@@ -729,13 +765,18 @@ export default function HomePage() {
          {/* ===== TOP INDUSTRY JOBS ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
-               <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                     Cơ hội việc làm top ngành nghề nổi bật
-                  </h2>
-                  <p className="mt-2 text-slate-600">Khám phá cơ hội việc làm trong các ngành hot nhất</p>
+               <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-purple-100 text-purple-700 flex-shrink-0">
+                     <Briefcase className="h-6 w-6" />
+                  </div>
+                  <div>
+                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                        Cơ hội việc làm top ngành nghề
+                     </h2>
+                     <p className="mt-1 text-sm text-emerald-700 font-medium">Khám phá cơ hội trong các ngành hot nhất hiện nay</p>
+                  </div>
                </div>
-               <Link to="/tim-viec" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-600">
+               <Link to="/tim-viec" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800 transition-colors flex-shrink-0">
                   Xem tất cả <ArrowRight className="h-4 w-4" />
                </Link>
             </div>
@@ -753,19 +794,19 @@ export default function HomePage() {
          </section>
 
          {/* ===== CTA SECTION ===== */}
-         <section className="rounded-[28px] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 px-6 py-8 shadow-lg md:px-10 md:py-12">
+         <section className="rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white px-6 py-8 shadow-[0_4px_16px_rgba(16,185,129,0.08)] md:px-10 md:py-12">
             <div className="space-y-6 lg:space-y-4 lg:flex lg:items-center lg:justify-between">
                <div className="max-w-2xl">
-                  <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
+                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
                      Bắt đầu hành trình tìm việc
                   </h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-300 max-w-xl">
+                  <p className="mt-4 text-base leading-7 text-emerald-800 max-w-xl">
                      Đăng ký miễn phí để lưu việc làm, theo dõi công ty yêu thích và sử dụng công cụ hỗ trợ tìm việc của JobPilot.
                   </p>
                </div>
                <Link
                   to="/dang-ky"
-                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-bold tracking-tight text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-400 lg:shrink-0"
+                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow transition-colors lg:shrink-0"
                >
                   Đăng ký tài khoản
                </Link>
@@ -775,10 +816,15 @@ export default function HomePage() {
          {/* ===== QUICK LINKS ===== */}
          <section>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
-               <div>
-                  <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                     Khám phá các chuyên mục
-                  </h2>
+               <div className="flex items-start gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-orange-100 text-orange-700 flex-shrink-0">
+                     <Compass className="h-6 w-6" />
+                  </div>
+                  <div>
+                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                        Khám phá các chuyên mục
+                     </h2>
+                  </div>
                </div>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
@@ -788,7 +834,7 @@ export default function HomePage() {
                      <Link
                         key={item.to}
                         to={item.to}
-                        className="group relative overflow-hidden rounded-[24px] border border-slate-200/70 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        className="group relative overflow-hidden rounded-[12px] border border-emerald-200 transition-all duration-300 hover:shadow-lg"
                         style={{ background: item.bg }}
                      >
                         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: `${item.accent}08` }} />
@@ -799,7 +845,7 @@ export default function HomePage() {
                               </div>
                            </div>
                            <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">{item.title}</h3>
-                           <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                           <p className="mt-2 text-sm leading-6 text-slate-900">{item.desc}</p>
                            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold transition-transform duration-200 group-hover:translate-x-1" style={{ color: item.accent }}>
                               Xem ngay <ArrowRight className="h-4 w-4" />
                            </span>

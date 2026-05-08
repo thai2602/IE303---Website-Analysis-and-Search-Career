@@ -94,9 +94,9 @@ export default function MyCvsPage() {
 
    if (!currentUser) {
       return (
-         <section className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h1 className="text-2xl font-black text-slate-900">CV của tôi</h1>
-            <p className="mt-2 text-sm text-slate-600">Bạn cần đăng nhập để xem danh sách CV đã tạo.</p>
+         <section className="mx-auto max-w-3xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <h1 className="text-2xl font-black text-gray-900">CV của tôi</h1>
+            <p className="mt-2 text-sm text-gray-600">Bạn cần đăng nhập để xem danh sách CV đã tạo.</p>
             <Link
                to="/dang-nhap"
                className="mt-5 inline-flex rounded-full bg-emerald-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-emerald-700"
@@ -108,33 +108,33 @@ export default function MyCvsPage() {
    }
 
    return (
-      <section className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-         <h1 className="text-2xl font-black text-slate-900">CV của tôi</h1>
-         <p className="mt-2 text-sm text-slate-600">
-            Danh sách CV của <span className="font-bold text-slate-800">{currentUser.name}</span>.
+      <section className="mx-auto max-w-3xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+         <h1 className="text-2xl font-black text-gray-900">CV của tôi</h1>
+         <p className="mt-2 text-sm text-gray-600">
+            Danh sách CV của <span className="font-bold text-gray-800">{currentUser.name}</span>.
          </p>
 
-         <div className="mt-6 rounded-2xl border border-slate-200 p-5">
+         <div className="mt-6 rounded-2xl border border-gray-200 p-5">
             <div className="flex flex-wrap items-end justify-between gap-3">
                <div>
                   <p className="text-xs font-black uppercase tracking-widest text-emerald-700">Danh sách</p>
-                  <h2 className="mt-1 text-lg font-black text-slate-900">Các CV đã tạo</h2>
+                  <h2 className="mt-1 text-lg font-black text-gray-900">Các CV đã tạo</h2>
                </div>
-               <p className="text-sm font-semibold text-slate-500">Tổng cộng: {myCvs.length} CV</p>
+               <p className="text-sm font-semibold text-gray-500">Tổng cộng: {myCvs.length} CV</p>
             </div>
 
             {myCvs.length === 0 ? (
-               <div className="mt-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4">
-                  <p className="text-sm font-bold text-slate-800">Bạn chưa tạo CV nào.</p>
-                  <p className="mt-1 text-sm text-slate-600">Hãy vào trang CV mẫu để tạo CV mới, danh sách sẽ hiện tại đây.</p>
+               <div className="mt-4 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-4">
+                  <p className="text-sm font-bold text-gray-800">Bạn chưa tạo CV nào.</p>
+                  <p className="mt-1 text-sm text-gray-600">Hãy vào trang CV mẫu để tạo CV mới, danh sách sẽ hiện tại đây.</p>
                </div>
             ) : (
                <div className="mt-4 grid gap-3 md:grid-cols-2">
                   {myCvs.map((item) => (
-                     <article key={item.id} className="rounded-xl border border-slate-200 bg-white p-4">
-                        <p className="text-sm font-black text-slate-900">{item.name}</p>
-                        <p className="mt-1 text-sm text-slate-600">{item.role}</p>
-                        <p className="mt-1 text-xs text-slate-500">Tạo lúc: {item.createdAt}</p>
+                     <article key={item.id} className="rounded-xl border border-gray-200 bg-white p-4">
+                        <p className="text-sm font-black text-gray-900">{item.name}</p>
+                        <p className="mt-1 text-sm text-gray-600">{item.role}</p>
+                        <p className="mt-1 text-xs text-gray-500">Tạo lúc: {item.createdAt}</p>
 
                         <div className="mt-3 flex gap-2">
                            <button

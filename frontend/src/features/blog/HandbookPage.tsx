@@ -12,7 +12,6 @@ const guides = [
       readTime: "5 phút",
       icon: CheckCircle,
       color: "#10b981",
-      bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
       featured: true,
       type: "guide",
    },
@@ -22,8 +21,7 @@ const guides = [
       tags: ["Phỏng vấn", "Chuẩn bị", "Kinh nghiệm"],
       readTime: "7 phút",
       icon: MessageSquare,
-      color: "#6366f1",
-      bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+      color: "#10b981",
       featured: false,
       type: "guide",
    },
@@ -33,8 +31,7 @@ const guides = [
       tags: ["Lương", "Đàm phán", "Kỹ năng"],
       readTime: "6 phút",
       icon: TrendingUp,
-      color: "#f59e0b",
-      bg: "linear-gradient(135deg, #fffbeb, #fde68a)",
+      color: "#10b981",
       featured: false,
       type: "guide",
    },
@@ -44,8 +41,7 @@ const guides = [
       tags: ["Môi trường", "Văn hóa", "Làm việc"],
       readTime: "4 phút",
       icon: Shield,
-      color: "#0ea5e9",
-      bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)",
+      color: "#10b981",
       featured: false,
       type: "guide",
    },
@@ -55,8 +51,7 @@ const guides = [
       tags: ["Phỏng vấn", "STAR", "Kinh nghiệm"],
       readTime: "8 phút",
       icon: MessageSquare,
-      color: "#6366f1",
-      bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+      color: "#10b981",
       featured: false,
       type: "guide",
    },
@@ -67,7 +62,6 @@ const guides = [
       readTime: "6 phút",
       icon: CheckCircle,
       color: "#10b981",
-      bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
       featured: false,
       type: "guide",
    },
@@ -77,8 +71,7 @@ const guides = [
       tags: ["Kỹ năng mềm", "Văn phòng", "Giao tiếp"],
       readTime: "9 phút",
       icon: Lightbulb,
-      color: "#ec4899",
-      bg: "linear-gradient(135deg, #fce7f3, #fbcfe8)",
+      color: "#10b981",
       featured: false,
       type: "guide",
    },
@@ -88,8 +81,7 @@ const guides = [
       tags: ["NovaTech", "Review", "Môi trường"],
       readTime: "5 phút",
       icon: Building,
-      color: "#059669",
-      bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
+      color: "#10b981",
       featured: false,
       type: "review",
    },
@@ -99,8 +91,8 @@ const guides = [
       tags: ["BluePixel", "Văn hóa", "Doanh nghiệp"],
       readTime: "7 phút",
       icon: Heart,
-      color: "#0284c7",
-      bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)",
+      color: "#10b981",
+      bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
       featured: false,
       type: "review",
    },
@@ -110,8 +102,8 @@ const guides = [
       tags: ["ScaleHub", "Môi trường", "Làm việc"],
       readTime: "6 phút",
       icon: Users,
-      color: "#7c3aed",
-      bg: "linear-gradient(135deg, #f5f3ff, #ddd6fe)",
+      color: "#10b981",
+      bg: "linear-gradient(135deg, #ecfdf5, #a7f3d0)",
       featured: false,
       type: "review",
    },
@@ -233,14 +225,14 @@ const articleIllustrations: Record<string, string> = {
 };
 
 const categories = [
-   { label: "CV & Hồ sơ", count: 12, color: "#10b981" },
-   { label: "Phỏng vấn", count: 8, color: "#6366f1" },
-   { label: "Thương lượng", count: 6, color: "#f59e0b" },
-   { label: "Phát triển sự nghiệp", count: 15, color: "#ec4899" },
-   { label: "Kỹ năng mềm", count: 10, color: "#ec4899" },
-   { label: "Review công ty", count: 20, color: "#059669" },
-   { label: "Môi trường làm việc", count: 18, color: "#7c3aed" },
-   { label: "Văn hóa doanh nghiệp", count: 14, color: "#0284c7" },
+   { label: "CV & Hồ sơ", count: 12, color: "#0f4c51" },
+   { label: "Phỏng vấn", count: 8, color: "#0f4c51" },
+   { label: "Thương lượng", count: 6, color: "#0f4c51" },
+   { label: "Phát triển sự nghiệp", count: 15, color: "#0f4c51" },
+   { label: "Kỹ năng mềm", count: 10, color: "#0f4c51" },
+   { label: "Review công ty", count: 20, color: "#0f4c51" },
+   { label: "Môi trường làm việc", count: 18, color: "#0f4c51" },
+   { label: "Văn hóa doanh nghiệp", count: 14, color: "#0f4c51" },
 ];
 
 const allTags = [
@@ -286,20 +278,25 @@ export default function HandbookPage() {
          {/* Hero */}
          <div style={{
             borderRadius: "20px",
-            background: "linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%)",
+            background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
             padding: "48px",
             position: "relative",
             overflow: "hidden",
          }}>
             <div style={{
-               position: "absolute", top: "-30px", right: "60px", width: "180px", height: "180px",
-               borderRadius: "50%", background: "rgba(153,246,228,0.2)", filter: "blur(35px)",
+               position: "absolute", top: "-50px", right: "-30px", width: "220px", height: "220px",
+               borderRadius: "50%", background: "rgba(167,243,208,0.2)", filter: "blur(40px)",
             }} />
+            <div style={{
+               position: "absolute", bottom: "-40px", left: "30%", width: "180px", height: "180px",
+               borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
+            }} />
+
             <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
-               Cẩm nang <span style={{ color: "#99f6e4" }}>việc làm</span>
+               Cẩm nang việc làm
             </h1>
-            <p style={{ color: "#99f6e4", fontSize: "15px", lineHeight: 1.7 }}>
-               Bộ nội dung hướng dẫn từ tạo CV đến phỏng vấn và phát triển sự nghiệp bền vững.
+            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7 }}>
+               Bộ nội dung hướng dẫn từ viết CV đến phỏng vấn, đàm phán lương và phát triển sự nghiệp.
             </p>
          </div>
 
@@ -307,33 +304,33 @@ export default function HandbookPage() {
          <div className="space-y-6">
             <div className="flex flex-col sm:flex-row gap-4">
                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                   <input
                      type="text"
                      placeholder="Tìm kiếm bài viết..."
                      value={searchQuery}
                      onChange={(e) => setSearchQuery(e.target.value)}
-                     className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                     className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                </div>
                <div className="flex gap-2">
                   <button
                      onClick={() => setSelectedCategory(null)}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${!selectedCategory ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${!selectedCategory ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                   >
                      Tất cả
                   </button>
                   <button
                      onClick={() => setSelectedCategory("CV & Hồ sơ")}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "CV & Hồ sơ" ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "CV & Hồ sơ" ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                   >
                      CV
                   </button>
                   <button
                      onClick={() => setSelectedCategory("Phỏng vấn")}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "Phỏng vấn" ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "Phỏng vấn" ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                   >
                      Phỏng vấn
@@ -349,7 +346,7 @@ export default function HandbookPage() {
                      onClick={() => toggleTag(tag)}
                      className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium transition-colors ${selectedTags.includes(tag)
                         ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                   >
                      <Tag className="h-3 w-3" />
@@ -360,24 +357,18 @@ export default function HandbookPage() {
          </div>
 
          {/* Category pills */}
-         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+         <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
                <button
                   key={cat.label}
                   onClick={() => setSelectedCategory(cat.label)}
-                  style={{
-                     display: "inline-flex", alignItems: "center", gap: "6px",
-                     padding: "7px 16px", borderRadius: "999px", fontSize: "13px", fontWeight: 600,
-                     background: `${cat.color}12`, color: cat.color,
-                     border: `1px solid ${cat.color}30`, cursor: "pointer",
-                  }}
+                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-colors ${selectedCategory === cat.label
+                     ? "bg-[#0f4c51] text-white"
+                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                     }`}
                >
                   {cat.label}
-                  <span style={{
-                     background: cat.color, color: "#fff",
-                     borderRadius: "999px", fontSize: "10px", fontWeight: 700,
-                     padding: "1px 6px",
-                  }}>
+                  <span className="bg-gray-300 text-gray-900 rounded-full px-2 py-0.5 text-xs font-bold">
                      {cat.count}
                   </span>
                </button>
@@ -387,61 +378,38 @@ export default function HandbookPage() {
          {/* Featured articles */}
          {featuredGuides.length > 0 && (
             <div className="space-y-4">
-               <h2 className="text-xl font-bold text-slate-900">Bài viết nổi bật</h2>
+               <h2 className="text-xl font-bold text-gray-900">Bài viết nổi bật</h2>
                {featuredGuides.map((featured) => (
-                  <div key={featured.title} style={{
-                     borderRadius: "20px", overflow: "hidden",
-                     background: featured.bg, border: "1px solid #d1fae5",
-                     padding: "36px", position: "relative",
-                     boxShadow: "0 8px 30px rgba(16,185,129,0.12)",
-                  }}>
-                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
-                        <div style={{ maxWidth: "520px" }}>
-                           <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "14px" }}>
-                              <span style={{
-                                 background: featured.color, color: "#fff",
-                                 borderRadius: "999px", padding: "3px 12px",
-                                 fontSize: "11px", fontWeight: 700,
-                              }}>
+                  <div
+                     key={featured.title}
+                     className="rounded-lg bg-white border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer"
+                     onClick={() => setSelectedArticleTitle(featured.title)}
+                  >
+                     <div className="flex flex-col sm:flex-row gap-6">
+                        <div className="flex-1">
+                           <div className="flex items-center gap-3 mb-3">
+                              <span className="px-2 py-1 bg-[#0f4c51] text-white text-xs font-bold rounded-full">
                                  ✦ NỔI BẬT
                               </span>
-                              <span style={{ fontSize: "12px", color: "#64748b", display: "flex", alignItems: "center", gap: "4px" }}>
-                                 <Clock style={{ width: 12, height: 12 }} /> {featured.readTime} đọc
+                              <span className="flex items-center gap-1 text-xs text-gray-600">
+                                 <Clock className="w-3 h-3" /> {featured.readTime}
                               </span>
                            </div>
-                           <h2 style={{ fontSize: "26px", fontWeight: 800, color: "#0f172a", lineHeight: 1.3, letterSpacing: "-0.01em", marginBottom: "12px" }}>
-                              {featured.title}
-                           </h2>
-                           <p style={{ fontSize: "14px", color: "#475569", lineHeight: 1.7, marginBottom: "20px" }}>
-                              Hướng dẫn chi tiết cách xây dựng CV vượt qua hệ thống ATS tự động, chọn đúng từ khóa theo ngành và trình bày thông tin ấn tượng nhất.
-                           </p>
-                           <div className="flex flex-wrap gap-2 mb-4">
+                           <h3 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">{featured.title}</h3>
+                           <p className="text-gray-600 mb-4 text-sm">Hướng dẫn chi tiết giúp bạn tối ưu cơ hội xin việc và thành công trong sự nghiệp.</p>
+                           <div className="flex flex-wrap gap-2">
                               {featured.tags.map((tag) => (
-                                 <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 bg-white/60 rounded-full text-xs font-medium text-slate-700">
-                                    <Tag className="h-3 w-3" />
+                                 <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
                                     {tag}
                                  </span>
                               ))}
                            </div>
-                           <button style={{
-                              display: "inline-flex", alignItems: "center", gap: "6px",
-                              background: featured.color, color: "#fff",
-                              borderRadius: "10px", padding: "10px 22px",
-                              fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer",
-                              boxShadow: `0 4px 15px ${featured.color}40`,
-                           }}
-                              onClick={() => setSelectedArticleTitle(featured.title)}>
-                              Đọc ngay <ChevronRight style={{ width: 14, height: 14 }} />
-                           </button>
                         </div>
-                        <div style={{
-                           width: "100px", height: "100px", borderRadius: "24px",
-                           background: featured.color, display: "flex",
-                           alignItems: "center", justifyContent: "center", flexShrink: 0,
-                           boxShadow: `0 12px 30px ${featured.color}40`,
-                        }}>
-                           <Lightbulb style={{ width: 48, height: 48, color: "#fff" }} />
-                        </div>
+                        <button
+                           className="px-4 py-2 bg-[#0f4c51] hover:bg-[#1b7377] text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
+                        >
+                           Đọc ngay
+                        </button>
                      </div>
                   </div>
                ))}
@@ -449,61 +417,31 @@ export default function HandbookPage() {
          )}
 
          {/* Article list */}
-         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", marginBottom: "4px" }}>
+         <div className="space-y-3">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">
                {regularGuides.length > 0 ? `Bài viết khác (${regularGuides.length})` : "Không tìm thấy bài viết nào"}
             </h3>
             {regularGuides.map((item) => {
                const Icon = item.icon;
                return (
-                  <div key={item.title} style={{
-                     display: "flex", alignItems: "center", gap: "16px",
-                     background: "#fff", borderRadius: "16px", padding: "18px 22px",
-                     border: "1px solid #f1f5f9", cursor: "pointer",
-                     boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                     transition: "transform 0.2s, box-shadow 0.2s",
-                  }}
+                  <div
+                     key={item.title}
+                     className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer"
                      onClick={() => setSelectedArticleTitle(item.title)}
-                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateX(4px)"; (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 24px ${item.color}15`; }}
-                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)"; }}
                   >
-                     <div style={{
-                        width: "44px", height: "44px", borderRadius: "12px",
-                        background: item.bg, display: "flex", alignItems: "center",
-                        justifyContent: "center", flexShrink: 0,
-                        border: `1px solid ${item.color}20`,
-                     }}>
-                        <Icon style={{ width: 18, height: 18, color: item.color }} />
+                     <div className="flex-shrink-0 w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-[#0f4c51]" />
                      </div>
-                     <div style={{ flex: 1 }}>
-                        <div className="flex items-center gap-2 mb-1">
-                           <span style={{
-                              fontSize: "11px", fontWeight: 700, color: item.color,
-                              letterSpacing: "0.03em",
-                           }}>
-                              {item.category}
+                     <div className="flex-1">
+                        <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
+                        <div className="flex items-center gap-2 mt-1">
+                           <span className="text-xs text-gray-600">{item.category}</span>
+                           <span className="text-xs text-gray-500 flex items-center gap-1">
+                              <Clock className="w-3 h-3" /> {item.readTime}
                            </span>
-                           <span className="text-xs text-slate-400">•</span>
-                           <span className="text-xs text-slate-500">{item.type === 'review' ? 'Review' : 'Hướng dẫn'}</span>
-                        </div>
-                        <p style={{ fontSize: "15px", fontWeight: 700, color: "#0f172a", marginTop: "2px" }}>
-                           {item.title}
-                        </p>
-                        <div className="flex flex-wrap gap-1 mt-2">
-                           {item.tags.slice(0, 3).map((tag) => (
-                              <span key={tag} className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 rounded-full text-xs font-medium text-slate-600">
-                                 <Tag className="h-2.5 w-2.5" />
-                                 {tag}
-                              </span>
-                           ))}
                         </div>
                      </div>
-                     <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
-                        <span style={{ fontSize: "12px", color: "#94a3b8", display: "flex", alignItems: "center", gap: "4px" }}>
-                           <Clock style={{ width: 11, height: 11 }} /> {item.readTime}
-                        </span>
-                        <ChevronRight style={{ width: 16, height: 16, color: "#cbd5e1" }} />
-                     </div>
+                     <ChevronRight className="w-5 h-5 text-gray-400" />
                   </div>
                );
             })}
@@ -514,14 +452,14 @@ export default function HandbookPage() {
                <button
                   type="button"
                   aria-label="Đóng nội dung bài viết"
-                  className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+                  className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm"
                   onClick={() => setSelectedArticleTitle(null)}
                />
-               <section className="relative z-10 w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl md:p-8">
+               <section className="relative z-10 w-full max-w-3xl rounded-2xl border border-gray-200 bg-white p-6 shadow-2xl md:p-8">
                   <button
                      type="button"
                      onClick={() => setSelectedArticleTitle(null)}
-                     className="absolute right-4 top-4 z-20 flex rounded-lg border border-slate-200 bg-white p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700"
+                     className="absolute right-4 top-4 z-20 flex rounded-lg border border-gray-200 bg-white p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-700"
                      aria-label="Đóng"
                   >
                      <X className="h-4 w-4" />
@@ -533,14 +471,14 @@ export default function HandbookPage() {
                            <span className="rounded-full px-3 py-1 text-xs font-semibold" style={{ backgroundColor: `${selectedGuide.color}18`, color: selectedGuide.color }}>
                               {selectedGuide.category}
                            </span>
-                           <span className="text-xs text-slate-500">{selectedGuide.readTime} đọc</span>
+                           <span className="text-xs text-gray-500">{selectedGuide.readTime} đọc</span>
                         </div>
                      </div>
 
-                     <h2 className="mt-4 text-2xl font-bold tracking-tight text-slate-900">{selectedGuide.title}</h2>
+                     <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">{selectedGuide.title}</h2>
 
                      {selectedIllustration && (
-                        <div className="mt-5 overflow-hidden rounded-xl border border-slate-200">
+                        <div className="mt-5 overflow-hidden rounded-xl border border-gray-200">
                            <img
                               src={selectedIllustration}
                               alt={`Ảnh minh họa: ${selectedGuide.title}`}
@@ -549,13 +487,13 @@ export default function HandbookPage() {
                         </div>
                      )}
 
-                     <p className="mt-4 text-sm leading-7 text-slate-600">{selectedContent.intro}</p>
+                     <p className="mt-4 text-sm leading-7 text-gray-600">{selectedContent.intro}</p>
 
                      <div className="mt-6 space-y-5">
                         {selectedContent.sections.map((section) => (
                            <article key={section.heading}>
-                              <h3 className="text-base font-semibold text-slate-900">{section.heading}</h3>
-                              <p className="mt-2 text-sm leading-7 text-slate-600">{section.body}</p>
+                              <h3 className="text-base font-semibold text-gray-900">{section.heading}</h3>
+                              <p className="mt-2 text-sm leading-7 text-gray-600">{section.body}</p>
                            </article>
                         ))}
                      </div>

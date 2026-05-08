@@ -1,21 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg-soft: #f8fafc;
+  --primary-dark: #0f4c51;
+  --primary-teal: #1b7377;
+  --accent-green: #20c997;
+  --accent-green-light: #51cf66;
+  --bg-soft: #f8f9fa;
   --bg-card: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
-  --font-body: "Be Vietnam Pro", sans-serif;
-  --font-heading: "Montserrat", "Be Vietnam Pro", sans-serif;
-  --radius-card: 18px;
-  --shadow-soft: 0 10px 28px -14px rgba(15, 23, 42, 0.25);
-  --shadow-strong: 0 24px 65px -30px rgba(15, 23, 42, 0.35);
+  --text-main: #1a1d23;
+  --text-muted: #6c757d;
+  --text-light: #868e96;
+  --line: #e9ecef;
+  --line-strong: #dee2e6;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
+  --radius-card: 12px;
+  --shadow-soft: 0 2px 8px rgba(31, 45, 61, 0.08);
+  --shadow-medium: 0 4px 16px rgba(31, 45, 61, 0.12);
+  --shadow-strong: 0 8px 24px rgba(31, 45, 61, 0.16);
 }
 
 * {
@@ -25,14 +31,11 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.6;
-  letter-spacing: 0.005em;
-  background:
-    radial-gradient(circle at 8% 10%, rgba(16, 185, 129, 0.18), transparent 28%),
-    radial-gradient(circle at 95% 20%, rgba(59, 130, 246, 0.13), transparent 26%),
-    var(--bg-soft);
+  letter-spacing: 0.3px;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -43,23 +46,30 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  letter-spacing: -0.015em;
-  line-height: 1.25;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
   color: var(--text-main);
   margin: 0;
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 2.5rem;
 }
 
-h2,
-h3 {
+h2 {
   font-weight: 700;
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.3125rem;
 }
 
 h4 {
   font-weight: 600;
+  font-size: 1rem;
 }
 
 p,
@@ -92,7 +102,7 @@ input:focus,
 textarea:focus,
 select:focus,
 button:focus-visible {
-  outline: 2px solid rgba(16, 185, 129, 0.35);
+  outline: 2px solid rgba(32, 201, 151, 0.28);
   outline-offset: 2px;
 }
 
@@ -112,8 +122,8 @@ button:focus-visible {
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
   background-size: 36px 36px;
   mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
 }
@@ -188,7 +198,7 @@ button:focus-visible {
   right: -48px;
   width: 260px;
   height: 260px;
-  background: rgba(96, 165, 250, 0.28);
+  background: rgba(125, 211, 252, 0.38);
 }
 
 .home-banner-orb-2 {
@@ -196,7 +206,7 @@ button:focus-visible {
   bottom: -76px;
   width: 240px;
   height: 240px;
-  background: rgba(16, 185, 129, 0.22);
+  background: rgba(167, 243, 208, 0.38);
   animation-delay: 2.5s;
 }
 

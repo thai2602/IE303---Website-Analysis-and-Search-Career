@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import { type FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { clearAuthUser, readAuthUser, setAuthUser } from "../../utils/auth";
+import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
+
 import { Eye, EyeOff, Sparkles, ArrowRight } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -101,6 +107,14 @@ export default function LoginPage() {
          return;
       }
 
+      setAuthUser({
+         name: buildNameFromEmail(trimmedEmail),
+         email: trimmedEmail,
+         password: password.trim(),
+      });
+      setCurrentUser(readAuthUser());
+      setErrorMessage("");
+      navigate("/", { replace: true });
       setIsSubmitting(true);
       setErrorMessage("");
 
@@ -231,7 +245,7 @@ export default function LoginPage() {
          <div style={{
             flex: "1 1 300px",
             borderRadius: "24px",
-            background: "linear-gradient(145deg, #064e3b 0%, #065f46 60%, #10b981 100%)",
+            background: "linear-gradient(145deg, #10b981 0%, #059669 60%, #047857 100%)",
             padding: "48px 40px",
             position: "relative",
             overflow: "hidden",
@@ -243,21 +257,21 @@ export default function LoginPage() {
             {/* Blobs */}
             <div style={{
                position: "absolute", top: "-60px", right: "-40px", width: "220px", height: "220px",
-               borderRadius: "50%", background: "rgba(52,211,153,0.2)", filter: "blur(40px)",
+               borderRadius: "50%", background: "rgba(167,243,208,0.2)", filter: "blur(40px)",
             }} />
             <div style={{
                position: "absolute", bottom: "-40px", left: "20%", width: "180px", height: "180px",
-               borderRadius: "50%", background: "rgba(16,185,129,0.15)", filter: "blur(35px)",
+               borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
             }} />
 
             {/* Brand */}
             <div>
                <div style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
-                  background: "rgba(52,211,153,0.2)", borderRadius: "12px",
+                  background: "rgba(255,255,255,0.15)", borderRadius: "12px",
                   padding: "8px 14px", marginBottom: "36px",
                }}>
-                  <Sparkles style={{ width: 18, height: 18, color: "#6ee7b7" }} />
+                  <img src={logoImg} alt="JobPilot logo" style={{ width: 18, height: 18, objectFit: "contain" }} />
                   <span style={{ color: "#fff", fontWeight: 800, fontSize: "16px", letterSpacing: "-0.01em" }}>JobPilot</span>
                </div>
 
@@ -267,30 +281,30 @@ export default function LoginPage() {
                }}>
                   Chào mừng <br />trở lại! 👋
                </h2>
-               <p style={{ color: "#a7f3d0", fontSize: "14px", lineHeight: 1.7 }}>
+               <p style={{ color: "#ffffff", fontSize: "14px", lineHeight: 1.7 }}>
                   Đăng nhập để tiếp tục hành trình nghề nghiệp của bạn cùng JobPilot.
                </p>
             </div>
 
             {/* Testimonial */}
             <div style={{
-               background: "rgba(255,255,255,0.1)", borderRadius: "16px",
+               background: "rgba(255,255,255,0.12)", borderRadius: "16px",
                padding: "20px", backdropFilter: "blur(8px)",
-               border: "1px solid rgba(255,255,255,0.15)",
+               border: "1px solid rgba(255,255,255,0.2)",
             }}>
-               <p style={{ color: "#d1fae5", fontSize: "13px", lineHeight: 1.7, marginBottom: "12px" }}>
+               <p style={{ color: "#ffffff", fontSize: "13px", lineHeight: 1.7, marginBottom: "12px" }}>
                   "JobPilot giúp mình tìm được việc ưng ý chỉ trong 3 tuần — CV mẫu rất xịn!"
                </p>
                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <div style={{
                      width: "32px", height: "32px", borderRadius: "50%",
-                     background: "linear-gradient(135deg, #34d399, #10b981)",
+                     background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
                      display: "flex", alignItems: "center", justifyContent: "center",
-                     fontSize: "13px", fontWeight: 800, color: "#fff",
+                     fontSize: "13px", fontWeight: 800, color: "#047857",
                   }}>A</div>
                   <div>
                      <p style={{ color: "#fff", fontSize: "13px", fontWeight: 700 }}>Anh Tuấn</p>
-                     <p style={{ color: "#6ee7b7", fontSize: "11px" }}>Frontend Developer tại NovaTech</p>
+                     <p style={{ color: "#ffffff", fontSize: "11px" }}>Frontend Developer tại NovaTech</p>
                   </div>
                </div>
             </div>
@@ -389,6 +403,7 @@ export default function LoginPage() {
                            Đăng ký miễn phí
                         </Link>
                      </p>
+
                      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                         {/* Email */}
                         <div>

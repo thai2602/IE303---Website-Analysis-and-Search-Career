@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { Eye, EyeOff, User, Mail, Lock, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 import { Eye, EyeOff, Sparkles, User, Mail, Lock, CheckCircle2 } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -492,6 +495,7 @@ export default function RegisterPage() {
                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; }}
                   >
+                     <img src={logoImg} alt="JobPilot logo" style={{ width: 16, height: 16, objectFit: "contain" }} /> Tạo tài khoản ngay
                      <Sparkles style={{ width: 16, height: 16 }} /> {isSubmitting ? "Đang tạo tài khoản..." : "Tạo tài khoản ngay"}
                   </button>
 
@@ -530,7 +534,7 @@ export default function RegisterPage() {
          <div style={{
             flex: "1 1 300px",
             borderRadius: "24px",
-            background: "linear-gradient(145deg, #0f172a 0%, #1e293b 100%)",
+            background: "linear-gradient(145deg, #10b981 0%, #059669 100%)",
             padding: "48px 40px",
             position: "relative",
             overflow: "hidden",
@@ -538,22 +542,22 @@ export default function RegisterPage() {
          }}>
             <div style={{
                position: "absolute", top: "-40px", right: "-40px", width: "200px", height: "200px",
-               borderRadius: "50%", background: "rgba(16,185,129,0.1)", filter: "blur(40px)",
+               borderRadius: "50%", background: "rgba(167,243,208,0.1)", filter: "blur(40px)",
             }} />
             <div style={{
                position: "absolute", bottom: "-30px", left: "10%", width: "150px", height: "150px",
-               borderRadius: "50%", background: "rgba(99,102,241,0.1)", filter: "blur(35px)",
+               borderRadius: "50%", background: "rgba(167,243,208,0.1)", filter: "blur(35px)",
             }} />
 
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "32px" }}>
-               <Sparkles style={{ width: 18, height: 18, color: "#6ee7b7" }} />
+               <img src={logoImg} alt="JobPilot logo" style={{ width: 18, height: 18, objectFit: "contain" }} />
                <span style={{ color: "#fff", fontWeight: 800, fontSize: "16px" }}>JobPilot</span>
             </div>
 
             <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "8px" }}>
                Mở khóa toàn bộ tính năng
             </h2>
-            <p style={{ fontSize: "14px", color: "#64748b", marginBottom: "32px", lineHeight: 1.6 }}>
+            <p style={{ fontSize: "14px", color: "#ffffff", marginBottom: "32px", lineHeight: 1.6 }}>
                Tạo tài khoản miễn phí và bắt đầu hành trình sự nghiệp ngay hôm nay.
             </p>
 
@@ -562,12 +566,12 @@ export default function RegisterPage() {
                   <div key={perk} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
                      <div style={{
                         width: "22px", height: "22px", borderRadius: "50%",
-                        background: "rgba(16,185,129,0.2)", border: "1px solid rgba(16,185,129,0.4)",
+                        background: "rgba(255,255,255,0.2)", border: "1px solid rgba(255,255,255,0.3)",
                         display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                      }}>
-                        <CheckCircle2 style={{ width: 13, height: 13, color: "#10b981" }} />
+                        <CheckCircle2 style={{ width: 13, height: 13, color: "#ffffff" }} />
                      </div>
-                     <span style={{ fontSize: "14px", color: "#cbd5e1", lineHeight: 1.5 }}>{perk}</span>
+                     <span style={{ fontSize: "14px", color: "#ffffff", lineHeight: 1.5 }}>{perk}</span>
                   </div>
                ))}
             </div>
@@ -575,16 +579,16 @@ export default function RegisterPage() {
             {/* Social proof */}
             <div style={{
                marginTop: "40px", paddingTop: "28px",
-               borderTop: "1px solid rgba(255,255,255,0.08)",
+               borderTop: "1px solid rgba(255,255,255,0.15)",
             }}>
                <div style={{ display: "flex", gap: "-8px" }}>
                   {["A", "B", "C", "D"].map((l, i) => (
                      <div key={l} style={{
                         width: "32px", height: "32px", borderRadius: "50%",
-                        background: ["#10b981", "#6366f1", "#f59e0b", "#ec4899"][i],
-                        border: "2px solid #1e293b",
+                        background: ["#d1fae5", "#a7f3d0", "#6ee7b7", "#a7f3d0"][i],
+                        border: "2px solid #047857",
                         display: "flex", alignItems: "center", justifyContent: "center",
-                        fontSize: "12px", fontWeight: 800, color: "#fff",
+                        fontSize: "12px", fontWeight: 800, color: "#047857",
                         marginLeft: i > 0 ? "-8px" : "0",
                      }}>
                         {l}
