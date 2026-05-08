@@ -7,6 +7,7 @@ import {
    subscribeAuthUserChange,
    type AuthUser,
 } from "../utils/auth";
+import logoImg from "../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 
 const navLinks = [
    { label: "Tìm việc", href: "/tim-viec" },
@@ -66,9 +67,11 @@ export default function Header() {
                {/* Logo */}
                <div className="flex items-center flex-shrink-0">
                   <Link to="/" className="flex items-center gap-2.5">
-                     <div className="h-10 w-10 rounded-xl border border-white/50 bg-gradient-to-br from-emerald-500/90 to-teal-700 text-white font-black text-lg grid place-items-center shadow-lg shadow-emerald-500/20">
-                        JP
-                     </div>
+                     <img
+                        src={logoImg}
+                        alt="JobPilot Logo"
+                        className="h-10 w-10 object-contain"
+                     />
                      <div>
                         <p className="text-slate-900 font-extrabold tracking-tight leading-none">JobPilot</p>
                      </div>
@@ -77,7 +80,7 @@ export default function Header() {
 
                {/* Desktop Nav */}
                <nav className="hidden lg:flex items-center flex-1 justify-center">
-                  <ul className="flex items-center gap-1 rounded-full border border-white/40 bg-white/50 p-1 shadow-inner shadow-white/30 backdrop-blur-md">
+                  <ul className="flex items-center gap-3">
                      {navLinks.map((link) => {
                         const isActive = location.pathname === link.href;
                         return (
@@ -86,7 +89,7 @@ export default function Header() {
                                  to={link.href}
                                  className={`px-3.5 py-2 text-sm font-semibold leading-5 transition-colors rounded-full whitespace-nowrap ${isActive
                                     ? "bg-emerald-600 text-white shadow-sm"
-                                    : "text-slate-700 hover:text-slate-900 hover:bg-white/70"
+                                    : "text-emerald-800 hover:text-emerald-900 hover:bg-emerald-100"
                                     }`}
                               >
                                  {link.label}

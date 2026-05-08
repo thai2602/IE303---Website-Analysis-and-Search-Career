@@ -27,11 +27,11 @@ function ScrollToTop() {
 
 function SiteLayout() {
    return (
-      <div className="min-h-screen bg-slate-50 text-slate-900">
-         <div className="bg-grid pointer-events-none fixed inset-0 -z-10 opacity-40" />
+      <div className="min-h-screen bg-white text-gray-900 flex flex-col">
+         <div className="pointer-events-none fixed inset-0 -z-10 opacity-40" />
          <ScrollToTop />
          <Header />
-         <main className="max-w-[1200px] mx-auto px-4 md:px-6 py-5 md:py-14">
+         <main className="mx-auto max-w-[1200px] w-full px-4 py-8 md:px-6 md:py-14 flex-grow">
             <Outlet />
          </main>
          <GlobalSavedTray />

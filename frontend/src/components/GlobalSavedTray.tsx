@@ -103,7 +103,7 @@ export default function GlobalSavedTray() {
             }}
             title="Ứng tuyển và công việc đã lưu"
          >
-            <Heart style={{ width: 24, height: 24, fill: "#fff" }} />
+            <Heart style={{ width: 24, height: 24, color: "#fff" }} />
          </button>
 
          {showTray && (

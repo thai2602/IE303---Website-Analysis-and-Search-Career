@@ -106,9 +106,9 @@ export default function UserProfilePage() {
 
    if (!currentUser) {
       return (
-         <section className="mx-auto max-w-2xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h1 className="text-2xl font-black text-slate-900">Hồ sơ người dùng</h1>
-            <p className="mt-2 text-sm text-slate-600">Bạn chưa đăng nhập. Vui lòng đăng nhập để xem hồ sơ.</p>
+         <section className="mx-auto max-w-2xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+            <h1 className="text-2xl font-black text-gray-900">Hồ sơ người dùng</h1>
+            <p className="mt-2 text-sm text-gray-600">Bạn chưa đăng nhập. Vui lòng đăng nhập để xem hồ sơ.</p>
             <Link
                to="/dang-nhap"
                className="mt-5 inline-flex rounded-full bg-emerald-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-emerald-700"
@@ -120,12 +120,12 @@ export default function UserProfilePage() {
    }
 
    return (
-      <section className="mx-auto max-w-3xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-         <h1 className="text-2xl font-black text-slate-900">Hồ sơ người dùng</h1>
-         <p className="mt-2 text-sm text-slate-600">Quản lý thông tin cá nhân và bảo mật tài khoản trên JobPilot.</p>
+      <section className="mx-auto max-w-3xl rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+         <h1 className="text-2xl font-black text-gray-900">Hồ sơ người dùng</h1>
+         <p className="mt-2 text-sm text-gray-600">Quản lý thông tin cá nhân và bảo mật tài khoản trên JobPilot.</p>
 
-         <form onSubmit={handleSaveProfile} className="mt-6 rounded-2xl border border-slate-200 p-5">
-            <h2 className="text-base font-black text-slate-900">Thông tin cá nhân</h2>
+         <form onSubmit={handleSaveProfile} className="mt-6 rounded-2xl border border-gray-200 p-5">
+            <h2 className="text-base font-black text-gray-900">Thông tin cá nhân</h2>
 
             <div className="mt-4 flex items-center gap-3">
                {avatarDataUrl ? (
@@ -143,44 +143,44 @@ export default function UserProfilePage() {
 
             <div className="mt-5 grid gap-4 md:grid-cols-2">
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Họ và tên</label>
+                  <label className="block text-sm font-bold text-gray-700">Họ và tên</label>
                   <input
                      type="text"
                      value={name}
                      onChange={(event) => setName(event.target.value)}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                      placeholder="Nhập họ và tên"
                   />
                </div>
 
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Email</label>
+                  <label className="block text-sm font-bold text-gray-700">Email</label>
                   <input
                      type="email"
                      value={email}
                      onChange={(event) => setEmail(event.target.value)}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                      placeholder="ban@example.com"
                   />
                </div>
 
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Số điện thoại</label>
+                  <label className="block text-sm font-bold text-gray-700">Số điện thoại</label>
                   <input
                      type="tel"
                      placeholder="VD: 0912345678"
                      value={phone}
                      onChange={(event) => setPhone(event.target.value)}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                   />
                </div>
 
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Quê quán</label>
+                  <label className="block text-sm font-bold text-gray-700">Quê quán</label>
                   <select
                      value={hometown}
                      onChange={(event) => setHometown(event.target.value)}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                   >
                      <option value="">Chọn 1 trong 34 tỉnh/thành</option>
                      {hometownOptions.map((item) => (
@@ -192,11 +192,11 @@ export default function UserProfilePage() {
                </div>
 
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Giới tính</label>
+                  <label className="block text-sm font-bold text-gray-700">Giới tính</label>
                   <select
                      value={gender}
                      onChange={(event) => setGender(event.target.value as "Nam" | "Nữ" | "Khác" | "")}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                   >
                      <option value="">Chọn giới tính</option>
                      <option value="Nam">Nam</option>
@@ -206,14 +206,14 @@ export default function UserProfilePage() {
                </div>
 
                <div>
-                  <label className="block text-sm font-bold text-slate-700">Độ tuổi</label>
+                  <label className="block text-sm font-bold text-gray-700">Độ tuổi</label>
                   <input
                      type="number"
                      min={16}
                      max={80}
                      value={age}
                      onChange={(event) => setAge(event.target.value)}
-                     className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
+                     className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none transition focus:border-emerald-500"
                   />
                </div>
             </div>

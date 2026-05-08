@@ -79,7 +79,7 @@ export function getApplicationStatusMeta(status?: string): ApplicationStatusMeta
    }
 
    return {
-      label: status.trim(),
+      label: status?.trim() ?? "Trạng thái không xác định",
       note: "Trạng thái tùy chỉnh do hệ thống lưu lại.",
       tone: "slate",
       bucket: "neutral",

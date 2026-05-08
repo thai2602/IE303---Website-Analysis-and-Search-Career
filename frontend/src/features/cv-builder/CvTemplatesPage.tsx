@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Download, Eye, FileText, Sparkles, X } from "lucide-react";
+import { Download, Eye, X } from "lucide-react";
 import profilePicture1 from "../../assets/profile_picture/image_1.png";
 import profilePicture2 from "../../assets/profile_picture/image_2.png";
 import profilePicture3 from "../../assets/profile_picture/image_3.png";
@@ -9,40 +9,36 @@ import { readAuthUser } from "../../utils/auth";
 
 const templates = [
    {
-      name: "CV Fresher",
-      level: "0–1 năm kinh nghiệm",
+      name: "CV Chuẩn",
+      level: "Phù hợp mọi vị trí",
       tag: "Phổ biến",
       tagColor: "#10b981",
       accent: "#10b981",
-      preview: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%)",
-      lines: ["#34d399", "#6ee7b7", "#a7f3d0", "#34d399", "#6ee7b7"],
+      preview: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
    },
    {
-      name: "CV Chuyên viên",
-      level: "2–5 năm kinh nghiệm",
-      tag: "Chuyên nghiệp",
-      tagColor: "#6366f1",
-      accent: "#6366f1",
-      preview: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%)",
-      lines: ["#818cf8", "#a5b4fc", "#c7d2fe", "#818cf8", "#a5b4fc"],
+      name: "CV Chuyên nghiệp",
+      level: "Dành cho IT & Tech",
+      tag: "Công nghệ",
+      tagColor: "#10b981",
+      accent: "#10b981",
+      preview: "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)",
+   },
+   {
+      name: "CV Marketing",
+      level: "Dành cho Marketing",
+      tag: "Sáng tạo",
+      tagColor: "#10b981",
+      accent: "#10b981",
+      preview: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
    },
    {
       name: "CV Quản lý",
-      level: "5+ năm kinh nghiệm",
-      tag: "Leadership",
-      tagColor: "#0ea5e9",
-      accent: "#0ea5e9",
-      preview: "linear-gradient(135deg, #f0f9ff 0%, #bae6fd 50%, #7dd3fc 100%)",
-      lines: ["#38bdf8", "#7dd3fc", "#bae6fd", "#38bdf8", "#7dd3fc"],
-   },
-   {
-      name: "CV Designer",
-      level: "Mọi cấp độ",
-      tag: "Creative",
-      tagColor: "#ec4899",
-      accent: "#ec4899",
-      preview: "linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%)",
-      lines: ["#f472b6", "#f9a8d4", "#fbcfe8", "#f472b6", "#f9a8d4"],
+      level: "Dành cho Lãnh đạo",
+      tag: "Cao cấp",
+      tagColor: "#10b981",
+      accent: "#10b981",
+      preview: "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)",
    },
 ];
 
@@ -144,7 +140,7 @@ const textAreaStyle = {
 };
 
 const primaryButtonStyle = {
-   background: "#7c3aed",
+   background: "#2563eb",
    color: "#fff",
    borderRadius: "10px",
    padding: "10px 18px",
@@ -152,7 +148,7 @@ const primaryButtonStyle = {
    fontWeight: 700,
    border: "none",
    cursor: "pointer",
-   boxShadow: "0 4px 15px rgba(124,58,237,0.25)",
+   boxShadow: "0 4px 15px rgba(37,99,235,0.25)",
 };
 
 const secondaryButtonStyle = {
@@ -273,7 +269,7 @@ const provinceOptions = [
 ];
 
 const sampleCvByTemplate: Record<string, SampleCv> = {
-   "CV Fresher": {
+   "CV Chuẩn": {
       fullName: "Nguyen Minh Anh",
       title: "Junior Frontend Developer",
       avatar: profilePicture1,
@@ -315,7 +311,7 @@ const sampleCvByTemplate: Record<string, SampleCv> = {
       references: ["Nguyễn Văn Huy - Mentor thực tập - 0909 111 222", "Trần Minh Khoa - Giảng viên hướng dẫn - khoa@example.edu.vn"],
       hobbies: ["Đọc sách công nghệ", "Chạy bộ", "Chụp ảnh", "Tham gia hackathon"],
    },
-   "CV Chuyên viên": {
+   "CV Chuyên nghiệp": {
       fullName: "Tran Hoang Nam",
       title: "Frontend Developer",
       avatar: profilePicture2,
@@ -399,7 +395,7 @@ const sampleCvByTemplate: Record<string, SampleCv> = {
       references: ["Phạm Quốc Dũng - CEO - 0903 777 888"],
       hobbies: ["Yoga", "Du lịch", "Viết blog sản phẩm"],
    },
-   "CV Designer": {
+   "CV Marketing": {
       fullName: "Pham Quynh Nhu",
       title: "UI/UX Designer",
       avatar: profilePicture4,
@@ -553,7 +549,7 @@ export default function CvTemplatesPage() {
          <div
             style={{
                borderRadius: "20px",
-               background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%)",
+               background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
                padding: "48px",
                position: "relative",
                overflow: "hidden",
@@ -567,7 +563,7 @@ export default function CvTemplatesPage() {
                   width: "220px",
                   height: "220px",
                   borderRadius: "50%",
-                  background: "rgba(196,181,253,0.2)",
+                  background: "rgba(167,243,208,0.2)",
                   filter: "blur(40px)",
                }}
             />
@@ -579,14 +575,14 @@ export default function CvTemplatesPage() {
                   width: "180px",
                   height: "180px",
                   borderRadius: "50%",
-                  background: "rgba(167,139,250,0.15)",
+                  background: "rgba(110,231,183,0.15)",
                   filter: "blur(35px)",
                }}
             />
             <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
-               Kho <span style={{ color: "#c4b5fd" }}>CV mẫu</span>
+               Kho <span style={{ color: "#ffffff" }}>CV mẫu</span>
             </h1>
-            <p style={{ color: "#c4b5fd", fontSize: "15px", lineHeight: 1.7 }}>
+            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7 }}>
                Lựa chọn bộ mẫu CV theo ngành và cấp độ, có sẵn gợi ý nội dung để sửa nhanh.
             </p>
          </div>
@@ -595,151 +591,36 @@ export default function CvTemplatesPage() {
             {templates.map((t) => (
                <article
                   key={t.name}
-                  style={{
-                     background: "#fff",
-                     borderRadius: "20px",
-                     border: "1px solid #f1f5f9",
-                     overflow: "hidden",
-                     boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-                     transition: "transform 0.25s, box-shadow 0.25s",
-                     cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                     (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
-                     (e.currentTarget as HTMLElement).style.boxShadow = `0 20px 40px ${t.accent}25`;
-                  }}
-                  onMouseLeave={(e) => {
-                     (e.currentTarget as HTMLElement).style.transform = "";
-                     (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.06)";
-                  }}
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                >
-                  <div style={{ position: "relative", background: t.preview, padding: "24px 20px", height: "160px" }}>
-                     <div
-                        style={{
-                           background: "rgba(255,255,255,0.85)",
-                           borderRadius: "10px",
-                           padding: "12px",
-                           backdropFilter: "blur(8px)",
-                           boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
-                        }}
-                     >
-                        <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
-                           <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: t.accent }} />
-                           <div>
-                              <div style={{ width: "60px", height: "5px", borderRadius: "99px", background: t.lines[0], marginBottom: "3px" }} />
-                              <div style={{ width: "40px", height: "3px", borderRadius: "99px", background: t.lines[1] }} />
-                           </div>
-                        </div>
-                        {t.lines.map((c, i) => (
-                           <div
-                              key={i}
-                              style={{
-                                 height: "3px",
-                                 borderRadius: "99px",
-                                 background: c,
-                                 width: `${[100, 85, 75, 90, 60][i]}%`,
-                                 marginBottom: "4px",
-                                 opacity: 0.6,
-                              }}
-                           />
-                        ))}
-                     </div>
-                     <div
-                        style={{
-                           position: "absolute",
-                           inset: 0,
-                           background: `${t.accent}15`,
-                           display: "flex",
-                           alignItems: "center",
-                           justifyContent: "center",
-                           gap: "8px",
-                           opacity: 0,
-                           transition: "opacity 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                           (e.currentTarget as HTMLElement).style.opacity = "1";
-                        }}
-                        onMouseLeave={(e) => {
-                           (e.currentTarget as HTMLElement).style.opacity = "0";
-                        }}
-                     >
-                        <button
-                           style={{
-                              background: "#fff",
-                              borderRadius: "8px",
-                              padding: "6px 12px",
-                              fontSize: "12px",
-                              fontWeight: 700,
-                              color: t.accent,
-                              border: "none",
-                              cursor: "pointer",
-                              display: "flex",
-                              alignItems: "center",
-                              gap: "4px",
-                           }}
-                           onClick={(e) => {
-                              e.stopPropagation();
-                              openTemplatePreview(t.name);
-                           }}
-                        >
-                           <Eye style={{ width: 12, height: 12 }} /> Xem
-                        </button>
+                  <div
+                     className="h-32 bg-gradient-to-br p-6 relative overflow-hidden"
+                     style={{ background: t.preview }}
+                  >
+                     <div className="absolute inset-0 bg-gray-900/5" />
+                     <div className="relative flex flex-col justify-between h-full">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-200 to-gray-300" />
+                        <p className="text-xs font-medium text-gray-600">CV mẫu</p>
                      </div>
                   </div>
 
-                  <div style={{ padding: "18px 20px" }}>
-                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px" }}>
-                        <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#0f172a" }}>{t.name}</h3>
-                        <span
-                           style={{
-                              background: `${t.accent}18`,
-                              color: t.accent,
-                              borderRadius: "999px",
-                              padding: "2px 8px",
-                              fontSize: "10px",
-                              fontWeight: 700,
-                           }}
-                        >
+                  <div className="p-5">
+                     <div className="flex items-start justify-between gap-2 mb-3">
+                        <h3 className="font-bold text-gray-900 text-sm">{t.name}</h3>
+                        <span className="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
                            {t.tag}
                         </span>
                      </div>
-                     <p style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "14px" }}>{t.level}</p>
-                     <div style={{ display: "flex", gap: "6px" }}>
+                     <p className="text-xs text-gray-600 mb-4">{t.level}</p>
+                     <div className="flex gap-2">
                         <button
-                           style={{
-                              flex: 1,
-                              display: "inline-flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              gap: "4px",
-                              background: t.accent,
-                              color: "#fff",
-                              borderRadius: "10px",
-                              padding: "8px 12px",
-                              fontSize: "12px",
-                              fontWeight: 700,
-                              border: "none",
-                              cursor: "pointer",
-                              boxShadow: `0 4px 12px ${t.accent}35`,
-                           }}
+                           className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2 rounded-lg transition-colors"
                            onClick={() => openTemplatePreview(t.name)}
                         >
-                           <Sparkles style={{ width: 12, height: 12 }} /> Xem mẫu
+                           <Eye className="w-4 h-4" /> Xem mẫu
                         </button>
-                        <button
-                           style={{
-                              width: "36px",
-                              display: "inline-flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              background: "#f8fafc",
-                              border: "1px solid #e2e8f0",
-                              borderRadius: "10px",
-                              cursor: "pointer",
-                              color: "#64748b",
-                           }}
-                        >
-                           <Download style={{ width: 14, height: 14 }} />
+                        <button className="px-3 py-2 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors">
+                           <Download className="w-4 h-4 text-gray-600" />
                         </button>
                      </div>
                   </div>
@@ -747,32 +628,17 @@ export default function CvTemplatesPage() {
             ))}
          </div>
 
-         <div
-            style={{
-               borderRadius: "16px",
-               background: "linear-gradient(135deg, #f5f3ff, #ede9fe)",
-               border: "1px solid #ddd6fe",
-               padding: "28px 32px",
-               display: "flex",
-               alignItems: "center",
-               justifyContent: "space-between",
-               gap: "16px",
-               flexWrap: "wrap",
-            }}
-         >
+         <div className="rounded-xl bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-               <h4 style={{ fontSize: "17px", fontWeight: 800, color: "#4c1d95", marginBottom: "4px" }}>
-                  Bạn muốn tạo CV chuyên nghiệp?
-               </h4>
-               <p style={{ fontSize: "13px", color: "#7c3aed" }}>
-                  Chuyên gia JobPilot sẽ giúp bạn tối ưu CV vượt qua ATS.
-               </p>
+               <h3 className="text-lg font-bold text-slate-900 mb-1">Tạo CV chuyên nghiệp</h3>
+               <p className="text-sm text-slate-900">Xây dựng CV chuẩn ATS với hướng dẫn từng bước</p>
             </div>
-            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-               <button style={secondaryButtonStyle} onClick={openCreateCvModal}>
-                  Tạo CV
-               </button>
-            </div>
+            <button
+               className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
+               onClick={openCreateCvModal}
+            >
+               Tạo ngay
+            </button>
          </div>
 
          <section

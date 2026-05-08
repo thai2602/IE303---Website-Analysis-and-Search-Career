@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Star, Users, ArrowRight, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
@@ -114,10 +113,6 @@ const companyBannerItems = [
       description: "Ứng tuyển vào những vị trí backend, DevOps và cloud trong môi trường công nghệ cao.",
    },
 ];
-=======
-import { Building2, Star, Users, ArrowRight, MapPin } from "lucide-react";
-import { useState, useEffect } from "react";
->>>>>>> 81c544ae19c41f2ac35754edda45fd808ff5a2ae
 
 export const companies: CompanyItem[] = [
    { name: "NovaTech", field: "Technology", rating: "4.8", employees: "500-1000", location: "TP. HCM", openJobs: 5, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "N", description: "Công ty phần mềm tập trung vào sản phẩm doanh nghiệp.", benefits: ["Thưởng dự án", "BHYT", "Hybrid"], positions: [{ title: "Frontend React Developer", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.", skills: ["React", "TypeScript", "Figma"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Product Owner", salary: "35–50 triệu", workingHours: "9:00 - 18:00", description: "Lãnh đạo roadmap sản phẩm, hợp tác cùng đội kinh doanh và kỹ thuật.", skills: ["Product", "Stakeholder", "Strategy"] }, { title: "QA Automation Engineer", salary: "22–32 triệu", workingHours: "8:30 - 17:30", description: "Thiết kế kịch bản kiểm thử tự động cho sản phẩm nội bộ.", skills: ["Testing", "Selenium", "Automation"] }, { title: "UI Engineer", salary: "24–34 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống component và thiết kế tương tác trong thư viện UI.", skills: ["HTML", "CSS", "React"] }] },
@@ -173,7 +168,6 @@ const fieldColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function CompaniesPage() {
-<<<<<<< HEAD
    const location = useLocation();
    const [selectedCompany, setSelectedCompany] = useState<CompanyItem | null>(null);
    const [selectedPosition, setSelectedPosition] = useState<any>(null);
@@ -349,7 +343,7 @@ export default function CompaniesPage() {
          panel: "linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #ffffff 100%)",
       },
       slate: {
-         badge: "border-slate-200 bg-slate-50 text-slate-700",
+         badge: "border-gray-200 bg-gray-50 text-gray-700",
          border: "#cbd5e1",
          accent: "#64748b",
          panel: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #ffffff 100%)",
@@ -482,42 +476,6 @@ export default function CompaniesPage() {
       </article>
    );
 
-=======
-   const [companies, setCompanies] = useState<any[]>([]);
-
-   useEffect(() => {
-      fetch("http://localhost:8080/api/companies")
-         .then(res => res.json())
-         .then(data => {
-            const mapped = data.map((c: any) => {
-               // Render various colors based on id (just to make it look dynamic)
-               const colors = ["#6366f1", "#10b981", "#0ea5e9", "#f59e0b"];
-               const bgs = [
-                  "linear-gradient(135deg, #eef2ff, #e0e7ff)",
-                  "linear-gradient(135deg, #ecfdf5, #d1fae5)",
-                  "linear-gradient(135deg, #f0f9ff, #bae6fd)",
-                  "linear-gradient(135deg, #fffbeb, #fde68a)"
-               ];
-               const cIndex = c.id % 4;
-
-               return {
-                  name: c.name,
-                  field: "Software Product", // Default or map properly if joined with category
-                  rating: "4.8", // Hardcoded mock
-                  employees: c.size || "100-200",
-                  location: "TP.HCM", // Hardcoded mock
-                  openJobs: 15, // Hardcoded mock
-                  color: colors[cIndex],
-                  bg: bgs[cIndex],
-                  initial: c.name ? c.name.charAt(0).toUpperCase() : "C",
-               };
-            });
-            setCompanies(mapped);
-         })
-         .catch(err => console.error("API error:", err));
-   }, []);
-
->>>>>>> 81c544ae19c41f2ac35754edda45fd808ff5a2ae
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}
@@ -525,7 +483,7 @@ export default function CompaniesPage() {
             <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} style={{ width: "100%", height: "500px", objectFit: "cover", display: "block" }} />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.05), rgba(15,23,42,0.75))" }} />
             <div style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
-               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05 }}>
+               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
                   {companyBannerItems[bannerIndex].title}
                </h2>
                <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
@@ -542,7 +500,7 @@ export default function CompaniesPage() {
          {/* Dynamic Banner */}
          {selectedPosition && (
             <div style={{
-               background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
                borderRadius: "20px",
                padding: "32px",
                marginTop: "24px",
@@ -586,7 +544,7 @@ export default function CompaniesPage() {
             {filters.map((f) => {
                const isSelected = f === selectedFilter;
                return (
-                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#0f172a" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
+                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#10b981" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
                      {f}
                   </button>
                );
@@ -623,9 +581,9 @@ export default function CompaniesPage() {
                         {detailDescription}
                      </p>
                      <div style={{ display: "flex", gap: "16px", marginTop: "10px", flexWrap: "wrap" }}>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#f59e0b", fontWeight: 700 }}><Star style={{ width: 14, height: 14, fill: "#f59e0b" }} /> {item.rating}/5</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><Users style={{ width: 13, height: 13 }} /> {item.employees} nhân viên</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><MapPin style={{ width: 13, height: 13 }} /> {item.location}</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b", fontWeight: 700 }}><Star style={{ width: 14, height: 14, color: "#64748b" }} /> {item.rating}/5</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><Users style={{ width: 13, height: 13, color: "#64748b" }} /> {item.employees} nhân viên</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><MapPin style={{ width: 13, height: 13, color: "#64748b" }} /> {item.location}</span>
                      </div>
                      <div style={{ marginTop: "16px" }}><div style={{ height: "5px", background: "#f1f5f9", borderRadius: "99px", overflow: "hidden" }}><div style={{ width: `${(parseFloat(item.rating) / 5) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${item.color}, ${item.color}cc)`, borderRadius: "99px" }} /></div></div>
                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "20px" }}>
@@ -642,26 +600,22 @@ export default function CompaniesPage() {
          {selectedCompany && (
             <>
                <div onClick={() => setSelectedCompany(null)} style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.55)", backdropFilter: "blur(4px)", zIndex: 1000 }} />
-               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", overflowY: "auto", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", zIndex: 1001, padding: "28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", marginBottom: "20px" }}>
-                     <div>
-                        <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
-                           <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a" }}>{selectedCompany.name}</h2>
-                           <span style={{ background: fieldColors[selectedCompany.field]?.bg ?? "#f1f5f9", color: fieldColors[selectedCompany.field]?.text ?? "#475569", borderRadius: "999px", padding: "4px 10px", fontSize: "11px", fontWeight: 700 }}>{selectedCompany.field}</span>
-                        </div>
-                        <p style={{ marginTop: "8px", color: "#64748b", fontSize: "14px", lineHeight: 1.6 }}>{selectedCompany.description}</p>
-                        <p style={{ marginTop: "12px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
-                     </div>
-                     <button onClick={() => setSelectedCompany(null)} style={{ width: 36, height: 36, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0 }}><X style={{ width: 16, height: 16 }} /></button>
+               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", overflowY: "auto", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", zIndex: 1001, padding: "28px", paddingTop: "56px" }}>
+                  <button onClick={() => setSelectedCompany(null)} style={{ position: "absolute", top: "16px", right: "16px", width: 40, height: 40, borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0, zIndex: 10, transition: "all 0.2s ease" }}><X style={{ width: 18, height: 18 }} /></button>
+                  <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap", marginBottom: "8px" }}>
+                     <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a" }}>{selectedCompany.name}</h2>
+                     <span style={{ background: fieldColors[selectedCompany.field]?.bg ?? "#f1f5f9", color: fieldColors[selectedCompany.field]?.text ?? "#475569", borderRadius: "999px", padding: "4px 10px", fontSize: "11px", fontWeight: 700 }}>{selectedCompany.field}</span>
                   </div>
-                  <div style={{ display: "grid", gap: "12px" }}>
+                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6 }}>{selectedCompany.description}</p>
+                  <p style={{ marginTop: "8px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
+                  <div style={{ marginTop: "16px", borderTop: "1px solid #e2e8f0", paddingTop: "16px" }}>
                      {selectedCompany.positions.map((position) => (
                         <article key={position.title} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "16px" }}>
                            <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", flexWrap: "wrap" }}>
                               <div style={{ flex: 1 }}>
                                  <h3 onClick={() => setSelectedPosition({ ...position, title: toVietnameseJobTitle(position.title), company: selectedCompany.name, place: selectedCompany.location })} style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", marginBottom: "8px", cursor: "pointer" }}>{toVietnameseJobTitle(position.title)}</h3>
                                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#10b981", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
+                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#059669", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
                                     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}><MapPin style={{ width: 13, height: 13 }} /> {selectedCompany.location}</span>
                                     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}>{position.workingHours}</span>
                                  </div>
@@ -680,7 +634,7 @@ export default function CompaniesPage() {
             </>
          )}
 
-         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, fill: "#fff" }} /></button>
+         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, color: "#fff" }} /></button>
 
          {showTray && (
             <>
