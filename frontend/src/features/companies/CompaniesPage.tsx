@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Star, Users, ArrowRight, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
@@ -114,6 +115,7 @@ const companyBannerItems = [
    },
 ];
 
+
 export const companies: CompanyItem[] = [
    { name: "NovaTech", field: "Technology", rating: "4.8", employees: "500-1000", location: "TP. HCM", openJobs: 5, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "N", description: "Công ty phần mềm tập trung vào sản phẩm doanh nghiệp.", benefits: ["Thưởng dự án", "BHYT", "Hybrid"], positions: [{ title: "Frontend React Developer", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.", skills: ["React", "TypeScript", "Figma"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Product Owner", salary: "35–50 triệu", workingHours: "9:00 - 18:00", description: "Lãnh đạo roadmap sản phẩm, hợp tác cùng đội kinh doanh và kỹ thuật.", skills: ["Product", "Stakeholder", "Strategy"] }, { title: "QA Automation Engineer", salary: "22–32 triệu", workingHours: "8:30 - 17:30", description: "Thiết kế kịch bản kiểm thử tự động cho sản phẩm nội bộ.", skills: ["Testing", "Selenium", "Automation"] }, { title: "UI Engineer", salary: "24–34 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống component và thiết kế tương tác trong thư viện UI.", skills: ["HTML", "CSS", "React"] }] },
    { name: "TechSolutions", field: "Technology", rating: "4.6", employees: "200-500", location: "Hà Nội", openJobs: 4, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "T", description: "Giải pháp công nghệ toàn diện cho doanh nghiệp.", benefits: ["Đào tạo", "Remote", "Thưởng"], positions: [{ title: "Software Engineer", salary: "28–40 triệu", workingHours: "9:00 - 18:00", description: "Phát triển phần mềm và ứng dụng.", skills: ["Java", "Spring", "Microservices"] }, { title: "DevOps Specialist", salary: "32–45 triệu", workingHours: "9:00 - 18:00", description: "Quản lý hạ tầng và triển khai.", skills: ["AWS", "Docker", "CI/CD"] }, { title: "Technical Project Manager", salary: "38–52 triệu", workingHours: "9:00 - 18:00", description: "Điều phối dự án và đảm bảo tiến độ giao hàng.", skills: ["PM", "Communication", "Agile"] }, { title: "Cloud Architect", salary: "40–55 triệu", workingHours: "9:00 - 18:00", description: "Thiết kế kiến trúc cloud cho giải pháp doanh nghiệp.", skills: ["Cloud", "Architecture", "Security"] }] },
@@ -168,6 +170,7 @@ const fieldColors: Record<string, { bg: string; text: string }> = {
 };
 
 export default function CompaniesPage() {
+
    const location = useLocation();
    const [selectedCompany, setSelectedCompany] = useState<CompanyItem | null>(null);
    const [selectedPosition, setSelectedPosition] = useState<any>(null);
@@ -475,6 +478,7 @@ export default function CompaniesPage() {
          </div>
       </article>
    );
+
 
    return (
       <div className="space-y-8">
