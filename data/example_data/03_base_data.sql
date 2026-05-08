@@ -1,0 +1,31 @@
+INSERT INTO categories (id, name, type) VALUES 
+(1, 'kinh doanh/Bán hàng', 'JOB_INDUSTRY'),
+(2, 'Marketing/PR/Quảng cáo', 'JOB_INDUSTRY'),
+(3, 'Chăm sóc khách hàng (Customer Service)', 'JOB_INDUSTRY'),
+(4, 'Nhân sự/Hành chính/Pháp chế', 'JOB_INDUSTRY'),
+(5, 'Công nghệ Thông tin', 'JOB_INDUSTRY'),
+(6, 'Lao động phổ thông', 'JOB_INDUSTRY'),
+(7, 'Tài chính/Ngân hàng/Bảo hiểm', 'JOB_INDUSTRY'),
+(8, 'Bất động sản', 'JOB_INDUSTRY'),
+(9, 'Xây dựng', 'JOB_INDUSTRY'),
+(10, 'Kế toán/Kiểm toán/Thuế', 'JOB_INDUSTRY'),
+(11, 'Sản xuất', 'JOB_INDUSTRY'),
+(12, 'Giáo dục/Đào tạo', 'JOB_INDUSTRY'),
+(13, 'Bán lẻ/Dịch vụ đời sống', 'JOB_INDUSTRY'),
+(14, 'Phim và truyền hình/Báo chí/Xuất bản', 'JOB_INDUSTRY'),
+(15, 'Điện/Điện tử/Viễn thông', 'JOB_INDUSTRY'),
+(16, 'Logistics/Thu mua/Kho/Vận tải', 'JOB_INDUSTRY'),
+(17, 'Tư vấn chuyên môn', 'JOB_INDUSTRY'),
+(18, 'Dược/Y tế/Sức khoẻ/Công nghệ sinh học', 'JOB_INDUSTRY'),
+(19, 'Thiết kế', 'JOB_INDUSTRY'),
+(20, 'Nhà hàng/Khách sạn/Du lịch', 'JOB_INDUSTRY'),
+(21, 'Năng lượng/Môi trường/Nông nghiệp', 'JOB_INDUSTRY'),
+(22, 'Tài xế', 'JOB_INDUSTRY'),
+(23, 'Biên phiên dịch', 'JOB_INDUSTRY'),
+(24, 'Luật', 'JOB_INDUSTRY'),
+(25, 'Nhóm nghề khác', 'JOB_INDUSTRY'),
+(26, 'Cẩm nang xin việc', 'BLOG_CATEGORY'),
+(27, 'Phỏng vấn', 'BLOG_CATEGORY');
+
+INSERT INTO skills (id, name) VALUES 
+(1, 'Java'), (2, 'Python'), (3, 'C++'), (4, 'SQL'), (5, 'Figma');
