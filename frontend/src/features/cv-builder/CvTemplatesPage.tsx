@@ -512,7 +512,7 @@ export default function CvTemplatesPage() {
          return;
       }
 
-      setIsCreateOpen(true);
+      navigate("/cv-editor")
    };
 
    const renderEntry = (entry: CvEntry) => (
