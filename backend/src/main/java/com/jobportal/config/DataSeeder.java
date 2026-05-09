@@ -3,7 +3,7 @@ package com.jobportal.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.init.ScriptUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,10 +19,9 @@ public class DataSeeder implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         System.out.println("Clearing old data...");
-
-        // Xóa toàn bộ data (Dùng CASCADE của PostgreSQL để tự động xóa các bảng phụ thuộc và bỏ qua ràng buộc khóa ngoại)
-        jdbcTemplate.execute("TRUNCATE TABLE jobs, companies CASCADE;");
-
+        jdbcTemplate.execute(
+            "TRUNCATE TABLE jobs, companies, categories, skills RESTART IDENTITY CASCADE;"
+        );
         String[] files = {
             "C:/WorkSpace/Web/Website-Analysis-and-Search-Career/data/example_data/03_base_data.sql",
             "C:/WorkSpace/Web/Website-Analysis-and-Search-Career/data/example_data/03_company_data.sql",
@@ -30,26 +29,22 @@ public class DataSeeder implements CommandLineRunner {
         };
 
         for (String file : files) {
-
             System.out.println("Executing: " + file);
 
-            try (java.sql.Connection conn =
-                         jdbcTemplate.getDataSource().getConnection()) {
-
-                ScriptUtils.executeSqlScript(
-                        conn,
-                        new FileSystemResource(file)
-                );
-
+            try {
+                ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+                populator.addScript(new FileSystemResource(file));
+                populator.setSqlScriptEncoding("UTF-8");
+                populator.setContinueOnError(true); // Ignore errors (duplicate keys, etc.) and continue
+                populator.execute(jdbcTemplate.getDataSource());
+                
                 System.out.println("Done: " + file);
-
             } catch (Exception e) {
-
-                System.out.println("Error in file: " + file);
+                System.out.println("Error reading or executing file: " + file);
                 e.printStackTrace();
             }
         }
-
+        
         System.out.println("Database reseeded successfully.");
     }
 }
