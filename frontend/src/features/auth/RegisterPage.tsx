@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, User, Mail, Lock, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
-import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
-import { Eye, EyeOff, Sparkles, User, Mail, Lock, CheckCircle2 } from "lucide-react";
+import { Eye, EyeOff, User, Mail, Lock, CheckCircle2, Sparkles } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 import { loginWithGoogle, registerUser } from "../../services/authApi";
 import { setAuthUser } from "../../utils/auth";
 

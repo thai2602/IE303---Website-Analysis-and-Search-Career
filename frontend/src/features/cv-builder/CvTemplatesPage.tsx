@@ -1,6 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Download, Eye, X } from "lucide-react";
 import { Download, Eye, Sparkles, X } from "lucide-react";
 import profilePicture1 from "../../assets/profile_picture/image_1.png";
 import profilePicture2 from "../../assets/profile_picture/image_2.png";

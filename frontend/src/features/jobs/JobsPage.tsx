@@ -523,7 +523,63 @@ export default function JobsPage() {
    const [selectedJob, setSelectedJob] = useState<any>(null);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
-   const activeGroupJobs = selectedGroup ? jobsByGroup[selectedGroup] ?? [] : [];
+   // --- API jobs state ---
+   const [apiJobs, setApiJobs] = useState<Job[]>([]);
+   const [isLoadingJobs, setIsLoadingJobs] = useState(true);
+
+   // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
+   useEffect(() => {
+      fetch("http://localhost:8080/api/jobs")
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json() as Promise<Array<{
+               id: number; title: string; slug: string;
+               company: { name: string; color: string; description: string; logoUrl?: string };
+               jobType: string; locationCity: string; description: string;
+               salaryMin: number; salaryMax: number;
+            }>>;
+         })
+         .then((apiData) => {
+            if (!apiData || apiData.length === 0) {
+               setApiJobs(companyJobs);
+               return;
+            }
+            // Map API data -> Job
+            const mapped: Job[] = apiData.map((apiItem) => ({
+               title: apiItem.title,
+               company: apiItem.company.name,
+               companyColor: apiItem.company.color || "#0ea5e9",
+               companyDescription: apiItem.company.description || "",
+               description: apiItem.description,
+               place: apiItem.locationCity,
+               field: "Nhóm ngành khác", // Default field
+               type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
+               salary: `${(apiItem.salaryMin / 1000000).toFixed(0)}–${(apiItem.salaryMax / 1000000).toFixed(0)} triệu`,
+               tags: [],
+               hot: false,
+               posted: "Vừa cập nhật",
+               image: apiItem.company.logoUrl || image1,
+               companyUrl: "/cong-ty",
+            }));
+            setApiJobs(mapped);
+         })
+         .catch(() => {
+            setApiJobs(companyJobs);
+         })
+         .finally(() => setIsLoadingJobs(false));
+   }, []);
+
+   const displayedJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
+
+   // Tái cấu trúc jobsByGroup dựa trên displayedJobsList
+   const jobsByGroupComputed: Record<string, Job[]> = careerGroups.reduce((acc, group) => {
+      acc[group.name] = displayedJobsList.filter((job) => job.field === group.name || (group.name === "Nhóm ngành khác" && job.field === "Nhóm ngành khác"));
+      return acc;
+   }, {} as Record<string, Job[]>);
+
+   const visibleCareerGroupsComputed = careerGroups.filter((group) => (jobsByGroupComputed[group.name]?.length ?? 0) > 0);
+
+   const activeGroupJobs = selectedGroup ? jobsByGroupComputed[selectedGroup] ?? [] : [];
 
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
@@ -873,7 +929,7 @@ export default function JobsPage() {
                Danh sách nghề nghiệp
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-               {visibleCareerGroups.map((group) => (
+               {visibleCareerGroupsComputed.map((group) => (
                   <div
                      key={group.name}
                      style={{

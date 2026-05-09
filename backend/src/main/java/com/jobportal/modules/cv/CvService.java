@@ -67,13 +67,16 @@ public class CvService {
         cv.setFileUrl(dto.getFileUrl());
 
         // Process Skills
+        // Only save skills that have a valid skillId (references the skills lookup table).
+        // Free-text skills from the frontend (skillName only, no skillId) are stored in cvData JSON.
         if (dto.getSkills() != null) {
+            java.util.Set<Long> seenSkillIds = new java.util.HashSet<>();
             for (UserCvRequestDTO.SkillDTO s : dto.getSkills()) {
+                if (s.getSkillId() == null) continue; // skip free-text skills — stored in cvData
+                if (!seenSkillIds.add(s.getSkillId())) continue; // skip duplicate skillIds
                 UserCvSkill skill = new UserCvSkill();
-                // Assign Id using EmbeddedId approach or directly set values
                 UserCvSkill.UserCvSkillId skillId = new UserCvSkill.UserCvSkillId();
                 skillId.setSkillId(s.getSkillId());
-                // Note: cvId is set after cv is saved, but JPA handles mappedBy when added to list
                 skill.setId(skillId);
                 skill.setSkillId(s.getSkillId());
                 skill.setLevel(s.getLevel());

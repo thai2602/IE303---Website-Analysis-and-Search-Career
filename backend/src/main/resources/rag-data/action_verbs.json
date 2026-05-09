@@ -1,0 +1,7 @@
+{
+  "management": ["Coordinated", "Executed", "Led", "Managed", "Orchestrated", "Organized", "Oversaw", "Produced", "Programmed"],
+  "communication": ["Addressed", "Authored", "Corresponded", "Directed", "Drafted", "Edited", "Formulated", "Influenced", "Persuaded", "Promoted"],
+  "technical": ["Architected", "Built", "Deployed", "Engineered", "Implemented", "Integrated", "Maintained", "Migrated", "Optimized", "Upgraded"],
+  "analytical": ["Analyzed", "Assessed", "Evaluated", "Identified", "Investigated", "Mapped", "Modeled", "Researched", "Tested"],
+  "achievement": ["Accelerated", "Achieved", "Boosted", "Completed", "Delivered", "Enhanced", "Expanded", "Generated", "Improved", "Maximized", "Reduced", "Resolved", "Saved"]
+}

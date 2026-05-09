@@ -1,5 +1,7 @@
 package com.jobportal.modules.cv;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jobportal.modules.user.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,10 +26,12 @@ public class UserCv {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "template_id")
     private CvTemplate template;

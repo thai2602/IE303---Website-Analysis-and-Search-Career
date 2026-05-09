@@ -1,5 +1,6 @@
-package com.jobportal.modules.cv;
+﻿package com.jobportal.modules.cv;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class UserCvAttachment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_id", nullable = false)
     private UserCv cv;
@@ -33,3 +35,4 @@ public class UserCvAttachment {
     @Column(columnDefinition = "TEXT")
     private String description;
 }
+

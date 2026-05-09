@@ -1,5 +1,6 @@
-package com.jobportal.modules.cv;
+﻿package com.jobportal.modules.cv;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class UserCvEducation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cv_id", nullable = false)
     private UserCv cv;
@@ -30,3 +32,4 @@ public class UserCvEducation {
     @Column(name = "end_date", length = 20)
     private String endDate;
 }
+

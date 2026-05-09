@@ -1,5 +1,6 @@
-package com.jobportal.modules.cv;
+﻿package com.jobportal.modules.cv;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
@@ -62,3 +63,4 @@ public class UserCvSkill {
         }
     }
 }
+

@@ -1,15 +1,10 @@
 import { Link } from "react-router-dom";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
-import { type FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { clearAuthUser, readAuthUser, setAuthUser } from "../../utils/auth";
-import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
-
-import { Eye, EyeOff, Sparkles, ArrowRight } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { clearAuthUser, readAuthUser, setAuthUser } from "../../utils/auth";
 import { loginUser, loginWithGoogle } from "../../services/authApi";
+import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 
 const GOOGLE_CLIENT_ID = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined)?.trim() || "";
 
@@ -119,10 +114,14 @@ export default function LoginPage() {
       setErrorMessage("");
 
       try {
-         await loginUser({
+         const loginRes = await loginUser({
             email: trimmedEmail,
             password: password.trim(),
          });
+
+         if (loginRes.accessToken) {
+            localStorage.setItem("accessToken", loginRes.accessToken);
+         }
 
          setAuthUser({
             name: buildNameFromEmail(trimmedEmail),
@@ -176,7 +175,11 @@ export default function LoginPage() {
                      throw new Error("Không lấy được Google ID token.");
                   }
 
-                  await loginWithGoogle({ idToken: response.credential });
+                  const loginRes = await loginWithGoogle({ idToken: response.credential });
+
+                  if (loginRes.accessToken) {
+                     localStorage.setItem("accessToken", loginRes.accessToken);
+                  }
 
                   const userEmail = decodeGoogleEmail(response.credential);
                   if (!userEmail) {
@@ -386,6 +389,7 @@ export default function LoginPage() {
                            onClick={() => {
                               clearAuthUser();
                               setCurrentUser(null);
+                              localStorage.removeItem("accessToken");
                            }}
                         >
                            Đăng xuất

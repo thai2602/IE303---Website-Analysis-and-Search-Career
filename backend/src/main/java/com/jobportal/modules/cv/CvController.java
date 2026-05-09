@@ -14,6 +14,7 @@ import java.util.List;
 public class CvController {
 
     private final CvService cvService;
+    private final CvExtractionAgnosticService cvExtractionService;
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<UserCv>> getUserCvs(@PathVariable Long userId) {
@@ -41,5 +42,15 @@ public class CvController {
     public ResponseEntity<Void> deleteCv(@PathVariable Long id) {
         cvService.deleteCv(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping(value = "/extract", consumes = org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<UserCvRequestDTO> extractCvData(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
+        try {
+            UserCvRequestDTO extractedData = cvExtractionService.extractCvData(file);
+            return ResponseEntity.ok(extractedData);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

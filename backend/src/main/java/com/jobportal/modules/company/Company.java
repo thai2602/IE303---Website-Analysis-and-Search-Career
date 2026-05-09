@@ -23,6 +23,9 @@ public class Company {
     @Column(name = "logo_url", columnDefinition = "TEXT")
     private String logoUrl;
 
+    @Column(length = 20)
+    private String color;
+
     private String website;
 
     @Column(name = "tax_code", length = 100)
@@ -66,6 +69,8 @@ public class Company {
     public void setSlug(String slug) { this.slug = slug; }
     public String getLogoUrl() { return logoUrl; }
     public void setLogoUrl(String logoUrl) { this.logoUrl = logoUrl; }
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
     public String getWebsite() { return website; }
     public void setWebsite(String website) { this.website = website; }
     public String getTaxCode() { return taxCode; }
@@ -88,4 +93,16 @@ public class Company {
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
     public Boolean getIsDeleted() { return isDeleted; }
     public void setIsDeleted(Boolean isDeleted) { this.isDeleted = isDeleted; }
+
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @com.fasterxml.jackson.annotation.JsonIgnoreProperties("company")
+    private java.util.List<com.jobportal.modules.job.Job> positions;
+    
+    public java.util.List<com.jobportal.modules.job.Job> getPositions() {
+        return positions;
+    }
+    
+    public void setPositions(java.util.List<com.jobportal.modules.job.Job> positions) {
+        this.positions = positions;
+    }
 }

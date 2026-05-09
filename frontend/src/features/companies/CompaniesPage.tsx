@@ -41,6 +41,7 @@ import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
 
 type CompanyPosition = {
+   id?: number;
    title: string;
    salary: string;
    workingHours: string;
@@ -181,6 +182,73 @@ export default function CompaniesPage() {
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
+   // --- API companies state ---
+   const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
+   const [isLoadingCompanies, setIsLoadingCompanies] = useState(true);
+
+   // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
+   useEffect(() => {
+      fetch("http://localhost:8080/api/companies")
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+               return res.json() as Promise<Array<{
+                  id: number; name: string; slug: string; size?: string;
+                  description?: string; benefits?: string; isFeatured?: boolean;
+                  color?: string; positions?: any[];
+               }>>;
+         })
+         .then((apiData) => {
+            if (!apiData || apiData.length === 0) {
+               setApiCompanies(companies);
+               return;
+            }
+            // Map API data -> CompanyItem, filling missing fields from static data
+            const merged: CompanyItem[] = apiData.map((apiItem, idx) => {
+               // Tìm company tĩnh tương ứng theo tên
+               const staticMatch = companies.find(
+                  (c) => c.name.toLowerCase() === apiItem.name.toLowerCase()
+               );
+               if (staticMatch) return { ...staticMatch };
+               // Fallback cho công ty chỉ có trong DB
+               const benefitsArr = apiItem.benefits?.split(",").map((b) => b.trim()).filter(Boolean) ?? [];
+               
+               const mappedPositions = apiItem.positions?.map((pos: any) => ({
+                  id: pos.id,
+                  title: pos.title,
+                  salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
+                  workingHours: pos.jobType || "Toàn thời gian",
+                  description: pos.description || "Mô tả công việc đang được cập nhật.",
+                  skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
+               })) || [];
+
+               return {
+                  name: apiItem.name,
+                  field: "Technology",
+                  rating: "4.5",
+                  employees: apiItem.size ?? "Đang cập nhật",
+                  location: "Việt Nam",
+                  openJobs: mappedPositions.length,
+                  color: apiItem.color || "#6366f1",
+                  bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+                  initial: apiItem.name.charAt(0).toUpperCase(),
+                  description: apiItem.description ?? "Thông tin đang được cập nhật.",
+                  benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
+                  positions: mappedPositions,
+                  image: companyAvatars[idx % companyAvatars.length],
+               } as CompanyItem;
+            });
+            setApiCompanies(merged);
+         })
+         .catch(() => {
+            // Fallback về data tĩnh khi backend offline
+            setApiCompanies(companies);
+         })
+         .finally(() => setIsLoadingCompanies(false));
+   }, []);
+
+   // Danh sách hiển thị: dùng apiCompanies khi đã load xong, fallback về companies tĩnh khi đang load
+   const displayedCompanies = isLoadingCompanies ? companies : (apiCompanies.length > 0 ? apiCompanies : companies);
+
    useEffect(() => {
       const interval = setInterval(() => {
          setBannerIndex((current) => (current + 1) % companyBannerItems.length);
@@ -266,11 +334,11 @@ export default function CompaniesPage() {
       setToast({ message, kind });
    };
 
-   const uniqueFields = Array.from(new Set(companies.map(c => c.field)));
+   const uniqueFields = Array.from(new Set(displayedCompanies.map(c => c.field)));
    const filters = ["Tất cả", ...uniqueFields];
-   const filteredCompanies = selectedFilter === "Tất cả" ? companies : companies.filter(c => c.field === selectedFilter);
+   const filteredCompanies = selectedFilter === "Tất cả" ? displayedCompanies : displayedCompanies.filter(c => c.field === selectedFilter);
 
-   const addApplication = (job: any) => {
+   const addApplication = async (job: any) => {
       if (!readAuthUser()) {
          showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error");
          return;
@@ -286,7 +354,23 @@ export default function CompaniesPage() {
          return;
       }
 
-      const id = `${job.company}-${job.title}-${Date.now()}`;
+      if (job.id) {
+         try {
+            const token = localStorage.getItem("token");
+            const res = await fetch("http://localhost:8080/api/applications", {
+               method: "POST",
+               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+               body: JSON.stringify({ jobId: job.id, cvId: 1 }) // Hardcode cvId for now as the user has a CV check
+            });
+            if (!res.ok) {
+               console.warn("Could not save application to server");
+            }
+         } catch (e) {
+            console.error(e);
+         }
+      }
+
+      const id = job.id ? `api-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
       setApplications([
          {
             ...job,
@@ -300,12 +384,29 @@ export default function CompaniesPage() {
       showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
    };
 
-   const addSavedJob = (job: any) => {
+   const addSavedJob = async (job: any) => {
       if (savedJobs.some((item) => item.company === job.company && item.title === job.title)) {
          showToast("Công việc này đã có trong mục đã lưu.", "error");
          return;
       }
-      const id = `${job.company}-${job.title}-${Date.now()}`;
+
+      if (job.id && readAuthUser()) {
+         try {
+            const token = localStorage.getItem("token");
+            const res = await fetch("http://localhost:8080/api/saved-jobs", {
+               method: "POST",
+               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+               body: JSON.stringify({ jobId: job.id })
+            });
+            if (!res.ok) {
+               console.warn("Could not save job to server");
+            }
+         } catch (e) {
+            console.error(e);
+         }
+      }
+
+      const id = job.id ? `api-saved-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
       setSavedJobs([{ ...job, id, savedAt: new Date().toLocaleString("vi-VN") }, ...savedJobs]);
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
@@ -627,8 +728,8 @@ export default function CompaniesPage() {
                                  <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>{position.skills.map((skill) => <span key={skill} style={{ background: "#e0f2fe", color: "#0369a1", borderRadius: 8, padding: "3px 8px", fontSize: 11, fontWeight: 600 }}>{skill}</span>)}</div>
                               </div>
                               <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
-                                 <button onClick={() => addSavedJob({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
-                                 <button onClick={() => addApplication({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
+                                 <button onClick={() => addSavedJob({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
+                                 <button onClick={() => addApplication({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
                               </div>
                            </div>
                         </article>

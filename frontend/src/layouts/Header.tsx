@@ -144,6 +144,12 @@ export default function Header() {
                               >
                                  Công việc đã ứng tuyển
                               </Link>
+                              <Link
+                                 to="/cv-editor"
+                                 className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-emerald-50 hover:text-emerald-700"
+                              >
+                                 Edit CV
+                              </Link>
                               <button
                                  onClick={() => clearAuthUser()}
                                  className="block w-full rounded-xl px-3 py-2 text-left text-sm font-semibold text-rose-600 transition-colors hover:bg-rose-50"

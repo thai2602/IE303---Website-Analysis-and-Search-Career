@@ -30,6 +30,7 @@ public class UserCvRequestDTO {
     @Data
     public static class SkillDTO {
         private Long skillId;
+        private String skillName;
         private String level;
     }
 
