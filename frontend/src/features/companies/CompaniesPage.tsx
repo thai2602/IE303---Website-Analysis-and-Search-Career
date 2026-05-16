@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Star, Users, ArrowRight, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
+import { Star, Users, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
 import image3 from "../../assets/company_logo/image_3.png";
@@ -32,6 +32,26 @@ import image27 from "../../assets/company_logo/image_27.png";
 import image28 from "../../assets/company_logo/image_28.png";
 import image29 from "../../assets/company_logo/image_29.png";
 import image30 from "../../assets/company_logo/image_30.png";
+import companyImage1 from "../../assets/company_image/image_01.png";
+import companyImage2 from "../../assets/company_image/image_02.png";
+import companyImage3 from "../../assets/company_image/image_03.png";
+import companyImage4 from "../../assets/company_image/image_04.png";
+import companyImage5 from "../../assets/company_image/image_05.png";
+import companyImage6 from "../../assets/company_image/image_06.png";
+import companyImage7 from "../../assets/company_image/image_07.png";
+import companyImage8 from "../../assets/company_image/image_08.png";
+import companyImage9 from "../../assets/company_image/image_09.png";
+import companyImage10 from "../../assets/company_image/image_10.png";
+import companyImage11 from "../../assets/company_image/image_11.png";
+import companyImage12 from "../../assets/company_image/image_12.png";
+import companyImage13 from "../../assets/company_image/image_13.png";
+import companyImage14 from "../../assets/company_image/image_14.png";
+import companyImage15 from "../../assets/company_image/image_15.png";
+import companyImage16 from "../../assets/company_image/image_16.png";
+import companyImage17 from "../../assets/company_image/image_17.png";
+import companyImage18 from "../../assets/company_image/image_18.png";
+import companyImage19 from "../../assets/company_image/image_19.png";
+import companyImage20 from "../../assets/company_image/image_20.png";
 import banner1 from "../../assets/banner/company/image_1.png";
 import banner2 from "../../assets/banner/company/image_2.png";
 import banner3 from "../../assets/banner/company/image_3.png";
@@ -41,6 +61,7 @@ import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
 
 type CompanyPosition = {
+   id?: number;
    title: string;
    salary: string;
    workingHours: string;
@@ -59,9 +80,17 @@ type CompanyItem = {
    bg: string;
    initial: string;
    description: string;
+   introduction?: string;
    benefits: string[];
    positions: CompanyPosition[];
    image?: string;
+   companyImage?: string;
+   contact?: {
+      email: string;
+      phone: string;
+      website: string;
+   };
+   terms?: string[];
 };
 
 const companyAvatars = [
@@ -97,6 +126,29 @@ const companyAvatars = [
    image30,
 ];
 
+const companyImages = [
+   companyImage1,
+   companyImage2,
+   companyImage3,
+   companyImage4,
+   companyImage5,
+   companyImage6,
+   companyImage7,
+   companyImage8,
+   companyImage9,
+   companyImage10,
+   companyImage11,
+   companyImage12,
+   companyImage13,
+   companyImage14,
+   companyImage15,
+   companyImage16,
+   companyImage17,
+   companyImage18,
+   companyImage19,
+   companyImage20,
+];
+
 const companyBannerItems = [
    {
       image: banner1,
@@ -117,11 +169,11 @@ const companyBannerItems = [
 
 
 export const companies: CompanyItem[] = [
-   { name: "NovaTech", field: "Technology", rating: "4.8", employees: "500-1000", location: "TP. HCM", openJobs: 5, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "N", description: "Công ty phần mềm tập trung vào sản phẩm doanh nghiệp.", benefits: ["Thưởng dự án", "BHYT", "Hybrid"], positions: [{ title: "Frontend React Developer", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.", skills: ["React", "TypeScript", "Figma"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Product Owner", salary: "35–50 triệu", workingHours: "9:00 - 18:00", description: "Lãnh đạo roadmap sản phẩm, hợp tác cùng đội kinh doanh và kỹ thuật.", skills: ["Product", "Stakeholder", "Strategy"] }, { title: "QA Automation Engineer", salary: "22–32 triệu", workingHours: "8:30 - 17:30", description: "Thiết kế kịch bản kiểm thử tự động cho sản phẩm nội bộ.", skills: ["Testing", "Selenium", "Automation"] }, { title: "UI Engineer", salary: "24–34 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống component và thiết kế tương tác trong thư viện UI.", skills: ["HTML", "CSS", "React"] }] },
-   { name: "TechSolutions", field: "Technology", rating: "4.6", employees: "200-500", location: "Hà Nội", openJobs: 4, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "T", description: "Giải pháp công nghệ toàn diện cho doanh nghiệp.", benefits: ["Đào tạo", "Remote", "Thưởng"], positions: [{ title: "Software Engineer", salary: "28–40 triệu", workingHours: "9:00 - 18:00", description: "Phát triển phần mềm và ứng dụng.", skills: ["Java", "Spring", "Microservices"] }, { title: "DevOps Specialist", salary: "32–45 triệu", workingHours: "9:00 - 18:00", description: "Quản lý hạ tầng và triển khai.", skills: ["AWS", "Docker", "CI/CD"] }, { title: "Technical Project Manager", salary: "38–52 triệu", workingHours: "9:00 - 18:00", description: "Điều phối dự án và đảm bảo tiến độ giao hàng.", skills: ["PM", "Communication", "Agile"] }, { title: "Cloud Architect", salary: "40–55 triệu", workingHours: "9:00 - 18:00", description: "Thiết kế kiến trúc cloud cho giải pháp doanh nghiệp.", skills: ["Cloud", "Architecture", "Security"] }] },
-   { name: "GreenRetail", field: "Ecommerce", rating: "4.5", employees: "200-500", location: "Hà Nội", openJobs: 3, color: "#10b981", bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)", initial: "G", description: "Nền tảng thương mại điện tử và bán lẻ đa kênh.", benefits: ["Phụ cấp ăn uống", "Thưởng KPI", "Nghỉ linh hoạt"], positions: [{ title: "Ecommerce Manager", salary: "20–30 triệu", workingHours: "9:00 - 18:00", description: "Quản lý gian hàng và tăng trưởng doanh thu.", skills: ["Ecommerce", "Marketing", "Analytics"] }, { title: "CSKH", salary: "12–18 triệu", workingHours: "9:00 - 18:00", description: "Hỗ trợ khách hàng và xử lý đơn hàng.", skills: ["Giao tiếp", "CSKH", "Xử lý tình huống"] }, { title: "Digital Merchandiser", salary: "16–24 triệu", workingHours: "9:00 - 18:00", description: "Tối ưu hoá hiển thị sản phẩm và chương trình khuyến mại.", skills: ["Merchandising", "Data", "Visual"] }] },
-   { name: "Medigo Labs", field: "Healthcare", rating: "4.7", employees: "100-200", location: "TP. HCM", openJobs: 4, color: "#0ea5e9", bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)", initial: "M", description: "Giải pháp công nghệ cho y tế và chăm sóc sức khỏe.", benefits: ["Bảo hiểm", "Remote", "Đào tạo"], positions: [{ title: "HealthTech Developer", salary: "28–40 triệu", workingHours: "8:30 - 17:30", description: "Xây dựng sản phẩm y tế số.", skills: ["React", "API", "Product thinking"] }, { title: "Data Analyst", salary: "20–30 triệu", workingHours: "8:30 - 17:30", description: "Phân tích dữ liệu nghiệp vụ y tế.", skills: ["SQL", "Excel", "Visualization"] }, { title: "Clinical Product Manager", salary: "32–45 triệu", workingHours: "9:00 - 18:00", description: "Phát triển sản phẩm phục vụ chăm sóc sức khỏe.", skills: ["Product", "Healthcare", "Research"] }, { title: "Medical Software Tester", salary: "18–26 triệu", workingHours: "8:30 - 17:30", description: "Kiểm thử và đánh giá phần mềm y tế.", skills: ["Testing", "Quality", "Healthcare"] }] },
-   { name: "HealthCare Plus", field: "Healthcare", rating: "4.8", employees: "300-600", location: "Hà Nội", openJobs: 4, color: "#0ea5e9", bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)", initial: "H", description: "Dịch vụ chăm sóc sức khỏe toàn diện.", benefits: ["Bảo hiểm y tế", "Đào tạo", "Phụ cấp"], positions: [{ title: "Healthcare Administrator", salary: "18–28 triệu", workingHours: "8:00 - 17:00", description: "Điều phối vận hành y tế và quy trình hành chính.", skills: ["Admin", "Healthcare", "Coordination"] }, { title: "Clinical Support", salary: "15–22 triệu", workingHours: "8:00 - 17:00", description: "Hỗ trợ chuyên môn và hồ sơ bệnh nhân.", skills: ["Patient care", "Documentation", "Communication"] }, { title: "Medical Billing Specialist", salary: "17–24 triệu", workingHours: "8:00 - 17:00", description: "Xử lý hóa đơn và thanh toán bảo hiểm.", skills: ["Billing", "Attention to detail", "Healthcare"] }, { title: "Care Coordinator", salary: "16–23 triệu", workingHours: "8:00 - 17:00", description: "Điều phối dịch vụ chăm sóc cho bệnh nhân.", skills: ["Coordination", "Customer service", "Healthcare"] }] },
+   { name: "NovaTech", field: "Technology", rating: "4.8", employees: "500-1000", location: "TP. HCM", openJobs: 5, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "N", description: "Công ty phần mềm tập trung vào sản phẩm doanh nghiệp.", introduction: "NovaTech là công ty phần mềm hàng đầu phát triển giải pháp doanh nghiệp với trọng tâm vào quản lý dữ liệu và tự động hóa quy trình. Đội ngũ của NovaTech làm việc trong môi trường sáng tạo, áp dụng công nghệ hiện đại để mang lại sản phẩm ổn định và giá trị lâu dài cho khách hàng.", benefits: ["Thưởng dự án", "BHYT", "Hybrid"], positions: [{ title: "Frontend React Developer", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.", skills: ["React", "TypeScript", "Figma"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Product Owner", salary: "35–50 triệu", workingHours: "9:00 - 18:00", description: "Lãnh đạo roadmap sản phẩm, hợp tác cùng đội kinh doanh và kỹ thuật.", skills: ["Product", "Stakeholder", "Strategy"] }, { title: "QA Automation Engineer", salary: "22–32 triệu", workingHours: "8:30 - 17:30", description: "Thiết kế kịch bản kiểm thử tự động cho sản phẩm nội bộ.", skills: ["Testing", "Selenium", "Automation"] }, { title: "UI Engineer", salary: "24–34 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống component và thiết kế tương tác trong thư viện UI.", skills: ["HTML", "CSS", "React"] }] },
+   { name: "TechSolutions", field: "Technology", rating: "4.6", employees: "200-500", location: "Hà Nội", openJobs: 4, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "T", description: "Giải pháp công nghệ toàn diện cho doanh nghiệp.", introduction: "TechSolutions cung cấp hệ thống kỹ thuật tích hợp và dịch vụ chuyển đổi số cho doanh nghiệp vừa và lớn. Công ty đặt trọng tâm vào tư vấn chiến lược, phát triển giải pháp tùy chỉnh và hỗ trợ vận hành ổn định, giúp khách hàng tối ưu hóa hiệu suất và tăng tốc câu chuyện số.", benefits: ["Đào tạo", "Remote", "Thưởng"], positions: [{ title: "Software Engineer", salary: "28–40 triệu", workingHours: "9:00 - 18:00", description: "Phát triển phần mềm và ứng dụng.", skills: ["Java", "Spring", "Microservices"] }, { title: "DevOps Specialist", salary: "32–45 triệu", workingHours: "9:00 - 18:00", description: "Quản lý hạ tầng và triển khai.", skills: ["AWS", "Docker", "CI/CD"] }, { title: "Technical Project Manager", salary: "38–52 triệu", workingHours: "9:00 - 18:00", description: "Điều phối dự án và đảm bảo tiến độ giao hàng.", skills: ["PM", "Communication", "Agile"] }, { title: "Cloud Architect", salary: "40–55 triệu", workingHours: "9:00 - 18:00", description: "Thiết kế kiến trúc cloud cho giải pháp doanh nghiệp.", skills: ["Cloud", "Architecture", "Security"] }] },
+   { name: "GreenRetail", field: "Ecommerce", rating: "4.5", employees: "200-500", location: "Hà Nội", openJobs: 3, color: "#10b981", bg: "linear-gradient(135deg, #ecfdf5, #d1fae5)", initial: "G", description: "Nền tảng thương mại điện tử và bán lẻ đa kênh.", introduction: "GreenRetail phát triển nền tảng thương mại điện tử xanh và kết nối trực tiếp giữa nhà bán lẻ với người tiêu dùng. Công ty chú trọng logistics hiệu quả, trải nghiệm mua sắm thân thiện và giải pháp bền vững cho ngành bán lẻ hiện đại.", benefits: ["Phụ cấp ăn uống", "Thưởng KPI", "Nghỉ linh hoạt"], positions: [{ title: "Ecommerce Manager", salary: "20–30 triệu", workingHours: "9:00 - 18:00", description: "Quản lý gian hàng và tăng trưởng doanh thu.", skills: ["Ecommerce", "Marketing", "Analytics"] }, { title: "CSKH", salary: "12–18 triệu", workingHours: "9:00 - 18:00", description: "Hỗ trợ khách hàng và xử lý đơn hàng.", skills: ["Giao tiếp", "CSKH", "Xử lý tình huống"] }, { title: "Digital Merchandiser", salary: "16–24 triệu", workingHours: "9:00 - 18:00", description: "Tối ưu hoá hiển thị sản phẩm và chương trình khuyến mại.", skills: ["Merchandising", "Data", "Visual"] }] },
+   { name: "Medigo Labs", field: "Healthcare", rating: "4.7", employees: "100-200", location: "TP. HCM", openJobs: 4, color: "#0ea5e9", bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)", initial: "M", description: "Giải pháp công nghệ cho y tế và chăm sóc sức khỏe.", introduction: "Medigo Labs tạo nên những giải pháp công nghệ thông minh cho lĩnh vực y tế, giúp kết nối dữ liệu bệnh nhân, bác sĩ và hệ thống chăm sóc sức khỏe. Công ty tập trung vào tính chính xác, bảo mật và trải nghiệm người dùng để cải thiện hiệu quả điều trị và vận hành bệnh viện.", benefits: ["Bảo hiểm", "Remote", "Đào tạo"], positions: [{ title: "HealthTech Developer", salary: "28–40 triệu", workingHours: "8:30 - 17:30", description: "Xây dựng sản phẩm y tế số.", skills: ["React", "API", "Product thinking"] }, { title: "Data Analyst", salary: "20–30 triệu", workingHours: "8:30 - 17:30", description: "Phân tích dữ liệu nghiệp vụ y tế.", skills: ["SQL", "Excel", "Visualization"] }, { title: "Clinical Product Manager", salary: "32–45 triệu", workingHours: "9:00 - 18:00", description: "Phát triển sản phẩm phục vụ chăm sóc sức khỏe.", skills: ["Product", "Healthcare", "Research"] }, { title: "Medical Software Tester", salary: "18–26 triệu", workingHours: "8:30 - 17:30", description: "Kiểm thử và đánh giá phần mềm y tế.", skills: ["Testing", "Quality", "Healthcare"] }] },
+   { name: "HealthCare Plus", field: "Healthcare", rating: "4.8", employees: "300-600", location: "Hà Nội", openJobs: 4, color: "#0ea5e9", bg: "linear-gradient(135deg, #f0f9ff, #bae6fd)", initial: "H", description: "Dịch vụ chăm sóc sức khỏe toàn diện.", introduction: "HealthCare Plus cung cấp hệ sinh thái chăm sóc sức khỏe toàn diện với bệnh viện, phòng khám và các dịch vụ chăm sóc tại nhà. Công ty hoạt động với tinh thần nhân văn và chú trọng đào tạo chuyên môn, giúp người lao động phát triển bền vững trong ngành y tế.", benefits: ["Bảo hiểm y tế", "Đào tạo", "Phụ cấp"], positions: [{ title: "Healthcare Administrator", salary: "18–28 triệu", workingHours: "8:00 - 17:00", description: "Điều phối vận hành y tế và quy trình hành chính.", skills: ["Admin", "Healthcare", "Coordination"] }, { title: "Clinical Support", salary: "15–22 triệu", workingHours: "8:00 - 17:00", description: "Hỗ trợ chuyên môn và hồ sơ bệnh nhân.", skills: ["Patient care", "Documentation", "Communication"] }, { title: "Medical Billing Specialist", salary: "17–24 triệu", workingHours: "8:00 - 17:00", description: "Xử lý hóa đơn và thanh toán bảo hiểm.", skills: ["Billing", "Attention to detail", "Healthcare"] }, { title: "Care Coordinator", salary: "16–23 triệu", workingHours: "8:00 - 17:00", description: "Điều phối dịch vụ chăm sóc cho bệnh nhân.", skills: ["Coordination", "Customer service", "Healthcare"] }] },
    { name: "Finverse", field: "Finance", rating: "4.6", employees: "1000+", location: "Đà Nẵng", openJobs: 5, color: "#f59e0b", bg: "linear-gradient(135deg, #fffbeb, #fde68a)", initial: "F", description: "Dịch vụ tài chính số và quản lý tài sản cá nhân.", benefits: ["Lương cao", "Thưởng", "Phụ cấp công nghệ"], positions: [{ title: "Fintech Analyst", salary: "25–35 triệu", workingHours: "8:00 - 17:00", description: "Phân tích nghiệp vụ tài chính và dữ liệu.", skills: ["Finance", "Data", "SQL"] }, { title: "Product Manager", salary: "35–50 triệu", workingHours: "8:00 - 17:00", description: "Quản lý roadmap và phối hợp đa phòng ban.", skills: ["Product", "Strategy", "Communication"] }, { title: "Risk Analyst", salary: "28–38 triệu", workingHours: "8:00 - 17:00", description: "Đánh giá rủi ro tín dụng và quy trình tuân thủ.", skills: ["Risk", "Analysis", "Regulations"] }, { title: "Wealth Advisor", salary: "30–45 triệu", workingHours: "9:00 - 18:00", description: "Tư vấn đầu tư cá nhân và kế hoạch tài chính.", skills: ["Advisory", "Finance", "Sales"] }, { title: "Data Engineer", salary: "32–45 triệu", workingHours: "8:00 - 17:00", description: "Xây dựng pipeline dữ liệu cho sản phẩm tài chính.", skills: ["Python", "ETL", "Big Data"] }] },
    { name: "BluePixel", field: "Design", rating: "4.9", employees: "50-100", location: "Hà Nội", openJobs: 4, color: "#ec4899", bg: "linear-gradient(135deg, #fce7f3, #fbcfe8)", initial: "B", description: "Agency thiết kế sáng tạo và trải nghiệm số.", benefits: ["Sáng tạo", "Workshop", "Thiết bị tốt"], positions: [{ title: "UI/UX Designer", salary: "18–28 triệu", workingHours: "9:00 - 18:00", description: "Thiết kế giao diện và trải nghiệm người dùng cho ứng dụng di động và web.", skills: ["Figma", "Prototyping", "User Research"] }, { title: "Motion Designer", salary: "20–30 triệu", workingHours: "9:00 - 18:00", description: "Thiết kế chuyển động và visual.", skills: ["After Effects", "Animation", "Creativity"] }, { title: "Brand Designer", salary: "22–32 triệu", workingHours: "9:00 - 18:00", description: "Xây dựng hệ thống nhận diện thương hiệu.", skills: ["Brand", "Illustration", "Typography"] }, { title: "Design Researcher", salary: "19–27 triệu", workingHours: "9:00 - 18:00", description: "Nghiên cứu người dùng và xu hướng thiết kế.", skills: ["Research", "UX", "Interview"] }] },
    { name: "ScaleHub", field: "Technology", rating: "4.4", employees: "300-500", location: "Đà Nẵng", openJobs: 4, color: "#6366f1", bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)", initial: "S", description: "Dịch vụ cloud, hạ tầng và DevOps.", benefits: ["Remote", "Phụ cấp công nghệ", "Đội ngũ trẻ"], positions: [{ title: "DevOps Engineer", salary: "30–45 triệu", workingHours: "8:30 - 17:30", description: "Triển khai hạ tầng và CI/CD.", skills: ["Docker", "Kubernetes", "AWS"] }, { title: "Backend Node.js Engineer", salary: "30–45 triệu", workingHours: "8:30 - 17:30", description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker.", skills: ["Node.js", "MongoDB", "Docker"] }, { title: "Cloud Support Engineer", salary: "22–30 triệu", workingHours: "8:30 - 17:30", description: "Hỗ trợ khách hàng sử dụng dịch vụ cloud.", skills: ["Linux", "Networking", "Support"] }, { title: "Security Engineer", salary: "35–48 triệu", workingHours: "8:30 - 17:30", description: "Giám sát bảo mật đám mây và kiểm thử thâm nhập.", skills: ["Security", "AWS", "Monitoring"] }] },
@@ -181,6 +233,124 @@ export default function CompaniesPage() {
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
+   // --- API companies state ---
+   const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
+   const [isLoadingCompanies, setIsLoadingCompanies] = useState(true);
+
+   // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
+   useEffect(() => {
+      fetch("http://localhost:8080/api/companies")
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json() as Promise<Array<{
+               id: number; name: string; slug: string; size?: string;
+               description?: string; benefits?: string; isFeatured?: boolean;
+               color?: string; positions?: any[];
+            }>>;
+         })
+         .then((apiData) => {
+            if (!apiData || apiData.length === 0) {
+               setApiCompanies(companies);
+               return;
+            }
+            // Map API data -> CompanyItem, filling missing fields from static data
+            const merged: CompanyItem[] = apiData.map((apiItem, idx) => {
+               const normalizeName = (name: string) => name.trim().toLowerCase().replace(/\s+/g, "");
+               const staticMatch = companies.find(
+                  (c) => normalizeName(c.name) === normalizeName(apiItem.name)
+               );
+               if (staticMatch) return { ...staticMatch };
+               // Fallback cho công ty chỉ có trong DB
+               const benefitsArr = apiItem.benefits?.split(",").map((b) => b.trim()).filter(Boolean) ?? [];
+
+               const mappedPositions = apiItem.positions?.map((pos: any) => ({
+                  id: pos.id,
+                  title: pos.title,
+                  salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
+                  workingHours: pos.jobType || "Toàn thời gian",
+                  description: pos.description || "Mô tả công việc đang được cập nhật.",
+                  skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
+               })) || [];
+
+               return {
+                  name: apiItem.name,
+                  field: "Technology",
+                  rating: "4.5",
+                  employees: apiItem.size ?? "Đang cập nhật",
+                  location: "Việt Nam",
+                  openJobs: mappedPositions.length,
+                  color: apiItem.color || "#6366f1",
+                  bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+                  initial: apiItem.name.charAt(0).toUpperCase(),
+                  description: apiItem.description ?? "Thông tin đang được cập nhật.",
+                  benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
+                  positions: mappedPositions,
+                  image: companyAvatars[idx % companyAvatars.length],
+               } as CompanyItem;
+            });
+            setApiCompanies(merged);
+         })
+         .catch(() => {
+            // Fallback về data tĩnh khi backend offline
+            setApiCompanies(companies);
+         })
+         .finally(() => setIsLoadingCompanies(false));
+   }, []);
+
+   const normalizeName = (name: string) => name.trim().toLowerCase().replace(/\s+/g, "");
+   const getDefaultContact = (companyName: string) => ({
+      email: `contact@${normalizeName(companyName)}.com`,
+      phone: "(+84) 28 1234 5678",
+      website: `www.${normalizeName(companyName)}.com`,
+   });
+   const getDefaultTerms = () => [
+      "Chính sách bảo mật thông tin",
+      "Môi trường làm việc chuyên nghiệp",
+      "Chế độ đãi ngộ cạnh tranh",
+   ];
+   const findStaticCompany = (name: string) => companies.find((c) => normalizeName(c.name) === normalizeName(name));
+   const getCompanyIntroduction = (company: CompanyItem) => {
+      const introText = company.introduction?.trim() || company.description;
+      const benefitText = company.benefits?.length ? `Phúc lợi nổi bật gồm: ${company.benefits.join(", ")}.` : "";
+      const positionText = company.positions?.length ? `Hiện tại ${company.name} đang mở ${company.positions.length} vị trí trong lĩnh vực ${company.field}, phù hợp với ứng viên muốn phát triển sự nghiệp chuyên sâu.` : "";
+      return [
+         introText,
+         `${company.name} có trụ sở tại ${company.location} và đội ngũ ${company.employees}.`,
+         benefitText,
+         positionText,
+      ].filter(Boolean);
+   };
+   const getMergedCompany = (item: CompanyItem) => {
+      const staticCompany = findStaticCompany(item.name);
+      const contact = item.contact || staticCompany?.contact || getDefaultContact(item.name);
+      const terms = item.terms?.length ? item.terms : staticCompany?.terms?.length ? staticCompany.terms : getDefaultTerms();
+      if (!staticCompany) {
+         return {
+            ...item,
+            contact,
+            terms,
+         };
+      }
+
+      return {
+         ...staticCompany,
+         description: item.description || staticCompany.description,
+         benefits: item.benefits?.length ? item.benefits : staticCompany.benefits,
+         employees: item.employees || staticCompany.employees,
+         location: item.location || staticCompany.location,
+         rating: item.rating || staticCompany.rating,
+         field: item.field || staticCompany.field,
+         color: item.color || staticCompany.color,
+         bg: item.bg || staticCompany.bg,
+         positions: staticCompany.positions || item.positions || [],
+         contact,
+         terms,
+      };
+   };
+
+   // Danh sách hiển thị: dùng apiCompanies khi đã load xong, nhưng vẫn giữ positions từ static data
+   const displayedCompanies = isLoadingCompanies ? companies : (apiCompanies.length > 0 ? apiCompanies.map(getMergedCompany) : companies);
+
    useEffect(() => {
       const interval = setInterval(() => {
          setBannerIndex((current) => (current + 1) % companyBannerItems.length);
@@ -229,6 +399,8 @@ export default function CompaniesPage() {
          initial: companyName.slice(0, 1).toUpperCase(),
          description: companyDescription,
          benefits: ["Môi trường chuyên nghiệp", "Lộ trình phát triển", "Phúc lợi cạnh tranh"],
+         contact: getDefaultContact(companyName),
+         terms: ["Chính sách bảo mật thông tin", "Môi trường làm việc chuyên nghiệp", "Chế độ đãi ngộ cạnh tranh"],
          image: companyAvatars[0],
          positions: [
             {
@@ -266,11 +438,11 @@ export default function CompaniesPage() {
       setToast({ message, kind });
    };
 
-   const uniqueFields = Array.from(new Set(companies.map(c => c.field)));
+   const uniqueFields = Array.from(new Set(displayedCompanies.map(c => c.field)));
    const filters = ["Tất cả", ...uniqueFields];
-   const filteredCompanies = selectedFilter === "Tất cả" ? companies : companies.filter(c => c.field === selectedFilter);
+   const filteredCompanies = selectedFilter === "Tất cả" ? displayedCompanies : displayedCompanies.filter(c => c.field === selectedFilter);
 
-   const addApplication = (job: any) => {
+   const addApplication = async (job: any) => {
       if (!readAuthUser()) {
          showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error");
          return;
@@ -286,7 +458,23 @@ export default function CompaniesPage() {
          return;
       }
 
-      const id = `${job.company}-${job.title}-${Date.now()}`;
+      if (job.id) {
+         try {
+            const token = localStorage.getItem("token");
+            const res = await fetch("http://localhost:8080/api/applications", {
+               method: "POST",
+               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+               body: JSON.stringify({ jobId: job.id, cvId: 1 }) // Hardcode cvId for now as the user has a CV check
+            });
+            if (!res.ok) {
+               console.warn("Could not save application to server");
+            }
+         } catch (e) {
+            console.error(e);
+         }
+      }
+
+      const id = job.id ? `api-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
       setApplications([
          {
             ...job,
@@ -300,12 +488,29 @@ export default function CompaniesPage() {
       showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
    };
 
-   const addSavedJob = (job: any) => {
+   const addSavedJob = async (job: any) => {
       if (savedJobs.some((item) => item.company === job.company && item.title === job.title)) {
          showToast("Công việc này đã có trong mục đã lưu.", "error");
          return;
       }
-      const id = `${job.company}-${job.title}-${Date.now()}`;
+
+      if (job.id && readAuthUser()) {
+         try {
+            const token = localStorage.getItem("token");
+            const res = await fetch("http://localhost:8080/api/saved-jobs", {
+               method: "POST",
+               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+               body: JSON.stringify({ jobId: job.id })
+            });
+            if (!res.ok) {
+               console.warn("Could not save job to server");
+            }
+         } catch (e) {
+            console.error(e);
+         }
+      }
+
+      const id = job.id ? `api-saved-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
       setSavedJobs([{ ...job, id, savedAt: new Date().toLocaleString("vi-VN") }, ...savedJobs]);
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
@@ -346,7 +551,7 @@ export default function CompaniesPage() {
          panel: "linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #ffffff 100%)",
       },
       slate: {
-         badge: "border-slate-200 bg-slate-50 text-slate-700",
+         badge: "border-gray-200 bg-gray-50 text-gray-700",
          border: "#cbd5e1",
          accent: "#64748b",
          panel: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #ffffff 100%)",
@@ -480,14 +685,36 @@ export default function CompaniesPage() {
    );
 
 
+   const getCompanyLogo = (company: CompanyItem) => {
+      const index = companies.findIndex((c) => c.name === company.name);
+      if (index >= 0) {
+         return companyAvatars[index % companyAvatars.length];
+      }
+      return companyAvatars[0];
+   };
+
+   const getCompanyImage = (company: CompanyItem) => {
+      if (company.image) {
+         return company.image;
+      }
+      const index = companies.findIndex((c) => c.name === company.name);
+      if (index >= 0) {
+         return companyImages[index % companyImages.length];
+      }
+      return companyImages[0];
+   };
+
+   const selectedCompanyLogo = selectedCompany ? getCompanyLogo(selectedCompany) : companyAvatars[0];
+   const selectedCompanyImage = selectedCompany ? getCompanyImage(selectedCompany) : companyImages[0];
+
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}
-         <div className="res-companies-banner" style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
+         <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
             <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} style={{ width: "100%", height: "500px", objectFit: "cover", display: "block" }} />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.05), rgba(15,23,42,0.75))" }} />
-            <div className="res-companies-banner-text" style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
-               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05 }}>
+            <div style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
+               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
                   {companyBannerItems[bannerIndex].title}
                </h2>
                <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
@@ -504,7 +731,7 @@ export default function CompaniesPage() {
          {/* Dynamic Banner */}
          {selectedPosition && (
             <div style={{
-               background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
                borderRadius: "20px",
                padding: "32px",
                marginTop: "24px",
@@ -548,53 +775,55 @@ export default function CompaniesPage() {
             {filters.map((f) => {
                const isSelected = f === selectedFilter;
                return (
-                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#0f172a" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
+                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#10b981" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
                      {f}
                   </button>
                );
             })}
          </div>
 
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+         <div className="grid grid-cols-1 gap-5">
             {filteredCompanies.map((item, index) => {
                const fc = fieldColors[item.field] ?? { bg: "#f1f5f9", text: "#475569" };
                const avatarSrc = companyAvatars[index % companyAvatars.length];
-               const detailDescription = `${item.name} - ${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
+               const companyImageSrc = companyImages[index % companyImages.length];
+               const detailDescription = item.introduction
+                  ? item.introduction
+                  : `${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
                return (
-                  <article key={item.name} style={{ background: "#fff", borderRadius: "20px", padding: "28px", border: "1px solid #f1f5f9", boxShadow: "0 4px 24px rgba(0,0,0,0.05)", transition: "transform 0.25s, box-shadow 0.25s" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(0,0,0,0.1)"; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(0,0,0,0.05)"; }}>
-                     <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "16px" }}>
-                        <div style={{ width: "60px", height: "60px", borderRadius: "16px", background: item.bg, border: `2px solid ${item.color}30`, overflow: "hidden", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                           <img src={avatarSrc} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <article key={item.name} onClick={() => setSelectedCompany(getMergedCompany(item))} style={{ background: "#fff", borderRadius: "28px", overflow: "hidden", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 22px 60px rgba(15,23,42,0.08)", transition: "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease", cursor: "pointer" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 32px 80px rgba(15,23,42,0.14)"; (e.currentTarget as HTMLElement).style.border = `1px solid ${item.color}30`; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.08)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(15,23,42,0.08)"; }}>
+                     {/* Company Image */}
+                     <div style={{ width: "100%", height: "220px", overflow: "hidden", background: "#f8fafc", position: "relative" }}>
+                        <img src={companyImageSrc} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.00), rgba(15,23,42,0.18))" }} />
+                     </div>
+
+                     {/* Company Info */}
+                     <div style={{ padding: "28px" }}>
+                        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "18px" }}>
+                           <div style={{ display: "flex", alignItems: "center", gap: "18px", minWidth: 0 }}>
+                              <div style={{ width: "66px", height: "66px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 12px 34px rgba(15,23,42,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                                 <img src={avatarSrc} alt={`${item.name} logo`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                              </div>
+                              <div style={{ minWidth: 0 }}>
+                                 <h3 style={{ margin: 0, fontSize: "21px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em" }}>{item.name}</h3>
+                                 <p style={{ margin: "8px 0 0", fontSize: "13px", color: "#64748b", lineHeight: 1.6 }}>{item.field} • {item.location}</p>
+                              </div>
+                           </div>
+                           <span style={{ background: fc.bg, color: fc.text, borderRadius: "999px", padding: "8px 16px", fontSize: "12px", fontWeight: 700 }}>{item.rating}/5</span>
                         </div>
-                        <span style={{ background: fc.bg, color: fc.text, borderRadius: "999px", padding: "4px 12px", fontSize: "11px", fontWeight: 700 }}>{item.field}</span>
-                     </div>
-                     <h3 style={{ marginTop: "16px", fontSize: "20px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.01em" }}>{item.name}</h3>
-                     <p
-                        style={{
-                           marginTop: "8px",
-                           color: "#475569",
-                           fontSize: "13px",
-                           lineHeight: 1.65,
-                           minHeight: "108px",
-                           display: "-webkit-box",
-                           WebkitLineClamp: 5,
-                           WebkitBoxOrient: "vertical",
-                           overflow: "hidden",
-                        }}
-                     >
-                        {detailDescription}
-                     </p>
-                     <div style={{ display: "flex", gap: "16px", marginTop: "10px", flexWrap: "wrap" }}>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#f59e0b", fontWeight: 700 }}><Star style={{ width: 14, height: 14, fill: "#f59e0b" }} /> {item.rating}/5</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><Users style={{ width: 13, height: 13 }} /> {item.employees} nhân viên</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><MapPin style={{ width: 13, height: 13 }} /> {item.location}</span>
-                     </div>
-                     <div style={{ marginTop: "16px" }}><div style={{ height: "5px", background: "#f1f5f9", borderRadius: "99px", overflow: "hidden" }}><div style={{ width: `${(parseFloat(item.rating) / 5) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${item.color}, ${item.color}cc)`, borderRadius: "99px" }} /></div></div>
-                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "20px" }}>
-                        <span style={{ background: `${item.color}15`, color: item.color, borderRadius: "8px", padding: "4px 12px", fontSize: "12px", fontWeight: 700 }}>{item.positions.length} vị trí đang mở</span>
-                        <button onClick={() => setSelectedCompany(item)} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: item.color, color: "#fff", borderRadius: "10px", padding: "8px 18px", fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${item.color}40` }}>
-                           Xem vị trí <ArrowRight style={{ width: 14, height: 14 }} />
-                        </button>
+                        <p style={{ marginTop: "18px", color: "#475569", fontSize: "14px", lineHeight: 1.75, minHeight: "98px", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                           {detailDescription}
+                        </p>
+                        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "18px" }}>
+                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Users style={{ width: 13, height: 13, color: "#64748b" }} /> {item.employees}</span>
+                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><MapPin style={{ width: 13, height: 13, color: "#64748b" }} /> {item.location}</span>
+                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Star style={{ width: 13, height: 13, color: "#64748b" }} /> {item.rating}/5</span>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "22px", flexWrap: "wrap", gap: "12px" }}>
+                           <span style={{ background: `${item.color}15`, color: item.color, borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontWeight: 700 }}>{item.positions.length} vị trí đang mở</span>
+                           <span style={{ color: "#0f172a", fontSize: "13px", fontWeight: 700, opacity: 0.8 }}>Khám phá cơ hội nghề nghiệp</span>
+                        </div>
                      </div>
                   </article>
                );
@@ -604,45 +833,121 @@ export default function CompaniesPage() {
          {selectedCompany && (
             <>
                <div onClick={() => setSelectedCompany(null)} style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.55)", backdropFilter: "blur(4px)", zIndex: 1000 }} />
-               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", overflowY: "auto", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", zIndex: 1001, padding: "28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", marginBottom: "20px" }}>
-                     <div>
-                        <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
-                           <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a" }}>{selectedCompany.name}</h2>
-                           <span style={{ background: fieldColors[selectedCompany.field]?.bg ?? "#f1f5f9", color: fieldColors[selectedCompany.field]?.text ?? "#475569", borderRadius: "999px", padding: "4px 10px", fontSize: "11px", fontWeight: 700 }}>{selectedCompany.field}</span>
-                        </div>
-                        <p style={{ marginTop: "8px", color: "#64748b", fontSize: "14px", lineHeight: 1.6 }}>{selectedCompany.description}</p>
-                        <p style={{ marginTop: "12px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
-                     </div>
-                     <button onClick={() => setSelectedCompany(null)} style={{ width: 36, height: 36, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0 }}><X style={{ width: 16, height: 16 }} /></button>
-                  </div>
-                  <div style={{ display: "grid", gap: "12px" }}>
-                     {selectedCompany.positions.map((position) => (
-                        <article key={position.title} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "16px" }}>
-                           <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", flexWrap: "wrap" }}>
-                              <div style={{ flex: 1 }}>
-                                 <h3 onClick={() => setSelectedPosition({ ...position, title: toVietnameseJobTitle(position.title), company: selectedCompany.name, place: selectedCompany.location })} style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", marginBottom: "8px", cursor: "pointer" }}>{toVietnameseJobTitle(position.title)}</h3>
-                                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#10b981", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}><MapPin style={{ width: 13, height: 13 }} /> {selectedCompany.location}</span>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}>{position.workingHours}</span>
+               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", zIndex: 1001, padding: "0" }}>
+                  <div style={{ position: "relative", width: "100%", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", overflow: "hidden" }}>
+                     <button onClick={() => setSelectedCompany(null)} style={{ position: "absolute", top: "16px", right: "16px", width: 40, height: 40, borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0, zIndex: 10, transition: "all 0.2s ease" }}><X style={{ width: 18, height: 18 }} /></button>
+                     <div style={{ padding: "28px", paddingTop: "56px", maxHeight: "82vh", overflow: "hidden" }}>
+                        <div style={{ maxHeight: "calc(82vh - 72px)", overflowY: "auto", paddingRight: "8px" }}>
+                           <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", minHeight: "220px", background: "#f8fafc" }}>
+                              <img src={selectedCompanyImage} alt={selectedCompany.name} style={{ width: "100%", height: "220px", objectFit: "cover", display: "block", filter: "brightness(0.72)" }} />
+                              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.12), rgba(15,23,42,0.72))" }} />
+                              <div style={{ position: "absolute", left: "24px", right: "24px", bottom: "24px", zIndex: 2, color: "#fff" }}>
+                                 <div style={{ display: "flex", alignItems: "center", gap: "18px", flexWrap: "wrap" }}>
+                                    <div style={{ width: "76px", height: "76px", borderRadius: "22px", overflow: "hidden", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 42px rgba(0,0,0,0.28)" }}>
+                                       <img src={selectedCompanyLogo} alt={`${selectedCompany.name} logo`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                    </div>
+                                    <div style={{ minWidth: 0 }}>
+                                       <span style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", background: "rgba(255,255,255,0.18)", padding: "8px 14px", fontSize: "12px", fontWeight: 700, color: "#fff" }}>{selectedCompany.field}</span>
+                                       <h2 style={{ margin: "12px 0 8px", fontSize: "30px", fontWeight: 900, lineHeight: 1.05 }}>{selectedCompany.name}</h2>
+                                       <p style={{ margin: 0, fontSize: "14px", color: "rgba(255,255,255,0.88)", lineHeight: 1.7 }}>{selectedCompany.description}</p>
+                                    </div>
                                  </div>
-                                 <p style={{ color: "#64748b", fontSize: "13px", lineHeight: 1.6, marginBottom: "10px" }}>{position.description}</p>
-                                 <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>{position.skills.map((skill) => <span key={skill} style={{ background: "#e0f2fe", color: "#0369a1", borderRadius: 8, padding: "3px 8px", fontSize: 11, fontWeight: 600 }}>{skill}</span>)}</div>
-                              </div>
-                              <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
-                                 <button onClick={() => addSavedJob({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
-                                 <button onClick={() => addApplication({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
+                                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "18px" }}>
+                                    <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", borderRadius: "999px", background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.22)", color: "#fff", padding: "9px 14px", fontSize: "12px", fontWeight: 700 }}><Star style={{ width: 14, height: 14 }} /> {selectedCompany.rating}/5</span>
+                                    <span style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.22)", color: "#fff", padding: "9px 14px", fontSize: "12px", fontWeight: 700 }}><Users style={{ width: 14, height: 14 }} /> {selectedCompany.employees}</span>
+                                    <span style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.22)", color: "#fff", padding: "9px 14px", fontSize: "12px", fontWeight: 700 }}><MapPin style={{ width: 14, height: 14 }} /> {selectedCompany.location}</span>
+                                    <span style={{ display: "inline-flex", alignItems: "center", borderRadius: "999px", background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.22)", color: "#fff", padding: "9px 14px", fontSize: "12px", fontWeight: 700 }}><Star style={{ width: 14, height: 14 }} /> {selectedCompany.positions.length} vị trí đang mở</span>
+                                 </div>
                               </div>
                            </div>
-                        </article>
-                     ))}
+                           <div style={{ marginTop: "24px", display: "grid", gap: "18px" }}>
+                              <div style={{ background: "#f8fafc", padding: "22px", borderRadius: "20px", border: "1px solid #e2e8f0", boxShadow: "0 14px 40px rgba(15,23,42,0.06)" }}>
+                                 <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a", margin: 0, marginBottom: "12px" }}>Giới thiệu công ty</h3>
+                                 <div style={{ display: "grid", gap: "12px" }}>
+                                    {getCompanyIntroduction(selectedCompany).map((line, idx) => (
+                                       <p key={idx} style={{ margin: 0, color: "#475569", fontSize: "14px", lineHeight: 1.85 }}>{line}</p>
+                                    ))}
+                                 </div>
+                              </div>
+                           </div>
+                           <div style={{ marginTop: "24px", display: "grid", gap: "18px" }}>
+                              <div style={{ display: "grid", gap: "12px", background: "#f8fafc", padding: "20px", borderRadius: "16px", border: "1px solid #e2e8f0" }}>
+                                 <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#0f172a", margin: 0 }}>Thông tin liên hệ</h3>
+                                 <div style={{ display: "grid", gap: "10px" }}>
+                                    <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                                       <span style={{ width: "36px", height: "36px", borderRadius: "12px", background: `${selectedCompany.color}15`, color: selectedCompany.color, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>✉</span>
+                                       <div>
+                                          <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>Email</p>
+                                          <p style={{ margin: 0, color: "#0f172a", fontWeight: 700 }}>{selectedCompany.contact?.email}</p>
+                                       </div>
+                                    </div>
+                                    <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                                       <span style={{ width: "36px", height: "36px", borderRadius: "12px", background: `${selectedCompany.color}15`, color: selectedCompany.color, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>☎</span>
+                                       <div>
+                                          <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>Điện thoại</p>
+                                          <p style={{ margin: 0, color: "#0f172a", fontWeight: 700 }}>{selectedCompany.contact?.phone}</p>
+                                       </div>
+                                    </div>
+                                    <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                                       <span style={{ width: "36px", height: "36px", borderRadius: "12px", background: `${selectedCompany.color}15`, color: selectedCompany.color, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>🌐</span>
+                                       <div>
+                                          <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>Website</p>
+                                          <p style={{ margin: 0, color: selectedCompany.color, fontWeight: 700 }}>{selectedCompany.contact?.website}</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div style={{ display: "grid", gap: "12px", background: "#f8fafc", padding: "20px", borderRadius: "16px", border: "1px solid #e2e8f0" }}>
+                                 <h3 style={{ fontSize: "15px", fontWeight: 700, color: "#0f172a", margin: 0 }}>Điều khoản & Phúc lợi</h3>
+                                 <div style={{ display: "grid", gap: "10px" }}>
+                                    {selectedCompany.terms?.map((term, idx) => (
+                                       <div key={`term-${idx}`} style={{ padding: "12px 14px", background: "#fff", borderRadius: "12px", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: "10px" }}>
+                                          <span style={{ width: "24px", height: "24px", borderRadius: "8px", background: `${selectedCompany.color}20`, color: selectedCompany.color, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>✓</span>
+                                          <span style={{ color: "#0f172a", fontWeight: 600 }}>{term}</span>
+                                       </div>
+                                    ))}
+                                 </div>
+                                 <div style={{ display: "grid", gap: "10px" }}>
+                                    {selectedCompany.benefits.map((benefit, idx) => (
+                                       <div key={`benefit-${idx}`} style={{ padding: "12px 14px", background: "#fff", borderRadius: "12px", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: "10px" }}>
+                                          <span style={{ width: "24px", height: "24px", borderRadius: "8px", background: `${selectedCompany.color}20`, color: selectedCompany.color, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700 }}>★</span>
+                                          <span style={{ color: "#0f172a", fontWeight: 600 }}>{benefit}</span>
+                                       </div>
+                                    ))}
+                                 </div>
+                              </div>
+                           </div>
+                           <p style={{ marginTop: "8px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
+                           <div style={{ marginTop: "16px", borderTop: "1px solid #e2e8f0", paddingTop: "16px" }}>
+                              {selectedCompany.positions.map((position) => (
+                                 <article key={position.title} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "16px" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", flexWrap: "wrap" }}>
+                                       <div style={{ flex: 1 }}>
+                                          <h3 onClick={() => setSelectedPosition({ ...position, title: toVietnameseJobTitle(position.title), company: selectedCompany.name, place: selectedCompany.location })} style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", marginBottom: "8px", cursor: "pointer" }}>{toVietnameseJobTitle(position.title)}</h3>
+                                          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
+                                             <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#059669", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
+                                             <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}><MapPin style={{ width: 13, height: 13 }} /> {selectedCompany.location}</span>
+                                             <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}>{position.workingHours}</span>
+                                          </div>
+                                          <p style={{ color: "#64748b", fontSize: "13px", lineHeight: 1.6, marginBottom: "10px" }}>{position.description}</p>
+                                          <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>{position.skills.map((skill) => <span key={skill} style={{ background: "#e0f2fe", color: "#0369a1", borderRadius: 8, padding: "3px 8px", fontSize: 11, fontWeight: 600 }}>{skill}</span>)}</div>
+                                       </div>
+                                       <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+                                          <button onClick={() => addSavedJob({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
+                                          <button onClick={() => addApplication({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
+                                       </div>
+                                    </div>
+                                 </article>
+                              ))}
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </>
          )}
 
-         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, fill: "#fff" }} /></button>
+         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, color: "#fff" }} /></button>
 
          {showTray && (
             <>
