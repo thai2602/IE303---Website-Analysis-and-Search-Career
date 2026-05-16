@@ -458,7 +458,7 @@ const hiringPromotions = [
    {
       title: "Top công ty hybrid linh hoạt",
       subtitle: "Mô hình làm việc 2-3 ngày tại văn phòng",
-      description: "Danh sách doanh nghiệp có chính sách hybrid rõ ràng, phù hợp ứng viên trẻ muốn cân bằng hiệu suất và trải nghiệm cá nhân. Mỗi tin tuyển dụng đi kèm thông tin về thời gian làm việc, phúc lợi và lộ trình tăng trưởng trong 6-12 tháng.Đây có lẽ sẽ là xu hướng làm việc chính trong năm 2026.",
+      description: "Danh sách doanh nghiệp có chính sách hybrid rõ ràng, phù hợp ứng viên trẻ muốn cân bằng hiệu suất và trải nghiệm cá nhân. Mỗi tin tuyển dụng đi kèm thông tin về thời gian làm việc, phúc lợi và lộ trình tăng trưởng trong 6-12 tháng.",
       cta: "Xem danh sách",
       accent: "#059669",
    },
@@ -523,63 +523,7 @@ export default function JobsPage() {
    const [selectedJob, setSelectedJob] = useState<any>(null);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
-   // --- API jobs state ---
-   const [apiJobs, setApiJobs] = useState<Job[]>([]);
-   const [isLoadingJobs, setIsLoadingJobs] = useState(true);
-
-   // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
-   useEffect(() => {
-      fetch("http://localhost:8080/api/jobs")
-         .then((res) => {
-            if (!res.ok) throw new Error("API error");
-            return res.json() as Promise<Array<{
-               id: number; title: string; slug: string;
-               company: { name: string; color: string; description: string; logoUrl?: string };
-               jobType: string; locationCity: string; description: string;
-               salaryMin: number; salaryMax: number;
-            }>>;
-         })
-         .then((apiData) => {
-            if (!apiData || apiData.length === 0) {
-               setApiJobs(companyJobs);
-               return;
-            }
-            // Map API data -> Job
-            const mapped: Job[] = apiData.map((apiItem) => ({
-               title: apiItem.title,
-               company: apiItem.company.name,
-               companyColor: apiItem.company.color || "#0ea5e9",
-               companyDescription: apiItem.company.description || "",
-               description: apiItem.description,
-               place: apiItem.locationCity,
-               field: "Nhóm ngành khác", // Default field
-               type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
-               salary: `${(apiItem.salaryMin / 1000000).toFixed(0)}–${(apiItem.salaryMax / 1000000).toFixed(0)} triệu`,
-               tags: [],
-               hot: false,
-               posted: "Vừa cập nhật",
-               image: apiItem.company.logoUrl || image1,
-               companyUrl: "/cong-ty",
-            }));
-            setApiJobs(mapped);
-         })
-         .catch(() => {
-            setApiJobs(companyJobs);
-         })
-         .finally(() => setIsLoadingJobs(false));
-   }, []);
-
-   const displayedJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
-
-   // Tái cấu trúc jobsByGroup dựa trên displayedJobsList
-   const jobsByGroupComputed: Record<string, Job[]> = careerGroups.reduce((acc, group) => {
-      acc[group.name] = displayedJobsList.filter((job) => job.field === group.name || (group.name === "Nhóm ngành khác" && job.field === "Nhóm ngành khác"));
-      return acc;
-   }, {} as Record<string, Job[]>);
-
-   const visibleCareerGroupsComputed = careerGroups.filter((group) => (jobsByGroupComputed[group.name]?.length ?? 0) > 0);
-
-   const activeGroupJobs = selectedGroup ? jobsByGroupComputed[selectedGroup] ?? [] : [];
+   const activeGroupJobs = selectedGroup ? jobsByGroup[selectedGroup] ?? [] : [];
 
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
@@ -689,7 +633,7 @@ export default function JobsPage() {
          panel: "linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #ffffff 100%)",
       },
       slate: {
-         badge: "border-gray-200 bg-gray-50 text-gray-700",
+         badge: "border-slate-200 bg-slate-50 text-slate-700",
          border: "#cbd5e1",
          accent: "#64748b",
          panel: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #ffffff 100%)",
@@ -779,7 +723,7 @@ export default function JobsPage() {
          <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
             <div style={{ minWidth: 0, flex: 1 }}>
                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
-                  <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#ecfdf5", color: "#047857", padding: "3px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#eff6ff", color: "#1d4ed8", padding: "3px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em" }}>
                      Đã lưu
                   </span>
                   <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#f8fafc", color: "#475569", padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
@@ -825,47 +769,46 @@ export default function JobsPage() {
    return (
       <div className="space-y-8">
          {/* Hero */}
-         <div style={{
+         <div className="res-jobs-hero" style={{
             borderRadius: "20px",
-            background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
+            background: "linear-gradient(135deg, #064e3b 0%, #065f46 40%, #10b981 100%)",
             padding: "48px",
             position: "relative",
             overflow: "hidden",
          }}>
             <div style={{
-               position: "absolute", top: "-50px", right: "-30px", width: "220px", height: "220px",
-               borderRadius: "50%", background: "rgba(167,243,208,0.2)", filter: "blur(40px)",
+               position: "absolute", top: "-50px", right: "5%", width: "250px", height: "250px",
+               borderRadius: "50%", background: "rgba(52,211,153,0.15)", filter: "blur(45px)",
             }} />
             <div style={{
-               position: "absolute", bottom: "-40px", left: "30%", width: "180px", height: "180px",
-               borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
+               position: "absolute", bottom: "-30px", left: "15%", width: "160px", height: "160px",
+               borderRadius: "50%", background: "rgba(167,243,208,0.12)", filter: "blur(30px)",
             }} />
 
-            <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
-               Tìm việc <span style={{ color: "#ffffff" }}>phù hợp</span>
+            <h1 className="res-jobs-hero-title" style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
+               Tìm việc <span style={{ color: "#6ee7b7" }}>phù hợp</span>
             </h1>
-            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
+            <p className="res-jobs-hero-subtitle" style={{ color: "#a7f3d0", fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
                Tổng hợp các cơ hội việc làm mới nhất theo ngành, địa điểm và mức lương.
             </p>
 
             {/* Search bar */}
-            <div style={{
-               display: "flex", gap: "8px", background: "#ffffff",
-               borderRadius: "14px", padding: "8px",
-               border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+            <div className="res-jobs-searchbar" style={{
+               display: "flex", gap: "8px", background: "rgba(255,255,255,0.12)",
+               borderRadius: "14px", padding: "8px", backdropFilter: "blur(10px)",
+               border: "1px solid rgba(255,255,255,0.2)",
             }}>
                <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "10px", padding: "0 12px" }}>
-                  <Search style={{ width: 16, height: 16, color: "#64748b", flexShrink: 0 }} />
+                  <Search style={{ width: 16, height: 16, color: "#6ee7b7", flexShrink: 0 }} />
                   <input
                      placeholder="Tìm vị trí, công ty, kỹ năng..."
                      style={{
                         background: "none", border: "none", outline: "none",
-                        color: "#0f172a", fontSize: "14px", width: "100%",
+                        color: "#fff", fontSize: "14px", width: "100%",
                      }}
-                     onFocus={(e) => { e.currentTarget.style.color = "#0f172a"; }}
                   />
                </div>
-               <button style={{
+               <button className="res-jobs-searchbar-btn" style={{
                   background: "#10b981", color: "#fff", borderRadius: "10px",
                   padding: "10px 24px", fontSize: "14px", fontWeight: 700,
                   border: "none", cursor: "pointer", whiteSpace: "nowrap",
@@ -878,13 +821,13 @@ export default function JobsPage() {
 
          {/* Dynamic Banner */}
          {selectedJob && (
-            <div style={{
-               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+            <div className="res-job-detail-banner" style={{
+               background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                borderRadius: "20px",
                padding: "32px",
                marginTop: "24px",
                position: "relative",
-               overflow: "visible",
+               overflow: "hidden",
                color: "#fff",
             }}>
                <div style={{
@@ -895,17 +838,9 @@ export default function JobsPage() {
                   position: "absolute", bottom: "-30px", left: "10%", width: "150px", height: "150px",
                   borderRadius: "50%", background: "rgba(255,255,255,0.08)", filter: "blur(25px)",
                }} />
-               <button onClick={() => setSelectedJob(null)} style={{
-                  position: "absolute", top: "16px", right: "16px", width: "36px", height: "36px", borderRadius: "10px",
-                  border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.15)",
-                  display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff",
-                  zIndex: 10, transition: "all 0.2s ease"
-               }}>
-                  <X style={{ width: 18, height: 18 }} />
-               </button>
-               <div style={{ display: "flex", alignItems: "center", gap: "24px", position: "relative", zIndex: 1 }}>
-                  <img src={selectedJob.image} alt={selectedJob.company} style={{ width: "80px", height: "80px", borderRadius: "16px", objectFit: "cover" }} />
-                  <div style={{ flex: 1 }}>
+               <div className="res-job-detail-inner" style={{ display: "flex", alignItems: "center", gap: "24px", position: "relative", zIndex: 1 }}>
+                  <img src={selectedJob.image} alt={selectedJob.company} className="res-job-detail-img" style={{ width: "80px", height: "80px", borderRadius: "16px", objectFit: "cover" }} />
+                  <div>
                      <h2 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "8px" }}>
                         {toVietnameseJobTitle(selectedJob.title)}
                      </h2>
@@ -919,6 +854,13 @@ export default function JobsPage() {
                         {selectedJob.description}
                      </p>
                   </div>
+                  <button className="res-job-detail-close" onClick={() => setSelectedJob(null)} style={{
+                     marginLeft: "auto", width: "32px", height: "32px", borderRadius: "8px",
+                     border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.1)",
+                     display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff"
+                  }}>
+                     <X style={{ width: 16, height: 16 }} />
+                  </button>
                </div>
             </div>
          )}
@@ -929,7 +871,7 @@ export default function JobsPage() {
                Danh sách nghề nghiệp
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-               {visibleCareerGroupsComputed.map((group) => (
+               {visibleCareerGroups.map((group) => (
                   <div
                      key={group.name}
                      style={{
@@ -1088,8 +1030,8 @@ export default function JobsPage() {
                      padding: "22px",
                   }}
                >
-                  <div style={{ position: "sticky", top: 0, zIndex: 20, background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "14px", paddingBottom: "14px", borderBottom: "1px solid #e2e8f0" }}>
-                     <h3 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a", margin: 0 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
+                     <h3 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a" }}>
                         Việc làm thuộc nhóm: <span style={{ color: "#059669" }}>{selectedGroup}</span>
                      </h3>
                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -1245,7 +1187,7 @@ export default function JobsPage() {
                                        display: "inline-flex", alignItems: "center", gap: "5px",
                                        fontSize: "14px", fontWeight: 800, color: "#0f172a",
                                     }}>
-                                       <Wallet style={{ width: 14, height: 14, color: "#64748b" }} /> {job.salary}
+                                       <Wallet style={{ width: 14, height: 14, color: "#10b981" }} /> {job.salary}
                                     </span>
                                  </div>
 
@@ -1270,7 +1212,7 @@ export default function JobsPage() {
             </>
          )}
 
-         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, color: "#fff" }} /></button>
+         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, fill: "#fff" }} /></button>
 
          {showTray && (
             <>

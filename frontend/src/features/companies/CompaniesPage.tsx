@@ -41,7 +41,6 @@ import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
 
 type CompanyPosition = {
-   id?: number;
    title: string;
    salary: string;
    workingHours: string;
@@ -182,73 +181,6 @@ export default function CompaniesPage() {
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
-   // --- API companies state ---
-   const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
-   const [isLoadingCompanies, setIsLoadingCompanies] = useState(true);
-
-   // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
-   useEffect(() => {
-      fetch("http://localhost:8080/api/companies")
-         .then((res) => {
-            if (!res.ok) throw new Error("API error");
-               return res.json() as Promise<Array<{
-                  id: number; name: string; slug: string; size?: string;
-                  description?: string; benefits?: string; isFeatured?: boolean;
-                  color?: string; positions?: any[];
-               }>>;
-         })
-         .then((apiData) => {
-            if (!apiData || apiData.length === 0) {
-               setApiCompanies(companies);
-               return;
-            }
-            // Map API data -> CompanyItem, filling missing fields from static data
-            const merged: CompanyItem[] = apiData.map((apiItem, idx) => {
-               // Tìm company tĩnh tương ứng theo tên
-               const staticMatch = companies.find(
-                  (c) => c.name.toLowerCase() === apiItem.name.toLowerCase()
-               );
-               if (staticMatch) return { ...staticMatch };
-               // Fallback cho công ty chỉ có trong DB
-               const benefitsArr = apiItem.benefits?.split(",").map((b) => b.trim()).filter(Boolean) ?? [];
-               
-               const mappedPositions = apiItem.positions?.map((pos: any) => ({
-                  id: pos.id,
-                  title: pos.title,
-                  salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
-                  workingHours: pos.jobType || "Toàn thời gian",
-                  description: pos.description || "Mô tả công việc đang được cập nhật.",
-                  skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
-               })) || [];
-
-               return {
-                  name: apiItem.name,
-                  field: "Technology",
-                  rating: "4.5",
-                  employees: apiItem.size ?? "Đang cập nhật",
-                  location: "Việt Nam",
-                  openJobs: mappedPositions.length,
-                  color: apiItem.color || "#6366f1",
-                  bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
-                  initial: apiItem.name.charAt(0).toUpperCase(),
-                  description: apiItem.description ?? "Thông tin đang được cập nhật.",
-                  benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
-                  positions: mappedPositions,
-                  image: companyAvatars[idx % companyAvatars.length],
-               } as CompanyItem;
-            });
-            setApiCompanies(merged);
-         })
-         .catch(() => {
-            // Fallback về data tĩnh khi backend offline
-            setApiCompanies(companies);
-         })
-         .finally(() => setIsLoadingCompanies(false));
-   }, []);
-
-   // Danh sách hiển thị: dùng apiCompanies khi đã load xong, fallback về companies tĩnh khi đang load
-   const displayedCompanies = isLoadingCompanies ? companies : (apiCompanies.length > 0 ? apiCompanies : companies);
-
    useEffect(() => {
       const interval = setInterval(() => {
          setBannerIndex((current) => (current + 1) % companyBannerItems.length);
@@ -334,11 +266,11 @@ export default function CompaniesPage() {
       setToast({ message, kind });
    };
 
-   const uniqueFields = Array.from(new Set(displayedCompanies.map(c => c.field)));
+   const uniqueFields = Array.from(new Set(companies.map(c => c.field)));
    const filters = ["Tất cả", ...uniqueFields];
-   const filteredCompanies = selectedFilter === "Tất cả" ? displayedCompanies : displayedCompanies.filter(c => c.field === selectedFilter);
+   const filteredCompanies = selectedFilter === "Tất cả" ? companies : companies.filter(c => c.field === selectedFilter);
 
-   const addApplication = async (job: any) => {
+   const addApplication = (job: any) => {
       if (!readAuthUser()) {
          showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error");
          return;
@@ -354,23 +286,7 @@ export default function CompaniesPage() {
          return;
       }
 
-      if (job.id) {
-         try {
-            const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:8080/api/applications", {
-               method: "POST",
-               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-               body: JSON.stringify({ jobId: job.id, cvId: 1 }) // Hardcode cvId for now as the user has a CV check
-            });
-            if (!res.ok) {
-               console.warn("Could not save application to server");
-            }
-         } catch (e) {
-            console.error(e);
-         }
-      }
-
-      const id = job.id ? `api-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
+      const id = `${job.company}-${job.title}-${Date.now()}`;
       setApplications([
          {
             ...job,
@@ -384,29 +300,12 @@ export default function CompaniesPage() {
       showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
    };
 
-   const addSavedJob = async (job: any) => {
+   const addSavedJob = (job: any) => {
       if (savedJobs.some((item) => item.company === job.company && item.title === job.title)) {
          showToast("Công việc này đã có trong mục đã lưu.", "error");
          return;
       }
-
-      if (job.id && readAuthUser()) {
-         try {
-            const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:8080/api/saved-jobs", {
-               method: "POST",
-               headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-               body: JSON.stringify({ jobId: job.id })
-            });
-            if (!res.ok) {
-               console.warn("Could not save job to server");
-            }
-         } catch (e) {
-            console.error(e);
-         }
-      }
-
-      const id = job.id ? `api-saved-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
+      const id = `${job.company}-${job.title}-${Date.now()}`;
       setSavedJobs([{ ...job, id, savedAt: new Date().toLocaleString("vi-VN") }, ...savedJobs]);
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
@@ -447,7 +346,7 @@ export default function CompaniesPage() {
          panel: "linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #ffffff 100%)",
       },
       slate: {
-         badge: "border-gray-200 bg-gray-50 text-gray-700",
+         badge: "border-slate-200 bg-slate-50 text-slate-700",
          border: "#cbd5e1",
          accent: "#64748b",
          panel: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #ffffff 100%)",
@@ -584,11 +483,11 @@ export default function CompaniesPage() {
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}
-         <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
+         <div className="res-companies-banner" style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
             <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} style={{ width: "100%", height: "500px", objectFit: "cover", display: "block" }} />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.05), rgba(15,23,42,0.75))" }} />
-            <div style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
-               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
+            <div className="res-companies-banner-text" style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
+               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05 }}>
                   {companyBannerItems[bannerIndex].title}
                </h2>
                <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
@@ -605,7 +504,7 @@ export default function CompaniesPage() {
          {/* Dynamic Banner */}
          {selectedPosition && (
             <div style={{
-               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+               background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                borderRadius: "20px",
                padding: "32px",
                marginTop: "24px",
@@ -649,7 +548,7 @@ export default function CompaniesPage() {
             {filters.map((f) => {
                const isSelected = f === selectedFilter;
                return (
-                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#10b981" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
+                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#0f172a" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
                      {f}
                   </button>
                );
@@ -686,9 +585,9 @@ export default function CompaniesPage() {
                         {detailDescription}
                      </p>
                      <div style={{ display: "flex", gap: "16px", marginTop: "10px", flexWrap: "wrap" }}>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b", fontWeight: 700 }}><Star style={{ width: 14, height: 14, color: "#64748b" }} /> {item.rating}/5</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><Users style={{ width: 13, height: 13, color: "#64748b" }} /> {item.employees} nhân viên</span>
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><MapPin style={{ width: 13, height: 13, color: "#64748b" }} /> {item.location}</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#f59e0b", fontWeight: 700 }}><Star style={{ width: 14, height: 14, fill: "#f59e0b" }} /> {item.rating}/5</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><Users style={{ width: 13, height: 13 }} /> {item.employees} nhân viên</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#64748b" }}><MapPin style={{ width: 13, height: 13 }} /> {item.location}</span>
                      </div>
                      <div style={{ marginTop: "16px" }}><div style={{ height: "5px", background: "#f1f5f9", borderRadius: "99px", overflow: "hidden" }}><div style={{ width: `${(parseFloat(item.rating) / 5) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${item.color}, ${item.color}cc)`, borderRadius: "99px" }} /></div></div>
                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "20px" }}>
@@ -705,22 +604,26 @@ export default function CompaniesPage() {
          {selectedCompany && (
             <>
                <div onClick={() => setSelectedCompany(null)} style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.55)", backdropFilter: "blur(4px)", zIndex: 1000 }} />
-               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", overflowY: "auto", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", zIndex: 1001, padding: "28px", paddingTop: "56px" }}>
-                  <button onClick={() => setSelectedCompany(null)} style={{ position: "absolute", top: "16px", right: "16px", width: 40, height: 40, borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0, zIndex: 10, transition: "all 0.2s ease" }}><X style={{ width: 18, height: 18 }} /></button>
-                  <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap", marginBottom: "8px" }}>
-                     <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a" }}>{selectedCompany.name}</h2>
-                     <span style={{ background: fieldColors[selectedCompany.field]?.bg ?? "#f1f5f9", color: fieldColors[selectedCompany.field]?.text ?? "#475569", borderRadius: "999px", padding: "4px 10px", fontSize: "11px", fontWeight: 700 }}>{selectedCompany.field}</span>
+               <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", overflowY: "auto", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", zIndex: 1001, padding: "28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", marginBottom: "20px" }}>
+                     <div>
+                        <div style={{ display: "flex", gap: "10px", alignItems: "center", flexWrap: "wrap" }}>
+                           <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a" }}>{selectedCompany.name}</h2>
+                           <span style={{ background: fieldColors[selectedCompany.field]?.bg ?? "#f1f5f9", color: fieldColors[selectedCompany.field]?.text ?? "#475569", borderRadius: "999px", padding: "4px 10px", fontSize: "11px", fontWeight: 700 }}>{selectedCompany.field}</span>
+                        </div>
+                        <p style={{ marginTop: "8px", color: "#64748b", fontSize: "14px", lineHeight: 1.6 }}>{selectedCompany.description}</p>
+                        <p style={{ marginTop: "12px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
+                     </div>
+                     <button onClick={() => setSelectedCompany(null)} style={{ width: 36, height: 36, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0 }}><X style={{ width: 16, height: 16 }} /></button>
                   </div>
-                  <p style={{ color: "#64748b", fontSize: "14px", lineHeight: 1.6 }}>{selectedCompany.description}</p>
-                  <p style={{ marginTop: "8px", color: "#475569", fontSize: "13px", fontWeight: 700 }}>{selectedCompany.positions.length} vị trí đang mở</p>
-                  <div style={{ marginTop: "16px", borderTop: "1px solid #e2e8f0", paddingTop: "16px" }}>
+                  <div style={{ display: "grid", gap: "12px" }}>
                      {selectedCompany.positions.map((position) => (
                         <article key={position.title} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "14px", padding: "16px" }}>
                            <div style={{ display: "flex", justifyContent: "space-between", gap: "16px", alignItems: "flex-start", flexWrap: "wrap" }}>
                               <div style={{ flex: 1 }}>
                                  <h3 onClick={() => setSelectedPosition({ ...position, title: toVietnameseJobTitle(position.title), company: selectedCompany.name, place: selectedCompany.location })} style={{ fontSize: "16px", fontWeight: 700, color: "#0f172a", marginBottom: "8px", cursor: "pointer" }}>{toVietnameseJobTitle(position.title)}</h3>
                                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#059669", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
+                                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#10b981", fontSize: "13px", fontWeight: 700 }}><Wallet style={{ width: 14, height: 14 }} /> {position.salary}</span>
                                     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}><MapPin style={{ width: 13, height: 13 }} /> {selectedCompany.location}</span>
                                     <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "#475569", fontSize: "13px" }}>{position.workingHours}</span>
                                  </div>
@@ -728,8 +631,8 @@ export default function CompaniesPage() {
                                  <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>{position.skills.map((skill) => <span key={skill} style={{ background: "#e0f2fe", color: "#0369a1", borderRadius: 8, padding: "3px 8px", fontSize: 11, fontWeight: 600 }}>{skill}</span>)}</div>
                               </div>
                               <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
-                                 <button onClick={() => addSavedJob({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
-                                 <button onClick={() => addApplication({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
+                                 <button onClick={() => addSavedJob({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
+                                 <button onClick={() => addApplication({ company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
                               </div>
                            </div>
                         </article>
@@ -739,7 +642,7 @@ export default function CompaniesPage() {
             </>
          )}
 
-         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, color: "#fff" }} /></button>
+         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, fill: "#fff" }} /></button>
 
          {showTray && (
             <>

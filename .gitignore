@@ -8,3 +8,5 @@ node_modules/
 note.txt
 backend/target/
 backend/test/
+frontend/dist/
+.claude/

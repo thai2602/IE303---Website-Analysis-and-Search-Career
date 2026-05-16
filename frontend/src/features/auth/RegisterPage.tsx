@@ -286,10 +286,10 @@ export default function RegisterPage() {
    };
 
    return (
-      <div style={{ display: "flex", gap: "32px", alignItems: "flex-start", flexWrap: "wrap" }}>
+      <div className="res-auth-layout" style={{ display: "flex", gap: "32px", alignItems: "flex-start", flexWrap: "wrap" }}>
          {/* Left — Form */}
          <div style={{ flex: "1 1 340px" }}>
-            <div style={{
+            <div className="res-auth-form-card" style={{
                background: "#fff", borderRadius: "24px", padding: "40px",
                boxShadow: "0 8px 40px rgba(0,0,0,0.08)", border: "1px solid #f1f5f9",
             }}>
@@ -529,7 +529,7 @@ export default function RegisterPage() {
          </div>
 
          {/* Right — Perks panel */}
-         <div style={{
+         <div className="res-auth-deco" style={{
             flex: "1 1 300px",
             borderRadius: "24px",
             background: "linear-gradient(145deg, #10b981 0%, #059669 100%)",
