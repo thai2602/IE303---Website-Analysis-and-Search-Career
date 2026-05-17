@@ -460,50 +460,90 @@ export default function HomePage() {
    return (
       <div className="space-y-12">
          {/* ===== BANNER SECTION ===== */}
-         <section className="relative overflow-hidden rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 px-6 py-10 shadow-[0_4px_16px_rgba(16,185,129,0.08)] md:px-10 md:py-14">
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-16">
+            {/* Decorative orbs */}
             <div className="home-banner-orb home-banner-orb-1" />
             <div className="home-banner-orb home-banner-orb-2" />
 
-            <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
-               <div className="space-y-6">
-                  <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                     Nền tảng tìm việc đáng tin cậy
-                  </span>
+            {/* Mascot positioned bottom-right as accent */}
+            <div className="absolute -right-20 md:-bottom-7 md:-right-2 opacity-70 md:opacity-60 pointer-events-none">
+               <div className="ai-mascot-wrap inline-flex h-40 w-40 md:h-64 md:w-64">
+                  <img src={mascotImage} alt="Linh vật JobPilot" className="ai-mascot-image" style={{ filter: 'brightness(1.05)' }} />
+               </div>
+            </div>
 
-                  <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
-                     Tìm việc dễ, ứng tuyển nhanh
-                  </h1>
+            <div className="relative grid gap-6 lg:grid-cols-3 lg:items-start">
+               {/* Main content - Left side */}
+               <div className="space-y-6 lg:col-span-2">
+                  <div className="space-y-2">
+                     <span className="inline-flex items-center rounded-full border border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-700 shadow-sm">
+                        Nền tảng tìm việc hàng đầu
+                     </span>
+                  </div>
 
-                  <p className="max-w-2xl text-base leading-7 text-emerald-800">
-                     JobPilot tổng hợp việc làm mới mỗi ngày, giới thiệu doanh nghiệp uy tín và hỗ trợ tối ưu hồ sơ để bạn ứng tuyển nhanh, chính xác.
-                  </p>
+                  <div className="space-y-3">
+                     <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+                        Tìm việc dễ dàng,<br />Ứng tuyển nhanh chóng
+                     </h1>
+                     <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-xl">
+                        JobPilot giúp bạn kết nối với các công ty uy tín, nhận gợi ý việc phù hợp từng ngày, và tối ưu hồ sơ để ứng tuyển hiệu quả.
+                     </p>
+                  </div>
 
-                  <div className="flex flex-wrap items-center gap-3">
-                     <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow transition-colors hover:bg-emerald-700">
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                     <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
                         Khám phá việc làm <ArrowRight className="h-4 w-4" />
                      </Link>
-                     <Link to="/dang-ky" className="inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-white px-5 py-3 text-sm font-semibold text-emerald-700 shadow-sm hover:bg-emerald-50">
+                     <Link to="/dang-ky" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:shadow-md transition-all hover:border-slate-400">
                         Tạo tài khoản miễn phí
                      </Link>
                   </div>
+
+                  {/* Stats row */}
+                  <div className="pt-4 grid grid-cols-3 gap-3 md:gap-4">
+                     {bannerMarketStats.map((stat) => (
+                        <div key={stat.label} className="group rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-3 md:p-4 transition-all hover:shadow-md">
+                           <p className="text-xs md:text-[11px] uppercase tracking-widest text-slate-600 font-semibold">{stat.label}</p>
+                           <p className="mt-2 text-xl md:text-2xl font-bold" style={{ color: stat.accent }}>{stat.value}</p>
+                        </div>
+                     ))}
+                  </div>
                </div>
 
-               <div className="relative mx-auto w-full max-w-[420px]">
-                  <div className="relative overflow-hidden rounded-lg border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
-                     <div className="flex flex-col items-center text-center gap-4">
-                        <div className="ai-mascot-wrap inline-flex h-32 w-32 md:h-36 md:w-36">
-                           <img src={mascotImage} alt="Linh vật" className="ai-mascot-image rounded-lg" />
+               {/* Right side - Features/Highlights */}
+               <div className="hidden lg:block lg:col-span-1 pt-2">
+                  <div className="space-y-3">
+                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-blue-50/50 to-transparent p-4 backdrop-blur-sm">
+                        <div className="flex items-start gap-3">
+                           <div className="mt-1">
+                              <ShieldCheck className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                           </div>
+                           <div className="flex-1 min-w-0">
+                              <h4 className="font-semibold text-sm text-slate-900">Công ty xác minh</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">Kiểm duyệt trước đăng tin</p>
+                           </div>
                         </div>
-                        <h3 className="text-lg font-bold text-gray-900">Gợi ý việc phù hợp</h3>
-                        <p className="text-sm text-slate-700">Giao diện gọn, màu sáng dễ nhìn, tập trung vào nội dung.</p>
-
-                        <div className="mt-4 grid w-full gap-2 sm:grid-cols-3">
-                           {bannerMarketStats.map((stat) => (
-                              <div key={stat.label} className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-left">
-                                 <p className="text-[10px] uppercase tracking-wide text-slate-900 font-semibold">{stat.label}</p>
-                                 <p className="mt-1 text-lg font-semibold" style={{ color: stat.accent }}>{stat.value}</p>
-                              </div>
-                           ))}
+                     </div>
+                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-emerald-50/50 to-transparent p-4 backdrop-blur-sm">
+                        <div className="flex items-start gap-3">
+                           <div className="mt-1">
+                              <TrendingUp className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                           </div>
+                           <div className="flex-1 min-w-0">
+                              <h4 className="font-semibold text-sm text-slate-900">Hỗ trợ tối ưu</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">Hướng dẫn & gợi ý việc</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-purple-50/50 to-transparent p-4 backdrop-blur-sm">
+                        <div className="flex items-start gap-3">
+                           <div className="mt-1">
+                              <MapPin className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                           </div>
+                           <div className="flex-1 min-w-0">
+                              <h4 className="font-semibold text-sm text-slate-900">Toàn quốc</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">34 tỉnh thành</p>
+                           </div>
                         </div>
                      </div>
                   </div>

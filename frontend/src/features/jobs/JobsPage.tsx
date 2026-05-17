@@ -826,52 +826,47 @@ export default function JobsPage() {
       <div className="space-y-8">
          {/* Hero */}
          <div style={{
-            borderRadius: "20px",
-            background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
-            padding: "48px",
+            borderRadius: "24px",
+            background: "linear-gradient(135deg, #0f172a 0%, #0e9f6e 45%, #10b981 100%)",
+            padding: "52px 48px 40px",
             position: "relative",
             overflow: "hidden",
+            boxShadow: "0 28px 90px rgba(15,23,42,0.18)",
          }}>
             <div style={{
-               position: "absolute", top: "-50px", right: "-30px", width: "220px", height: "220px",
-               borderRadius: "50%", background: "rgba(167,243,208,0.2)", filter: "blur(40px)",
+               position: "absolute", top: "-60px", right: "-40px", width: "260px", height: "260px",
+               borderRadius: "50%", background: "rgba(255,255,255,0.16)", filter: "blur(40px)",
             }} />
             <div style={{
-               position: "absolute", bottom: "-40px", left: "30%", width: "180px", height: "180px",
-               borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
+               position: "absolute", bottom: "-50px", left: "15%", width: "220px", height: "220px",
+               borderRadius: "50%", background: "rgba(255,255,255,0.1)", filter: "blur(38px)",
             }} />
 
-            <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
-               Tìm việc <span style={{ color: "#ffffff" }}>phù hợp</span>
+            <h1 style={{ fontSize: "42px", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", marginBottom: "16px", maxWidth: "780px" }}>
+               Tìm việc nhanh chóng và chuyên nghiệp
             </h1>
-            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
-               Tổng hợp các cơ hội việc làm mới nhất theo ngành, địa điểm và mức lương.
+            <p style={{ color: "#e2e8f0", fontSize: "16px", lineHeight: 1.8, maxWidth: "720px", marginBottom: "32px" }}>
+               Khám phá cơ hội nghề nghiệp phù hợp cùng nhà tuyển dụng uy tín, bộ lọc thông minh theo ngành và mức lương, và ứng tuyển ngay trong một giao diện chuyên nghiệp.
             </p>
 
-            {/* Search bar */}
-            <div style={{
-               display: "flex", gap: "8px", background: "#ffffff",
-               borderRadius: "14px", padding: "8px",
-               border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-            }}>
-               <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "10px", padding: "0 12px" }}>
-                  <Search style={{ width: 16, height: 16, color: "#64748b", flexShrink: 0 }} />
+            <div style={{ display: "grid", gridTemplateColumns: "1.5fr 0.8fr", gap: "16px" }}>
+               <div style={{ display: "flex", alignItems: "center", gap: "12px", background: "rgba(255,255,255,0.12)", borderRadius: "16px", padding: "16px 18px", border: "1px solid rgba(255,255,255,0.18)" }}>
+                  <Search style={{ width: 20, height: 20, color: "#d1fae5" }} />
                   <input
                      placeholder="Tìm vị trí, công ty, kỹ năng..."
                      style={{
-                        background: "none", border: "none", outline: "none",
-                        color: "#0f172a", fontSize: "14px", width: "100%",
+                        background: "transparent", border: "none", outline: "none",
+                        color: "#fff", fontSize: "15px", width: "100%",
                      }}
-                     onFocus={(e) => { e.currentTarget.style.color = "#0f172a"; }}
                   />
                </div>
                <button style={{
-                  background: "#10b981", color: "#fff", borderRadius: "10px",
-                  padding: "10px 24px", fontSize: "14px", fontWeight: 700,
+                  background: "#ffffff", color: "#0f172a", borderRadius: "16px",
+                  padding: "16px 24px", fontSize: "15px", fontWeight: 800,
                   border: "none", cursor: "pointer", whiteSpace: "nowrap",
-                  boxShadow: "0 4px 15px rgba(16,185,129,0.5)",
+                  boxShadow: "0 18px 40px rgba(15,23,42,0.16)",
                }}>
-                  Tìm kiếm
+                  Tìm kiếm ngay
                </button>
             </div>
          </div>
@@ -879,43 +874,47 @@ export default function JobsPage() {
          {/* Dynamic Banner */}
          {selectedJob && (
             <div style={{
-               background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-               borderRadius: "20px",
-               padding: "32px",
+               background: "#fff",
+               borderRadius: "24px",
+               padding: "24px",
                marginTop: "24px",
                position: "relative",
-               overflow: "visible",
-               color: "#fff",
+               overflow: "hidden",
+               boxShadow: "0 24px 90px rgba(15,23,42,0.14)",
+               border: "1px solid #e2e8f0",
             }}>
-               <div style={{
-                  position: "absolute", top: "-50px", right: "5%", width: "200px", height: "200px",
-                  borderRadius: "50%", background: "rgba(255,255,255,0.1)", filter: "blur(40px)",
-               }} />
-               <div style={{
-                  position: "absolute", bottom: "-30px", left: "10%", width: "150px", height: "150px",
-                  borderRadius: "50%", background: "rgba(255,255,255,0.08)", filter: "blur(25px)",
-               }} />
                <button onClick={() => setSelectedJob(null)} style={{
-                  position: "absolute", top: "16px", right: "16px", width: "36px", height: "36px", borderRadius: "10px",
-                  border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.15)",
-                  display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff",
-                  zIndex: 10, transition: "all 0.2s ease"
+                  position: "absolute", top: "18px", right: "18px", width: "42px", height: "42px", borderRadius: 14,
+                  border: "1px solid #e2e8f0", background: "#fff",
+                  display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#475569",
+                  zIndex: 10, transition: "all 0.2s ease", boxShadow: "0 10px 24px rgba(15,23,42,0.12)"
                }}>
                   <X style={{ width: 18, height: 18 }} />
                </button>
-               <div style={{ display: "flex", alignItems: "center", gap: "24px", position: "relative", zIndex: 1 }}>
-                  <img src={selectedJob.image} alt={selectedJob.company} style={{ width: "80px", height: "80px", borderRadius: "16px", objectFit: "cover" }} />
-                  <div style={{ flex: 1 }}>
-                     <h2 style={{ fontSize: "24px", fontWeight: 800, marginBottom: "8px" }}>
+               <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "24px", alignItems: "center" }}>
+                  <div style={{ width: "104px", height: "104px", borderRadius: "24px", overflow: "hidden", background: "#f8fafc", boxShadow: "0 16px 36px rgba(15,23,42,0.08)" }}>
+                     <img src={selectedJob.image} alt={selectedJob.company} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  </div>
+                  <div>
+                     <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "12px" }}>
+                        <span style={{ fontSize: "12px", fontWeight: 700, color: "#0f172a", letterSpacing: "0.08em", background: "#ecfdf5", borderRadius: "999px", padding: "7px 14px" }}>
+                           {selectedJob.company}
+                        </span>
+                        <span style={{ fontSize: "12px", fontWeight: 700, color: "#64748b", background: "#f8fafc", borderRadius: "999px", padding: "7px 14px" }}>
+                           {selectedJob.type}
+                        </span>
+                     </div>
+                     <h2 style={{ fontSize: "28px", fontWeight: 900, color: "#0f172a", lineHeight: 1.1, marginBottom: "12px" }}>
                         {toVietnameseJobTitle(selectedJob.title)}
                      </h2>
-                     <p style={{ fontSize: "16px", opacity: 0.9, marginBottom: "4px" }}>
-                        {selectedJob.company} • {selectedJob.field} • {selectedJob.place}
-                     </p>
-                     <p style={{ fontSize: "14px", opacity: 0.8, marginBottom: "10px" }}>
+                     <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "16px" }}>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#475569", fontSize: "13px" }}><MapPin style={{ width: 14, height: 14 }} /> {selectedJob.place}</span>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#475569", fontSize: "13px" }}><Wallet style={{ width: 14, height: 14 }} /> {selectedJob.salary}</span>
+                     </div>
+                     <p style={{ fontSize: "15px", color: "#475569", lineHeight: 1.75, marginBottom: "18px" }}>
                         {selectedJob.companyDescription}
                      </p>
-                     <p style={{ fontSize: "14px", opacity: 0.8 }}>
+                     <p style={{ fontSize: "15px", color: "#334155", lineHeight: 1.8 }}>
                         {selectedJob.description}
                      </p>
                   </div>
@@ -1128,73 +1127,70 @@ export default function JobsPage() {
                            const fc = fieldColors[job.field] ?? fieldColors.default;
                            return (
                               <article key={`${job.title}-${job.company}`} style={{
-                                 background: "#fff", borderRadius: "20px", padding: "24px 28px",
-                                 border: "1px solid #f1f5f9",
-                                 boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                                 background: "#fff", borderRadius: "24px", padding: "24px 28px",
+                                 border: "1px solid #e2e8f0",
+                                 boxShadow: "0 18px 55px rgba(15,23,42,0.09)",
                                  transition: "transform 0.25s, box-shadow 0.25s",
                                  position: "relative", overflow: "hidden",
                                  cursor: "pointer",
                               }}
                                  onClick={() => setSelectedJob(job)}
-                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(0,0,0,0.1)"; }}
-                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)"; }}
+                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.14)"; }}
+                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 18px 55px rgba(15,23,42,0.09)"; }}
                               >
-                                 {/* Left accent bar */}
                                  <div style={{
                                     position: "absolute", left: 0, top: 0, bottom: 0, width: "4px",
                                     background: job.companyColor, borderRadius: "20px 0 0 20px",
                                  }} />
 
-                                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
+                                 <div style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: "22px", alignItems: "flex-start" }}>
                                     <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                                       {/* Company avatar */}
                                        <div style={{
-                                          width: "52px", height: "52px", borderRadius: "14px", flexShrink: 0,
+                                          width: "60px", height: "60px", borderRadius: "18px", flexShrink: 0,
                                           background: `${job.companyColor}15`,
                                           border: `2px solid ${job.companyColor}30`,
                                           display: "flex", alignItems: "center", justifyContent: "center",
-                                          fontSize: "20px", fontWeight: 900, color: job.companyColor,
                                        }}>
-                                          <img src={job.image} alt={job.company} style={{ width: "100%", height: "100%", borderRadius: "12px", objectFit: "cover" }} />
+                                          <img src={job.image} alt={job.company} style={{ width: "100%", height: "100%", borderRadius: "16px", objectFit: "cover" }} />
                                        </div>
-                                       <div>
-                                          <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-                                             {job.hot && (
-                                                <span style={{
-                                                   display: "inline-flex", alignItems: "center", gap: "4px",
-                                                   background: "#fef3c7", color: "#b45309",
-                                                   borderRadius: "999px", padding: "2px 10px",
-                                                   fontSize: "10px", fontWeight: 700,
-                                                }}>
-                                                   <Flame style={{ width: 9, height: 9 }} /> HOT
-                                                </span>
-                                             )}
+                                    </div>
+                                    <div>
+                                       <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "10px" }}>
+                                          {job.hot && (
                                              <span style={{
-                                                background: "#ecfdf5", color: "#059669",
-                                                borderRadius: "999px", padding: "2px 10px",
-                                                fontSize: "10px", fontWeight: 700,
+                                                display: "inline-flex", alignItems: "center", gap: "4px",
+                                                background: "#fef3c7", color: "#b45309",
+                                                borderRadius: "999px", padding: "4px 12px",
+                                                fontSize: "11px", fontWeight: 800,
                                              }}>
-                                                Mới đăng
+                                                <Flame style={{ width: 10, height: 10 }} /> HOT
                                              </span>
-                                          </div>
-                                          <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.01em", marginTop: "6px" }}>
-                                             {toVietnameseJobTitle(job.title)}
-                                          </h3>
-                                          <p style={{ fontSize: "13px", color: "#64748b", marginTop: "2px" }}>{job.company} • {job.posted}</p>
-                                          <p style={{ fontSize: "14px", color: "#475569", marginTop: "8px", lineHeight: 1.5 }}>
-                                             {buildJobLongDescription(job)}
-                                          </p>
-                                          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "12px" }}>
-                                             <Link to={buildCompanyDeepLink(job)} style={{
-                                                color: "#0f172a",
-                                                fontWeight: 700,
-                                                textDecoration: "none",
-                                                borderBottom: "1px solid rgba(15,23,42,0.12)",
-                                                paddingBottom: "1px",
-                                             }}>
-                                                Xem công ty
-                                             </Link>
-                                          </div>
+                                          )}
+                                          <span style={{
+                                             background: "#ecfdf5", color: "#059669",
+                                             borderRadius: "999px", padding: "4px 12px",
+                                             fontSize: "11px", fontWeight: 700,
+                                          }}>
+                                             Mới đăng
+                                          </span>
+                                       </div>
+                                       <h3 style={{ fontSize: "20px", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginTop: 0, marginBottom: "10px" }}>
+                                          {toVietnameseJobTitle(job.title)}
+                                       </h3>
+                                       <p style={{ fontSize: "13px", color: "#64748b", marginTop: 0, marginBottom: "12px" }}>{job.company} • {job.posted}</p>
+                                       <p style={{ fontSize: "14px", color: "#475569", marginTop: 0, lineHeight: 1.75 }}>
+                                          {buildJobLongDescription(job)}
+                                       </p>
+                                       <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "16px" }}>
+                                          <Link to={buildCompanyDeepLink(job)} style={{
+                                             color: job.companyColor,
+                                             fontWeight: 800,
+                                             textDecoration: "none",
+                                             borderBottom: `2px solid ${job.companyColor}`,
+                                             paddingBottom: "2px",
+                                          }}>
+                                             Xem công ty
+                                          </Link>
                                        </div>
                                     </div>
 
