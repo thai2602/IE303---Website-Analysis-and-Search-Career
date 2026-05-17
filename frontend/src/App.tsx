@@ -50,18 +50,20 @@ export default function App() {
             <Route path="/tim-viec" element={<JobsPage />} />
             <Route path="/cong-ty" element={<CompaniesPage />} />
             <Route path="/cv-mau" element={<CvTemplatesPage />} />
-            <Route path="/cv-editor" element={<CvEditorPage />} />
             <Route path="/tien-ich" element={<UtilitiesPage />} />
             <Route path="/cam-nang" element={<HandbookPage />} />
             <Route path="/dang-nhap" element={<LoginPage />} />
             <Route path="/dang-ky" element={<RegisterPage />} />
             <Route path="/ho-so-nguoi-dung" element={<UserProfilePage />} />
             <Route path="/cv-cua-toi" element={<MyCvsPage />} />
-            <Route path="/cv-cua-toi/chinh-sua/:id" element={<CvEditorPage />} />
             <Route path="/cong-viec-da-ung-tuyen" element={<AppliedJobsPage />} />
             <Route path="/chatbot" element={<ChatbotPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
          </Route>
+         
+         {/* Fullscreen layout for CV Editor */}
+         <Route path="/cv-editor" element={<CvEditorPage />} />
+         <Route path="/cv-cua-toi/chinh-sua/:id" element={<CvEditorPage />} />
       </Routes>
    );
 }

@@ -572,7 +572,7 @@ export default function HomePage() {
 
             <div className="grid gap-6">
                {/* Recruitment Trend Chart */}
-               <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/50 to-white p-6 shadow-sm">
+               <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                   <div className="flex items-start gap-3">
                      <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
                         <TrendingUp className="h-5 w-5" />
@@ -621,7 +621,7 @@ export default function HomePage() {
                {/* Job Distribution & Salary Charts */}
                <div className="grid gap-6 lg:grid-cols-2">
                   {/* Job Distribution Pie Chart */}
-                  <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/30 to-white p-6 shadow-sm">
+                  <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                      <div className="flex items-start gap-3">
                         <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
                            <PieChartIcon className="h-5 w-5" />
@@ -656,7 +656,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Salary by Position */}
-                  <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50/30 to-white p-6 shadow-sm">
+                  <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                      <div className="flex items-start gap-3">
                         <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
                            <BarChart3 className="h-5 w-5" />
@@ -716,7 +716,7 @@ export default function HomePage() {
          </section>
 
          {/* ===== COMPANY HIGHLIGHTS ===== */}
-         <section className="rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-8">
+         <section className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
             <div className="flex items-start gap-3 mb-6">
                <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
                   <Star className="h-6 w-6" />
@@ -742,7 +742,7 @@ export default function HomePage() {
          </section>
 
          {/* ===== PLATFORM STATS ===== */}
-         <section className="rounded-[16px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 shadow-[0_4px_16px_rgba(16,185,129,0.08)] md:p-8">
+         <section className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
                <div className="flex items-start gap-3">
                   <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">

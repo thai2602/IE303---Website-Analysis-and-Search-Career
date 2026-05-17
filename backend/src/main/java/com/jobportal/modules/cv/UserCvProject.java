@@ -1,4 +1,4 @@
-﻿package com.jobportal.modules.cv;
+package com.jobportal.modules.cv;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

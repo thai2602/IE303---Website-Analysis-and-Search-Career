@@ -1,9 +1,13 @@
 import { useLayoutEffect, useRef, useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./cv-builder.css";
 import { CvProvider, useCvContext, CvData, Skill, Experience, Education, Project } from "./CvContext";
 import { readAuthUser } from "../../utils/auth";
-import { chatApi } from "../../services/chatbotApi";
+import { chatApi, streamChat } from "../../services/chatbotApi";
+import { Plus, Trash2, Upload, FileText, Bot, Eye, EyeOff, User, Briefcase, GraduationCap, Code, FolderGit2, Save, Palette, Mail, Phone, MapPin, ChevronDown, Sparkles, Search, Home, Wand2, RefreshCw } from "lucide-react";
+import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const COLOR_OPTIONS = [
   { value: "#7c3aed", label: "Tím" },
@@ -11,16 +15,16 @@ const COLOR_OPTIONS = [
   { value: "#0ea5e9", label: "Xanh dương" },
   { value: "#ec4899", label: "Hồng" },
   { value: "#f59e0b", label: "Cam vàng" },
+  { value: "#0f172a", label: "Đen" },
 ];
 
-const inputCls = "w-full px-3 py-2.5 rounded-[10px] border border-slate-200 bg-slate-50 text-[13px] text-slate-900 outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-500/10 focus:bg-white font-[inherit]";
-const labelCls = "block text-xs font-semibold text-slate-600 mb-1.5 mt-3";
-const sectionTitleCls = "text-[11px] font-bold text-violet-600 uppercase tracking-[0.06em] mb-3 pb-1.5 border-b-2 border-violet-50";
-const addBtnCls = "mt-2 px-3 py-1.5 text-xs font-semibold text-violet-700 bg-violet-50 rounded-lg hover:bg-violet-100 transition-colors cursor-pointer";
-const removeBtnCls = "text-rose-400 hover:text-rose-600 text-xs font-bold ml-2 cursor-pointer";
-const cardCls = "border border-slate-100 rounded-xl p-3 mb-3 bg-slate-50 relative";
+const inputCls = "w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-[13.5px] font-medium text-slate-900 outline-none transition-all focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 focus:bg-white placeholder:text-slate-400";
+const labelCls = "block text-[12.5px] font-bold text-slate-700 mb-1.5";
+const addBtnCls = "px-3.5 py-2 text-[12.5px] font-bold text-violet-700 bg-violet-50 rounded-xl hover:bg-violet-100 hover:scale-105 transition-all cursor-pointer flex items-center gap-1.5 active:scale-95";
+const removeBtnCls = "absolute top-3 right-3 p-1.5 text-slate-400 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer";
+const cardCls = "border border-slate-100 rounded-[16px] p-4 bg-white shadow-sm relative group hover:border-violet-200 transition-colors";
 
-const accentH3 = "[color:var(--cv-accent,#7c3aed)] text-[11px] font-bold uppercase tracking-[0.06em] mb-2 transition-colors duration-300";
+const accentH3 = "text-[12px] font-extrabold uppercase tracking-widest mb-4 transition-colors duration-300";
 
 function CvEditorContent() {
   const { cvData, setCvData } = useCvContext();
@@ -31,6 +35,7 @@ function CvEditorContent() {
   const [isAiReviewVisible, setIsAiReviewVisible] = useState(false);
   const [aiFeedback, setAiFeedback] = useState<string>('');
   const [isAiLoading, setIsAiLoading] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
 
   const [savedCvs, setSavedCvs] = useState<any[]>([]);
   const [selectedCvId, setSelectedCvId] = useState<number | "">("");
@@ -68,19 +73,19 @@ function CvEditorContent() {
     if (!found) return;
     setSelectedCvId(targetId);
     setCvData({
-      fullName:    found.fullName    || "",
-      jobTitle:    found.jobTitle    || "",
-      email:       found.email       || "",
-      phone:       found.phone       || "",
-      location:    found.location    || "",
-      summary:     found.summary     || "",
-      color:       found.settings?.themeColor || "#7c3aed",
-      skills:      found.skills?.length      ? found.skills.map((s: any)      => ({ skillName: s.skillName || "", level: s.level || "Intermediate" }))                                                                             : [],
+      fullName: found.fullName || "",
+      jobTitle: found.jobTitle || "",
+      email: found.email || "",
+      phone: found.phone || "",
+      location: found.location || "",
+      summary: found.summary || "",
+      color: found.settings?.themeColor || "#7c3aed",
+      skills: found.skills?.length ? found.skills.map((s: any) => ({ skillName: s.skillName || "", level: s.level || "Intermediate" })) : [],
       experiences: found.experiences?.length ? found.experiences.map((x: any) => ({ company: x.company || "", position: x.position || "", startDate: x.startDate || "", endDate: x.endDate || "", description: x.description || "" })) : [],
-      educations:  found.educations?.length  ? found.educations.map((x: any)  => ({ school: x.school || x.institution || "", major: x.major || x.degree || "", startDate: x.startDate || "", endDate: x.endDate || "" }))         : [],
-      projects:    found.projects?.length    ? found.projects.map((x: any)    => ({ name: x.name || x.projectName || "", description: x.description || "", technologies: Array.isArray(x.technologies) ? x.technologies.join(", ") : (x.techStack || x.technologies || ""), link: x.link || "" })) : [],
+      educations: found.educations?.length ? found.educations.map((x: any) => ({ school: x.school || x.institution || "", major: x.major || x.degree || "", startDate: x.startDate || "", endDate: x.endDate || "" })) : [],
+      projects: found.projects?.length ? found.projects.map((x: any) => ({ name: x.name || x.projectName || "", description: x.description || "", technologies: Array.isArray(x.technologies) ? x.technologies.join(", ") : (x.techStack || x.technologies || ""), link: x.link || "" })) : [],
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCvId, savedCvs]);
 
   const handleSelectCv = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -137,29 +142,57 @@ function CvEditorContent() {
     setCvData(p => { const a = [...p.projects]; a[i] = { ...a[i], [f]: v }; return { ...p, projects: a }; });
   const removeProj = (i: number) => setCvData(p => ({ ...p, projects: p.projects.filter((_, j) => j !== i) }));
 
-  const fetchAiScore = async () => {
-    if (aiFeedback) return;
+  const fetchAiScore = () => {
     setIsAiLoading(true);
-    try {
-      const hasData = Object.entries(cvData).some(([k, v]) => k !== 'color' && typeof v === 'string' && v.trim() !== '');
-      const apiMessage = hasData
-        ? `[Dữ liệu CV hiện tại của tôi (JSON): ${JSON.stringify(cvData)}]\n\nHãy chấm điểm CV này của tôi và gợi ý chi tiết cách cải thiện để tôi trông chuyên nghiệp hơn với nhà tuyển dụng.`
-        : "Hãy chấm điểm CV này của tôi và gợi ý chi tiết cách cải thiện để tôi trông chuyên nghiệp hơn với nhà tuyển dụng.";
+    setAiFeedback(''); // reset để hiển thị loading khi fetch lại
+    setIsStreaming(true);
 
-      const reply = await chatApi.sendMessage(apiMessage);
-      setAiFeedback(reply);
-    } catch (err) {
-      setAiFeedback("Xin lỗi, đã có lỗi xảy ra khi gọi AI nhận xét. Vui lòng thử lại sau.");
-    } finally {
-      setIsAiLoading(false);
-    }
+    // Dùng một session ID tạm thời, mới mỗi lần chấm điểm
+    // → tách hoàn toàn khỏi memory chatbot thông thường, tránh tích lũy lịch sử
+    const scoringSessionId = `cv-score-${Date.now()}`;
+    // activeCvId = CV đang được chọn trong editor → backend tự inject vào context AI
+    const activeCvId = selectedCvId ? Number(selectedCvId) : undefined;
+
+    const hasData = Object.entries(cvData).some(
+      ([k, v]) => k !== 'color' && typeof v === 'string' && v.trim() !== ''
+    );
+    const apiMessage = hasData
+      ? `Hãy chấm điểm CV này của tôi dựa trên dữ liệu sau (JSON): ${JSON.stringify(cvData)}\n\nPhân tích điểm mạnh, điểm yếu và gợi ý cải thiện chi tiết theo tiêu chuẩn ATS và nhà tuyển dụng.`
+      : "Hãy chấm điểm CV và gợi ý cách cải thiện để CV trông chuyên nghiệp hơn với nhà tuyển dụng.";
+
+    let firstTokenReceived = false;
+
+    streamChat(
+      apiMessage,
+      (token) => {
+        if (!firstTokenReceived) {
+          setIsAiLoading(false);
+          firstTokenReceived = true;
+        }
+        setAiFeedback((prev) => prev + token);
+      },
+      () => {
+        setIsStreaming(false);
+        setIsAiLoading(false);
+      },
+      (err) => {
+        setAiFeedback("Xin lỗi, đã có lỗi xảy ra khi gọi AI nhận xét. Vui lòng thử lại sau.");
+        setIsStreaming(false);
+        setIsAiLoading(false);
+      },
+      scoringSessionId,  // ← session riêng, không trùng với chatbot chính
+      activeCvId
+    );
   };
+
 
   const handleScoreCv = () => {
     setIsPreviewVisible(false);
     if (!isAiReviewVisible) {
       setIsAiReviewVisible(true);
-      fetchAiScore();
+      if (!aiFeedback) {
+        fetchAiScore();
+      }
     } else {
       setIsAiReviewVisible(false);
     }
@@ -214,7 +247,7 @@ function CvEditorContent() {
       } else {
         const errText = await res.text().catch(() => '');
         console.error('Extract error:', res.status, errText);
-        alert(`Lỗi khi trích xuất dữ liệu CV (${res.status}). ${res.status === 403 ? 'Vui lòng đăng nhập lại.' : ''}`);
+        alert(`Lỗi khi trích xuất dữ liệu CV (${res.status}). ${errText ? errText : ''} ${res.status === 403 ? 'Vui lòng đăng nhập lại.' : ''}`);
       }
     } catch (err) {
       console.error('Extract network error:', err);
@@ -302,340 +335,614 @@ function CvEditorContent() {
   }, [cvData.color]);
 
   return (
-    <>
-      <div className={`grid grid-cols-1 ${isPreviewVisible || isAiReviewVisible
-          ? 'lg:grid-cols-[200px_minmax(400px,1fr)_450px]'
-          : 'lg:grid-cols-[200px_minmax(500px,1fr)] max-w-5xl mx-auto w-full'
-        } gap-6 items-start min-h-[calc(100vh-80px)]`}>
-
-        {/* ── Left: Tools ── */}
-        <aside className="bg-white rounded-[20px] border border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.06)] p-5 lg:sticky lg:top-6 flex flex-col gap-3 shrink-0">
-          <h2 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">Công cụ</h2>
-
-          {/* Tạo CV mới */}
-          <button type="button" onClick={handleCreateNew}
-            className="w-full px-3 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer">
-            ＋ Tạo CV mới
-          </button>
-
-          <button onClick={() => document.getElementById('cv-upload-input')?.click()} disabled={isUploading}
-            className="w-full px-3 py-2.5 text-xs font-semibold text-violet-700 bg-violet-50 rounded-lg hover:bg-violet-100 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer">
-            Tải CV lên
-          </button>
-          <input id="cv-upload-input" type="file" accept=".pdf,.doc,.docx" className="hidden" onChange={handleUploadCv} />
-
-          <button onClick={handleScoreCv}
-            className={`w-full px-3 py-2.5 text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer ${isAiReviewVisible ? 'text-white bg-emerald-600 hover:bg-emerald-700 shadow-md' : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100'}`}>
-            {isAiReviewVisible ? 'Đóng AI Nhận xét' : 'AI Chấm điểm'}
-          </button>
-
-          <button type="button" onClick={handleTogglePreview}
-            className={`w-full px-3 py-2.5 text-xs font-semibold rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer ${isPreviewVisible ? 'text-white bg-blue-600 hover:bg-blue-700 shadow-md' : 'text-blue-700 bg-blue-50 hover:bg-blue-100'}`}>
-            {isPreviewVisible ? 'Ẩn Xem trước' : 'Xem trước'}
-          </button>
-        </aside>
-
-        {/* ── Middle: Editor ── */}
-        <aside className="bg-white rounded-[20px] border border-slate-200 shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden lg:sticky lg:top-6 max-h-[calc(100vh-48px)] flex flex-col">
-          <header className="px-6 pt-5 pb-4 border-b border-slate-100 flex flex-col gap-3 shrink-0">
-            <div className="flex items-center justify-between">
-              <h1 className="text-xl font-extrabold text-slate-900">Chỉnh sửa CV</h1>
-              {isUploading && <span className="text-xs font-medium text-violet-600 animate-pulse">Đang trích xuất...</span>}
-            </div>
-            {savedCvs.length > 0 && (
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-slate-700 whitespace-nowrap">CV đã lưu:</span>
-                <select value={selectedCvId} onChange={handleSelectCv} className="flex-1 px-3 py-1.5 rounded-lg border border-slate-200 text-sm focus:border-violet-500 focus:ring-1 focus:ring-violet-500 outline-none truncate bg-slate-50 cursor-pointer">
-                  <option value="">-- Chọn CV để tải --</option>
-                  {savedCvs.map(cv => (
-                    <option key={cv.id} value={cv.id}>
-                      {cv.cvName || cv.fullName || "CV không tên"} {cv.createdAt ? `- ${new Date(cv.createdAt).toLocaleDateString('vi-VN')}` : ""}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </header>
-
-          <form className="px-6 py-4 flex flex-col overflow-y-auto flex-1" onSubmit={handleSaveCv}>
-
-            {/* Personal info */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Thông tin cá nhân</h2>
-              <label className={labelCls}>Họ và tên</label>
-              <input className={inputCls} type="text" placeholder="Nguyễn Văn A" value={cvData.fullName} onChange={set("fullName")} />
-              <label className={labelCls}>Vị trí / Nghề nghiệp</label>
-              <input className={inputCls} type="text" placeholder="Frontend Developer" value={cvData.jobTitle} onChange={set("jobTitle")} />
-              <label className={labelCls}>Email</label>
-              <input className={inputCls} type="email" placeholder="example@email.com" value={cvData.email} onChange={set("email")} />
-              <label className={labelCls}>Điện thoại</label>
-              <input className={inputCls} type="tel" placeholder="0901 234 567" value={cvData.phone} onChange={set("phone")} />
-              <label className={labelCls}>Địa chỉ</label>
-              <input className={inputCls} type="text" placeholder="Hà Nội, Việt Nam" value={cvData.location} onChange={set("location")} />
-              <label className={labelCls}>Tóm tắt bản thân</label>
-              <textarea className={`${inputCls} resize-y min-h-[80px]`} rows={3} placeholder="Mô tả ngắn về bản thân..." value={cvData.summary} onChange={set("summary")} />
-            </section>
-
-            {/* Skills */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Kỹ năng</h2>
-              {cvData.skills.map((s, i) => (
-                <div key={i} className={cardCls}>
-                  <button type="button" className={removeBtnCls + " absolute top-2 right-2"} onClick={() => removeSkill(i)}>✕</button>
-                  <input className={inputCls} placeholder="Tên kỹ năng (VD: React, Java...)" value={s.skillName}
-                    onChange={e => updateSkill(i, "skillName", e.target.value)} />
-                  <select className={`${inputCls} mt-2`} value={s.level} onChange={e => updateSkill(i, "level", e.target.value)}>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                    <option value="Expert">Expert</option>
-                  </select>
-                </div>
-              ))}
-              <button type="button" className={addBtnCls} onClick={addSkill}>+ Thêm kỹ năng</button>
-            </section>
-
-            {/* Experience */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Kinh nghiệm làm việc</h2>
-              {cvData.experiences.map((x, i) => (
-                <div key={i} className={cardCls}>
-                  <button type="button" className={removeBtnCls + " absolute top-2 right-2"} onClick={() => removeExp(i)}>✕</button>
-                  <input className={inputCls} placeholder="Tên công ty" value={x.company} onChange={e => updateExp(i, "company", e.target.value)} />
-                  <input className={`${inputCls} mt-2`} placeholder="Vị trí" value={x.position} onChange={e => updateExp(i, "position", e.target.value)} />
-                  <div className="grid grid-cols-2 gap-2 mt-2">
-                    <input className={inputCls} placeholder="Bắt đầu (VD: 2022-06)" value={x.startDate} onChange={e => updateExp(i, "startDate", e.target.value)} />
-                    <input className={inputCls} placeholder="Kết thúc / Hiện tại" value={x.endDate} onChange={e => updateExp(i, "endDate", e.target.value)} />
-                  </div>
-                  <textarea className={`${inputCls} mt-2 resize-y min-h-[60px]`} rows={2} placeholder="Mô tả công việc..." value={x.description} onChange={e => updateExp(i, "description", e.target.value)} />
-                </div>
-              ))}
-              <button type="button" className={addBtnCls} onClick={addExp}>+ Thêm kinh nghiệm</button>
-            </section>
-
-            {/* Education */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Học vấn</h2>
-              {cvData.educations.map((x, i) => (
-                <div key={i} className={cardCls}>
-                  <button type="button" className={removeBtnCls + " absolute top-2 right-2"} onClick={() => removeEdu(i)}>✕</button>
-                  <input className={inputCls} placeholder="Tên trường" value={x.school} onChange={e => updateEdu(i, "school", e.target.value)} />
-                  <input className={`${inputCls} mt-2`} placeholder="Chuyên ngành" value={x.major} onChange={e => updateEdu(i, "major", e.target.value)} />
-                  <div className="grid grid-cols-2 gap-2 mt-2">
-                    <input className={inputCls} placeholder="Năm bắt đầu" value={x.startDate} onChange={e => updateEdu(i, "startDate", e.target.value)} />
-                    <input className={inputCls} placeholder="Năm tốt nghiệp" value={x.endDate} onChange={e => updateEdu(i, "endDate", e.target.value)} />
-                  </div>
-                </div>
-              ))}
-              <button type="button" className={addBtnCls} onClick={addEdu}>+ Thêm học vấn</button>
-            </section>
-
-            {/* Projects */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Dự án</h2>
-              {cvData.projects.map((x, i) => (
-                <div key={i} className={cardCls}>
-                  <button type="button" className={removeBtnCls + " absolute top-2 right-2"} onClick={() => removeProj(i)}>✕</button>
-                  <input className={inputCls} placeholder="Tên dự án" value={x.name} onChange={e => updateProj(i, "name", e.target.value)} />
-                  <textarea className={`${inputCls} mt-2 resize-y min-h-[60px]`} rows={2} placeholder="Mô tả dự án..." value={x.description} onChange={e => updateProj(i, "description", e.target.value)} />
-                  <input className={`${inputCls} mt-2`} placeholder="Công nghệ (VD: React, Spring Boot)" value={x.technologies} onChange={e => updateProj(i, "technologies", e.target.value)} />
-                  <input className={`${inputCls} mt-2`} placeholder="Link dự án (tuỳ chọn)" value={x.link} onChange={e => updateProj(i, "link", e.target.value)} />
-                </div>
-              ))}
-              <button type="button" className={addBtnCls} onClick={addProj}>+ Thêm dự án</button>
-            </section>
-
-            {/* Color */}
-            <section className="mb-6">
-              <h2 className={sectionTitleCls}>Màu sắc chủ đạo</h2>
-              <div className="flex gap-2 mt-1 flex-wrap">
-                {COLOR_OPTIONS.map(opt => (
-                  <button key={opt.value} type="button" title={opt.label}
-                    onClick={() => setCvData(p => ({ ...p, color: opt.value }))}
-                    className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${cvData.color === opt.value ? 'border-slate-700 scale-110' : 'border-transparent'}`}
-                    style={{ background: opt.value }} />
-                ))}
-              </div>
-            </section>
-
-            <button type="submit" disabled={saveStatus === 'saving'}
-              className="w-full py-3 bg-violet-700 text-white rounded-xl text-sm font-bold cursor-pointer shadow-[0_4px_14px_rgba(124,58,237,0.35)] hover:opacity-90 active:scale-[0.98] transition-all mt-1 disabled:opacity-60 disabled:cursor-not-allowed">
-              {saveStatus === 'saving' && '⏳ Đang lưu...'}
-              {saveStatus === 'success' && '✅ Đã lưu thành công!'}
-              {saveStatus === 'error' && '❌ Lỗi — thử lại'}
-              {saveStatus === 'idle' && (selectedCvId ? 'Lưu thay đổi' : '＋ Tạo & Lưu CV')}
-            </button>
-          </form>
-        </aside>
-
-        {/* ── Right: preview or AI ── */}
-        {(isPreviewVisible || isAiReviewVisible) && (
-          <div className={`py-1 w-full ${isAiReviewVisible ? 'lg:sticky lg:top-6 lg:max-h-[calc(100vh-48px)] flex flex-col' : ''}`} aria-label={isPreviewVisible ? "Xem trước CV" : "AI Nhận xét"} role="region">
-
-            {/* Preview View */}
-            {isPreviewVisible && (
-              <div ref={previewRef} className="bg-white rounded-[20px] shadow-[0_8px_40px_rgba(0,0,0,0.1)] overflow-hidden min-h-[700px]">
-
-                {/* Header */}
-                <div className="[background:var(--cv-accent,#7c3aed)] flex items-center gap-4 px-8 py-7 text-white transition-colors duration-300">
-                  <div className="w-14 h-14 rounded-full bg-white/25 flex items-center justify-center text-[22px] font-extrabold shrink-0">
-                    {cvData.fullName ? cvData.fullName[0].toUpperCase() : "?"}
-                  </div>
-                  <div>
-                    <p className="text-[22px] font-extrabold mb-0.5">{cvData.fullName || "Họ và tên"}</p>
-                    <p className="text-[13px] opacity-85">{cvData.jobTitle || "Vị trí"}</p>
-                  </div>
-                </div>
-
-                <div className="px-8 py-7 flex flex-col gap-5">
-
-                  {/* Contact */}
-                  <section>
-                    <h3 className={accentH3}>Liên hệ</h3>
-                    <ul className="list-none p-0 m-0 flex flex-col gap-1 text-[13px] text-slate-600">
-                      {cvData.email && <li>✉ {cvData.email}</li>}
-                      {cvData.phone && <li>📞 {cvData.phone}</li>}
-                      {cvData.location && <li>📍 {cvData.location}</li>}
-                      {!cvData.email && !cvData.phone && !cvData.location && (
-                        <li className="text-slate-300 italic text-xs">Chưa có thông tin</li>
-                      )}
-                    </ul>
-                  </section>
-
-                  {/* Summary */}
-                  {cvData.summary && (
-                    <section>
-                      <h3 className={accentH3}>Giới thiệu</h3>
-                      <p className="text-[13px] text-slate-600 leading-relaxed">{cvData.summary}</p>
-                    </section>
-                  )}
-
-                  {/* Skills */}
-                  {cvData.skills.length > 0 && (
-                    <section>
-                      <h3 className={accentH3}>Kỹ năng</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {cvData.skills.map((s, i) => (
-                          <span key={i} className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700">
-                            {s.skillName}{s.level ? ` · ${s.level}` : ""}
-                          </span>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Experience */}
-                  {cvData.experiences.length > 0 && (
-                    <section>
-                      <h3 className={accentH3}>Kinh nghiệm làm việc</h3>
-                      <div className="flex flex-col gap-4">
-                        {cvData.experiences.map((x, i) => (
-                          <div key={i}>
-                            <div className="flex justify-between items-start">
-                              <div>
-                                <p className="text-[13px] font-bold text-slate-900">{x.position || "Vị trí"}</p>
-                                <p className="text-[12px] text-slate-500">{x.company}</p>
-                              </div>
-                              {(x.startDate || x.endDate) && (
-                                <span className="text-[11px] text-slate-400 whitespace-nowrap ml-4">
-                                  {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
-                                </span>
-                              )}
-                            </div>
-                            {x.description && <p className="text-[12px] text-slate-600 mt-1 leading-relaxed">{x.description}</p>}
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Education */}
-                  {cvData.educations.length > 0 && (
-                    <section>
-                      <h3 className={accentH3}>Học vấn</h3>
-                      <div className="flex flex-col gap-3">
-                        {cvData.educations.map((x, i) => (
-                          <div key={i} className="flex justify-between items-start">
-                            <div>
-                              <p className="text-[13px] font-bold text-slate-900">{x.school || "Tên trường"}</p>
-                              {x.major && <p className="text-[12px] text-slate-500">{x.major}</p>}
-                            </div>
-                            {(x.startDate || x.endDate) && (
-                              <span className="text-[11px] text-slate-400 whitespace-nowrap ml-4">
-                                {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
-                              </span>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Projects */}
-                  {cvData.projects.length > 0 && (
-                    <section>
-                      <h3 className={accentH3}>Dự án</h3>
-                      <div className="flex flex-col gap-4">
-                        {cvData.projects.map((x, i) => (
-                          <div key={i}>
-                            <div className="flex items-center gap-2">
-                              <p className="text-[13px] font-bold text-slate-900">{x.name || "Tên dự án"}</p>
-                              {x.link && <a href={x.link} target="_blank" rel="noreferrer" className="text-[11px] [color:var(--cv-accent,#7c3aed)] underline">[link]</a>}
-                            </div>
-                            {x.description && <p className="text-[12px] text-slate-600 mt-0.5 leading-relaxed">{x.description}</p>}
-                            {x.technologies && (
-                              <div className="flex flex-wrap gap-1 mt-1">
-                                {x.technologies.split(',').map(t => t.trim()).filter(Boolean).map((t, j) => (
-                                  <span key={j} className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600">{t}</span>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  )}
-
-                  {/* Placeholder when empty */}
-                  {cvData.skills.length === 0 && cvData.experiences.length === 0 && cvData.educations.length === 0 && (
-                    <p className="text-slate-300 italic text-xs text-center mt-4">Điền thông tin vào form bên trái để xem bản preview</p>
-                  )}
-
-                </div>
-              </div>
-            )}
-
-            {/* AI Chat View */}
-            {isAiReviewVisible && (
-              <div className="bg-white rounded-[20px] shadow-[0_8px_40px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col min-h-[600px] h-full flex-1">
-                <div className="bg-emerald-600 px-5 py-4 flex justify-between items-center text-white shrink-0">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">🤖</span>
-                    <div>
-                      <h3 className="font-bold text-base">Trợ lý AI</h3>
-                      <p className="text-xs text-emerald-100">AI Đánh giá CV</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 overflow-y-auto p-5 bg-slate-50 relative">
-                  {isAiLoading ? (
-                    <div className="flex flex-col items-center justify-center h-full text-emerald-600 gap-3">
-                      <div className="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
-                      <span className="text-sm font-semibold animate-pulse">AI đang phân tích và nhận xét...</span>
-                    </div>
-                  ) : (
-                    <div className="prose prose-sm prose-emerald max-w-none text-slate-700 whitespace-pre-wrap leading-relaxed">
-                      {aiFeedback || "Chưa có nhận xét nào."}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
+    <div className="min-h-screen bg-slate-50/50 font-sans text-slate-900 flex">
+      {/* ── Main Navigation Sidebar (Vertical) ── */}
+      <nav className="w-[80px] lg:w-[220px] bg-white border-r border-slate-200 text-slate-500 flex flex-col items-center lg:items-start shrink-0 h-screen sticky top-0 py-5 px-3 lg:px-4 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+        <Link to="/" className="text-slate-900 flex items-center justify-center lg:justify-start w-full gap-2.5 mb-8 hover:text-emerald-600 transition-colors">
+          <img src={logoImg} className="w-7 h-7 object-contain bg-slate-100 rounded-lg p-1" alt="Logo" />
+          <span className="hidden lg:block font-black text-lg tracking-tight">JobPilot</span>
+        </Link>
+        <div className="flex flex-col gap-3 w-full">
+          <Link to="/" className="flex items-center justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-colors group" title="Trang chủ">
+            <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span className="hidden lg:block font-semibold text-sm">Trang chủ</span>
+          </Link>
+          <Link to="/tim-viec" className="flex items-center justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-colors group" title="Tìm việc">
+            <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span className="hidden lg:block font-semibold text-sm">Việc làm</span>
+          </Link>
+          <Link to="/cv-mau" className="flex items-center justify-center lg:justify-start gap-3 p-3 rounded-xl hover:bg-slate-50 hover:text-slate-900 transition-colors group" title="Mẫu CV">
+            <FileText className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span className="hidden lg:block font-semibold text-sm">Mẫu CV</span>
+          </Link>
+          <div className="flex items-center justify-center lg:justify-start gap-3 p-3 rounded-xl bg-violet-600 text-white shadow-[0_4px_20px_rgba(124,58,237,0.3)] group cursor-default mt-2" title="Trình chỉnh sửa CV">
+            <Wand2 className="w-5 h-5" />
+            <span className="hidden lg:block font-semibold text-sm">Trình chỉnh sửa CV</span>
           </div>
-        )}
+        </div>
+      </nav>
+
+      {/* ── Main Editor Area ── */}
+      <div className="flex-1 overflow-y-auto w-full p-4 lg:p-6 transition-all duration-500 ease-in-out">
+        <div className="w-full max-w-[1600px] mx-auto">
+
+          {/* Header / Top Bar */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-3 bg-white p-5 rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100">
+            <div>
+              <h1 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2.5">
+                <div className="p-2 bg-violet-100 rounded-xl text-violet-600">
+                  <FileText className="w-5 h-5" />
+                </div>
+                Trình chỉnh sửa CV
+              </h1>
+              <p className="text-slate-500 text-[13.5px] mt-1.5 font-medium">Tạo ấn tượng chuyên nghiệp với mẫu CV được tối ưu hóa</p>
+            </div>
+
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              {savedCvs.length > 0 && (
+                <div className="relative flex-1 md:w-64">
+                  <select
+                    value={selectedCvId}
+                    onChange={handleSelectCv}
+                    className="w-full appearance-none pl-4 pr-10 py-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-[14px] font-semibold text-slate-700 outline-none focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 transition-all cursor-pointer"
+                  >
+                    <option value="">-- Mở CV đã lưu --</option>
+                    {savedCvs.map(cv => (
+                      <option key={cv.id} value={cv.id}>
+                        {cv.cvName || cv.fullName || "CV không tên"} {cv.createdAt ? `(${new Date(cv.createdAt).toLocaleDateString('vi-VN')})` : ""}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                </div>
+              )}
+
+              <button
+                onClick={handleCreateNew}
+                className="px-5 py-3 bg-slate-100 text-slate-700 rounded-xl text-[14px] font-bold hover:bg-slate-200 hover:text-slate-900 transition-all flex items-center gap-2 shrink-0 active:scale-95 cursor-pointer"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Tạo mới</span>
+              </button>
+            </div>
+          </div>
+
+          <div className={`grid grid-cols-1 ${isPreviewVisible || isAiReviewVisible ? 'lg:grid-cols-[1fr_500px] xl:grid-cols-[1fr_700px]' : 'lg:grid-cols-1'} gap-6 items-start`}>
+
+            {/* Main Content Area (Tools + Editor) */}
+            <div className="flex flex-col lg:flex-row gap-6">
+
+              {/* Left: Tools Sidebar */}
+              <aside className="lg:w-[260px] shrink-0 flex flex-col gap-4">
+                <div className="bg-white rounded-[24px] border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-5 sticky top-8">
+                  <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4 px-1">Công cụ hỗ trợ</h2>
+
+                  <div className="flex flex-col gap-2.5">
+                    <button
+                      onClick={() => document.getElementById('cv-upload-input')?.click()}
+                      disabled={isUploading}
+                      className="group relative w-full px-4 py-3.5 bg-violet-50 hover:bg-violet-100 text-violet-700 rounded-xl text-[14px] font-bold transition-all flex items-center gap-3 disabled:opacity-60 overflow-hidden cursor-pointer"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-violet-200/0 via-violet-200/50 to-violet-200/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                      <Upload className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+                      {isUploading ? 'Đang phân tích...' : 'Tải CV có sẵn (PDF)'}
+                    </button>
+                    <input id="cv-upload-input" type="file" accept=".pdf,.doc,.docx" className="hidden" onChange={handleUploadCv} />
+
+                    <button
+                      onClick={handleScoreCv}
+                      className={`w-full px-4 py-3.5 rounded-xl text-[14px] font-bold transition-all flex items-center gap-3 cursor-pointer ${isAiReviewVisible
+                          ? 'bg-emerald-600 text-white shadow-[0_8px_20px_rgba(5,150,105,0.25)] hover:bg-emerald-700'
+                          : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                        }`}
+                    >
+                      <Bot className={`w-5 h-5 ${isAiReviewVisible ? 'animate-bounce' : ''}`} />
+                      {isAiReviewVisible ? 'Đóng AI Nhận xét' : 'AI Chấm điểm CV'}
+                    </button>
+
+                    <button
+                      onClick={handleTogglePreview}
+                      className={`w-full px-4 py-3.5 rounded-xl text-[14px] font-bold transition-all flex items-center gap-3 cursor-pointer ${isPreviewVisible
+                          ? 'bg-blue-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] hover:bg-blue-700'
+                          : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                        }`}
+                    >
+                      {isPreviewVisible ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                      {isPreviewVisible ? 'Ẩn Xem trước' : 'Xem trước CV'}
+                    </button>
+
+                    <div className="h-px bg-slate-100 my-3"></div>
+
+                    <button
+                      onClick={handleSaveCv}
+                      disabled={saveStatus === 'saving'}
+                      className="w-full px-4 py-4 bg-slate-900 text-white hover:bg-slate-800 rounded-xl text-[14px] font-bold shadow-[0_8px_20px_rgba(0,0,0,0.15)] transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer active:scale-95"
+                    >
+                      {saveStatus === 'saving' ? (
+                        <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                      ) : <Save className="w-5 h-5" />}
+                      {saveStatus === 'saving' && 'Đang lưu...'}
+                      {saveStatus === 'success' && 'Đã lưu thành công!'}
+                      {saveStatus === 'error' && 'Lỗi lưu CV'}
+                      {saveStatus === 'idle' && (selectedCvId ? 'Lưu thay đổi' : 'Tạo & Lưu CV')}
+                    </button>
+                  </div>
+                </div>
+              </aside>
+
+              {/* Middle: Editor Form */}
+              <form className="flex-1 bg-white rounded-[20px] border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-5 lg:p-7" onSubmit={handleSaveCv}>
+
+                {/* Personal info */}
+                <section className="mb-8 group">
+                  <div className="flex items-center gap-2.5 mb-5">
+                    <div className="p-2 bg-violet-50 rounded-xl text-violet-600 group-hover:bg-violet-100 transition-colors"><User className="w-4 h-4" /></div>
+                    <h2 className="text-lg font-extrabold text-slate-800">Thông tin cá nhân</h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-1.5 md:col-span-2">
+                      <label className={labelCls}>Họ và tên</label>
+                      <input className={inputCls} type="text" placeholder="Nguyễn Văn A" value={cvData.fullName} onChange={set("fullName")} />
+                    </div>
+                    <div className="space-y-1.5 md:col-span-2">
+                      <label className={labelCls}>Vị trí / Nghề nghiệp</label>
+                      <input className={inputCls} type="text" placeholder="Frontend Developer" value={cvData.jobTitle} onChange={set("jobTitle")} />
+                    </div>
+                    <div className="space-y-1.5 relative">
+                      <label className={labelCls}>Email</label>
+                      <div className="relative">
+                        <Mail className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input className={`${inputCls} pl-11`} type="email" placeholder="example@email.com" value={cvData.email} onChange={set("email")} />
+                      </div>
+                    </div>
+                    <div className="space-y-1.5 relative">
+                      <label className={labelCls}>Điện thoại</label>
+                      <div className="relative">
+                        <Phone className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input className={`${inputCls} pl-11`} type="tel" placeholder="0901 234 567" value={cvData.phone} onChange={set("phone")} />
+                      </div>
+                    </div>
+                    <div className="space-y-1.5 md:col-span-2 relative">
+                      <label className={labelCls}>Địa chỉ</label>
+                      <div className="relative">
+                        <MapPin className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input className={`${inputCls} pl-11`} type="text" placeholder="Hà Nội, Việt Nam" value={cvData.location} onChange={set("location")} />
+                      </div>
+                    </div>
+                    <div className="space-y-1.5 md:col-span-2">
+                      <label className={labelCls}>Tóm tắt bản thân</label>
+                      <textarea className={`${inputCls} resize-none min-h-[120px] leading-relaxed overflow-hidden`} rows={3} placeholder="Mô tả ngắn về bản thân, mục tiêu nghề nghiệp..." value={cvData.summary} onChange={e => { set("summary")(e); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }} />
+                    </div>
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Skills */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-blue-50 rounded-[14px] text-blue-600 group-hover:bg-blue-100 transition-colors"><Code className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Kỹ năng</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addSkill}>
+                      <Plus className="w-4 h-4" /> Thêm kỹ năng
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {cvData.skills.map((s, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeSkill(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <input className={inputCls} placeholder="Tên kỹ năng (VD: React, Java...)" value={s.skillName}
+                          onChange={e => updateSkill(i, "skillName", e.target.value)} />
+                        <select className={`${inputCls} mt-3`} value={s.level} onChange={e => updateSkill(i, "level", e.target.value)}>
+                          <option value="Beginner">Beginner (Mới học)</option>
+                          <option value="Intermediate">Intermediate (Khá)</option>
+                          <option value="Advanced">Advanced (Tốt)</option>
+                          <option value="Expert">Expert (Chuyên gia)</option>
+                        </select>
+                      </div>
+                    ))}
+                  </div>
+                  {cvData.skills.length === 0 && (
+                    <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                      Chưa có kỹ năng nào. Hãy thêm vài kỹ năng để làm nổi bật hồ sơ của bạn.
+                    </div>
+                  )}
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Experience */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-emerald-50 rounded-[14px] text-emerald-600 group-hover:bg-emerald-100 transition-colors"><Briefcase className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Kinh nghiệm làm việc</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addExp}>
+                      <Plus className="w-4 h-4" /> Thêm kinh nghiệm
+                    </button>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    {cvData.experiences.map((x, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeExp(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Tên công ty</label>
+                            <input className={inputCls} placeholder="VD: FPT Software" value={x.company} onChange={e => updateExp(i, "company", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Vị trí</label>
+                            <input className={inputCls} placeholder="VD: Software Engineer" value={x.position} onChange={e => updateExp(i, "position", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Bắt đầu</label>
+                            <input className={inputCls} placeholder="VD: 06/2022" value={x.startDate} onChange={e => updateExp(i, "startDate", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Kết thúc</label>
+                            <input className={inputCls} placeholder="VD: Hiện tại" value={x.endDate} onChange={e => updateExp(i, "endDate", e.target.value)} />
+                          </div>
+                        </div>
+                        <div className="mt-4 space-y-1.5">
+                          <label className="block text-[12px] font-bold text-slate-500 uppercase">Mô tả công việc</label>
+                          <textarea className={`${inputCls} resize-none min-h-[100px] leading-relaxed overflow-hidden`} rows={2} placeholder="Mô tả chi tiết công việc và thành tựu đạt được..." value={x.description} onChange={e => { updateExp(i, "description", e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }} />
+                        </div>
+                      </div>
+                    ))}
+                    {cvData.experiences.length === 0 && (
+                      <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                        Chưa có kinh nghiệm làm việc nào được thêm vào.
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Education */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-amber-50 rounded-[14px] text-amber-600 group-hover:bg-amber-100 transition-colors"><GraduationCap className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Học vấn</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addEdu}>
+                      <Plus className="w-4 h-4" /> Thêm học vấn
+                    </button>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    {cvData.educations.map((x, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeEdu(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Tên trường</label>
+                            <input className={inputCls} placeholder="VD: ĐH Công nghệ Thông tin" value={x.school} onChange={e => updateEdu(i, "school", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Chuyên ngành</label>
+                            <input className={inputCls} placeholder="VD: Khoa học máy tính" value={x.major} onChange={e => updateEdu(i, "major", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Bắt đầu</label>
+                            <input className={inputCls} placeholder="Năm bắt đầu" value={x.startDate} onChange={e => updateEdu(i, "startDate", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Kết thúc</label>
+                            <input className={inputCls} placeholder="Năm tốt nghiệp" value={x.endDate} onChange={e => updateEdu(i, "endDate", e.target.value)} />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    {cvData.educations.length === 0 && (
+                      <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                        Chưa có thông tin học vấn.
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Projects */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-rose-50 rounded-[14px] text-rose-600 group-hover:bg-rose-100 transition-colors"><FolderGit2 className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Dự án cá nhân</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addProj}>
+                      <Plus className="w-4 h-4" /> Thêm dự án
+                    </button>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    {cvData.projects.map((x, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeProj(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Tên dự án</label>
+                            <input className={inputCls} placeholder="Tên dự án" value={x.name} onChange={e => updateProj(i, "name", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Link dự án</label>
+                            <input className={inputCls} placeholder="GitHub, Live URL..." value={x.link} onChange={e => updateProj(i, "link", e.target.value)} />
+                          </div>
+                          <div className="md:col-span-2 space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Công nghệ sử dụng</label>
+                            <input className={inputCls} placeholder="VD: React, Spring Boot, MySQL" value={x.technologies} onChange={e => updateProj(i, "technologies", e.target.value)} />
+                          </div>
+                        </div>
+                        <div className="mt-4 space-y-1.5">
+                          <label className="block text-[12px] font-bold text-slate-500 uppercase">Mô tả dự án</label>
+                          <textarea className={`${inputCls} resize-none min-h-[80px] leading-relaxed overflow-hidden`} rows={2} placeholder="Mô tả dự án và vai trò của bạn..." value={x.description} onChange={e => { updateProj(i, "description", e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }} />
+                        </div>
+                      </div>
+                    ))}
+                    {cvData.projects.length === 0 && (
+                      <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                        Các dự án thực tế sẽ làm CV của bạn nổi bật hơn.
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Color */}
+                <section className="mb-4 group">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2.5 bg-pink-50 rounded-[14px] text-pink-600 group-hover:bg-pink-100 transition-colors"><Palette className="w-5 h-5" /></div>
+                    <h2 className="text-xl font-extrabold text-slate-800">Màu sắc chủ đạo</h2>
+                  </div>
+                  <div className="flex gap-4 flex-wrap p-6 bg-slate-50 rounded-[20px] border border-slate-100">
+                    {COLOR_OPTIONS.map(opt => (
+                      <button key={opt.value} type="button" title={opt.label}
+                        onClick={() => setCvData(p => ({ ...p, color: opt.value }))}
+                        className={`w-14 h-14 rounded-full border-[3px] transition-all hover:scale-110 shadow-sm ${cvData.color === opt.value ? 'border-slate-800 scale-110 ring-4 ring-slate-800/10' : 'border-white'}`}
+                        style={{ background: opt.value }} />
+                    ))}
+                  </div>
+                </section>
+              </form>
+            </div>
+
+            {/* ── Right: preview or AI ── */}
+            {(isPreviewVisible || isAiReviewVisible) && (
+              <div className="w-full h-fit flex flex-col" aria-label={isPreviewVisible ? "Xem trước CV" : "AI Nhận xét"} role="region">
+
+                {/* Preview View */}
+                {isPreviewVisible && (
+                  <div ref={previewRef} className="bg-white rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-slate-100 overflow-hidden min-h-[850px] print:shadow-none print:border-none origin-top transition-transform h-fit">
+
+                    {/* Header */}
+                    <div className="flex items-center gap-6 px-10 py-10 text-white transition-colors duration-500" style={{ backgroundColor: cvData.color || '#7c3aed' }}>
+                      <div className="w-20 h-20 rounded-[20px] bg-white/20 flex items-center justify-center text-4xl font-black shrink-0 shadow-inner backdrop-blur-sm">
+                        {cvData.fullName ? cvData.fullName[0].toUpperCase() : "?"}
+                      </div>
+                      <div className="flex flex-col gap-1.5">
+                        <p className="text-[32px] font-black tracking-tight leading-none">{cvData.fullName || "Họ và tên"}</p>
+                        <p className="text-lg font-semibold opacity-90">{cvData.jobTitle || "Vị trí ứng tuyển"}</p>
+                      </div>
+                    </div>
+
+                    <div className="px-10 py-10 flex flex-col gap-9">
+
+                      {/* Contact */}
+                      <section>
+                        <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Thông tin liên hệ</h3>
+                        <ul className="list-none p-0 m-0 flex flex-col gap-3 text-[14px] text-slate-600 font-semibold">
+                          {cvData.email && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Mail className="w-4 h-4" /></div> {cvData.email}</li>}
+                          {cvData.phone && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Phone className="w-4 h-4" /></div> {cvData.phone}</li>}
+                          {cvData.location && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><MapPin className="w-4 h-4" /></div> {cvData.location}</li>}
+                          {!cvData.email && !cvData.phone && !cvData.location && (
+                            <li className="text-slate-400 italic text-sm font-medium">Chưa có thông tin liên hệ</li>
+                          )}
+                        </ul>
+                      </section>
+
+                      {/* Summary */}
+                      {cvData.summary && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Giới thiệu bản thân</h3>
+                          <p className="text-[14px] text-slate-700 leading-[1.8] font-medium text-justify whitespace-pre-wrap">{cvData.summary}</p>
+                        </section>
+                      )}
+
+                      {/* Skills */}
+                      {cvData.skills.length > 0 && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Kỹ năng chuyên môn</h3>
+                          <div className="flex flex-wrap gap-2.5">
+                            {cvData.skills.map((s, i) => (
+                              <span key={i} className="px-3.5 py-1.5 rounded-xl text-[13px] font-bold bg-slate-50 text-slate-700 border border-slate-200/60 shadow-sm">
+                                {s.skillName}{s.level ? <span className="opacity-50 ml-1.5 font-medium">| {s.level}</span> : ""}
+                              </span>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Experience */}
+                      {cvData.experiences.length > 0 && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Kinh nghiệm làm việc</h3>
+                          <div className="flex flex-col gap-7 border-l-[3px] border-slate-100 pl-5 ml-2">
+                            {cvData.experiences.map((x, i) => (
+                              <div key={i} className="relative">
+                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
+                                <div className="flex justify-between items-start gap-4">
+                                  <div>
+                                    <p className="text-[16px] font-extrabold text-slate-900">{x.position || "Vị trí"}</p>
+                                    <p className="text-[14px] font-bold text-slate-500 mt-0.5">{x.company}</p>
+                                  </div>
+                                  {(x.startDate || x.endDate) && (
+                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
+                                      {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
+                                    </span>
+                                  )}
+                                </div>
+                                {x.description && <p className="text-[14px] text-slate-600 mt-3 leading-[1.7] font-medium whitespace-pre-wrap">{x.description}</p>}
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Education */}
+                      {cvData.educations.length > 0 && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Học vấn</h3>
+                          <div className="flex flex-col gap-6 border-l-[3px] border-slate-100 pl-5 ml-2">
+                            {cvData.educations.map((x, i) => (
+                              <div key={i} className="relative">
+                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
+                                <div className="flex justify-between items-start gap-4">
+                                  <div>
+                                    <p className="text-[15px] font-extrabold text-slate-900">{x.school || "Tên trường"}</p>
+                                    {x.major && <p className="text-[14px] font-semibold text-slate-500 mt-0.5">{x.major}</p>}
+                                  </div>
+                                  {(x.startDate || x.endDate) && (
+                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
+                                      {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Projects */}
+                      {cvData.projects.length > 0 && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Dự án nổi bật</h3>
+                          <div className="flex flex-col gap-6">
+                            {cvData.projects.map((x, i) => (
+                              <div key={i} className="bg-slate-50/80 p-6 rounded-[20px] border border-slate-100">
+                                <div className="flex items-center justify-between gap-2 mb-3">
+                                  <p className="text-[16px] font-extrabold text-slate-900">{x.name || "Tên dự án"}</p>
+                                  {x.link && <a href={x.link} target="_blank" rel="noreferrer" className="text-[13px] font-bold underline transition-opacity hover:opacity-80" style={{ color: cvData.color || '#7c3aed' }}>Xem dự án ↗</a>}
+                                </div>
+                                {x.description && <p className="text-[14px] text-slate-600 mb-4 leading-[1.7] font-medium whitespace-pre-wrap">{x.description}</p>}
+                                {x.technologies && (
+                                  <div className="flex flex-wrap gap-2">
+                                    {x.technologies.split(',').map(t => t.trim()).filter(Boolean).map((t, j) => (
+                                      <span key={j} className="px-3 py-1 rounded-lg text-[12px] font-bold bg-white border border-slate-200 text-slate-600 shadow-sm">{t}</span>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Placeholder when empty */}
+                      {cvData.skills.length === 0 && cvData.experiences.length === 0 && cvData.educations.length === 0 && (
+                        <div className="flex flex-col items-center justify-center py-24 opacity-40">
+                          <FileText className="w-20 h-20 mb-5 text-slate-300" />
+                          <p className="text-slate-400 text-[15px] font-semibold text-center leading-relaxed">Bản xem trước CV<br />Hãy điền thông tin ở biểu mẫu bên trái để hiển thị.</p>
+                        </div>
+                      )}
+
+                    </div>
+                  </div>
+                )}
+
+                {/* AI Chat View */}
+                {isAiReviewVisible && (
+                  <div className="bg-white rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-slate-100 overflow-hidden flex flex-col min-h-[600px] h-fit">
+                    <div className="bg-emerald-600 px-6 py-5 flex justify-between items-center text-white shrink-0 relative overflow-hidden">
+                      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+                      <div className="flex items-center gap-4 relative z-10">
+                        <div className="w-12 h-12 bg-white/20 rounded-[14px] flex items-center justify-center backdrop-blur-md shadow-inner">
+                          <Sparkles className="w-6 h-6 text-emerald-50" />
+                        </div>
+                        <div>
+                          <h3 className="font-extrabold text-[17px] tracking-tight">Trợ lý AI</h3>
+                          <p className="text-[13px] text-emerald-100 font-semibold mt-0.5">Phân tích & Tối ưu CV</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={fetchAiScore}
+                        disabled={isAiLoading}
+                        className="relative z-10 flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-sm font-bold transition-colors disabled:opacity-50"
+                      >
+                        <RefreshCw className={`w-4 h-4 ${isAiLoading ? 'animate-spin' : ''}`} />
+                        Chấm lại
+                      </button>
+                    </div>
+                    <div className="p-6 lg:p-8 bg-slate-50 relative">
+                      {isAiLoading ? (
+                        <div className="flex flex-col items-center justify-center h-full text-emerald-600 gap-5">
+                          <div className="relative">
+                            <div className="w-14 h-14 border-4 border-emerald-500/20 rounded-full"></div>
+                            <div className="w-14 h-14 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin absolute inset-0"></div>
+                          </div>
+                          <span className="text-[15px] font-bold animate-pulse tracking-wide">AI đang phân tích độ chuyên nghiệp...</span>
+                        </div>
+                      ) : (
+                        <div className="ai-markdown-body">
+                          {aiFeedback ? (
+                            <>
+                              <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                                components={{
+                                  h1: ({ children }) => <h1 className="text-2xl font-extrabold text-slate-900 mb-4 mt-2 pb-2 border-b border-slate-200">{children}</h1>,
+                                  h2: ({ children }) => <h2 className="text-lg font-extrabold text-slate-800 mb-3 mt-6">{children}</h2>,
+                                  h3: ({ children }) => <h3 className="text-[15px] font-bold text-slate-700 mb-2 mt-4">{children}</h3>,
+                                  p: ({ children }) => <p className="text-[14.5px] text-slate-700 leading-[1.85] mb-3 font-medium">{children}</p>,
+                                  ul: ({ children }) => <ul className="list-disc pl-5 mb-3 space-y-1.5">{children}</ul>,
+                                  ol: ({ children }) => <ol className="list-decimal pl-5 mb-3 space-y-1.5">{children}</ol>,
+                                  li: ({ children }) => <li className="text-[14px] text-slate-700 leading-[1.75] font-medium">{children}</li>,
+                                  strong: ({ children }) => <strong className="font-bold text-slate-900">{children}</strong>,
+                                  em: ({ children }) => <em className="italic text-slate-600">{children}</em>,
+                                  blockquote: ({ children }) => <blockquote className="border-l-4 border-emerald-400 pl-4 py-1 my-3 bg-emerald-50 rounded-r-xl text-slate-600 italic">{children}</blockquote>,
+                                  code: ({ children }) => <code className="bg-slate-100 text-emerald-700 px-1.5 py-0.5 rounded text-[13px] font-mono">{children}</code>,
+                                  hr: () => <hr className="border-slate-200 my-5" />,
+                                }}
+                              >
+                                {aiFeedback}
+                              </ReactMarkdown>
+                              {isStreaming && (
+                                <span className="inline-block w-2 h-4 ml-1 align-middle bg-emerald-500 animate-pulse rounded-sm"></span>
+                              )}
+                            </>
+                          ) : (
+                            <p className="text-slate-400 italic text-[14px] text-center pt-10">
+                              Chưa có nhận xét nào. Nhấn <strong>AI Chấm điểm CV</strong> để bắt đầu.
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

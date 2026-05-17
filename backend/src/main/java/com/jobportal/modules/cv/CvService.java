@@ -67,18 +67,13 @@ public class CvService {
         cv.setFileUrl(dto.getFileUrl());
 
         // Process Skills
-        // Only save skills that have a valid skillId (references the skills lookup table).
-        // Free-text skills from the frontend (skillName only, no skillId) are stored in cvData JSON.
+        // Lưu tất cả skills từ frontend: cả free-text (chỉ có skillName) lẫn skill có skillId (từ lookup table).
         if (dto.getSkills() != null) {
-            java.util.Set<Long> seenSkillIds = new java.util.HashSet<>();
             for (UserCvRequestDTO.SkillDTO s : dto.getSkills()) {
-                if (s.getSkillId() == null) continue; // skip free-text skills — stored in cvData
-                if (!seenSkillIds.add(s.getSkillId())) continue; // skip duplicate skillIds
+                if (s.getSkillName() == null || s.getSkillName().isBlank()) continue; // bỏ qua skill trống
                 UserCvSkill skill = new UserCvSkill();
-                UserCvSkill.UserCvSkillId skillId = new UserCvSkill.UserCvSkillId();
-                skillId.setSkillId(s.getSkillId());
-                skill.setId(skillId);
-                skill.setSkillId(s.getSkillId());
+                skill.setSkillName(s.getSkillName().trim());
+                skill.setSkillId(s.getSkillId()); // null nếu là free-text skill, OK
                 skill.setLevel(s.getLevel());
                 cv.addSkill(skill);
             }

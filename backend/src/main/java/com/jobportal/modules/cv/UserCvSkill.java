@@ -1,10 +1,8 @@
-﻿package com.jobportal.modules.cv;
+package com.jobportal.modules.cv;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "user_cv_skills")
@@ -15,52 +13,23 @@ import java.util.Objects;
 @Builder
 public class UserCvSkill {
 
-    @EmbeddedId
-    private UserCvSkillId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("cvId")
-    @JoinColumn(name = "cv_id")
+    @JoinColumn(name = "cv_id", nullable = false)
+    @JsonIgnore
     private UserCv cv;
 
-    @Transient
-    public Long getSkillId() {
-        return id != null ? id.getSkillId() : null;
-    }
+    /** FK sang lookup table (tuỳ chọn — null nếu là free-text skill) */
+    @Column(name = "skill_id")
+    private Long skillId;
 
-    @Transient
-    public void setSkillId(Long skillId) {
-        if (id == null) {
-            id = new UserCvSkillId();
-        }
-        id.setSkillId(skillId);
-    }
+    /** Tên kỹ năng do người dùng tự nhập */
+    @Column(name = "skill_name", length = 150)
+    private String skillName;
 
     @Column(length = 50)
     private String level;
-
-    @Embeddable
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class UserCvSkillId implements Serializable {
-        private Long cvId;
-        private Long skillId;
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            UserCvSkillId that = (UserCvSkillId) o;
-            return Objects.equals(cvId, that.cvId) &&
-                   Objects.equals(skillId, that.skillId);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(cvId, skillId);
-        }
-    }
 }
-

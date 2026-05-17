@@ -121,9 +121,22 @@ public class CvExtractionAgnosticService {
     }
 
     private String parsePdfToText(MultipartFile file) throws IOException {
-        ApachePdfBoxDocumentParser parser = new ApachePdfBoxDocumentParser();
-        Document document = parser.parse(file.getInputStream());
-        return document.text();
+        String filename = file.getOriginalFilename();
+        if (filename != null && !filename.toLowerCase().endsWith(".pdf")) {
+            throw new IllegalArgumentException("Chỉ hỗ trợ file PDF. File tải lên: " + filename);
+        }
+        try {
+            ApachePdfBoxDocumentParser parser = new ApachePdfBoxDocumentParser();
+            Document document = parser.parse(file.getInputStream());
+            return document.text();
+        } catch (IllegalArgumentException e) {
+            if (e.getMessage() != null && e.getMessage().contains("text cannot be null or blank")) {
+                throw new IllegalArgumentException("Không thể trích xuất văn bản từ file PDF. File PDF này có thể là file ảnh/scan hoặc không có chữ. Vui lòng sử dụng file PDF có thể bôi đen chữ.");
+            }
+            throw new IOException("Lỗi khi đọc file PDF: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new IOException("Lỗi khi đọc file PDF: " + e.getMessage(), e);
+        }
     }
 
     private String extractJsonFromMarkdown(String text) {

@@ -10,3 +10,13 @@ backend/target/
 backend/test/
 frontend/dist/
 .claude/
+backend/src/main/resources/rag-data/processed/chunks/*
+backend/src/main/resources/rag-data/embeddings/store.json
+backend/src/main/resources/rag-data/processed/cleaned/*
+backend/src/main/resources/rag-data/processed/jobs/*
+backend/src/main/resources/rag-data/embeddings/*
+backend/src/main/resources/rag-data/processed/*
+backend/src/main/resources/rag-data/raw/*
+
+PROJECT_DESCRIPTION.md
+backend/dev/*

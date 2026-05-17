@@ -440,12 +440,7 @@ const companyJobs: Job[] = [
    ...companyJobsFromCatalog,
 ].filter((job, index, list) => list.findIndex((item) => item.company === job.company && item.title === job.title) === index);
 
-const jobsByGroup: Record<string, Job[]> = careerGroups.reduce((acc, group) => {
-   acc[group.name] = companyJobs.filter((job) => job.field === group.name);
-   return acc;
-}, {} as Record<string, Job[]>);
 
-const visibleCareerGroups = careerGroups.filter((group) => (jobsByGroup[group.name]?.length ?? 0) > 0);
 
 const hiringPromotions = [
    {

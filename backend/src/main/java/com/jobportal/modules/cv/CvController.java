@@ -45,12 +45,16 @@ public class CvController {
     }
 
     @PostMapping(value = "/extract", consumes = org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<UserCvRequestDTO> extractCvData(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
+    public ResponseEntity<?> extractCvData(@RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
         try {
             UserCvRequestDTO extractedData = cvExtractionService.extractCvData(file);
             return ResponseEntity.ok(extractedData);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().build();
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body("Lỗi hệ thống khi trích xuất CV: " + e.getMessage());
         }
     }
 }
