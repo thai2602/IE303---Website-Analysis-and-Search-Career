@@ -441,6 +441,10 @@ const companyJobs: Job[] = [
 ].filter((job, index, list) => list.findIndex((item) => item.company === job.company && item.title === job.title) === index);
 
 
+// jobsByGroup was removed in favor of computed grouping later in the file
+
+// previously computed visibleCareerGroups (unused) removed to avoid TS6133
+
 
 const hiringPromotions = [
    {

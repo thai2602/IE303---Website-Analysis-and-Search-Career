@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Star, Users, MapPin, X, Bookmark, Heart, Wallet, Building2, CalendarClock, Clock3, Trash2 } from "lucide-react";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
@@ -93,7 +93,7 @@ type CompanyItem = {
    terms?: string[];
 };
 
-const companyAvatars = [
+export const companyAvatars = [
    image1,
    image2,
    image3,
@@ -126,7 +126,7 @@ const companyAvatars = [
    image30,
 ];
 
-const companyImages = [
+export const companyImages = [
    companyImage1,
    companyImage2,
    companyImage3,
@@ -255,7 +255,12 @@ export default function CompaniesPage() {
             }
             // Map API data -> CompanyItem, filling missing fields from static data
             const merged: CompanyItem[] = apiData.map((apiItem, idx) => {
-               const normalizeName = (name: string) => name.trim().toLowerCase().replace(/\s+/g, "");
+               const normalizeName = (name: string) =>
+                  name
+                     .trim()
+                     .toLowerCase()
+                     .replace(/[^a-z0-9]+/g, "-")
+                     .replace(/^-+|-+$/g, "");
                const staticMatch = companies.find(
                   (c) => normalizeName(c.name) === normalizeName(apiItem.name)
                );
@@ -297,7 +302,12 @@ export default function CompaniesPage() {
          .finally(() => setIsLoadingCompanies(false));
    }, []);
 
-   const normalizeName = (name: string) => name.trim().toLowerCase().replace(/\s+/g, "");
+   const normalizeName = (name: string) =>
+      name
+         .trim()
+         .toLowerCase()
+         .replace(/[^a-z0-9]+/g, "-")
+         .replace(/^-+|-+$/g, "");
    const getDefaultContact = (companyName: string) => ({
       email: `contact@${normalizeName(companyName)}.com`,
       phone: "(+84) 28 1234 5678",
@@ -790,42 +800,45 @@ export default function CompaniesPage() {
                const detailDescription = item.introduction
                   ? item.introduction
                   : `${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
+               const companySlug = normalizeName(item.name);
                return (
-                  <article key={item.name} onClick={() => setSelectedCompany(getMergedCompany(item))} style={{ background: "#fff", borderRadius: "28px", overflow: "hidden", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 22px 60px rgba(15,23,42,0.08)", transition: "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease", cursor: "pointer" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 32px 80px rgba(15,23,42,0.14)"; (e.currentTarget as HTMLElement).style.border = `1px solid ${item.color}30`; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.08)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(15,23,42,0.08)"; }}>
-                     {/* Company Image */}
-                     <div style={{ width: "100%", height: "220px", overflow: "hidden", background: "#f8fafc", position: "relative" }}>
-                        <img src={companyImageSrc} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.00), rgba(15,23,42,0.18))" }} />
-                     </div>
+                  <Link key={item.name} to={`/cong-ty/${companySlug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                     <article style={{ background: "#fff", borderRadius: "28px", overflow: "hidden", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 22px 60px rgba(15,23,42,0.08)", transition: "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease", cursor: "pointer" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 32px 80px rgba(15,23,42,0.14)"; (e.currentTarget as HTMLElement).style.border = `1px solid ${item.color}30`; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.08)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(15,23,42,0.08)"; }}>
+                        {/* Company Image */}
+                        <div style={{ width: "100%", height: "220px", overflow: "hidden", background: "#f8fafc", position: "relative" }}>
+                           <img src={companyImageSrc} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.00), rgba(15,23,42,0.18))" }} />
+                        </div>
 
-                     {/* Company Info */}
-                     <div style={{ padding: "28px" }}>
-                        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "18px" }}>
-                           <div style={{ display: "flex", alignItems: "center", gap: "18px", minWidth: 0 }}>
-                              <div style={{ width: "66px", height: "66px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 12px 34px rgba(15,23,42,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                                 <img src={avatarSrc} alt={`${item.name} logo`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        {/* Company Info */}
+                        <div style={{ padding: "28px" }}>
+                           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "18px" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "18px", minWidth: 0 }}>
+                                 <div style={{ width: "66px", height: "66px", borderRadius: "20px", overflow: "hidden", boxShadow: "0 12px 34px rgba(15,23,42,0.08)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                                    <img src={avatarSrc} alt={`${item.name} logo`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                                 </div>
+                                 <div style={{ minWidth: 0 }}>
+                                    <h3 style={{ margin: 0, fontSize: "21px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em" }}>{item.name}</h3>
+                                    <p style={{ margin: "8px 0 0", fontSize: "13px", color: "#64748b", lineHeight: 1.6 }}>{item.field} • {item.location}</p>
+                                 </div>
                               </div>
-                              <div style={{ minWidth: 0 }}>
-                                 <h3 style={{ margin: 0, fontSize: "21px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em" }}>{item.name}</h3>
-                                 <p style={{ margin: "8px 0 0", fontSize: "13px", color: "#64748b", lineHeight: 1.6 }}>{item.field} • {item.location}</p>
-                              </div>
+                              <span style={{ background: fc.bg, color: fc.text, borderRadius: "999px", padding: "8px 16px", fontSize: "12px", fontWeight: 700 }}>{item.rating}/5</span>
                            </div>
-                           <span style={{ background: fc.bg, color: fc.text, borderRadius: "999px", padding: "8px 16px", fontSize: "12px", fontWeight: 700 }}>{item.rating}/5</span>
+                           <p style={{ marginTop: "18px", color: "#475569", fontSize: "14px", lineHeight: 1.75, minHeight: "98px", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+                              {detailDescription}
+                           </p>
+                           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "18px" }}>
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Users style={{ width: 13, height: 13, color: "#64748b" }} /> {item.employees}</span>
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><MapPin style={{ width: 13, height: 13, color: "#64748b" }} /> {item.location}</span>
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Star style={{ width: 13, height: 13, color: "#64748b" }} /> {item.rating}/5</span>
+                           </div>
+                           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "22px", flexWrap: "wrap", gap: "12px" }}>
+                              <span style={{ background: `${item.color}15`, color: item.color, borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontWeight: 700 }}>{item.positions.length} vị trí đang mở</span>
+                              <span style={{ color: "#0f172a", fontSize: "13px", fontWeight: 700, opacity: 0.8 }}>Khám phá cơ hội nghề nghiệp</span>
+                           </div>
                         </div>
-                        <p style={{ marginTop: "18px", color: "#475569", fontSize: "14px", lineHeight: 1.75, minHeight: "98px", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
-                           {detailDescription}
-                        </p>
-                        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "18px" }}>
-                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Users style={{ width: 13, height: 13, color: "#64748b" }} /> {item.employees}</span>
-                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><MapPin style={{ width: 13, height: 13, color: "#64748b" }} /> {item.location}</span>
-                           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", borderRadius: "999px", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "8px 14px", color: "#475569", fontSize: "12px", fontWeight: 700 }}><Star style={{ width: 13, height: 13, color: "#64748b" }} /> {item.rating}/5</span>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "22px", flexWrap: "wrap", gap: "12px" }}>
-                           <span style={{ background: `${item.color}15`, color: item.color, borderRadius: "999px", padding: "10px 16px", fontSize: "13px", fontWeight: 700 }}>{item.positions.length} vị trí đang mở</span>
-                           <span style={{ color: "#0f172a", fontSize: "13px", fontWeight: 700, opacity: 0.8 }}>Khám phá cơ hội nghề nghiệp</span>
-                        </div>
-                     </div>
-                  </article>
+                     </article>
+                  </Link>
                );
             })}
          </div>

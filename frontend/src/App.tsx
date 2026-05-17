@@ -16,6 +16,7 @@ import AppliedJobsPage from "./features/jobs/AppliedJobsPage";
 import MyCvsPage from "./features/cv-builder/MyCvsPage";
 import GlobalSavedTray from "./components/GlobalSavedTray";
 import ChatbotPage from "./features/chatbot/ChatbotPage";
+import CompanyDetailPage from "./features/companies/CompanyDetailPage";
 
 function ScrollToTop() {
    const location = useLocation();
@@ -49,6 +50,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/tim-viec" element={<JobsPage />} />
             <Route path="/cong-ty" element={<CompaniesPage />} />
+            <Route path="/cong-ty/:companySlug" element={<CompanyDetailPage />} />
             <Route path="/cv-mau" element={<CvTemplatesPage />} />
             <Route path="/tien-ich" element={<UtilitiesPage />} />
             <Route path="/cam-nang" element={<HandbookPage />} />

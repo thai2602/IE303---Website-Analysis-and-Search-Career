@@ -204,7 +204,7 @@ export default function AppliedJobsPage() {
                                     </div>
                                  </div>
                                  <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                                    <Clock3 className="h-4 w-4" />
+                                    <CalendarClock className="h-4 w-4" />
                                     Cập nhật theo thời gian nộp
                                  </div>
                               </div>
