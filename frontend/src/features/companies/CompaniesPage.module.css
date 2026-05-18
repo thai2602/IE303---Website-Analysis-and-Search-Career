@@ -1,0 +1,430 @@
+/* Banner Section */
+.banner {
+  padding: 48px 28px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  min-height: 320px;
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 60%;
+}
+
+.bannerTitle {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.3;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.bannerDescription {
+  font-size: 15px;
+  max-width: 62%;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bannerDots {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.bannerDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bannerDotActive {
+  background: #fff;
+}
+
+.bannerDotInactive {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Filter Buttons */
+.filterButton {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterButton.active {
+  border: none;
+  background: #10b981;
+  color: #fff;
+  font-weight: 800;
+}
+
+.filterButtonAll {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Company Card */
+.companyCard {
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.companyCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.14);
+}
+
+.companyCardImage {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f8fafc;
+  position: relative;
+}
+
+.companyCardImageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.18));
+}
+
+.companyCardInfo {
+  padding: 28px;
+}
+
+.companyCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.companyCardLogoContainer {
+  width: 66px;
+  height: 66px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.companyCardLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.companyCardNameSection {
+  min-width: 0;
+  flex: 1;
+}
+
+.companyCardName {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.companyCardField {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.companyCardRating {
+  background-color: inherit;
+  color: inherit;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.companyCardDescription {
+  margin-top: 18px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.75;
+  min-height: 98px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.companyCardTags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.companyCardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 8px 14px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.companyCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.companyCardOpenings {
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.companyCardCTA {
+  color: #0f172a;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+/* Close Button */
+.closeButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+/* Position Card Button */
+.positionCardButton {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.positionCardButton:hover {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+}
+
+/* Action Buttons */
+.applyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Floating Action Button */
+.floatingActionButton {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(236, 72, 153, 0.35);
+  z-index: 900;
+  transition: all 0.2s ease;
+}
+
+.floatingActionButton:hover {
+  box-shadow: 0 18px 40px rgba(236, 72, 153, 0.45);
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(760px, calc(100vw - 32px));
+  max-height: 82vh;
+  z-index: 1001;
+  padding: 0;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  flex-shrink: 0;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.modalCloseButton:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+/* Tray */
+.tray {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;
+  width: min(420px, calc(100vw - 32px));
+  max-height: 72vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.3);
+  z-index: 1101;
+  padding: 18px;
+}
+
+.trayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.trayTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.traySection {
+  margin-bottom: 14px;
+}
+
+.traySectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.traySectionEmpty {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.trayGrid {
+  display: grid;
+  gap: 10px;
+}
+
+/* Delete Button */
+.deleteButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #be123c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: #fee2e2;
+}

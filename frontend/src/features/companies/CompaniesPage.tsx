@@ -59,6 +59,7 @@ import { readAuthUser } from "../../utils/auth";
 import { getApplicationStatusMeta } from "../../utils/application";
 import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
+import styles from "./CompaniesPage.module.css";
 
 type CompanyPosition = {
    id?: number;
@@ -71,6 +72,7 @@ type CompanyPosition = {
 
 type CompanyItem = {
    name: string;
+   slug?: string;           // Slug gốc từ API — dùng để build URL chính xác
    field: string;
    rating: string;
    employees: string;
@@ -258,6 +260,9 @@ export default function CompaniesPage() {
                const normalizeName = (name: string) =>
                   name
                      .trim()
+                     .normalize("NFD")
+                     .replace(/[đĐ]/g, (c) => (c === "đ" ? "d" : "D"))
+                     .replace(/[\u0300-\u036f]/g, "")
                      .toLowerCase()
                      .replace(/[^a-z0-9]+/g, "-")
                      .replace(/^-+|-+$/g, "");
@@ -279,6 +284,7 @@ export default function CompaniesPage() {
 
                return {
                   name: apiItem.name,
+                  slug: apiItem.slug,  // Lưu slug gốc từ API để dùng cho URL
                   field: "Technology",
                   rating: "4.5",
                   employees: apiItem.size ?? "Đang cập nhật",
@@ -305,6 +311,9 @@ export default function CompaniesPage() {
    const normalizeName = (name: string) =>
       name
          .trim()
+         .normalize("NFD")
+         .replace(/[đĐ]/g, (c) => (c === "đ" ? "d" : "D"))
+         .replace(/[\u0300-\u036f]/g, "")
          .toLowerCase()
          .replace(/[^a-z0-9]+/g, "-")
          .replace(/^-+|-+$/g, "");
@@ -344,6 +353,7 @@ export default function CompaniesPage() {
 
       return {
          ...staticCompany,
+         slug: item.slug,                  // Giữ slug gốc từ API (ưu tiên hơn slug static)
          description: item.description || staticCompany.description,
          benefits: item.benefits?.length ? item.benefits : staticCompany.benefits,
          employees: item.employees || staticCompany.employees,
@@ -730,9 +740,9 @@ export default function CompaniesPage() {
                <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
                   {companyBannerItems[bannerIndex].description}
                </p>
-               <div style={{ display: "flex", gap: "10px", marginTop: "18px" }}>
+               <div className={styles.bannerDots}>
                   {companyBannerItems.map((_, idx) => (
-                     <button key={idx} onClick={() => setBannerIndex(idx)} style={{ width: "12px", height: "12px", borderRadius: "999px", border: "none", background: idx === bannerIndex ? "#fff" : "rgba(255,255,255,0.45)", cursor: "pointer" }} />
+                     <button key={idx} onClick={() => setBannerIndex(idx)} className={`${styles.bannerDot} ${idx === bannerIndex ? styles.bannerDotActive : styles.bannerDotInactive}`} title={`Go to slide ${idx + 1}`} />
                   ))}
                </div>
             </div>
@@ -774,7 +784,7 @@ export default function CompaniesPage() {
                      marginLeft: "auto", width: "32px", height: "32px", borderRadius: "8px",
                      border: "1px solid rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.1)",
                      display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff"
-                  }}>
+                  }} title="Close this job posting">
                      <X style={{ width: 16, height: 16 }} />
                   </button>
                </div>
@@ -785,7 +795,7 @@ export default function CompaniesPage() {
             {filters.map((f) => {
                const isSelected = f === selectedFilter;
                return (
-                  <button key={f} onClick={() => setSelectedFilter(f)} style={{ padding: "7px 16px", borderRadius: "999px", fontSize: f === "Tất cả" ? "14px" : "13px", fontWeight: f === "Tất cả" ? 800 : 600, border: isSelected ? "none" : "1px solid #e2e8f0", background: isSelected ? "#10b981" : "#fff", color: isSelected ? "#fff" : "#475569", cursor: "pointer" }}>
+                  <button key={f} onClick={() => setSelectedFilter(f)} className={`${styles.filterButton} ${isSelected ? styles.active : ""} ${f === "Tất cả" ? styles.filterButtonAll : ""}`} title={`Filter by ${f}`}>
                      {f}
                   </button>
                );
@@ -800,7 +810,8 @@ export default function CompaniesPage() {
                const detailDescription = item.introduction
                   ? item.introduction
                   : `${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
-               const companySlug = normalizeName(item.name);
+               // Ưu tiên slug từ API (đã chuẩn hóa tiếng Việt), fallback về normalizeName chỉ cho static data
+               const companySlug = item.slug ?? normalizeName(item.name);
                return (
                   <Link key={item.name} to={`/cong-ty/${companySlug}`} style={{ textDecoration: "none", color: "inherit" }}>
                      <article style={{ background: "#fff", borderRadius: "28px", overflow: "hidden", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 22px 60px rgba(15,23,42,0.08)", transition: "transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease", cursor: "pointer" }} onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 32px 80px rgba(15,23,42,0.14)"; (e.currentTarget as HTMLElement).style.border = `1px solid ${item.color}30`; }} onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.08)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(15,23,42,0.08)"; }}>
@@ -848,7 +859,7 @@ export default function CompaniesPage() {
                <div onClick={() => setSelectedCompany(null)} style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.55)", backdropFilter: "blur(4px)", zIndex: 1000 }} />
                <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(760px, calc(100vw - 32px))", maxHeight: "82vh", zIndex: 1001, padding: "0" }}>
                   <div style={{ position: "relative", width: "100%", background: "#fff", borderRadius: "20px", boxShadow: "0 24px 80px rgba(15,23,42,0.35)", overflow: "hidden" }}>
-                     <button onClick={() => setSelectedCompany(null)} style={{ position: "absolute", top: "16px", right: "16px", width: 40, height: 40, borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0, zIndex: 10, transition: "all 0.2s ease" }}><X style={{ width: 18, height: 18 }} /></button>
+                     <button onClick={() => setSelectedCompany(null)} style={{ position: "absolute", top: "16px", right: "16px", width: 40, height: 40, borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b", flexShrink: 0, zIndex: 10, transition: "all 0.2s ease" }} title="Close company details"><X style={{ width: 18, height: 18 }} /></button>
                      <div style={{ padding: "28px", paddingTop: "56px", maxHeight: "82vh", overflow: "hidden" }}>
                         <div style={{ maxHeight: "calc(82vh - 72px)", overflowY: "auto", paddingRight: "8px" }}>
                            <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", minHeight: "220px", background: "#f8fafc" }}>
@@ -946,8 +957,8 @@ export default function CompaniesPage() {
                                           <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>{position.skills.map((skill) => <span key={skill} style={{ background: "#e0f2fe", color: "#0369a1", borderRadius: 8, padding: "3px 8px", fontSize: 11, fontWeight: 600 }}>{skill}</span>)}</div>
                                        </div>
                                        <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
-                                          <button onClick={() => addSavedJob({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><Bookmark style={{ width: 15, height: 15 }} /></button>
-                                          <button onClick={() => addApplication({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }}>Ứng tuyển</button>
+                                          <button onClick={() => addSavedJob({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, savedFrom: selectedCompany.name })} style={{ width: 38, height: 38, borderRadius: 10, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }} title="Save this job"><Bookmark style={{ width: 15, height: 15 }} /></button>
+                                          <button onClick={() => addApplication({ id: position.id, company: selectedCompany.name, title: toVietnameseJobTitle(position.title), place: selectedCompany.location, salary: position.salary, field: selectedCompany.field, description: position.description, type: position.workingHours, companyColor: selectedCompany.color, companyDescription: selectedCompany.description, image: selectedCompany.image ?? companyAvatars[0] })} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: selectedCompany.color, color: "#fff", borderRadius: 10, padding: "8px 16px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 4px 14px ${selectedCompany.color}40` }} title="Apply for this position">Ứng tuyển</button>
                                        </div>
                                     </div>
                                  </article>

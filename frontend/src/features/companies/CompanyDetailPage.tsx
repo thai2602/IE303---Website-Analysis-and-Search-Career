@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Building2, MapPin, Star, Users, Wallet } from "lucide-react";
 import { companies, companyAvatars, companyImages } from "./CompaniesPage";
@@ -35,12 +36,24 @@ type CompanyItem = {
    terms?: string[];
 };
 
+/**
+ * Chuyển tên tiếng Việt thành slug ASCII chuẩn.
+ * Ví dụ: "Công ty Cổ phần" → "cong-ty-co-phan"
+ * Bước 1: Chuẩn hoá NFD để tách dấu ra khỏi ký tự gốc
+ * Bước 2: Xử lý riêng 'đ' / 'Đ' vì chúng không tách được qua NFD
+ * Bước 3: Strip toàn bộ combining diacritical marks (U+0300–U+036F)
+ * Bước 4: Chỉ giữ lại a-z, 0-9, thay phần còn lại bằng '-'
+ */
 const normalizeName = (name: string) =>
    name
       .trim()
+      .normalize("NFD")
+      .replace(/[đĐ]/g, (c) => (c === "đ" ? "d" : "D"))
+      .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
+
 
 const getDefaultContact = (companyName: string) => ({
    email: `contact@${normalizeName(companyName)}.com`,
@@ -92,9 +105,67 @@ const getCompanyImage = (company: CompanyItem) => {
 
 export default function CompanyDetailPage() {
    const { companySlug } = useParams<{ companySlug: string }>();
-   const company = companySlug
-      ? companies.find((item) => normalizeName(item.name) === companySlug)
-      : null;
+   const [company, setCompany] = useState<CompanyItem | null>(null);
+   const [isLoading, setIsLoading] = useState(true);
+
+   useEffect(() => {
+      if (!companySlug) {
+         setIsLoading(false);
+         return;
+      }
+      
+      fetch(`http://localhost:8080/api/companies/${companySlug}`)
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json();
+         })
+         .then((apiItem) => {
+            const staticMatch = companies.find((c) => normalizeName(c.name) === normalizeName(apiItem.name));
+            if (staticMatch) {
+               setCompany({ ...staticMatch });
+               return;
+            }
+            
+            const benefitsArr = apiItem.benefits?.split(",").map((b: string) => b.trim()).filter(Boolean) ?? [];
+            const mappedPositions = apiItem.positions?.map((pos: any) => ({
+               id: pos.id,
+               title: pos.title,
+               salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
+               workingHours: pos.jobType || "Toàn thời gian",
+               description: pos.description || "Mô tả công việc đang được cập nhật.",
+               skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
+            })) || [];
+
+            setCompany({
+               name: apiItem.name,
+               field: "Technology",
+               rating: "4.5",
+               employees: apiItem.size ?? "Đang cập nhật",
+               location: "Việt Nam",
+               openJobs: mappedPositions.length,
+               color: apiItem.color || "#6366f1",
+               bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+               initial: apiItem.name.charAt(0).toUpperCase(),
+               description: apiItem.description ?? "Thông tin đang được cập nhật.",
+               benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
+               positions: mappedPositions,
+            } as CompanyItem);
+         })
+         .catch(() => {
+            // Fallback to static
+            const fallback = companies.find((item) => normalizeName(item.name) === companySlug);
+            setCompany(fallback || null);
+         })
+         .finally(() => setIsLoading(false));
+   }, [companySlug]);
+
+   if (isLoading) {
+      return (
+         <div className="mx-auto max-w-4xl p-10 text-center">
+            <p className="text-slate-500">Đang tải thông tin công ty...</p>
+         </div>
+      );
+   }
 
    if (!company) {
       return (
