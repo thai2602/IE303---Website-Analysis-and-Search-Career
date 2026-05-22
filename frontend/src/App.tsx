@@ -13,6 +13,7 @@ import LoginPage from "./features/auth/LoginPage";
 import RegisterPage from "./features/auth/RegisterPage";
 import UserProfilePage from "./features/auth/UserProfilePage";
 import AppliedJobsPage from "./features/jobs/AppliedJobsPage";
+import JobDetailPage from "./features/jobs/JobDetailPage";
 import MyCvsPage from "./features/cv-builder/MyCvsPage";
 import GlobalSavedTray from "./components/GlobalSavedTray";
 import ChatbotPage from "./features/chatbot/ChatbotPage";
@@ -49,6 +50,7 @@ export default function App() {
          <Route element={<SiteLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/tim-viec" element={<JobsPage />} />
+            <Route path="/tim-viec/:jobSlug" element={<JobDetailPage />} />
             <Route path="/cong-ty" element={<CompaniesPage />} />
             <Route path="/cong-ty/:companySlug" element={<CompanyDetailPage />} />
             <Route path="/cv-mau" element={<CvTemplatesPage />} />

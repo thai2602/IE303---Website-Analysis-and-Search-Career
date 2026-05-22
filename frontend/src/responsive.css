@@ -149,6 +149,16 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* JOBS PAGE — Modal job card grid                                      */
+  /* ------------------------------------------------------------------ */
+
+  /* Stack the 3-column grid (logo | text | actions) on mobile */
+  .res-jobs-modal-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* ------------------------------------------------------------------ */
   /* GLOBAL CARD / SECTION padding adjustments                           */
   /* ------------------------------------------------------------------ */
 
