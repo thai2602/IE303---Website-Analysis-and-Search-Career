@@ -74,6 +74,21 @@ public class CvExtractionAgnosticService {
               "endDate": "YYYY hoặc Present"
             }
           ],
+          "attachments": [
+            {
+              "type": "Loại chứng chỉ / giải thưởng (VD: CERTIFICATE, AWARD, SCHOLARSHIP)",
+              "name": "Tên chứng chỉ / giải thưởng (VD: JLPT N3, IELTS 7.5)",
+              "organization": "Tổ chức cấp (VD: Japan Foundation, IDP)",
+              "yearOrLevel": "Năm hoặc cấp độ (VD: 2024, N3, 7.5)",
+              "description": "Mô tả ngắn gọn (nếu có)"
+            }
+          ],
+          "socials": [
+            {
+              "platform": "Tên nền tảng (VD: LinkedIn, GitHub)",
+              "url": "Đường dẫn liên kết (VD: https://github.com/username)"
+            }
+          ],
           "settings": {
             "themeColor": "#2563eb",
             "fontFamily": "Inter",

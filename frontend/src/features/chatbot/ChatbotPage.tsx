@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Bot, Send, Trash2, User, Loader2, Sparkles, X } from "lucide-react";
+import { streamChat } from "../../services/chatbotApi";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -16,14 +17,6 @@ const API_BASE = "/api/chatbot";
 
 function uid() {
   return Math.random().toString(36).slice(2);
-}
-
-/** Build SSE URL for streaming */
-function buildStreamUrl(message: string, userId?: string, activeCvId?: number) {
-  const params = new URLSearchParams({ message });
-  if (userId)     params.set("userId", userId);
-  if (activeCvId) params.set("activeCvId", String(activeCvId));
-  return `${API_BASE}/stream?${params}`;
 }
 
 // ─── Suggestion chips ────────────────────────────────────────────────────────
@@ -46,7 +39,7 @@ export default function ChatbotPage() {
 
   const bottomRef  = useRef<HTMLDivElement>(null);
   const inputRef   = useRef<HTMLTextAreaElement>(null);
-  const esRef      = useRef<EventSource | null>(null);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
   // Lấy userId từ localStorage (do auth module lưu)
   const userId = localStorage.getItem("userId") ?? undefined;
@@ -57,7 +50,7 @@ export default function ChatbotPage() {
   }, [messages]);
 
   // Cleanup SSE khi unmount
-  useEffect(() => () => esRef.current?.close(), []);
+  useEffect(() => () => cleanupRef.current?.(), []);
 
   // ── Gửi tin nhắn (SSE streaming) ─────────────────────────────────────────
 
@@ -77,61 +70,47 @@ export default function ChatbotPage() {
       setIsLoading(true);
 
       // Đóng SSE cũ nếu còn
-      esRef.current?.close();
+      if (cleanupRef.current) {
+        cleanupRef.current();
+      }
 
       try {
-        const url = buildStreamUrl(trimmed, userId);
-        const es  = new EventSource(url);
-        esRef.current = es;
+        const cleanup = streamChat(
+          trimmed,
+          (token) => {
+            setMessages(prev =>
+              prev.map(m =>
+                m.id === aiMsg.id
+                  ? { ...m, content: m.content + token }
+                  : m
+              )
+            );
+          },
+          () => {
+            setMessages(prev =>
+              prev.map(m =>
+                m.id === aiMsg.id ? { ...m, isStreaming: false } : m
+              )
+            );
+            setIsLoading(false);
+            cleanupRef.current = null;
+          },
+          (err) => {
+            setError(err || "Kết nối bị gián đoạn.");
+            setMessages(prev =>
+              prev.map(m =>
+                m.id === aiMsg.id
+                  ? { ...m, content: m.content || "⚠️ Có lỗi xảy ra.", isStreaming: false }
+                  : m
+              )
+            );
+            setIsLoading(false);
+            cleanupRef.current = null;
+          },
+          userId
+        );
 
-        es.addEventListener("token", (e) => {
-          setMessages(prev =>
-            prev.map(m =>
-              m.id === aiMsg.id
-                ? { ...m, content: m.content + e.data }
-                : m
-            )
-          );
-        });
-
-        es.addEventListener("done", () => {
-          setMessages(prev =>
-            prev.map(m =>
-              m.id === aiMsg.id ? { ...m, isStreaming: false } : m
-            )
-          );
-          setIsLoading(false);
-          es.close();
-          esRef.current = null;
-        });
-
-        es.addEventListener("error", (e: MessageEvent) => {
-          setError(e.data ?? "Kết nối bị gián đoạn.");
-          setMessages(prev =>
-            prev.map(m =>
-              m.id === aiMsg.id
-                ? { ...m, content: m.content || "⚠️ Có lỗi xảy ra.", isStreaming: false }
-                : m
-            )
-          );
-          setIsLoading(false);
-          es.close();
-          esRef.current = null;
-        });
-
-        es.onerror = () => {
-          // Connection dropped without error event
-          setMessages(prev =>
-            prev.map(m =>
-              m.id === aiMsg.id && m.content === ""
-                ? { ...m, content: "⚠️ Không kết nối được tới server.", isStreaming: false }
-                : { ...m, isStreaming: false }
-            )
-          );
-          setIsLoading(false);
-          es.close();
-          esRef.current = null;
-        };
+        cleanupRef.current = cleanup;
       } catch (err) {
         setError("Không thể kết nối tới chatbot.");
         setIsLoading(false);
@@ -143,7 +122,9 @@ export default function ChatbotPage() {
   // ── Xoá lịch sử ──────────────────────────────────────────────────────────
 
   const clearHistory = async () => {
-    esRef.current?.close();
+    if (cleanupRef.current) {
+      cleanupRef.current();
+    }
     setMessages([]);
     setError(null);
     if (userId) {

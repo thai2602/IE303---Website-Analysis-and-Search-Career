@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -100,13 +101,24 @@ public class RagService {
             return;
         }
 
-        List<Document> docs = loaders.loadDocumentsFromPath(rawPath);
+        List<Document> docs = new ArrayList<>();
+        
+        Path hrRulesPath = rawPath.resolve("hr_rules");
+        if (Files.exists(hrRulesPath)) {
+            docs.addAll(loaders.loadDocumentsFromPath(hrRulesPath));
+        }
+        
+        Path atsGuidesPath = rawPath.resolve("ats_guides");
+        if (Files.exists(atsGuidesPath)) {
+            docs.addAll(loaders.loadDocumentsFromPath(atsGuidesPath));
+        }
+
         if (docs.isEmpty()) {
-            log.warn("[HR Store] No documents found in {}", rawPath.toAbsolutePath());
+            log.warn("[HR Store] No HR rules or ATS guides documents found in {}", rawPath.toAbsolutePath());
             return;
         }
 
-        log.info("[HR Store] Loaded {} document(s). Chunking...", docs.size());
+        log.info("[HR Store] Loaded {} document(s) from hr_rules/ats_guides. Chunking...", docs.size());
         List<TextSegment> segments = chunkers.smartSplitAll(docs);
         ingestAndPersist(segments, hrKnowledgeStore, storePath, "HR Store");
     }

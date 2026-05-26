@@ -5,6 +5,8 @@ import com.jobportal.modules.cv.CvService;
 import com.jobportal.modules.cv.UserCv;
 import com.jobportal.modules.cv.UserCvExperience;
 import com.jobportal.modules.cv.UserCvProject;
+import com.jobportal.modules.cv.UserCvEducation;
+import com.jobportal.modules.cv.UserCvAttachment;
 import com.jobportal.modules.cv.UserCvRepository;
 import dev.langchain4j.agent.tool.Tool;
 import lombok.RequiredArgsConstructor;
@@ -142,6 +144,30 @@ public class CvAgentTools {
                     sb.append("  - ").append(proj.getName()).append("\n");
                     if (proj.getDescription() != null && !proj.getDescription().isBlank()) {
                         sb.append("    ").append(proj.getDescription()).append("\n");
+                    }
+                }
+            }
+
+            // Education
+            if (cv.getEducations() != null && !cv.getEducations().isEmpty()) {
+                sb.append("Education    :\n");
+                for (UserCvEducation edu : cv.getEducations()) {
+                    sb.append("  - ").append(edu.getSchool())
+                      .append(" | ").append(edu.getMajor())
+                      .append(" (").append(edu.getStartDate()).append(" → ").append(edu.getEndDate()).append(")\n");
+                }
+            }
+
+            // Certifications & Awards
+            if (cv.getAttachments() != null && !cv.getAttachments().isEmpty()) {
+                sb.append("Certifications & Awards:\n");
+                for (UserCvAttachment att : cv.getAttachments()) {
+                    String org = att.getOrganization() != null ? " by " + att.getOrganization() : "";
+                    String level = att.getYearOrLevel() != null ? " (" + att.getYearOrLevel() + ")" : "";
+                    sb.append("  - [").append(att.getType()).append("] ").append(att.getName())
+                      .append(org).append(level).append("\n");
+                    if (att.getDescription() != null && !att.getDescription().isBlank()) {
+                        sb.append("    ").append(att.getDescription()).append("\n");
                     }
                 }
             }

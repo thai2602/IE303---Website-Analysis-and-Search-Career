@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef, useState, useEffect, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./cv-builder.css";
-import { CvProvider, useCvContext, CvData, Skill, Experience, Education, Project } from "./CvContext";
+import { CvProvider, useCvContext, CvData, Skill, Experience, Education, Project, Attachment, Social } from "./CvContext";
 import { readAuthUser } from "../../utils/auth";
-import { chatApi, streamChat } from "../../services/chatbotApi";
-import { Plus, Trash2, Upload, FileText, Bot, Eye, EyeOff, User, Briefcase, GraduationCap, Code, FolderGit2, Save, Palette, Mail, Phone, MapPin, ChevronDown, Sparkles, Search, Home, Wand2, RefreshCw } from "lucide-react";
+import { streamChat } from "../../services/chatbotApi";
+import { Plus, Trash2, Upload, FileText, Bot, Eye, EyeOff, User, Briefcase, GraduationCap, Code, FolderGit2, Save, Palette, Mail, Phone, MapPin, ChevronDown, Sparkles, Search, Home, Wand2, RefreshCw, Linkedin, Github, Globe, ExternalLink } from "lucide-react";
 import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -28,6 +28,16 @@ const accentH3 = "text-[12px] font-extrabold uppercase tracking-widest mb-4 tran
 
 function CvEditorContent() {
   const { cvData, setCvData } = useCvContext();
+
+  const renderSocialIcon = (platform: string) => {
+    switch (platform.toLowerCase()) {
+      case "linkedin": return <Linkedin className="w-4 h-4 text-sky-600" />;
+      case "github": return <Github className="w-4 h-4 text-slate-800" />;
+      case "facebook": return <Globe className="w-4 h-4 text-blue-600" />;
+      case "twitter": return <Globe className="w-4 h-4 text-sky-400" />;
+      default: return <ExternalLink className="w-4 h-4 text-slate-500" />;
+    }
+  };
   const [isUploading, setIsUploading] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle');
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
@@ -84,6 +94,8 @@ function CvEditorContent() {
       experiences: found.experiences?.length ? found.experiences.map((x: any) => ({ company: x.company || "", position: x.position || "", startDate: x.startDate || "", endDate: x.endDate || "", description: x.description || "" })) : [],
       educations: found.educations?.length ? found.educations.map((x: any) => ({ school: x.school || x.institution || "", major: x.major || x.degree || "", startDate: x.startDate || "", endDate: x.endDate || "" })) : [],
       projects: found.projects?.length ? found.projects.map((x: any) => ({ name: x.name || x.projectName || "", description: x.description || "", technologies: Array.isArray(x.technologies) ? x.technologies.join(", ") : (x.techStack || x.technologies || ""), link: x.link || "" })) : [],
+      attachments: found.attachments?.length ? found.attachments.map((a: any) => ({ type: a.type || "CERTIFICATE", name: a.name || "", organization: a.organization || "", yearOrLevel: a.yearOrLevel || "", description: a.description || "" })) : [],
+      socials: found.socials?.length ? found.socials.map((s: any) => ({ platform: s.platform || "LinkedIn", url: s.url || "" })) : [],
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlCvId, savedCvs]);
@@ -107,6 +119,8 @@ function CvEditorContent() {
         experiences: selected.experiences?.length ? selected.experiences.map((x: any) => ({ company: x.company || "", position: x.position || "", startDate: x.startDate || "", endDate: x.endDate || "", description: x.description || "" })) : [],
         educations: selected.educations?.length ? selected.educations.map((x: any) => ({ school: x.school || "", major: x.major || "", startDate: x.startDate || "", endDate: x.endDate || "" })) : [],
         projects: selected.projects?.length ? selected.projects.map((x: any) => ({ name: x.name || "", description: x.description || "", technologies: Array.isArray(x.technologies) ? x.technologies.join(", ") : (x.technologies || ""), link: x.link || "" })) : [],
+        attachments: selected.attachments?.length ? selected.attachments.map((a: any) => ({ type: a.type || "CERTIFICATE", name: a.name || "", organization: a.organization || "", yearOrLevel: a.yearOrLevel || "", description: a.description || "" })) : [],
+        socials: selected.socials?.length ? selected.socials.map((s: any) => ({ platform: s.platform || "LinkedIn", url: s.url || "" })) : [],
       });
     }
   };
@@ -142,6 +156,20 @@ function CvEditorContent() {
     setCvData(p => { const a = [...p.projects]; a[i] = { ...a[i], [f]: v }; return { ...p, projects: a }; });
   const removeProj = (i: number) => setCvData(p => ({ ...p, projects: p.projects.filter((_, j) => j !== i) }));
 
+  // ── Attachments ──
+  const blankAtt = (): Attachment => ({ type: "CERTIFICATE", name: "", organization: "", yearOrLevel: "", description: "" });
+  const addAtt = () => setCvData(p => ({ ...p, attachments: [...(p.attachments || []), blankAtt()] }));
+  const updateAtt = (i: number, f: keyof Attachment, v: string) =>
+    setCvData(p => { const a = [...(p.attachments || [])]; a[i] = { ...a[i], [f]: v }; return { ...p, attachments: a }; });
+  const removeAtt = (i: number) => setCvData(p => ({ ...p, attachments: (p.attachments || []).filter((_, j) => j !== i) }));
+
+  // ── Socials ──
+  const blankSocial = (): Social => ({ platform: "LinkedIn", url: "" });
+  const addSocial = () => setCvData(p => ({ ...p, socials: [...(p.socials || []), blankSocial()] }));
+  const updateSocial = (i: number, f: keyof Social, v: string) =>
+    setCvData(p => { const a = [...(p.socials || [])]; a[i] = { ...a[i], [f]: v }; return { ...p, socials: a }; });
+  const removeSocial = (i: number) => setCvData(p => ({ ...p, socials: (p.socials || []).filter((_, j) => j !== i) }));
+
   const fetchAiScore = () => {
     setIsAiLoading(true);
     setAiFeedback(''); // reset để hiển thị loading khi fetch lại
@@ -175,7 +203,7 @@ function CvEditorContent() {
         setIsStreaming(false);
         setIsAiLoading(false);
       },
-      (err) => {
+      () => {
         setAiFeedback("Xin lỗi, đã có lỗi xảy ra khi gọi AI nhận xét. Vui lòng thử lại sau.");
         setIsStreaming(false);
         setIsAiLoading(false);
@@ -243,6 +271,14 @@ function CvEditorContent() {
             technologies: Array.isArray(x.technologies) ? x.technologies.join(", ") : (x.technologies || ""),
             link: x.link || ""
           })) : prev.projects,
+          attachments: d.attachments?.length ? d.attachments.map((a: any) => ({
+            type: a.type || "CERTIFICATE", name: a.name || "",
+            organization: a.organization || "", yearOrLevel: a.yearOrLevel || "",
+            description: a.description || ""
+          })) : prev.attachments,
+          socials: d.socials?.length ? d.socials.map((s: any) => ({
+            platform: s.platform || "LinkedIn", url: s.url || ""
+          })) : prev.socials,
         }));
       } else {
         const errText = await res.text().catch(() => '');
@@ -289,6 +325,8 @@ function CvEditorContent() {
             ? p.technologies
             : p.technologies.split(',').map(t => t.trim()).filter(Boolean)
         })),
+        attachments: cvData.attachments || [],
+        socials: cvData.socials || [],
       };
 
       const cvRes = await fetch(
@@ -324,6 +362,7 @@ function CvEditorContent() {
       fullName: '', jobTitle: '', email: '', phone: '',
       location: '', summary: '', color: '#7c3aed',
       skills: [], experiences: [], educations: [], projects: [],
+      attachments: [], socials: [],
     });
     setIsPreviewVisible(false);
     setIsAiReviewVisible(false);
@@ -705,6 +744,110 @@ function CvEditorContent() {
 
                 <hr className="border-slate-100 mb-10" />
 
+                {/* Certifications */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-amber-50 rounded-[14px] text-amber-600 group-hover:bg-amber-100 transition-colors"><Sparkles className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Chứng chỉ & Giải thưởng</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addAtt}>
+                      <Plus className="w-4 h-4" /> Thêm chứng chỉ
+                    </button>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    {(cvData.attachments || []).map((x, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeAtt(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Loại</label>
+                            <select className={inputCls} value={x.type} onChange={e => updateAtt(i, "type", e.target.value)}>
+                              <option value="CERTIFICATE">CERTIFICATE (Chứng chỉ)</option>
+                              <option value="AWARD">AWARD (Giải thưởng)</option>
+                              <option value="SCHOLARSHIP">SCHOLARSHIP (Học bổng)</option>
+                              <option value="OTHER">OTHER (Khác)</option>
+                            </select>
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Tên chứng chỉ / giải thưởng</label>
+                            <input className={inputCls} placeholder="VD: JLPT N3, IELTS 7.5..." value={x.name} onChange={e => updateAtt(i, "name", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Tổ chức cấp</label>
+                            <input className={inputCls} placeholder="VD: Japan Foundation, IDP..." value={x.organization} onChange={e => updateAtt(i, "organization", e.target.value)} />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Năm / Cấp độ</label>
+                            <input className={inputCls} placeholder="VD: 2024, N3, 7.5..." value={x.yearOrLevel} onChange={e => updateAtt(i, "yearOrLevel", e.target.value)} />
+                          </div>
+                        </div>
+                        <div className="mt-4 space-y-1.5">
+                          <label className="block text-[12px] font-bold text-slate-500 uppercase">Mô tả ngắn gọn</label>
+                          <textarea className={`${inputCls} resize-none min-h-[80px] leading-relaxed overflow-hidden`} rows={2} placeholder="Mô tả chi tiết giải thưởng hoặc chứng chỉ (nếu có)..." value={x.description} onChange={e => { updateAtt(i, "description", e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }} />
+                        </div>
+                      </div>
+                    ))}
+                    {(cvData.attachments || []).length === 0 && (
+                      <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                        Chưa có chứng chỉ hay giải thưởng nào được thêm vào.
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
+                {/* Socials */}
+                <section className="mb-10 group">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-sky-50 rounded-[14px] text-sky-600 group-hover:bg-sky-100 transition-colors"><Mail className="w-5 h-5" /></div>
+                      <h2 className="text-xl font-extrabold text-slate-800">Mạng xã hội & Liên kết</h2>
+                    </div>
+                    <button type="button" className={addBtnCls} onClick={addSocial}>
+                      <Plus className="w-4 h-4" /> Thêm liên kết
+                    </button>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    {(cvData.socials || []).map((x, i) => (
+                      <div key={i} className={cardCls}>
+                        <button type="button" className={removeBtnCls} onClick={() => removeSocial(i)} title="Xóa">
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Nền tảng</label>
+                            <select className={inputCls} value={x.platform} onChange={e => updateSocial(i, "platform", e.target.value)}>
+                              <option value="LinkedIn">LinkedIn</option>
+                              <option value="GitHub">GitHub</option>
+                              <option value="Portfolio">Portfolio (Trang cá nhân)</option>
+                              <option value="Facebook">Facebook</option>
+                              <option value="Twitter">Twitter</option>
+                              <option value="Other">Khác</option>
+                            </select>
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="block text-[12px] font-bold text-slate-500 uppercase">Đường dẫn liên kết (URL)</label>
+                            <input className={inputCls} placeholder="VD: https://github.com/username..." value={x.url} onChange={e => updateSocial(i, "url", e.target.value)} />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    {(cvData.socials || []).length === 0 && (
+                      <div className="text-center py-10 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 text-[14px] font-medium">
+                        Chưa có liên kết mạng xã hội nào được thêm vào.
+                      </div>
+                    )}
+                  </div>
+                </section>
+
+                <hr className="border-slate-100 mb-10" />
+
                 {/* Color */}
                 <section className="mb-4 group">
                   <div className="flex items-center gap-3 mb-6">
@@ -751,7 +894,22 @@ function CvEditorContent() {
                           {cvData.email && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Mail className="w-4 h-4" /></div> {cvData.email}</li>}
                           {cvData.phone && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Phone className="w-4 h-4" /></div> {cvData.phone}</li>}
                           {cvData.location && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><MapPin className="w-4 h-4" /></div> {cvData.location}</li>}
-                          {!cvData.email && !cvData.phone && !cvData.location && (
+                          
+                          {/* Social links in Contact list */}
+                          {(cvData.socials || []).map((s, idx) => (
+                            s.url && (
+                              <li key={idx} className="flex items-center gap-3">
+                                <div className="p-1.5 rounded-md bg-slate-50">
+                                  {renderSocialIcon(s.platform)}
+                                </div>
+                                <a href={s.url} target="_blank" rel="noreferrer" className="hover:underline text-slate-600 hover:text-slate-900 transition-colors">
+                                  {s.platform}: {s.url.replace(/^https?:\/\/(www\.)?/, '')}
+                                </a>
+                              </li>
+                            )
+                          ))}
+
+                          {!cvData.email && !cvData.phone && !cvData.location && (!cvData.socials || cvData.socials.length === 0) && (
                             <li className="text-slate-400 italic text-sm font-medium">Chưa có thông tin liên hệ</li>
                           )}
                         </ul>
@@ -849,6 +1007,37 @@ function CvEditorContent() {
                                     ))}
                                   </div>
                                 )}
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Certifications & Awards */}
+                      {cvData.attachments && cvData.attachments.length > 0 && (
+                        <section>
+                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Chứng chỉ & Giải thưởng</h3>
+                          <div className="flex flex-col gap-6 border-l-[3px] border-slate-100 pl-5 ml-2">
+                            {cvData.attachments.map((x, i) => (
+                              <div key={i} className="relative">
+                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
+                                <div className="flex justify-between items-start gap-4">
+                                  <div>
+                                    <p className="text-[15px] font-extrabold text-slate-900">
+                                      <span className="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded mr-2 bg-slate-100 text-slate-500 border border-slate-200">
+                                        {x.type}
+                                      </span>
+                                      {x.name || "Tên chứng chỉ / giải thưởng"}
+                                    </p>
+                                    {x.organization && <p className="text-[13px] font-bold text-slate-500 mt-1">{x.organization}</p>}
+                                  </div>
+                                  {x.yearOrLevel && (
+                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
+                                      {x.yearOrLevel}
+                                    </span>
+                                  )}
+                                </div>
+                                {x.description && <p className="text-[13.5px] text-slate-600 mt-2 leading-[1.6] font-medium whitespace-pre-wrap">{x.description}</p>}
                               </div>
                             ))}
                           </div>

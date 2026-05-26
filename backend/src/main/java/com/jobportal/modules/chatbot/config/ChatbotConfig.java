@@ -19,13 +19,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ChatbotConfig {
 
-    @Value("${langchain.api-key}")
+    @Value("${langchain.chat.api-key}")
     private String apiKey;
 
-    @Value("${langchain.base-url:http://localhost:1234/v1}")
+    @Value("${langchain.chat.base-url:https://openrouter.ai/api/v1}")
     private String baseUrl;
 
-    @Value("${langchain.model-name:llama-3.2-1b-instruct}")
+    @Value("${langchain.chat.model-name:google/gemma-4-31b-it}")
     private String modelName;
 
     @Bean

@@ -4,6 +4,8 @@ export interface Skill        { skillName: string; level: string }
 export interface Experience   { company: string; position: string; startDate: string; endDate: string; description: string }
 export interface Education    { school: string; major: string; startDate: string; endDate: string }
 export interface Project      { name: string; description: string; technologies: string; link: string }
+export interface Attachment   { type: string; name: string; organization: string; yearOrLevel: string; description: string }
+export interface Social       { platform: string; url: string }
 
 export interface CvData {
    fullName: string;
@@ -17,6 +19,8 @@ export interface CvData {
    experiences: Experience[];
    educations: Education[];
    projects: Project[];
+   attachments: Attachment[];
+   socials: Social[];
 }
 
 export const defaultCvData: CvData = {
@@ -31,6 +35,8 @@ export const defaultCvData: CvData = {
    experiences: [],
    educations: [],
    projects: [],
+   attachments: [],
+   socials: [],
 };
 
 interface CvContextType {

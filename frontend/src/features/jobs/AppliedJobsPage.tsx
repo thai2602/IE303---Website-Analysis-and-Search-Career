@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Building2, CalendarClock, MapPin, Clock3 } from "lucide-react";
+import { ArrowRight, Building2, CalendarClock, MapPin } from "lucide-react";
 import { readAuthUser } from "../../utils/auth";
 import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
 import { getApplicationStatusMeta } from "../../utils/application";

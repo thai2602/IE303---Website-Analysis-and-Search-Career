@@ -49,27 +49,64 @@ public class ContextAwareContentRetriever implements ContentRetriever {
 
     @Override
     public List<Content> retrieve(Query query) {
-        String text = query.text().toLowerCase();
+        String originalText = query.text();
+        String cleanText = cleanQueryText(originalText);
+        Query cleanQuery = Query.from(cleanText);
+
+        String text = originalText.toLowerCase();
 
         boolean isHrQuery  = HR_SIGNALS.stream().anyMatch(text::contains);
         boolean isJobQuery = JOB_SIGNALS.stream().anyMatch(text::contains);
 
         if (isHrQuery && !isJobQuery) {
-            log.debug("[RAG Router] HR Store ← \"{}\"", truncate(query.text()));
-            return hrRetriever.retrieve(query);
+            log.debug("[RAG Router] HR Store ← \"{}\"", truncate(cleanText));
+            return hrRetriever.retrieve(cleanQuery);
         }
 
         if (isJobQuery && !isHrQuery) {
-            log.debug("[RAG Router] Job Store ← \"{}\"", truncate(query.text()));
-            return jobRetriever.retrieve(query);
+            log.debug("[RAG Router] Job Store ← \"{}\"", truncate(cleanText));
+            return jobRetriever.retrieve(cleanQuery);
         }
 
         // Câu hỏi tổng hợp hoặc không rõ → query cả hai, merge kết quả
-        log.debug("[RAG Router] Both stores ← \"{}\"", truncate(query.text()));
+        log.debug("[RAG Router] Both stores ← \"{}\"", truncate(cleanText));
         List<Content> merged = new ArrayList<>();
-        merged.addAll(hrRetriever.retrieve(query));
-        merged.addAll(jobRetriever.retrieve(query));
+        merged.addAll(hrRetriever.retrieve(cleanQuery));
+        merged.addAll(jobRetriever.retrieve(cleanQuery));
         return merged;
+    }
+
+    /**
+     * Dọn dẹp câu truy vấn: Loại bỏ các khối JSON CV khổng lồ trước khi đem đi tìm kiếm Vector.
+     * Chỉ giữ lại phần chỉ thị (instruction) của người dùng nhằm đảm bảo Vector Match chính xác.
+     */
+    private String cleanQueryText(String text) {
+        if (text == null) return "";
+        
+        // Loại bỏ block JSON nếu có (tìm từ dấu { đầu tiên đến } cuối cùng)
+        int firstBrace = text.indexOf('{');
+        int lastBrace = text.lastIndexOf('}');
+        
+        if (firstBrace != -1 && lastBrace != -1 && lastBrace > firstBrace) {
+            String prefix = text.substring(0, firstBrace).trim();
+            String suffix = text.substring(lastBrace + 1).trim();
+            
+            // Loại bỏ các từ mang tính kỹ thuật/chuyển tiếp
+            prefix = prefix.replaceAll("(?i)dữ liệu sau\\s*\\(json\\):?", "");
+            prefix = prefix.replaceAll("(?i)dựa trên\\s*$", "");
+            
+            String combined = (prefix + " " + suffix).trim();
+            if (!combined.isEmpty()) {
+                return combined;
+            }
+        }
+        
+        // Nếu không có JSON, nhưng chuỗi quá dài -> lấy 250 ký tự đầu và cuối
+        if (text.length() > 600) {
+            return text.substring(0, 250) + " " + text.substring(text.length() - 250);
+        }
+        
+        return text;
     }
 
     private String truncate(String text) {
