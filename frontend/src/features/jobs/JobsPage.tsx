@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { generateSlug } from "../../utils/slug";
-import { Clock3, MapPin, Wallet, Search, Flame, Bookmark, ChevronDown, ChevronRight, Heart, X, Building2, CalendarClock, Trash2 } from "lucide-react";
+import { Clock3, MapPin, Wallet, Search, Flame, Bookmark, X, Building2, CalendarClock, Trash2, SlidersHorizontal, Briefcase, Award, CheckCircle2, History } from "lucide-react";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
 import image3 from "../../assets/company_logo/image_3.png";
@@ -10,8 +10,6 @@ import { readAuthUser } from "../../utils/auth";
 import { getApplicationStatusMeta } from "../../utils/application";
 import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
-
-
 
 type Job = {
    title: string;
@@ -35,32 +33,6 @@ type Job = {
    experienceYears?: string;
    expiredAt?: string;
    locationAddress?: string;
-};
-
-type CareerCompany = {
-   company: string;
-   companyColor: string;
-   companyDescription: string;
-   description: string;
-   salary: string;
-   location: string;
-   benefits: string[];
-   field: string;
-   image: string;
-   companyUrl: string;
-};
-
-type CareerPosition = {
-   title: string;
-   salary: string;
-   skills: string[];
-   description: string;
-   companies?: CareerCompany[];
-};
-
-type CareerGroup = {
-   name: string;
-   positions: CareerPosition[];
 };
 
 const jobs: Job[] = [
@@ -170,238 +142,6 @@ const levelMap: Record<string, string> = {
    DIRECTOR: "Giám đốc",
 };
 
-const typeColors: Record<string, { bg: string; text: string }> = {
-   "Full-time": { bg: "#ecfdf5", text: "#059669" },
-   "Hybrid": { bg: "#eef2ff", text: "#4f46e5" },
-   "Remote": { bg: "#fffbeb", text: "#b45309" },
-};
-
-const fieldColors: Record<string, { bg: string; text: string }> = {
-   "Công nghệ thông tin": { bg: "#eef2ff", text: "#4f46e5" },
-   "Kinh doanh/Bán hàng": { bg: "#ecfdf5", text: "#059669" },
-   "Marketing/Quảng cáo": { bg: "#fce7f3", text: "#be185d" },
-   "Tài chính/Ngân hàng": { bg: "#fffbeb", text: "#b45309" },
-   "Bất động sản": { bg: "#fff7ed", text: "#c2410c" },
-   "Xây dựng": { bg: "#f1f5f9", text: "#334155" },
-   "Lao động phổ thông": { bg: "#fef2f2", text: "#dc2626" },
-   "Tài xế": { bg: "#f0fdfa", text: "#0d9488" },
-   "Logistics/Kho vận": { bg: "#ecfdf5", text: "#047857" },
-   "Nhóm ngành khác": { bg: "#f8fafc", text: "#475569" },
-   default: { bg: "#f8fafc", text: "#475569" },
-};
-
-const careerGroups: CareerGroup[] = [
-   {
-      name: "Kinh doanh/Bán hàng",
-      positions: [
-         { title: "Nhân viên kinh doanh", salary: "15–25 triệu", skills: ["Giao tiếp tốt", "Kỹ năng thuyết phục", "Quản lý thời gian"], description: "Trách nhiệm tìm kiếm khách hàng tiềm năng, giới thiệu sản phẩm và dịch vụ, đàm phán hợp đồng để đạt mục tiêu doanh số." },
-         { title: "Trưởng phòng kinh doanh", salary: "30–50 triệu", skills: ["Lãnh đạo đội ngũ", "Phân tích thị trường", "Đàm phán hợp đồng"], description: "Quản lý đội ngũ kinh doanh, xây dựng chiến lược bán hàng, phân tích thị trường và đảm bảo đạt mục tiêu kinh doanh." },
-      ],
-   },
-   {
-      name: "Marketing/Quảng cáo",
-      positions: [
-         { title: "Chuyên viên marketing", salary: "18–30 triệu", skills: ["SEO/SEM", "Content creation", "Phân tích dữ liệu"], description: "Phát triển chiến lược marketing số, tạo nội dung quảng cáo, tối ưu hóa website và phân tích hiệu quả chiến dịch." },
-         { title: "Quản lý quảng cáo", salary: "25–40 triệu", skills: ["Chiến lược marketing", "Quản lý dự án", "Google Ads"], description: "Quản lý các chiến dịch quảng cáo, phối hợp với đội ngũ sáng tạo, theo dõi ngân sách và đo lường hiệu quả quảng cáo." },
-      ],
-   },
-   {
-      name: "Công nghệ thông tin",
-      positions: [
-         { title: "Lập trình viên Frontend", salary: "20–35 triệu", skills: ["React", "JavaScript", "CSS"], description: "Phát triển giao diện người dùng với React, đảm bảo trải nghiệm người dùng mượt mà và tương thích trên nhiều thiết bị." },
-         { title: "Lập trình viên Backend", salary: "25–45 triệu", skills: ["Node.js", "Python", "Database"], description: "Xây dựng và duy trì hệ thống backend, quản lý cơ sở dữ liệu và đảm bảo hiệu suất của ứng dụng." },
-         { title: "DevOps Engineer", salary: "30–50 triệu", skills: ["Docker", "Kubernetes", "AWS"], description: "Triển khai và quản lý hạ tầng đám mây, tự động hóa quy trình CI/CD và đảm bảo tính sẵn sàng của hệ thống." },
-      ],
-   },
-   {
-      name: "Lao động phổ thông",
-      positions: [
-         { title: "Công nhân sản xuất", salary: "8–15 triệu", skills: ["Làm việc nhóm", "Chịu áp lực", "An toàn lao động"], description: "Tham gia quá trình sản xuất, vận hành máy móc và đảm bảo chất lượng sản phẩm theo tiêu chuẩn." },
-         { title: "Nhân viên vệ sinh", salary: "6–10 triệu", skills: ["Cẩn thận", "Chăm chỉ", "Sức khỏe tốt"], description: "Thực hiện công việc dọn dẹp, vệ sinh khu vực làm việc và đảm bảo môi trường sạch sẽ." },
-      ],
-   },
-   {
-      name: "Tài chính/Ngân hàng",
-      positions: [
-         { title: "Nhân viên ngân hàng", salary: "12–20 triệu", skills: ["Phân tích tài chính", "Dịch vụ khách hàng", "Kiến thức pháp lý"], description: "Cung cấp dịch vụ ngân hàng cho khách hàng, tư vấn sản phẩm tài chính và xử lý giao dịch." },
-         { title: "Chuyên viên tín dụng", salary: "18–30 triệu", skills: ["Đánh giá rủi ro", "Phân tích tín dụng", "Quản lý danh mục"], description: "Đánh giá hồ sơ tín dụng, phân tích rủi ro và quản lý danh mục cho vay của ngân hàng." },
-      ],
-   },
-   {
-      name: "Bất động sản",
-      positions: [
-         { title: "Nhân viên kinh doanh BĐS", salary: "20–35 triệu", skills: ["Giao tiếp", "Kiến thức thị trường", "Đàm phán"], description: "Tư vấn và bán các sản phẩm bất động sản, giới thiệu dự án và hỗ trợ khách hàng trong giao dịch." },
-         { title: "Quản lý dự án BĐS", salary: "35–60 triệu", skills: ["Quản lý dự án", "Kiến trúc", "Pháp lý BĐS"], description: "Quản lý toàn bộ quy trình phát triển dự án bất động sản từ lập kế hoạch đến bàn giao." },
-      ],
-   },
-   {
-      name: "Xây dựng",
-      positions: [
-         { title: "Kỹ sư xây dựng", salary: "25–40 triệu", skills: ["AutoCAD", "Quản lý dự án", "Kiến thức kỹ thuật"], description: "Thiết kế và giám sát các công trình xây dựng, đảm bảo tuân thủ tiêu chuẩn kỹ thuật và an toàn." },
-         { title: "Công nhân xây dựng", salary: "10–18 triệu", skills: ["An toàn lao động", "Kỹ năng thủ công", "Làm việc nhóm"], description: "Thực hiện các công việc xây dựng như đổ bê tông, lắp đặt và hoàn thiện công trình." },
-      ],
-   },
-   {
-      name: "Kế toán",
-      positions: [
-         {
-            title: "Kế toán viên",
-            salary: "15–25 triệu",
-            skills: ["Excel", "Phần mềm kế toán", "Kiến thức thuế"],
-            description: "Ghi nhận và tổng hợp các giao dịch tài chính, lập báo cáo và đảm bảo tuân thủ quy định thuế.",
-            companies: [
-               {
-                  company: "Finverse",
-                  companyColor: "#f59e0b",
-                  companyDescription: "Finverse cung cấp dịch vụ tài chính số và quản lý tài sản cá nhân.",
-                  description: "Tham gia đội ngũ kế toán để quản lý sổ sách và báo cáo tài chính.",
-                  salary: "15–25 triệu",
-                  location: "Đà Nẵng",
-                  benefits: ["Lương cao", "Thưởng", "Phụ cấp công nghệ"],
-                  field: "Finance",
-                  image: image1,
-                  companyUrl: "/cong-ty",
-               },
-               {
-                  company: "ConsultPro",
-                  companyColor: "#0891b2",
-                  companyDescription: "ConsultPro tư vấn chiến lược và tài chính cho doanh nghiệp.",
-                  description: "Hỗ trợ khách hàng doanh nghiệp trong quản lý tài chính và chuẩn bị báo cáo.",
-                  salary: "16–26 triệu",
-                  location: "TP. HCM",
-                  benefits: ["Làm việc linh hoạt", "Thưởng dự án", "Đào tạo chuyên sâu"],
-                  field: "Consulting",
-                  image: image2,
-                  companyUrl: "/cong-ty",
-               },
-            ],
-         },
-         {
-            title: "Kiểm toán viên",
-            salary: "25–40 triệu",
-            skills: ["Phân tích tài chính", "Tuân thủ pháp lý", "Báo cáo"],
-            description: "Kiểm tra và xác minh tính chính xác của báo cáo tài chính, phát hiện rủi ro và đưa ra khuyến nghị.",
-            companies: [
-               {
-                  company: "Finverse",
-                  companyColor: "#f59e0b",
-                  companyDescription: "Finverse cung cấp dịch vụ tài chính số và quản lý tài sản cá nhân.",
-                  description: "Thực hiện kiểm toán nội bộ và hỗ trợ hoàn thiện báo cáo tài chính.",
-                  salary: "25–40 triệu",
-                  location: "Đà Nẵng",
-                  benefits: ["Lương tốt", "Thăng tiến", "Bảo hiểm"],
-                  field: "Finance",
-                  image: image1,
-                  companyUrl: "/cong-ty",
-               },
-               {
-                  company: "ConsultPro",
-                  companyColor: "#0891b2",
-                  companyDescription: "ConsultPro tư vấn chiến lược và tài chính cho doanh nghiệp.",
-                  description: "Thực hiện kiểm toán khách hàng và báo cáo tuân thủ quy định.",
-                  salary: "28–42 triệu",
-                  location: "TP. HCM",
-                  benefits: ["Thưởng dự án", "Lương bonus", "Đào tạo chuyên môn"],
-                  field: "Consulting",
-                  image: image2,
-                  companyUrl: "/cong-ty",
-               },
-            ],
-         },
-      ],
-   },
-   {
-      name: "Tài xế",
-      positions: [
-         {
-            title: "Tài xế xe tải",
-            salary: "12–20 triệu",
-            skills: ["Lái xe an toàn", "Kiến thức giao thông", "Bảo dưỡng xe"],
-            description: "Vận chuyển hàng hóa bằng xe tải, đảm bảo an toàn giao thông và đúng thời hạn.",
-            companies: [
-               {
-                  company: "AutoTech",
-                  companyColor: "#dc2626",
-                  companyDescription: "AutoTech sản xuất và lắp ráp xe hơi với nhà máy ở Vĩnh Phúc.",
-                  description: "Lái xe tải kho bãi nội bộ đưa linh kiện giữa các phân xưởng.",
-                  salary: "12–20 triệu",
-                  location: "Vĩnh Phúc",
-                  benefits: ["Bảo hiểm", "Phụ cấp ca đêm", "Đào tạo lái xe"],
-                  field: "Automotive",
-                  image: image3,
-                  companyUrl: "/cong-ty",
-               },
-               {
-                  company: "LogiChain",
-                  companyColor: "#059669",
-                  companyDescription: "LogiChain cung cấp dịch vụ logistics và kho vận cho khách hàng lớn.",
-                  description: "Vận chuyển hàng hóa liên tỉnh và đảm bảo thời hạn giao nhận.",
-                  salary: "12–20 triệu",
-                  location: "Đà Nẵng",
-                  benefits: ["Ổn định", "Phụ cấp xăng", "Thưởng hiệu suất"],
-                  field: "Logistics",
-                  image: image1,
-                  companyUrl: "/cong-ty",
-               },
-            ],
-         },
-         {
-            title: "Tài xế xe khách",
-            salary: "15–25 triệu",
-            skills: ["Phục vụ khách hàng", "Quản lý thời gian", "An toàn"],
-            description: "Vận chuyển hành khách, đảm bảo an toàn và cung cấp dịch vụ chất lượng cao.",
-            companies: [
-               {
-                  company: "TravelGo",
-                  companyColor: "#0d9488",
-                  companyDescription: "TravelGo kết nối du lịch và vận tải hành khách nội địa.",
-                  description: "Vận chuyển khách theo tuyến cố định và hỗ trợ hành khách khi cần.",
-                  salary: "15–25 triệu",
-                  location: "Đà Nẵng",
-                  benefits: ["Du lịch", "Bảo hiểm", "Linh hoạt giờ"],
-                  field: "Travel",
-                  image: image2,
-                  companyUrl: "/cong-ty",
-               },
-               {
-                  company: "CityRides",
-                  companyColor: "#6366f1",
-                  companyDescription: "CityRides cung cấp dịch vụ xe khách và du lịch đường dài.",
-                  description: "Lái xe khách đưa đón theo tuyến và phục vụ khách hàng thân thiết.",
-                  salary: "16–26 triệu",
-                  location: "Hà Nội",
-                  benefits: ["Thưởng tuyến", "Bảo hiểm", "Ổn định"],
-                  field: "Travel",
-                  image: image3,
-                  companyUrl: "/cong-ty",
-               },
-            ],
-         },
-      ],
-   },
-   {
-      name: "Logistics/Kho vận",
-      positions: [
-         { title: "Nhân viên kho", salary: "10–18 triệu", skills: ["Quản lý hàng hóa", "Sử dụng forklift", "Đóng gói"], description: "Quản lý tồn kho, sắp xếp hàng hóa và thực hiện các hoạt động kho bãi." },
-         { title: "Chuyên viên logistics", salary: "20–35 triệu", skills: ["Quản lý chuỗi cung ứng", "Phân tích dữ liệu", "Đàm phán"], description: "Tối ưu hóa quy trình logistics, quản lý chuỗi cung ứng và đàm phán với nhà cung cấp." },
-      ],
-   },
-   {
-      name: "Phiên dịch viên",
-      positions: [
-         { title: "Phiên dịch viên Anh", salary: "20–40 triệu", skills: ["Ngôn ngữ Anh", "Giao tiếp", "Kiến thức văn hóa"], description: "Dịch thuật tài liệu và phiên họp, hỗ trợ giao tiếp đa ngôn ngữ trong kinh doanh." },
-         { title: "Phiên dịch viên Trung", salary: "25–45 triệu", skills: ["Ngôn ngữ Trung", "Dịch thuật", "Kiến thức kinh doanh"], description: "Dịch thuật tiếng Trung, hỗ trợ giao thương với thị trường Trung Quốc." },
-      ],
-   },
-   {
-      name: "Nhóm ngành khác",
-      positions: [
-         { title: "Nhân viên hành chính", salary: "12–20 triệu", skills: ["Quản lý văn phòng", "Excel", "Giao tiếp"], description: "Hỗ trợ các hoạt động hành chính, quản lý văn phòng và phối hợp công việc nội bộ." },
-         { title: "Bác sĩ", salary: "30–100 triệu", skills: ["Kiến thức y khoa", "Chăm sóc bệnh nhân", "Đạo đức nghề nghiệp"], description: "Khám và điều trị bệnh nhân, cung cấp dịch vụ y tế chuyên nghiệp." },
-      ],
-   },
-];
-
 const fallbackImages = [image1, image2, image3];
 
 const fieldNameMap: Record<string, string> = {
@@ -456,33 +196,33 @@ const companyJobs: Job[] = [
    ...companyJobsFromCatalog,
 ].filter((job, index, list) => list.findIndex((item) => item.company === job.company && item.title === job.title) === index);
 
-
-// jobsByGroup was removed in favor of computed grouping later in the file
-
-// previously computed visibleCareerGroups (unused) removed to avoid TS6133
-
-
 const hiringPromotions = [
    {
       title: "Tuần lễ tuyển dụng IT 2026",
       subtitle: "200+ vị trí Frontend, Backend, Product",
       description: "Kết nối trực tiếp với nhà tuyển dụng công nghệ lớn, phỏng vấn nhanh trong 24h và nhận phản hồi hồ sơ ngay trong sự kiện. Ứng viên còn được tư vấn định hướng nghề nghiệp, chuẩn hóa CV theo từng vị trí và tham gia phiên hỏi đáp cùng các trưởng nhóm kỹ thuật.",
       cta: "Khám phá sự kiện",
-      accent: "#2563eb",
+      accent: "from-indigo-600 to-violet-600",
+      accentBorder: "border-indigo-100",
+      textAccent: "text-indigo-600",
    },
    {
       title: "Top công ty hybrid linh hoạt",
       subtitle: "Mô hình làm việc 2-3 ngày tại văn phòng",
-      description: "Danh sách doanh nghiệp có chính sách hybrid rõ ràng, phù hợp ứng viên trẻ muốn cân bằng hiệu suất và trải nghiệm cá nhân. Mỗi tin tuyển dụng đi kèm thông tin về thời gian làm việc, phúc lợi và lộ trình tăng trưởng trong 6-12 tháng.Đây có lẽ sẽ là xu hướng làm việc chính trong năm 2026.",
+      description: "Danh sách doanh nghiệp có chính sách hybrid rõ ràng, phù hợp ứng viên trẻ muốn cân bằng hiệu suất và trải nghiệm cá nhân. Mỗi tin tuyển dụng đi kèm thông tin về thời gian làm việc, phúc lợi và lộ trình tăng trưởng trong 6-12 tháng. Đây có lẽ sẽ là xu hướng làm việc chính trong năm 2026.",
       cta: "Xem danh sách",
-      accent: "#059669",
+      accent: "from-emerald-600 to-teal-600",
+      accentBorder: "border-emerald-100",
+      textAccent: "text-emerald-600",
    },
    {
       title: "Mega Career Fair tháng 5",
       subtitle: "Workshop CV + phỏng vấn thử miễn phí",
       description: "Được review CV 1-1 bởi recruiter, tham gia chuỗi mini talk kỹ năng nghề nghiệp và thực hành phỏng vấn thử với bộ câu hỏi bám sát nhu cầu doanh nghiệp. Sự kiện ưu tiên các vị trí IT, Marketing, Sales và nhóm công việc đang tăng trưởng mạnh.",
       cta: "Đăng ký ngay",
-      accent: "#db2777",
+      accent: "from-pink-600 to-rose-600",
+      accentBorder: "border-pink-100",
+      textAccent: "text-pink-600",
    },
 ];
 
@@ -510,14 +250,8 @@ const jobArticles = [
    },
 ];
 
-const buildJobLongDescription = (job: Job) => {
-   const tagText = job.tags.join(", ");
-   return `${job.description} ${job.companyDescription} Vị trí làm việc tại ${job.place} theo hình thức ${job.type}, mức lương tham khảo ${job.salary}. Kỹ năng hoặc phúc lợi liên quan gồm: ${tagText}. Đây là cơ hội phù hợp cho ứng viên muốn phát triển chuyên môn bền vững và có lộ trình thăng tiến rõ ràng.`;
-};
-
 export default function JobsPage() {
    const navigate = useNavigate();
-   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
    const [applications, setApplications] = useState<any[]>([]);
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
    const [showTray, setShowTray] = useState(false);
@@ -526,6 +260,12 @@ export default function JobsPage() {
    // --- API jobs state ---
    const [apiJobs, setApiJobs] = useState<Job[]>([]);
    const [isLoadingJobs, setIsLoadingJobs] = useState(true);
+
+   // --- Filters State ---
+   const [searchTerm, setSearchTerm] = useState("");
+   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+   const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
+   const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
 
    // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
    useEffect(() => {
@@ -556,7 +296,7 @@ export default function JobsPage() {
                benefits: apiItem.benefits,
                place: apiItem.locationCity,
                locationAddress: apiItem.locationAddress,
-               field: "Nhóm ngành khác",
+               field: toVietnameseField(apiItem.title), // Phân loại tự động dựa trên tiêu đề
                type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
                salary: `${Math.round((apiItem.salaryMin ?? 0) / 1_000_000)}–${Math.round((apiItem.salaryMax ?? 0) / 1_000_000)} triệu`,
                tags: [
@@ -581,17 +321,32 @@ export default function JobsPage() {
          .finally(() => setIsLoadingJobs(false));
    }, []);
 
-   const displayedJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
+   const rawJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
 
-   // Tái cấu trúc jobsByGroup dựa trên displayedJobsList
-   const jobsByGroupComputed: Record<string, Job[]> = careerGroups.reduce((acc, group) => {
-      acc[group.name] = displayedJobsList.filter((job) => job.field === group.name || (group.name === "Nhóm ngành khác" && job.field === "Nhóm ngành khác"));
-      return acc;
-   }, {} as Record<string, Job[]>);
+   // --- Instant Filter Logic ---
+   const filteredJobs = rawJobsList.filter(job => {
+      // 1. Search term match (title, company, description, tags)
+      const matchesSearch = searchTerm.trim() === "" ||
+         job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
-   const visibleCareerGroupsComputed = careerGroups.filter((group) => (jobsByGroupComputed[group.name]?.length ?? 0) > 0);
+      // 2. Location match
+      const matchesLocation = !selectedLocation || 
+         job.place.toLowerCase().includes(selectedLocation.toLowerCase());
 
-   const activeGroupJobs = selectedGroup ? jobsByGroupComputed[selectedGroup] ?? [] : [];
+      // 3. Job Type match
+      const matchesJobType = !selectedJobType || 
+         job.type.toLowerCase() === selectedJobType.toLowerCase();
+
+      // 4. Job Level match
+      const matchesLevel = !selectedLevel || 
+         job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
+         (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
+
+      return matchesSearch && matchesLocation && matchesJobType && matchesLevel;
+   });
 
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
@@ -609,10 +364,7 @@ export default function JobsPage() {
    }, [savedJobs]);
 
    useEffect(() => {
-      if (!toast) {
-         return;
-      }
-
+      if (!toast) return;
       const timeoutId = window.setTimeout(() => setToast(null), 2600);
       return () => window.clearTimeout(timeoutId);
    }, [toast]);
@@ -621,11 +373,8 @@ export default function JobsPage() {
       setToast({ message, kind });
    };
 
-   const toggleGroup = (groupName: string) => {
-      setSelectedGroup((current) => (current === groupName ? null : groupName));
-   };
-
-   const addApplication = (job: any) => {
+   const addApplication = (job: any, e: React.MouseEvent) => {
+      e.stopPropagation(); // Ngăn chặn chuyển trang khi click button
       if (!readAuthUser()) {
          showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error");
          return;
@@ -655,7 +404,8 @@ export default function JobsPage() {
       showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
    };
 
-   const addSavedJob = (job: any) => {
+   const addSavedJob = (job: any, e: React.MouseEvent) => {
+      e.stopPropagation(); // Ngăn chặn chuyển trang
       if (savedJobs.some((item) => item.company === job.company && item.title === job.title)) {
          showToast("Công việc này đã có trong mục đã lưu.", "error");
          return;
@@ -665,317 +415,334 @@ export default function JobsPage() {
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
 
-   const removeApplication = (id: string) => {
+   const removeApplication = (id: string, e: React.MouseEvent) => {
+      e.stopPropagation();
       setApplications((current) => current.filter((item) => item.id !== id));
       showToast("Đã xóa hồ sơ ứng tuyển.");
    };
 
-   const removeSavedJob = (id: string) => {
+   const removeSavedJob = (id: string, e: React.MouseEvent) => {
+      e.stopPropagation();
       setSavedJobs((current) => current.filter((item) => item.id !== id));
       showToast("Đã xóa mục đã lưu.");
    };
 
-   const applicationToneStyles: Record<string, { badge: string; border: string; accent: string; panel: string }> = {
-      amber: {
-         badge: "border-amber-200 bg-amber-50 text-amber-700",
-         border: "#fcd34d",
-         accent: "#f59e0b",
-         panel: "linear-gradient(135deg, #fff7ed 0%, #ffffff 55%, #ffffff 100%)",
-      },
-      sky: {
-         badge: "border-sky-200 bg-sky-50 text-sky-700",
-         border: "#7dd3fc",
-         accent: "#0ea5e9",
-         panel: "linear-gradient(135deg, #f0f9ff 0%, #ffffff 55%, #ffffff 100%)",
-      },
-      emerald: {
-         badge: "border-emerald-200 bg-emerald-50 text-emerald-700",
-         border: "#6ee7b7",
-         accent: "#10b981",
-         panel: "linear-gradient(135deg, #ecfdf5 0%, #ffffff 55%, #ffffff 100%)",
-      },
-      rose: {
-         badge: "border-rose-200 bg-rose-50 text-rose-700",
-         border: "#fda4af",
-         accent: "#f43f5e",
-         panel: "linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #ffffff 100%)",
-      },
-      slate: {
-         badge: "border-gray-200 bg-gray-50 text-gray-700",
-         border: "#cbd5e1",
-         accent: "#64748b",
-         panel: "linear-gradient(135deg, #f8fafc 0%, #ffffff 55%, #ffffff 100%)",
-      },
+   const clearFilters = () => {
+      setSearchTerm("");
+      setSelectedLocation(null);
+      setSelectedJobType(null);
+      setSelectedLevel(null);
    };
 
-   const renderApplicationCard = (item: any) => {
-      const statusMeta = getApplicationStatusMeta(item.status);
-      const tone = applicationToneStyles[statusMeta.tone] ?? applicationToneStyles.slate;
-
-      return (
-         <article
-            key={item.id}
-            style={{
-               background: tone.panel,
-               border: `1px solid ${tone.border}`,
-               borderRadius: 16,
-               padding: 14,
-               boxShadow: "0 12px 30px rgba(15,23,42,0.06)",
-            }}
-         >
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
-               <div style={{ minWidth: 0, flex: 1 }}>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
-                     <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#0f172a", color: "#fff", padding: "3px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em" }}>
-                        Hồ sơ ứng tuyển
-                     </span>
-                     <span style={{ display: "inline-flex", alignItems: "center", borderWidth: 1, borderStyle: "solid", borderRadius: 999, padding: "3px 10px", fontSize: 11, fontWeight: 700 }} className={tone.badge}>
-                        {statusMeta.label}
-                     </span>
-                  </div>
-                  <div style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", lineHeight: 1.35 }}>{toVietnameseJobTitle(item.title || "Vị trí chưa xác định")}</div>
-                  <div style={{ marginTop: 6, fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-                     <Building2 style={{ width: 13, height: 13 }} />
-                     <span>{item.company || "Chưa có công ty"}</span>
-                  </div>
-               </div>
-
-               <div style={{ textAlign: "right", flexShrink: 0 }}>
-                  <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", color: "#64748b", fontWeight: 700 }}>Trạng thái</div>
-                  <div style={{ marginTop: 4, fontSize: 13, fontWeight: 800, color: "#0f172a" }}>{statusMeta.label}</div>
-               </div>
-            </div>
-
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-               {item.place && (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                     <MapPin style={{ width: 12, height: 12 }} />
-                     {item.place}
-                  </span>
-               )}
-               {item.salary && (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                     <Wallet style={{ width: 12, height: 12 }} />
-                     {item.salary}
-                  </span>
-               )}
-               {item.type && (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                     <Clock3 style={{ width: 12, height: 12 }} />
-                     {item.type}
-                  </span>
-               )}
-            </div>
-
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12, fontSize: 12, color: "#64748b" }}>
-               <CalendarClock style={{ width: 13, height: 13 }} />
-               <span>Nộp lúc {item.appliedAt || "chưa xác định"}</span>
-            </div>
-
-            <p style={{ marginTop: 10, fontSize: 12, color: "#334155", lineHeight: 1.6 }}>{statusMeta.note}</p>
-         </article>
-      );
-   };
-
-   const renderSavedJobCard = (item: any) => (
-      <article
-         key={item.id}
-         style={{
-            background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 65%, #f8fafc 100%)",
-            border: "1px solid #e2e8f0",
-            borderRadius: 16,
-            padding: 14,
-            boxShadow: "0 12px 30px rgba(15,23,42,0.05)",
-         }}
-      >
-         <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "flex-start" }}>
-            <div style={{ minWidth: 0, flex: 1 }}>
-               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
-                  <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#ecfdf5", color: "#047857", padding: "3px 10px", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em" }}>
-                     Đã lưu
-                  </span>
-                  <span style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, background: "#f8fafc", color: "#475569", padding: "3px 10px", fontSize: 11, fontWeight: 700 }}>
-                     {item.savedAt || "Chưa xác định thời gian"}
-                  </span>
-               </div>
-               <div style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", lineHeight: 1.35 }}>{toVietnameseJobTitle(item.title || "Công việc đã lưu")}</div>
-               <div style={{ marginTop: 6, fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-                  <Building2 style={{ width: 13, height: 13 }} />
-                  <span>{item.company || "Chưa có công ty"}</span>
-               </div>
-            </div>
-
-            <div style={{ textAlign: "right", flexShrink: 0 }}>
-               <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.12em", color: "#64748b", fontWeight: 700 }}>Mục lưu</div>
-               <div style={{ marginTop: 4, fontSize: 13, fontWeight: 800, color: "#0f172a" }}>Đang theo dõi</div>
-            </div>
-         </div>
-
-         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-            {item.place && (
-               <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                  <MapPin style={{ width: 12, height: 12 }} />
-                  {item.place}
-               </span>
-            )}
-            {item.salary && (
-               <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                  <Wallet style={{ width: 12, height: 12 }} />
-                  {item.salary}
-               </span>
-            )}
-            {item.field && (
-               <span style={{ display: "inline-flex", alignItems: "center", gap: 5, borderRadius: 999, background: "#f8fafc", border: "1px solid #e2e8f0", padding: "4px 10px", fontSize: 11, fontWeight: 700, color: "#475569" }}>
-                  <Clock3 style={{ width: 12, height: 12 }} />
-                  {item.field}
-               </span>
-            )}
-         </div>
-      </article>
-   );
+   const hasFiltersActive = searchTerm || selectedLocation || selectedJobType || selectedLevel;
 
    return (
-      <div className="space-y-8">
-         {/* Hero */}
-         <div className="res-jobs-hero" style={{
-            borderRadius: "24px",
-            background: "linear-gradient(135deg, #0f172a 0%, #0e9f6e 45%, #10b981 100%)",
-            padding: "52px 48px 40px",
-            position: "relative",
-            overflow: "hidden",
-            boxShadow: "0 28px 90px rgba(15,23,42,0.18)",
-         }}>
-            <div style={{
-               position: "absolute", top: "-60px", right: "-40px", width: "260px", height: "260px",
-               borderRadius: "50%", background: "rgba(255,255,255,0.16)", filter: "blur(40px)",
-            }} />
-            <div style={{
-               position: "absolute", bottom: "-50px", left: "15%", width: "220px", height: "220px",
-               borderRadius: "50%", background: "rgba(255,255,255,0.1)", filter: "blur(38px)",
-            }} />
+      <div className="space-y-10 pb-16">
+         {/* Toast Notification */}
+         {toast && (
+            <div className={`fixed bottom-6 right-6 z-[2000] px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3 animate-slide-up border transition-all ${
+               toast.kind === "success" 
+                  ? "bg-slate-900 border-slate-800 text-white" 
+                  : "bg-rose-50 border-rose-100 text-rose-800"
+            }`}>
+               <CheckCircle2 className={`w-5 h-5 shrink-0 ${toast.kind === "success" ? "text-emerald-400" : "text-rose-500"}`} />
+               <span className="text-[13.5px] font-bold">{toast.message}</span>
+            </div>
+         )}
 
-            <h1 className="res-jobs-hero-title" style={{ fontSize: "42px", fontWeight: 900, color: "#ffffff", letterSpacing: "-0.04em", marginBottom: "16px", maxWidth: "780px" }}>
-               Tìm việc nhanh chóng và chuyên nghiệp
-            </h1>
-            <p className="res-jobs-hero-subtitle" style={{ color: "#e2e8f0", fontSize: "16px", lineHeight: 1.8, maxWidth: "720px", marginBottom: "32px" }}>
-               Khám phá cơ hội nghề nghiệp phù hợp cùng nhà tuyển dụng uy tín, bộ lọc thông minh theo ngành và mức lương, và ứng tuyển ngay trong một giao diện chuyên nghiệp.
-            </p>
+         {/* ── Hero Banner Section (Glassmorphism & Rich Gradient) ── */}
+         <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-950 via-emerald-950/70 to-slate-950 px-6 sm:px-12 py-16 sm:py-20 shadow-[0_28px_80px_rgba(4,120,87,0.15)] border border-emerald-900/30">
+            {/* Blurry abstract glow items */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl" />
+            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
 
-            <div className="res-jobs-searchbar" style={{ display: "flex", gap: "16px" }}>
-               <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "12px", background: "rgba(255,255,255,0.12)", borderRadius: "16px", padding: "16px 18px", border: "1px solid rgba(255,255,255,0.18)" }}>
-                  <Search style={{ width: 20, height: 20, color: "#d1fae5", flexShrink: 0 }} />
-                  <input
-                     placeholder="Tìm vị trí, công ty, kỹ năng..."
-                     style={{
-                        background: "transparent", border: "none", outline: "none",
-                        color: "#fff", fontSize: "15px", width: "100%",
-                     }}
-                  />
+            <div className="relative max-w-4xl mx-auto text-center space-y-6">
+               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-extrabold tracking-wider uppercase">
+                  <Flame className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Xu hướng tuyển dụng 2026
+               </span>
+               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                  Khám phá cơ hội nghề nghiệp <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">bứt phá tương lai</span>
+               </h1>
+               <p className="text-[14px] sm:text-[16px] text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
+                  Kết nối trực tiếp cùng các nhà tuyển dụng hàng đầu. Sử dụng bộ lọc thông minh tức thì và ứng tuyển siêu tốc chỉ với một cú click chuột.
+               </p>
+
+               {/* Search Bar */}
+               <div className="pt-4 max-w-2xl mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-3 bg-white/5 backdrop-blur-md border border-white/10 p-2 rounded-2xl shadow-2xl focus-within:border-emerald-500/40 focus-within:ring-4 focus-within:ring-emerald-500/5 transition-all">
+                     <div className="flex-1 flex items-center gap-3 px-3 py-2">
+                        <Search className="w-5 h-5 text-emerald-400 shrink-0" />
+                        <input
+                           type="text"
+                           placeholder="Nhập vị trí, công ty hoặc từ khóa kỹ năng (VD: React, Node...)"
+                           value={searchTerm}
+                           onChange={(e) => setSearchTerm(e.target.value)}
+                           className="bg-transparent border-none outline-none text-white text-[14.5px] w-full placeholder:text-slate-400 font-medium"
+                        />
+                        {searchTerm && (
+                           <button onClick={() => setSearchTerm("")} className="text-slate-400 hover:text-white transition-colors cursor-pointer">
+                              <X className="w-4 h-4" />
+                           </button>
+                        )}
+                     </div>
+                     <button className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[14px] rounded-xl transition-all shadow-[0_12px_24px_rgba(16,185,129,0.25)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.35)] active:scale-95 cursor-pointer shrink-0">
+                        Tìm kiếm ngay
+                     </button>
+                  </div>
                </div>
-               <button className="res-jobs-searchbar-btn" style={{
-                  background: "#ffffff", color: "#0f172a", borderRadius: "16px",
-                  padding: "16px 24px", fontSize: "15px", fontWeight: 800,
-                  border: "none", cursor: "pointer", whiteSpace: "nowrap",
-                  boxShadow: "0 18px 40px rgba(15,23,42,0.16)",
-               }}>
-                  Tìm kiếm ngay
-               </button>
             </div>
          </div>
 
-
-         {/* Career groups */}
-         <section>
-            <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a", marginBottom: "16px" }}>
-               Danh sách nghề nghiệp
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-               {visibleCareerGroupsComputed.map((group) => (
-                  <div
-                     key={group.name}
-                     style={{
-                        background: "#fff",
-                        borderRadius: "16px",
-                        border: selectedGroup === group.name ? "1px solid #10b981" : "1px solid #e2e8f0",
-                        boxShadow: selectedGroup === group.name ? "0 10px 30px rgba(16,185,129,0.15)" : "0 4px 18px rgba(0,0,0,0.04)",
-                     }}
-                  >
-                     <button
-                        type="button"
-                        onClick={() => toggleGroup(group.name)}
-                        style={{
-                           width: "100%",
-                           border: "none",
-                           background: "#fff",
-                           cursor: "pointer",
-                           padding: "18px 20px",
-                           display: "flex",
-                           alignItems: "center",
-                           justifyContent: "space-between",
-                           gap: "12px",
-                           fontSize: "16px",
-                           fontWeight: 700,
-                           color: "#0f172a",
-                        }}
+         {/* ── Main Layout: Filters sidebar + Jobs List grid ── */}
+         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
+            
+            {/* 1. Left Sidebar: Interactive Filters */}
+            <aside className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm space-y-6 lg:sticky lg:top-8 z-10">
+               <div className="flex items-center justify-between">
+                  <h2 className="text-[15px] font-black text-slate-900 flex items-center gap-2">
+                     <SlidersHorizontal className="w-4.5 h-4.5 text-slate-500" /> Bộ lọc thông minh
+                  </h2>
+                  {hasFiltersActive && (
+                     <button 
+                        onClick={clearFilters}
+                        className="text-[11.5px] font-extrabold text-rose-500 hover:text-rose-700 bg-rose-50 hover:bg-rose-100/70 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
                      >
-                        <span>{group.name}</span>
-                        {selectedGroup === group.name ? (
-                           <ChevronDown style={{ width: 18, height: 18, color: "#64748b" }} />
-                        ) : (
-                           <ChevronRight style={{ width: 18, height: 18, color: "#64748b" }} />
-                        )}
+                        Xóa tất cả
                      </button>
+                  )}
+               </div>
+
+               <hr className="border-slate-100" />
+
+               {/* Filter Location */}
+               <div className="space-y-3">
+                  <h3 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-wider">Địa điểm làm việc</h3>
+                  <div className="flex flex-col gap-1.5">
+                     {["TP. HCM", "Hà Nội", "Đà Nẵng", "Remote"].map(loc => {
+                        const active = selectedLocation === loc;
+                        return (
+                           <button
+                              key={loc}
+                              type="button"
+                              onClick={() => setSelectedLocation(active ? null : loc)}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
+                                 active 
+                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
+                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                              }`}
+                           >
+                              <span>{loc}</span>
+                              {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
+                           </button>
+                        );
+                     })}
                   </div>
-               ))}
-            </div>
-         </section>
+               </div>
 
-         <section style={{
-            background: "linear-gradient(135deg, #f8fafc 0%, #ecfeff 100%)",
-            borderRadius: "20px",
-            padding: "24px",
-            border: "1px solid #e2e8f0",
-         }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
-               <h2 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a" }}>
-                  Quảng cáo tuyển dụng nổi bật
+               <hr className="border-slate-100" />
+
+               {/* Filter Job Type */}
+               <div className="space-y-3">
+                  <h3 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-wider">Hình thức làm việc</h3>
+                  <div className="flex flex-col gap-1.5">
+                     {["Full-time", "Hybrid", "Remote"].map(type => {
+                        const active = selectedJobType === type;
+                        return (
+                           <button
+                              key={type}
+                              type="button"
+                              onClick={() => setSelectedJobType(active ? null : type)}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
+                                 active 
+                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
+                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                              }`}
+                           >
+                              <span>{type}</span>
+                              {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
+                           </button>
+                        );
+                     })}
+                  </div>
+               </div>
+
+               <hr className="border-slate-100" />
+
+               {/* Filter Level */}
+               <div className="space-y-3">
+                  <h3 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-wider">Cấp bậc yêu cầu</h3>
+                  <div className="flex flex-col gap-1.5">
+                     {Object.entries(levelMap).map(([key, label]) => {
+                        const active = selectedLevel === key;
+                        return (
+                           <button
+                              key={key}
+                              type="button"
+                              onClick={() => setSelectedLevel(active ? null : key)}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
+                                 active 
+                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
+                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                              }`}
+                           >
+                              <span>{label}</span>
+                              {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
+                           </button>
+                        );
+                     })}
+                  </div>
+               </div>
+            </aside>
+
+            {/* 2. Right: Jobs List Rendering */}
+            <main className="space-y-6">
+               <div className="flex items-center justify-between bg-white border border-slate-100 rounded-2xl px-6 py-4 shadow-sm">
+                  <p className="text-[13.5px] font-bold text-slate-500">
+                     Tìm thấy <span className="text-slate-900 font-extrabold">{filteredJobs.length}</span> vị trí phù hợp
+                  </p>
+                  {hasFiltersActive && (
+                     <span className="text-[12px] font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-lg">
+                        Bộ lọc đang hoạt động
+                     </span>
+                  )}
+               </div>
+
+               <div className="flex flex-col gap-4">
+                  {filteredJobs.length === 0 ? (
+                     <div className="text-center py-20 bg-white border border-slate-100 rounded-3xl space-y-4">
+                        <Briefcase className="w-16 h-16 text-slate-200 mx-auto" />
+                        <h3 className="text-lg font-extrabold text-slate-800">Không tìm thấy công việc phù hợp</h3>
+                        <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
+                           Hãy thử thay đổi từ khóa tìm kiếm hoặc tắt bớt các điều kiện lọc để tiếp cận nhiều cơ hội việc làm hơn.
+                        </p>
+                        <button 
+                           onClick={clearFilters}
+                           className="px-5 py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-xl text-[13px] font-bold transition-all active:scale-95 cursor-pointer"
+                        >
+                           Xóa bộ lọc để thử lại
+                        </button>
+                     </div>
+                  ) : (
+                     filteredJobs.map((job) => {
+                        const jobSlug = job.slug ?? generateSlug(`${job.title} ${job.company}`);
+                        const isSaved = savedJobs.some((item) => item.company === job.company && item.title === job.title);
+
+                        return (
+                           <article
+                              key={`${job.title}-${job.company}`}
+                              onClick={() => navigate(`/tim-viec/${jobSlug}`, { state: { job, relatedJobs: rawJobsList.filter((j) => j.title !== job.title || j.company !== job.company).slice(0, 3) } })}
+                              className="group relative bg-white border border-slate-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:border-emerald-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 cursor-pointer flex flex-col sm:flex-row gap-5 items-start sm:items-center"
+                           >
+                              {/* Company Logo wrapper with dynamic color border */}
+                              <div 
+                                 className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300 group-hover:scale-105"
+                                 style={{ borderLeft: `4px solid ${job.companyColor}` }}
+                              >
+                                 <img src={job.image} className="w-full h-full object-contain" alt={job.company} />
+                              </div>
+
+                              {/* Core Content */}
+                              <div className="flex-1 min-w-0 space-y-2">
+                                 <div className="flex items-center gap-2">
+                                    <span className="text-[12px] font-bold text-slate-500 hover:text-slate-900 transition-colors">{job.company}</span>
+                                    {job.hot && (
+                                       <span className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded bg-rose-50 border border-rose-100 text-rose-600 text-[9.5px] font-extrabold uppercase">
+                                          <Flame className="w-3 h-3 text-amber-500" /> Hot
+                                       </span>
+                                    )}
+                                 </div>
+                                 <h3 className="text-lg font-black text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors truncate">
+                                    {job.title}
+                                 </h3>
+                                 
+                                 {/* Badges / Tags metadata */}
+                                 <div className="flex flex-wrap gap-2 pt-1">
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 text-slate-600 border border-slate-200/50 text-[11.5px] font-bold">
+                                       <MapPin className="w-3.5 h-3.5 text-slate-400" /> {job.place}
+                                    </span>
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 text-slate-600 border border-slate-200/50 text-[11.5px] font-bold">
+                                       <Wallet className="w-3.5 h-3.5 text-slate-400" /> {job.salary}
+                                    </span>
+                                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 text-slate-600 border border-slate-200/50 text-[11.5px] font-bold">
+                                       <Clock3 className="w-3.5 h-3.5 text-slate-400" /> {job.type}
+                                    </span>
+                                    
+                                    {/* Tech Tag highlights */}
+                                    {job.tags.slice(0, 3).map((tag, tIdx) => (
+                                       <span key={tIdx} className="inline-flex items-center px-3 py-1 rounded-xl bg-emerald-50/50 text-emerald-700 border border-emerald-100/60 text-[11px] font-extrabold uppercase">
+                                          {tag}
+                                       </span>
+                                    ))}
+                                 </div>
+                              </div>
+
+                              {/* Call to Actions (CTA) */}
+                              <div className="w-full sm:w-auto shrink-0 flex sm:flex-col gap-2.5 items-center sm:items-end justify-between border-t border-slate-50 sm:border-t-0 pt-4 sm:pt-0">
+                                 <span className="text-[11.5px] font-bold text-slate-400">{job.posted}</span>
+                                 <div className="flex items-center gap-2">
+                                    <button 
+                                       onClick={(e) => addSavedJob(job, e)}
+                                       className={`p-3 rounded-xl border transition-all active:scale-95 cursor-pointer ${
+                                          isSaved 
+                                             ? "bg-rose-50 border-rose-100 text-rose-500 shadow-sm" 
+                                             : "bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300"
+                                       }`}
+                                       title={isSaved ? "Bỏ lưu tin" : "Lưu tin tuyển dụng"}
+                                    >
+                                       <Bookmark className={`w-4 h-4 ${isSaved ? "fill-current" : ""}`} />
+                                    </button>
+                                    <button 
+                                       onClick={(e) => addApplication(job, e)}
+                                       className="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[13.5px] rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
+                                    >
+                                       Ứng tuyển
+                                    </button>
+                                 </div>
+                              </div>
+                           </article>
+                        );
+                     })
+                  )}
+               </div>
+            </main>
+         </div>
+
+         {/* ── Hiring Promotions Grid (Tailwind Styled) ── */}
+         <section className="bg-gradient-to-br from-slate-50 to-emerald-50/30 rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-inner space-y-6">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+               <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                  <Award className="w-6 h-6 text-emerald-500" /> Quảng cáo tuyển dụng nổi bật
                </h2>
-               <span style={{ fontSize: "13px", color: "#64748b", fontWeight: 600 }}>Đối tác tuyển dụng của JobPilot</span>
+               <span className="text-[12.5px] text-slate-400 font-extrabold uppercase tracking-wider">Đối tác tin cậy của JobPilot</span>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px" }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {hiringPromotions.map((promo) => (
-                  <article key={promo.title} style={{
-                     borderRadius: "16px",
-                     padding: "18px",
-                     background: "#fff",
-                     border: "1px solid #e2e8f0",
-                     boxShadow: "0 10px 30px rgba(15,23,42,0.06)",
-                     position: "relative",
-                     overflow: "hidden",
-                  }}>
-                     <div style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: "4px",
-                        background: promo.accent,
-                     }} />
-                     <p style={{ fontSize: "11px", fontWeight: 700, color: promo.accent, letterSpacing: "0.05em", marginBottom: "8px" }}>SPONSORED</p>
-                     <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a", marginBottom: "6px", lineHeight: 1.3 }}>{promo.title}</h3>
-                     <p style={{ fontSize: "13px", color: "#334155", fontWeight: 700, marginBottom: "8px" }}>{promo.subtitle}</p>
-                     <p style={{ fontSize: "13px", color: "#475569", lineHeight: 1.5, marginBottom: "14px" }}>{promo.description}</p>
-                     <button style={{
-                        border: "none",
-                        background: promo.accent,
-                        color: "#fff",
-                        borderRadius: "10px",
-                        padding: "8px 14px",
-                        fontSize: "13px",
-                        fontWeight: 700,
-                        cursor: "pointer",
-                     }}>
+                  <article key={promo.title} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:border-emerald-500/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                     <div className="space-y-3">
+                        <span className={`text-[9.5px] font-extrabold px-2.5 py-1 rounded bg-slate-50 border border-slate-200/50 tracking-wider uppercase ${promo.textAccent}`}>
+                           SPONSORED
+                        </span>
+                        <h3 className="text-lg font-black text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors pt-2">{promo.title}</h3>
+                        <p className="text-[13px] text-slate-700 font-extrabold">{promo.subtitle}</p>
+                        <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{promo.description}</p>
+                     </div>
+                     <button 
+                        onClick={() => {
+                           if (promo.title.toLowerCase().includes("it")) {
+                              setSearchTerm("React");
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                              showToast("Đã lọc các vị trí IT / React Developer nổi bật!");
+                           } else if (promo.title.toLowerCase().includes("hybrid")) {
+                              setSelectedJobType("Hybrid");
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                              showToast("Đã lọc các công việc có chính sách Hybrid!");
+                           } else if (promo.title.toLowerCase().includes("mega")) {
+                              showToast("Đăng ký Mega Career Fair thành công! Vé tham dự đã được gửi vào email của bạn.");
+                           }
+                        }}
+                        className={`mt-6 w-full py-3 bg-gradient-to-r ${promo.accent} text-white font-extrabold text-[13px] rounded-xl hover:opacity-90 shadow-md active:scale-95 cursor-pointer transition-all`}
+                     >
                         {promo.cta}
                      </button>
                   </article>
@@ -983,310 +750,160 @@ export default function JobsPage() {
             </div>
          </section>
 
-         <section>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
-               <h2 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a" }}>
-                  Bài viết liên quan đến việc làm
+         {/* ── Related Job Articles Grid ── */}
+         <section className="space-y-6">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+               <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
+                  <CalendarClock className="w-6 h-6 text-slate-500" /> Bài viết cẩm nang sự nghiệp
                </h2>
-               <a href="#" style={{ fontSize: "13px", color: "#0284c7", fontWeight: 700, textDecoration: "none" }}>Xem tất cả bài viết</a>
+                <Link to="/cam-nang" className="text-[13px] font-extrabold text-sky-600 hover:text-sky-700 hover:underline">Xem tất cả bài viết ↗</Link>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px" }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {jobArticles.map((article) => (
-                  <article key={article.title} style={{
-                     background: "#fff",
-                     borderRadius: "16px",
-                     border: "1px solid #e2e8f0",
-                     overflow: "hidden",
-                     boxShadow: "0 10px 25px rgba(15,23,42,0.05)",
-                  }}>
-                     <img
-                        src={article.image}
-                        alt={article.title}
-                        style={{ width: "100%", height: "150px", objectFit: "cover", background: "#e2e8f0" }}
-                     />
-                     <div style={{ padding: "14px" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", gap: "8px", marginBottom: "8px" }}>
-                           <span style={{ fontSize: "11px", fontWeight: 700, color: "#0369a1", background: "#e0f2fe", padding: "3px 8px", borderRadius: "999px" }}>
-                              {article.category}
-                           </span>
-                           <span style={{ fontSize: "11px", color: "#64748b", fontWeight: 600 }}>{article.readTime}</span>
+                  <article key={article.title} className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col group">
+                     <div className="h-44 w-full bg-slate-100 overflow-hidden relative">
+                        <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <span className="absolute top-4 left-4 text-[10.5px] font-extrabold bg-sky-50 border border-sky-100 text-sky-600 px-3 py-1 rounded-xl shadow-md uppercase tracking-wider">
+                           {article.category}
+                        </span>
+                     </div>
+                     <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div className="space-y-2">
+                           <span className="text-[11px] text-slate-400 font-bold">{article.readTime}</span>
+                           <h3 className="text-[15.5px] font-black text-slate-900 leading-snug group-hover:text-sky-600 transition-colors">{article.title}</h3>
+                           <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{article.summary}</p>
                         </div>
-                        <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#0f172a", lineHeight: 1.4, marginBottom: "8px" }}>{article.title}</h3>
-                        <p style={{ fontSize: "13px", color: "#475569", lineHeight: 1.6 }}>{article.summary}</p>
                      </div>
                   </article>
                ))}
             </div>
          </section>
 
-         {selectedGroup && (
-            <>
-               <div
-                  onClick={() => setSelectedGroup(null)}
-                  style={{
-                     position: "fixed",
-                     inset: 0,
-                     background: "rgba(15,23,42,0.55)",
-                     backdropFilter: "blur(4px)",
-                     zIndex: 1050,
-                  }}
-               />
-               <section
-                  style={{
-                     position: "fixed",
-                     left: "50%",
-                     top: "50%",
-                     transform: "translate(-50%, -50%)",
-                     width: "min(980px, calc(100vw - 28px))",
-                     maxHeight: "82vh",
-                     overflowY: "auto",
-                     background: "#fff",
-                     borderRadius: "20px",
-                     border: "1px solid #e2e8f0",
-                     boxShadow: "0 28px 90px rgba(15,23,42,0.35)",
-                     zIndex: 1051,
-                     padding: "22px",
-                  }}
-               >
-                  <div style={{ position: "sticky", top: 0, zIndex: 20, background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "14px", paddingBottom: "14px", borderBottom: "1px solid #e2e8f0" }}>
-                     <h3 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a", margin: 0 }}>
-                        Việc làm thuộc nhóm: <span style={{ color: "#059669" }}>{selectedGroup}</span>
-                     </h3>
-                     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <span style={{ fontSize: "13px", color: "#64748b", fontWeight: 600 }}>
-                           {activeGroupJobs.length} công việc phù hợp
-                        </span>
-                        <button
-                           type="button"
-                           onClick={() => setSelectedGroup(null)}
-                           style={{
-                              width: 34,
-                              height: 34,
-                              borderRadius: 10,
-                              border: "1px solid #e2e8f0",
-                              background: "#fff",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              cursor: "pointer",
-                              color: "#64748b",
-                           }}
-                        >
-                           <X style={{ width: 16, height: 16 }} />
-                        </button>
-                     </div>
-                  </div>
+         {/* ── Floating History & Saved Drawer Toggle ── */}
+         <button 
+            onClick={() => setShowTray(true)}
+            className="fixed bottom-6 left-6 z-[1000] px-5 py-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 shadow-2xl hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer flex items-center gap-2.5 font-bold text-[13.5px]"
+         >
+            <History className="w-5 h-5 text-emerald-400" />
+            <span>Lịch sử & Đã lưu ({applications.length + savedJobs.length})</span>
+         </button>
 
-                  {activeGroupJobs.length === 0 ? (
-                     <div style={{ background: "#f8fafc", border: "1px dashed #cbd5e1", borderRadius: "14px", padding: "20px", color: "#475569", fontSize: "14px" }}>
-                        Nhóm ngành này chưa có dữ liệu công việc chi tiết. Vui lòng chọn nhóm khác.
-                     </div>
-                  ) : (
-                     <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                        {activeGroupJobs.map((job) => {
-                           const tc = typeColors[job.type] ?? { bg: "#f1f5f9", text: "#475569" };
-                           const fc = fieldColors[job.field] ?? fieldColors.default;
-                           return (
-                              <article key={`${job.title}-${job.company}`} style={{
-                                 background: "#fff", borderRadius: "24px", padding: "24px 28px",
-                                 border: "1px solid #e2e8f0",
-                                 boxShadow: "0 18px 55px rgba(15,23,42,0.09)",
-                                 transition: "transform 0.25s, box-shadow 0.25s",
-                                 position: "relative", overflow: "hidden",
-                                 cursor: "pointer",
-                              }}
-                                 onClick={() => navigate(`/tim-viec/${job.slug ?? generateSlug(`${job.title} ${job.company}`)}`, { state: { job, relatedJobs: activeGroupJobs.filter((j) => j.title !== job.title || j.company !== job.company).slice(0, 3) } })}
-                                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 22px 60px rgba(15,23,42,0.14)"; }}
-                                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 18px 55px rgba(15,23,42,0.09)"; }}
-                              >
-                                 <div style={{
-                                    position: "absolute", left: 0, top: 0, bottom: 0, width: "4px",
-                                    background: job.companyColor, borderRadius: "20px 0 0 20px",
-                                 }} />
-
-                                 <div className="res-jobs-modal-card-grid" style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: "22px", alignItems: "flex-start" }}>
-                                    <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                                       <div style={{
-                                          width: "60px", height: "60px", borderRadius: "18px", flexShrink: 0,
-                                          background: `${job.companyColor}15`,
-                                          border: `2px solid ${job.companyColor}30`,
-                                          display: "flex", alignItems: "center", justifyContent: "center",
-                                          overflow: "hidden",
-                                       }}>
-                                          <img src={job.image} alt={job.company} style={{ width: "60px", height: "60px", borderRadius: "16px", objectFit: "cover", display: "block", flexShrink: 0 }} />
-                                       </div>
-                                    </div>
-                                    <div>
-                                       <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", marginBottom: "10px" }}>
-                                          {job.hot && (
-                                             <span style={{
-                                                display: "inline-flex", alignItems: "center", gap: "4px",
-                                                background: "#fef3c7", color: "#b45309",
-                                                borderRadius: "999px", padding: "4px 12px",
-                                                fontSize: "11px", fontWeight: 800,
-                                             }}>
-                                                <Flame style={{ width: 10, height: 10 }} /> HOT
-                                             </span>
-                                          )}
-                                          <span style={{
-                                             background: "#ecfdf5", color: "#059669",
-                                             borderRadius: "999px", padding: "4px 12px",
-                                             fontSize: "11px", fontWeight: 700,
-                                          }}>
-                                             Mới đăng
-                                          </span>
-                                       </div>
-                                       <h3 style={{ fontSize: "20px", fontWeight: 900, color: "#0f172a", letterSpacing: "-0.02em", marginTop: 0, marginBottom: "10px" }}>
-                                          {toVietnameseJobTitle(job.title)}
-                                       </h3>
-                                       <p style={{ fontSize: "13px", color: "#64748b", marginTop: 0, marginBottom: "12px" }}>{job.company} • {job.posted}</p>
-                                       <p style={{ fontSize: "14px", color: "#475569", marginTop: 0, lineHeight: 1.75 }}>
-                                          {buildJobLongDescription(job)}
-                                       </p>
-                                       <div style={{ marginTop: "12px", fontSize: "12px", color: "#94a3b8" }}>
-                                          Bấm vào thẻ để xem chi tiết →
-                                       </div>
-                                    </div>
-
-                                    {/* Actions */}
-                                    <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
-                                       <button onClick={(event) => { event.stopPropagation(); addSavedJob(job); }} style={{
-                                          width: "38px", height: "38px", borderRadius: "10px",
-                                          border: "1px solid #e2e8f0", background: "#fff",
-                                          display: "flex", alignItems: "center", justifyContent: "center",
-                                          cursor: "pointer", color: "#64748b",
-                                       }}>
-                                          <Bookmark style={{ width: 15, height: 15 }} />
-                                       </button>
-                                       <button onClick={(event) => { event.stopPropagation(); addApplication(job); }} style={{
-                                          display: "inline-flex", alignItems: "center", gap: "6px",
-                                          background: job.companyColor, color: "#fff",
-                                          borderRadius: "10px", padding: "9px 20px",
-                                          fontSize: "13px", fontWeight: 700, border: "none", cursor: "pointer",
-                                          boxShadow: `0 4px 14px ${job.companyColor}40`,
-                                       }}>
-                                          Ứng tuyển
-                                       </button>
-                                    </div>
-                                 </div>
-
-                                 {/* Meta info */}
-                                 <div style={{ display: "flex", gap: "16px", marginTop: "16px", flexWrap: "wrap", alignItems: "center" }}>
-                                    <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", fontSize: "13px", color: "#475569" }}>
-                                       <MapPin style={{ width: 13, height: 13 }} /> {job.place}
-                                    </span>
-                                    <span style={{
-                                       display: "inline-flex", alignItems: "center", gap: "5px",
-                                       background: tc.bg, color: tc.text,
-                                       borderRadius: "999px", padding: "3px 10px",
-                                       fontSize: "12px", fontWeight: 700,
-                                    }}>
-                                       <Clock3 style={{ width: 12, height: 12 }} /> {job.type}
-                                    </span>
-                                    <span style={{
-                                       display: "inline-flex", alignItems: "center", gap: "5px",
-                                       background: fc.bg, color: fc.text,
-                                       borderRadius: "999px", padding: "3px 10px",
-                                       fontSize: "12px", fontWeight: 700,
-                                    }}>
-                                       {job.field}
-                                    </span>
-                                    <span style={{
-                                       display: "inline-flex", alignItems: "center", gap: "5px",
-                                       fontSize: "14px", fontWeight: 800, color: "#0f172a",
-                                    }}>
-                                       <Wallet style={{ width: 14, height: 14, color: "#64748b" }} /> {job.salary}
-                                    </span>
-                                 </div>
-
-                                 {/* Tags */}
-                                 <div style={{ display: "flex", gap: "6px", marginTop: "12px", flexWrap: "wrap" }}>
-                                    {job.tags.map((tag) => (
-                                       <span key={tag} style={{
-                                          background: "#f8fafc", border: "1px solid #e2e8f0",
-                                          borderRadius: "8px", padding: "3px 10px",
-                                          fontSize: "11px", fontWeight: 600, color: "#475569",
-                                       }}>
-                                          {tag}
-                                       </span>
-                                    ))}
-                                 </div>
-                              </article>
-                           );
-                        })}
-                     </div>
-                  )}
-               </section>
-            </>
-         )}
-
-         <button onClick={() => setShowTray(true)} style={{ position: "fixed", right: "24px", bottom: "24px", width: "60px", height: "60px", borderRadius: "999px", border: "none", background: "linear-gradient(135deg, #ec4899, #db2777)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 14px 30px rgba(236,72,153,0.35)", zIndex: 900 }} title="Ứng tuyển và công việc đã lưu"><Heart style={{ width: 24, height: 24, color: "#fff" }} /></button>
-
+         {/* Drawer Overlay & Content */}
          {showTray && (
             <>
-               <div onClick={() => setShowTray(false)} style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.5)", backdropFilter: "blur(4px)", zIndex: 1100 }} />
-               <div style={{ position: "fixed", right: "24px", bottom: "94px", width: "min(420px, calc(100vw - 32px))", maxHeight: "72vh", overflowY: "auto", background: "#fff", borderRadius: "18px", boxShadow: "0 24px 70px rgba(15,23,42,0.3)", zIndex: 1101, padding: "18px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                     <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>Mục đã lưu</h3>
-                     <button onClick={() => setShowTray(false)} style={{ width: 32, height: 32, borderRadius: 8, border: "1px solid #e2e8f0", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#64748b" }}><X style={{ width: 16, height: 16 }} /></button>
+               <div 
+                  onClick={() => setShowTray(false)}
+                  className="fixed inset-0 z-[1500] bg-slate-950/40 backdrop-blur-sm transition-all"
+               />
+               <div className="fixed top-0 right-0 bottom-0 w-full sm:w-[480px] z-[1600] bg-white border-l border-slate-100 shadow-[0_0_60px_rgba(0,0,0,0.1)] flex flex-col justify-between animate-slide-left">
+                  {/* Drawer Header */}
+                  <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between shrink-0 bg-slate-50">
+                     <div className="flex items-center gap-2.5">
+                        <History className="w-5 h-5 text-emerald-500" />
+                        <h3 className="text-lg font-black text-slate-900">Thông tin cá nhân & Đã lưu</h3>
+                     </div>
+                     <button 
+                        onClick={() => setShowTray(false)}
+                        className="p-1.5 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer transition-colors"
+                     >
+                        <X className="w-4.5 h-4.5" />
+                     </button>
                   </div>
-                  <div style={{ display: "grid", gap: "14px" }}>
-                     <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", marginBottom: 8 }}>Đã ứng tuyển ({applications.length})</div>
-                        <div style={{ display: "grid", gap: 10 }}>{applications.length === 0 ? <div style={{ fontSize: 13, color: "#94a3b8" }}>Chưa có ứng tuyển nào.</div> : applications.map((item) => (
-                           <div key={item.id} style={{ position: "relative" }}>
-                              {renderApplicationCard(item)}
-                              <button
-                                 onClick={() => removeApplication(item.id)}
-                                 style={{ position: "absolute", top: 10, right: 10, width: 32, height: 32, borderRadius: 10, border: "1px solid #fecaca", background: "#fff1f2", color: "#be123c", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
-                                 title="Xóa hồ sơ ứng tuyển"
-                              >
-                                 <Trash2 style={{ width: 14, height: 14 }} />
-                              </button>
+
+                  {/* Drawer Scrollable Body */}
+                  <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
+                     
+                     {/* 1. Applied Applications */}
+                     <div className="space-y-4">
+                        <h4 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                           <span>Hồ sơ đã ứng tuyển</span>
+                           <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-extrabold">{applications.length}</span>
+                        </h4>
+                        
+                        {applications.length === 0 ? (
+                           <div className="text-center py-10 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-slate-400 text-[13px] font-medium leading-relaxed">
+                              Bạn chưa nộp hồ sơ vào vị trí nào.<br />Hãy chọn một công việc hấp dẫn để ứng tuyển ngay!
                            </div>
-                        ))}</div>
-                     </div>
-                     <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", marginBottom: 8 }}>Công việc đã lưu ({savedJobs.length})</div>
-                        <div style={{ display: "grid", gap: 10 }}>{savedJobs.length === 0 ? <div style={{ fontSize: 13, color: "#94a3b8" }}>Chưa có công việc nào được lưu.</div> : savedJobs.map((item) => (
-                           <div key={item.id} style={{ position: "relative" }}>
-                              {renderSavedJobCard(item)}
-                              <button
-                                 onClick={() => removeSavedJob(item.id)}
-                                 style={{ position: "absolute", top: 10, right: 10, width: 32, height: 32, borderRadius: 10, border: "1px solid #fecaca", background: "#fff1f2", color: "#be123c", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
-                                 title="Xóa mục đã lưu"
-                              >
-                                 <Trash2 style={{ width: 14, height: 14 }} />
-                              </button>
+                        ) : (
+                           <div className="space-y-4">
+                              {applications.map((app) => {
+                                 const statusMeta = getApplicationStatusMeta(app.status);
+                                 return (
+                                    <div key={app.id} className="bg-slate-50/50 border border-slate-200/60 rounded-2xl p-4.5 space-y-3 relative group">
+                                       <button 
+                                          onClick={(e) => removeApplication(app.id, e)}
+                                          className="absolute top-4 right-4 p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
+                                          title="Xóa lịch sử"
+                                       >
+                                          <Trash2 className="w-4 h-4" />
+                                       </button>
+                                       <div className="flex justify-between items-start pr-6">
+                                          <div className="space-y-1">
+                                             <h5 className="font-extrabold text-[14.5px] text-slate-900 leading-snug">{toVietnameseJobTitle(app.title)}</h5>
+                                             <p className="text-[12px] text-slate-500 font-bold flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-slate-400" /> {app.company}</p>
+                                          </div>
+                                       </div>
+                                       <div className="flex flex-wrap gap-2">
+                                          <span className="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-extrabold uppercase border border-emerald-100">{app.place}</span>
+                                          <span className="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] font-extrabold uppercase border border-indigo-100">{app.type}</span>
+                                          <span className="px-2.5 py-0.5 rounded bg-amber-50 text-amber-700 text-[10px] font-extrabold uppercase border border-amber-100">{statusMeta.label}</span>
+                                       </div>
+                                       <p className="text-[11.5px] text-slate-400 font-semibold flex items-center gap-1"><CalendarClock className="w-3.5 h-3.5" /> Nộp lúc {app.appliedAt}</p>
+                                    </div>
+                                 );
+                              })}
                            </div>
-                        ))}</div>
+                        )}
                      </div>
+
+                     <hr className="border-slate-100" />
+
+                     {/* 2. Saved Jobs */}
+                     <div className="space-y-4">
+                        <h4 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                           <span>Tin tuyển dụng đã lưu</span>
+                           <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-extrabold">{savedJobs.length}</span>
+                        </h4>
+
+                        {savedJobs.length === 0 ? (
+                           <div className="text-center py-10 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-slate-400 text-[13px] font-medium leading-relaxed">
+                              Chưa có tin tuyển dụng nào được lưu.
+                           </div>
+                        ) : (
+                           <div className="space-y-4">
+                              {savedJobs.map((job) => (
+                                 <div 
+                                    key={job.id} 
+                                    onClick={() => { setShowTray(false); navigate(`/tim-viec/${job.slug ?? generateSlug(`${job.title} ${job.company}`)}`, { state: { job, relatedJobs: rawJobsList.filter((j) => j.title !== job.title || j.company !== job.company).slice(0, 3) } }) }}
+                                    className="bg-slate-50/50 border border-slate-200/60 hover:border-indigo-200/80 rounded-2xl p-4.5 space-y-3 relative group cursor-pointer transition-all"
+                                 >
+                                    <button 
+                                       onClick={(e) => removeSavedJob(job.id, e)}
+                                       className="absolute top-4 right-4 p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
+                                       title="Xóa lưu tin"
+                                    >
+                                       <Trash2 className="w-4 h-4" />
+                                    </button>
+                                    <div className="flex justify-between items-start pr-6">
+                                       <div className="space-y-1">
+                                          <h5 className="font-extrabold text-[14.5px] text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors">{toVietnameseJobTitle(job.title)}</h5>
+                                          <p className="text-[12px] text-slate-500 font-bold flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-slate-400" /> {job.company}</p>
+                                       </div>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                       <span className="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-extrabold uppercase border border-emerald-100">{job.place}</span>
+                                       <span className="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] font-extrabold uppercase border border-indigo-100">{job.type}</span>
+                                    </div>
+                                 </div>
+                              ))}
+                           </div>
+                        )}
+                     </div>
+
                   </div>
                </div>
             </>
-         )}
-
-         {toast && (
-            <div style={{ position: "fixed", left: "50%", top: 24, transform: "translateX(-50%)", zIndex: 1300, minWidth: "min(520px, calc(100vw - 24px))" }}>
-               <div style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: 12,
-                  padding: "14px 16px",
-                  borderRadius: 14,
-                  border: `1px solid ${toast.kind === "success" ? "#86efac" : "#fca5a5"}`,
-                  background: toast.kind === "success" ? "linear-gradient(135deg, #f0fdf4, #ffffff)" : "linear-gradient(135deg, #fff1f2, #ffffff)",
-                  boxShadow: "0 18px 50px rgba(15,23,42,0.16)",
-               }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-                     <div style={{ width: 10, height: 10, borderRadius: 999, background: toast.kind === "success" ? "#16a34a" : "#dc2626", flexShrink: 0 }} />
-                     <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{toast.message}</p>
-                  </div>
-                  <button onClick={() => setToast(null)} style={{ border: "none", background: "transparent", color: "#64748b", cursor: "pointer", fontWeight: 700 }}>×</button>
-               </div>
-            </div>
          )}
       </div>
    );

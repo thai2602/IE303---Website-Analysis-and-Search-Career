@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Building2, MapPin, Star, Users, Wallet } from "lucide-react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Building2, MapPin, Star, Users, Wallet, Briefcase, ArrowUpRight } from "lucide-react";
 import { companies, companyAvatars, companyImages } from "./CompaniesPage";
+import { generateSlug } from "../../utils/slug";
 
 type CompanyPosition = {
    id?: number;
@@ -105,6 +106,7 @@ const getCompanyImage = (company: CompanyItem) => {
 
 export default function CompanyDetailPage() {
    const { companySlug } = useParams<{ companySlug: string }>();
+   const navigate = useNavigate();
    const [company, setCompany] = useState<CompanyItem | null>(null);
    const [isLoading, setIsLoading] = useState(true);
 
@@ -271,30 +273,65 @@ export default function CompanyDetailPage() {
                   </div>
                </div>
 
-               <div className="space-y-4">
-                  <h2 className="text-2xl font-black text-slate-950">Vị trí đang tuyển</h2>
+               <div className="space-y-6 mt-8">
+                  <div className="flex items-center justify-between">
+                     <h2 className="text-2xl font-black text-slate-950">Vị trí đang tuyển</h2>
+                     <span className="text-[12.5px] font-extrabold bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-xl border border-indigo-100/50">
+                        {selectedCompany.positions.length} cơ hội mở
+                     </span>
+                  </div>
                   <div className="space-y-4">
-                     {selectedCompany.positions.map((position) => (
-                        <article key={position.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                              <div>
-                                 <h3 className="text-xl font-semibold text-slate-950">{position.title}</h3>
-                                 <p className="mt-2 text-sm text-slate-600">{position.description}</p>
+                     {selectedCompany.positions.map((position) => {
+                        const jobSlug = generateSlug(`${position.title} ${selectedCompany.name}`);
+                        return (
+                           <article 
+                              key={position.title} 
+                              onClick={() => navigate(`/tim-viec/${jobSlug}`)}
+                              className="group relative bg-white border border-slate-100 rounded-[24px] p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                              style={{ borderLeft: `4px solid ${selectedCompany.color || '#6366f1'}` }}
+                           >
+                              <div className="space-y-3 flex-1 min-w-0">
+                                 <div className="flex flex-wrap gap-2 items-center">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 border border-indigo-100/50 px-2 py-0.5 rounded">
+                                       <Briefcase className="w-3.5 h-3.5" /> {position.workingHours}
+                                    </span>
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 bg-emerald-50 border border-emerald-100/50 px-2 py-0.5 rounded">
+                                       <Wallet className="w-3.5 h-3.5" /> {position.salary}
+                                    </span>
+                                 </div>
+                                 
+                                 <h3 className="text-[17px] font-black text-slate-950 truncate group-hover:text-indigo-600 transition-colors">
+                                    {position.title}
+                                 </h3>
+                                 
+                                 <p className="text-slate-500 text-[13px] leading-relaxed line-clamp-2">
+                                    {position.description}
+                                 </p>
+                                 
+                                 <div className="flex flex-wrap gap-1.5 pt-1">
+                                    {position.skills.map((skill) => (
+                                       <span key={skill} className="rounded-full bg-slate-50 border border-slate-100 px-3 py-1 text-[11px] font-bold text-slate-600">
+                                          {skill}
+                                       </span>
+                                    ))}
+                                 </div>
                               </div>
-                              <div className="space-y-2 text-right">
-                                 <p className="font-semibold text-slate-900">{position.salary}</p>
-                                 <p className="text-sm text-slate-500">{position.workingHours}</p>
+                              
+                              <div className="shrink-0 flex items-center gap-3">
+                                 <button 
+                                    onClick={(e) => {
+                                       e.stopPropagation();
+                                       navigate(`/tim-viec/${jobSlug}`);
+                                    }}
+                                    className="px-5 py-2.5 bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-[12.5px] rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+                                    style={{ backgroundColor: selectedCompany.color }}
+                                 >
+                                    Xem chi tiết <ArrowUpRight className="w-4 h-4" />
+                                 </button>
                               </div>
-                           </div>
-                           <div className="mt-4 flex flex-wrap gap-2">
-                              {position.skills.map((skill) => (
-                                 <span key={skill} className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">
-                                    {skill}
-                                 </span>
-                              ))}
-                           </div>
-                        </article>
-                     ))}
+                           </article>
+                        );
+                     })}
                   </div>
                </div>
             </section>

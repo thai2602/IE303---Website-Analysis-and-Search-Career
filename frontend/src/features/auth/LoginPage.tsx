@@ -434,7 +434,14 @@ export default function LoginPage() {
                         <div>
                            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                               <label style={{ fontSize: "13px", fontWeight: 700, color: "#374151" }}>Mật khẩu</label>
-                              <a href="#" style={{ fontSize: "12px", color: "#10b981", fontWeight: 600, textDecoration: "none" }}>
+                              <a 
+                                 href="#" 
+                                 onClick={(e) => {
+                                    e.preventDefault();
+                                    setErrorMessage("Tính năng thiết lập lại mật khẩu qua Email đang được bảo trì. Vui lòng liên hệ hotro@jobpilot.vn để được hỗ trợ.");
+                                 }}
+                                 style={{ fontSize: "12px", color: "#10b981", fontWeight: 600, textDecoration: "none" }}
+                              >
                                  Quên mật khẩu?
                               </a>
                            </div>

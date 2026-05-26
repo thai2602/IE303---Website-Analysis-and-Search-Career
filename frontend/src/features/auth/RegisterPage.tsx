@@ -464,9 +464,27 @@ export default function RegisterPage() {
                      />
                      <span style={{ fontSize: "12px", color: "#64748b", lineHeight: 1.6 }}>
                         Tôi đồng ý với{" "}
-                        <a href="#" style={{ color: "#10b981", fontWeight: 600, textDecoration: "none" }}>Điều khoản dịch vụ</a>
+                        <a 
+                           href="#" 
+                           onClick={(e) => {
+                              e.preventDefault();
+                              setErrorMessage("Điều khoản dịch vụ đang được cập nhật bản mới nhất cho năm 2026. Quý khách vui lòng quay lại sau.");
+                           }}
+                           style={{ color: "#10b981", fontWeight: 600, textDecoration: "none" }}
+                        >
+                           Điều khoản dịch vụ
+                        </a>
                         {" "}và{" "}
-                        <a href="#" style={{ color: "#10b981", fontWeight: 600, textDecoration: "none" }}>Chính sách bảo mật</a>
+                        <a 
+                           href="#" 
+                           onClick={(e) => {
+                              e.preventDefault();
+                              setErrorMessage("Chính sách bảo mật dữ liệu cá nhân đang được nâng cấp theo chuẩn mới. Quý khách vui lòng quay lại sau.");
+                           }}
+                           style={{ color: "#10b981", fontWeight: 600, textDecoration: "none" }}
+                        >
+                           Chính sách bảo mật
+                        </a>
                      </span>
                   </label>
 

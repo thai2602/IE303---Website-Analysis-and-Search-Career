@@ -9,14 +9,48 @@ import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-pre
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const COLOR_OPTIONS = [
-  { value: "#7c3aed", label: "Tím" },
-  { value: "#10b981", label: "Xanh lá" },
-  { value: "#0ea5e9", label: "Xanh dương" },
-  { value: "#ec4899", label: "Hồng" },
-  { value: "#f59e0b", label: "Cam vàng" },
-  { value: "#0f172a", label: "Đen" },
+const TEMPLATE_OPTIONS = [
+  { id: "chuan", name: "CV Chuẩn Mực", color: "#10b981", desc: "Thanh lịch, cổ điển, phù hợp mọi ngành", icon: FileText },
+  { id: "cong-nghe", name: "CV Tech Pro", color: "#6366f1", desc: "Hiện đại, tối ưu cho IT & Kỹ thuật", icon: Code },
+  { id: "sang-tao", name: "CV Sáng Tạo", color: "#f43f5e", desc: "Phá cách, dành cho Marketing & Design", icon: Sparkles },
+  { id: "quan-ly", name: "CV Executive", color: "#f59e0b", desc: "Sang trọng, tôn vinh số liệu lãnh đạo", icon: Briefcase },
 ];
+
+const ACCENT_COLORS = [
+  { hex: "#2563eb", name: "Deep Blue" },
+  { hex: "#1d4ed8", name: "Royal Blue" },
+  { hex: "#0ea5e9", name: "Sky Blue" },
+  { hex: "#06b6d4", name: "Cyan" },
+
+  { hex: "#10b981", name: "Emerald Green" },
+  { hex: "#22c55e", name: "Lime Green" },
+  { hex: "#84cc16", name: "Olive Green" },
+
+  { hex: "#6366f1", name: "Indigo Purple" },
+  { hex: "#8b5cf6", name: "Violet" },
+  { hex: "#a855f7", name: "Purple" },
+  { hex: "#d946ef", name: "Magenta" },
+
+  { hex: "#ec4899", name: "Pink" },
+  { hex: "#f43f5e", name: "Rose Red" },
+
+  { hex: "#ef4444", name: "Red" },
+  { hex: "#f97316", name: "Orange" },
+  { hex: "#f59e0b", name: "Amber" },
+  { hex: "#eab308", name: "Yellow" },
+
+  { hex: "#14b8a6", name: "Teal" },
+  { hex: "#64748b", name: "Slate Gray" },
+  { hex: "#6b7280", name: "Cool Gray" },
+  { hex: "#111827", name: "Dark Black" },
+];
+
+const getTemplateFromColor = (color: string) => {
+  if (color === "#6366f1") return "cong-nghe";
+  if (color === "#f43f5e") return "sang-tao";
+  if (color === "#f59e0b") return "quan-ly";
+  return "chuan";
+};
 
 const inputCls = "w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-[13.5px] font-medium text-slate-900 outline-none transition-all focus:border-violet-500 focus:ring-4 focus:ring-violet-500/10 focus:bg-white placeholder:text-slate-400";
 const labelCls = "block text-[12.5px] font-bold text-slate-700 mb-1.5";
@@ -89,7 +123,8 @@ function CvEditorContent() {
       phone: found.phone || "",
       location: found.location || "",
       summary: found.summary || "",
-      color: found.settings?.themeColor || "#7c3aed",
+      color: found.settings?.themeColor || "#10b981",
+      template: found.settings?.template || getTemplateFromColor(found.settings?.themeColor || "#10b981"),
       skills: found.skills?.length ? found.skills.map((s: any) => ({ skillName: s.skillName || "", level: s.level || "Intermediate" })) : [],
       experiences: found.experiences?.length ? found.experiences.map((x: any) => ({ company: x.company || "", position: x.position || "", startDate: x.startDate || "", endDate: x.endDate || "", description: x.description || "" })) : [],
       educations: found.educations?.length ? found.educations.map((x: any) => ({ school: x.school || x.institution || "", major: x.major || x.degree || "", startDate: x.startDate || "", endDate: x.endDate || "" })) : [],
@@ -114,7 +149,8 @@ function CvEditorContent() {
         phone: selected.phone || "",
         location: selected.location || "",
         summary: selected.summary || "",
-        color: selected.settings?.themeColor || "#7c3aed",
+        color: selected.settings?.themeColor || "#10b981",
+        template: selected.settings?.template || getTemplateFromColor(selected.settings?.themeColor || "#10b981"),
         skills: selected.skills?.length ? selected.skills.map((s: any) => ({ skillName: s.skillName || "", level: s.level || "Intermediate" })) : [],
         experiences: selected.experiences?.length ? selected.experiences.map((x: any) => ({ company: x.company || "", position: x.position || "", startDate: x.startDate || "", endDate: x.endDate || "", description: x.description || "" })) : [],
         educations: selected.educations?.length ? selected.educations.map((x: any) => ({ school: x.school || "", major: x.major || "", startDate: x.startDate || "", endDate: x.endDate || "" })) : [],
@@ -314,8 +350,8 @@ function CvEditorContent() {
         fullName: cvData.fullName, jobTitle: cvData.jobTitle,
         email: cvData.email, phone: cvData.phone,
         location: cvData.location, summary: cvData.summary,
-        settings: { themeColor: cvData.color },
-        cvData: { skills: cvData.skills, color: cvData.color },
+        settings: { themeColor: cvData.color, template: cvData.template || "chuan" },
+        cvData: { skills: cvData.skills, color: cvData.color, template: cvData.template || "chuan" },
         skills: cvData.skills.map(s => ({ skillName: s.skillName, level: s.level })),
         experiences: cvData.experiences,
         educations: cvData.educations,
@@ -360,12 +396,565 @@ function CvEditorContent() {
     setSelectedCvId("");
     setCvData({
       fullName: '', jobTitle: '', email: '', phone: '',
-      location: '', summary: '', color: '#7c3aed',
+      location: '', summary: '', color: '#10b981', template: 'chuan',
       skills: [], experiences: [], educations: [], projects: [],
       attachments: [], socials: [],
     });
     setIsPreviewVisible(false);
     setIsAiReviewVisible(false);
+  };
+
+  const renderTemplatePreview = () => {
+    const template = cvData.template || "chuan";
+    const accentColor = cvData.color || "#10b981";
+
+    const hasData = cvData.skills.length > 0 || cvData.experiences.length > 0 || cvData.educations.length > 0 || cvData.projects.length > 0 || (cvData.attachments && cvData.attachments.length > 0);
+
+    if (!hasData && !cvData.fullName && !cvData.jobTitle && !cvData.summary) {
+      return (
+        <div className="flex flex-col items-center justify-center py-32 opacity-40">
+          <FileText className="w-20 h-20 mb-5 text-slate-400" />
+          <p className="text-slate-400 text-[14px] font-semibold text-center leading-relaxed">
+            Bản xem trước CV<br />Hãy điền thông tin ở biểu mẫu bên trái để hiển thị.
+          </p>
+        </div>
+      );
+    }
+
+    // ── TEMPLATE 1: "chuan" (CV Chuẩn Mực - 1 cột truyền thống có header màu) ──
+    if (template === "chuan") {
+      return (
+        <div>
+          {/* Header */}
+          <div className="flex items-center gap-6 px-8 py-8 text-white transition-all duration-500 rounded-t-[24px]" style={{ backgroundColor: accentColor }}>
+            <div className="w-16 h-16 rounded-[16px] bg-white/20 flex items-center justify-center text-3xl font-black shrink-0 shadow-inner backdrop-blur-sm uppercase">
+              {cvData.fullName ? cvData.fullName[0] : "?"}
+            </div>
+            <div className="flex flex-col gap-1">
+              <p className="text-[26px] font-black tracking-tight leading-none">{cvData.fullName || "Họ và tên"}</p>
+              <p className="text-base font-semibold opacity-95">{cvData.jobTitle || "Vị trí ứng tuyển"}</p>
+            </div>
+          </div>
+
+          <div className="px-8 py-8 flex flex-col gap-8 bg-white rounded-b-[24px]">
+            {/* Contact */}
+            <section>
+              <h3 className={accentH3} style={{ color: accentColor }}>Thông tin liên hệ</h3>
+              <ul className="list-none p-0 m-0 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-slate-600 font-semibold">
+                {cvData.email && <li className="flex items-center gap-2.5"><div className="p-1.5 rounded-lg bg-slate-50 text-slate-400"><Mail className="w-4 h-4" /></div> {cvData.email}</li>}
+                {cvData.phone && <li className="flex items-center gap-2.5"><div className="p-1.5 rounded-lg bg-slate-50 text-slate-400"><Phone className="w-4 h-4" /></div> {cvData.phone}</li>}
+                {cvData.location && <li className="flex items-center gap-2.5"><div className="p-1.5 rounded-lg bg-slate-50 text-slate-400"><MapPin className="w-4 h-4" /></div> {cvData.location}</li>}
+                {(cvData.socials || []).map((s, idx) => s.url && (
+                  <li key={idx} className="flex items-center gap-2.5">
+                    <div className="p-1.5 rounded-lg bg-slate-50">{renderSocialIcon(s.platform)}</div>
+                    <a href={s.url} target="_blank" rel="noreferrer" className="hover:underline text-slate-600 truncate">{s.platform}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Summary */}
+            {cvData.summary && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Giới thiệu bản thân</h3>
+                <p className="text-[13.5px] text-slate-700 leading-[1.75] font-medium text-justify whitespace-pre-wrap">{cvData.summary}</p>
+              </section>
+            )}
+
+            {/* Skills */}
+            {cvData.skills.length > 0 && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Kỹ năng chuyên môn</h3>
+                <div className="flex flex-wrap gap-2">
+                  {cvData.skills.map((s, i) => (
+                    <span key={i} className="px-3.5 py-1.5 rounded-xl text-[12px] font-bold bg-slate-50 text-slate-700 border border-slate-200/60 shadow-sm">
+                      {s.skillName}{s.level ? <span className="opacity-50 ml-1.5 font-medium">| {s.level}</span> : ""}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Experience */}
+            {cvData.experiences.length > 0 && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Kinh nghiệm làm việc</h3>
+                <div className="flex flex-col gap-6 border-l-2 border-slate-100 pl-4 ml-1.5">
+                  {cvData.experiences.map((x, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: accentColor }}></div>
+                      <div className="flex justify-between items-start gap-4">
+                        <div>
+                          <p className="text-[15px] font-extrabold text-slate-900 leading-tight">{x.position || "Vị trí"}</p>
+                          <p className="text-[13px] font-bold text-slate-500 mt-1">{x.company}</p>
+                        </div>
+                        {(x.startDate || x.endDate) && (
+                          <span className="text-[11px] font-bold text-slate-500 bg-slate-50 px-2.5 py-1 rounded border border-slate-100 shrink-0">
+                            {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
+                          </span>
+                        )}
+                      </div>
+                      {x.description && <p className="text-[13px] text-slate-600 mt-2.5 leading-[1.65] font-medium whitespace-pre-wrap">{x.description}</p>}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Education */}
+            {cvData.educations.length > 0 && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Học vấn</h3>
+                <div className="flex flex-col gap-5 border-l-2 border-slate-100 pl-4 ml-1.5">
+                  {cvData.educations.map((x, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: accentColor }}></div>
+                      <div className="flex justify-between items-start gap-4">
+                        <div>
+                          <p className="text-[14.5px] font-extrabold text-slate-900 leading-tight">{x.school || "Tên trường"}</p>
+                          {x.major && <p className="text-[13px] font-semibold text-slate-500 mt-1">{x.major}</p>}
+                        </div>
+                        {(x.startDate || x.endDate) && (
+                          <span className="text-[11px] font-bold text-slate-500 bg-slate-50 px-2.5 py-1 rounded border border-slate-100 shrink-0">
+                            {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Projects */}
+            {cvData.projects.length > 0 && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Dự án nổi bật</h3>
+                <div className="flex flex-col gap-5">
+                  {cvData.projects.map((x, i) => (
+                    <div key={i} className="bg-slate-50/50 p-5 rounded-2xl border border-slate-100">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <p className="text-[15px] font-extrabold text-slate-900 leading-tight">{x.name || "Tên dự án"}</p>
+                        {x.link && <a href={x.link} target="_blank" rel="noreferrer" className="text-[12px] font-bold underline" style={{ color: accentColor }}>Xem dự án ↗</a>}
+                      </div>
+                      {x.description && <p className="text-[13px] text-slate-600 mb-3 leading-[1.6] font-medium whitespace-pre-wrap">{x.description}</p>}
+                      {x.technologies && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {x.technologies.split(',').map(t => t.trim()).filter(Boolean).map((t, j) => (
+                            <span key={j} className="px-2.5 py-0.5 rounded bg-white border border-slate-100 text-slate-500 text-[11px] font-bold">{t}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Certifications & Awards */}
+            {cvData.attachments && cvData.attachments.length > 0 && (
+              <section>
+                <h3 className={accentH3} style={{ color: accentColor }}>Chứng chỉ & Giải thưởng</h3>
+                <div className="flex flex-col gap-5 border-l-2 border-slate-100 pl-4 ml-1.5">
+                  {cvData.attachments.map((x, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full border-2 border-white shadow-sm" style={{ backgroundColor: accentColor }}></div>
+                      <div className="flex justify-between items-start gap-4">
+                        <div>
+                          <p className="text-[14.5px] font-extrabold text-slate-900 leading-tight">
+                            <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded mr-2 bg-slate-100 text-slate-500 border border-slate-200">
+                              {x.type}
+                            </span>
+                            {x.name || "Tên chứng chỉ / giải thưởng"}
+                          </p>
+                          {x.organization && <p className="text-[13px] font-bold text-slate-500 mt-1">{x.organization}</p>}
+                        </div>
+                        {x.yearOrLevel && (
+                          <span className="text-[11px] font-bold text-slate-500 bg-slate-50 px-2.5 py-1 rounded border border-slate-100 shrink-0">
+                            {x.yearOrLevel}
+                          </span>
+                        )}
+                      </div>
+                      {x.description && <p className="text-[13px] text-slate-600 mt-2 leading-[1.55] font-medium whitespace-pre-wrap">{x.description}</p>}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    // ── TEMPLATE 2: "cong-nghe" (CV Tech Pro - 2 cột bất đối xứng, cột trái nhỏ nền xám, cột phải lớn nền trắng) ──
+    if (template === "cong-nghe") {
+      return (
+        <div className="bg-white rounded-[24px]">
+          {/* Flat Elegant Header */}
+          <div className="p-8 border-b border-slate-100 flex items-center justify-between gap-6">
+            <div>
+              <h2 className="text-[28px] font-black text-slate-900 tracking-tight leading-none">{cvData.fullName || "Họ và tên"}</h2>
+              <p className="text-[14.5px] font-extrabold tracking-widest uppercase mt-2" style={{ color: accentColor }}>{cvData.jobTitle || "Vị trí ứng tuyển"}</p>
+            </div>
+            <div className="w-16 h-16 rounded-[16px] flex items-center justify-center text-3xl font-black text-white shrink-0 shadow-md uppercase" style={{ backgroundColor: accentColor }}>
+              {cvData.fullName ? cvData.fullName[0] : "?"}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-[1fr_1.7fr] min-h-[600px]">
+            {/* Left Column (Sidebar) */}
+            <div className="bg-slate-50/80 p-6 space-y-6 border-r border-slate-100 rounded-bl-[24px]">
+              {/* Contact */}
+              <div className="space-y-3">
+                <h4 className="text-[11px] font-extrabold uppercase tracking-widest border-b border-slate-200 pb-1 text-slate-400">Liên hệ</h4>
+                <ul className="space-y-2.5 text-[12px] font-bold text-slate-600 break-all">
+                  {cvData.email && <li className="flex gap-2"><Mail className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: accentColor }} /> <span>{cvData.email}</span></li>}
+                  {cvData.phone && <li className="flex gap-2"><Phone className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: accentColor }} /> <span>{cvData.phone}</span></li>}
+                  {cvData.location && <li className="flex gap-2"><MapPin className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: accentColor }} /> <span>{cvData.location}</span></li>}
+                  {(cvData.socials || []).map((s, idx) => s.url && (
+                    <li key={idx} className="flex gap-2">
+                      <span className="shrink-0 mt-0.5">{renderSocialIcon(s.platform)}</span>
+                      <a href={s.url} target="_blank" rel="noreferrer" className="hover:underline truncate">{s.platform}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Skills */}
+              {cvData.skills.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-[11px] font-extrabold uppercase tracking-widest border-b border-slate-200 pb-1 text-slate-400">Kỹ năng</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {cvData.skills.map((s, i) => (
+                      <span key={i} className="px-2 py-1 rounded-lg text-[11px] font-bold bg-white border border-slate-200/50 text-slate-700 shadow-sm">
+                        {s.skillName}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Certifications */}
+              {cvData.attachments && cvData.attachments.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="text-[11px] font-extrabold uppercase tracking-widest border-b border-slate-200 pb-1 text-slate-400">Chứng chỉ</h4>
+                  <div className="flex flex-col gap-2">
+                    {cvData.attachments.map((x, i) => (
+                      <div key={i} className="text-[11.5px] leading-relaxed">
+                        <p className="font-extrabold text-slate-800">{x.name}</p>
+                        <p className="text-[10px] text-slate-400 font-bold">{x.organization} {x.yearOrLevel ? `(${x.yearOrLevel})` : ""}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Right Column (Main) */}
+            <div className="p-6 space-y-6">
+              {/* Summary */}
+              {cvData.summary && (
+                <div className="space-y-2">
+                  <h3 className="text-[13px] font-black uppercase tracking-wider" style={{ color: accentColor }}>Về bản thân</h3>
+                  <p className="text-[13px] text-slate-600 leading-relaxed font-semibold text-justify whitespace-pre-wrap">{cvData.summary}</p>
+                </div>
+              )}
+
+              {/* Experience */}
+              {cvData.experiences.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[13px] font-black uppercase tracking-wider" style={{ color: accentColor }}>Kinh nghiệm làm việc</h3>
+                  <div className="space-y-4">
+                    {cvData.experiences.map((x, i) => (
+                      <div key={i} className="space-y-1">
+                        <div className="flex justify-between items-start gap-2">
+                          <p className="font-extrabold text-[14px] text-slate-900 leading-tight">{x.position}</p>
+                          <span className="text-[10.5px] font-bold text-slate-400 shrink-0">{x.startDate} – {x.endDate}</span>
+                        </div>
+                        <p className="text-[12px] font-bold text-slate-500">{x.company}</p>
+                        {x.description && <p className="text-[12.5px] text-slate-600 leading-relaxed pt-1 whitespace-pre-wrap">{x.description}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Education */}
+              {cvData.educations.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[13px] font-black uppercase tracking-wider" style={{ color: accentColor }}>Học vấn</h3>
+                  <div className="space-y-3">
+                    {cvData.educations.map((x, i) => (
+                      <div key={i} className="space-y-0.5">
+                        <div className="flex justify-between items-start gap-2">
+                          <p className="font-extrabold text-[13.5px] text-slate-900 leading-tight">{x.school}</p>
+                          <span className="text-[10.5px] font-bold text-slate-400 shrink-0">{x.startDate} – {x.endDate}</span>
+                        </div>
+                        {x.major && <p className="text-[12px] font-bold text-slate-500">{x.major}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Projects */}
+              {cvData.projects.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[13px] font-black uppercase tracking-wider" style={{ color: accentColor }}>Dự án cá nhân</h3>
+                  <div className="grid grid-cols-1 gap-3">
+                    {cvData.projects.map((x, i) => (
+                      <div key={i} className="border border-slate-100 p-3.5 rounded-xl space-y-1.5">
+                        <div className="flex justify-between items-center gap-2">
+                          <p className="font-extrabold text-[13.5px] text-slate-900 leading-tight">{x.name}</p>
+                          {x.link && <a href={x.link} target="_blank" rel="noreferrer" className="text-[11px] font-extrabold underline" style={{ color: accentColor }}>Link ↗</a>}
+                        </div>
+                        {x.description && <p className="text-[12px] text-slate-600 leading-relaxed line-clamp-2">{x.description}</p>}
+                        {x.technologies && (
+                          <p className="text-[10.5px] font-extrabold text-slate-400 truncate">Tech: {x.technologies}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── TEMPLATE 3: "sang-tao" (CV Sáng Tạo - Header gradient to bản rực rỡ, bố cục phá cách) ──
+    if (template === "sang-tao") {
+      return (
+        <div className="bg-white rounded-[24px]">
+          {/* Colorful Huge Header */}
+          <div className="px-8 py-10 text-white rounded-t-[24px] relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+            style={{ backgroundImage: `linear-gradient(135deg, ${accentColor} 0%, ${accentColor}dd 100%)` }}
+          >
+            <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-white/10 blur-2xl pointer-events-none" />
+            <div className="space-y-2 relative z-10">
+              <h2 className="text-[34px] font-black tracking-tight leading-none uppercase">{cvData.fullName || "HỌ VÀ TÊN"}</h2>
+              <span className="inline-block bg-white/20 backdrop-blur-md px-3 py-1 rounded-lg text-[13px] font-extrabold tracking-wider uppercase">
+                🚀 {cvData.jobTitle || "Vị trí ứng tuyển"}
+              </span>
+            </div>
+            {/* Avatar Mock */}
+            <div className="w-20 h-20 rounded-full border-4 border-white/30 bg-white/10 flex items-center justify-center text-4xl font-black shrink-0 relative z-10 shadow-lg uppercase backdrop-blur-sm">
+              {cvData.fullName ? cvData.fullName[0] : "?"}
+            </div>
+          </div>
+
+          <div className="p-8 flex flex-col gap-6 bg-white rounded-b-[24px]">
+            {/* Contact Quick Bar */}
+            <div className="flex flex-wrap gap-4 items-center justify-between border-b border-slate-100 pb-4 text-[12.5px] font-bold text-slate-500">
+              {cvData.email && <span className="flex items-center gap-1.5"><Mail className="w-4 h-4 text-slate-400" /> {cvData.email}</span>}
+              {cvData.phone && <span className="flex items-center gap-1.5"><Phone className="w-4 h-4 text-slate-400" /> {cvData.phone}</span>}
+              {cvData.location && <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-slate-400" /> {cvData.location}</span>}
+            </div>
+
+            {/* Main content grid */}
+            <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-8">
+              <div className="space-y-6">
+                {/* Summary */}
+                {cvData.summary && (
+                  <div className="space-y-2.5">
+                    <h3 className="text-[14px] font-extrabold uppercase tracking-widest border-b-2 pb-1 inline-block" style={{ color: accentColor, borderColor: accentColor + '20' }}>Về tôi</h3>
+                    <p className="text-[13px] text-slate-600 leading-relaxed font-semibold text-justify whitespace-pre-wrap">{cvData.summary}</p>
+                  </div>
+                )}
+
+                {/* Experience */}
+                {cvData.experiences.length > 0 && (
+                  <div className="space-y-3">
+                    <h3 className="text-[14px] font-extrabold uppercase tracking-widest border-b-2 pb-1 inline-block" style={{ color: accentColor, borderColor: accentColor + '20' }}>Kinh nghiệm</h3>
+                    <div className="space-y-5">
+                      {cvData.experiences.map((x, i) => (
+                        <div key={i} className="space-y-1 relative pl-4 border-l-2 border-slate-100">
+                          <div className="absolute -left-[5.5px] top-1.5 w-2.5 h-2.5 rounded-full" style={{ backgroundColor: accentColor }} />
+                          <div className="flex justify-between items-baseline gap-2">
+                            <p className="font-extrabold text-[13.5px] text-slate-900">{x.position}</p>
+                            <span className="text-[10.5px] font-bold text-slate-400 shrink-0">{x.startDate}–{x.endDate}</span>
+                          </div>
+                          <p className="text-[11.5px] font-extrabold" style={{ color: accentColor }}>{x.company}</p>
+                          {x.description && <p className="text-[12.5px] text-slate-500 leading-relaxed whitespace-pre-wrap">{x.description}</p>}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-6">
+                {/* Skills */}
+                {cvData.skills.length > 0 && (
+                  <div className="space-y-2.5">
+                    <h3 className="text-[14px] font-extrabold uppercase tracking-widest border-b-2 pb-1 inline-block" style={{ color: accentColor, borderColor: accentColor + '20' }}>Kỹ năng</h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {cvData.skills.map((s, i) => (
+                        <span key={i} className="px-3 py-1 rounded-xl text-[11px] font-bold text-slate-700 border border-slate-200 bg-slate-50 shadow-sm"
+                          style={{ borderLeft: `3px solid ${accentColor}` }}
+                        >
+                          {s.skillName}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Education */}
+                {cvData.educations.length > 0 && (
+                  <div className="space-y-2.5">
+                    <h3 className="text-[14px] font-extrabold uppercase tracking-widest border-b-2 pb-1 inline-block" style={{ color: accentColor, borderColor: accentColor + '20' }}>Học vấn</h3>
+                    <div className="space-y-3">
+                      {cvData.educations.map((x, i) => (
+                        <div key={i} className="space-y-0.5">
+                          <p className="font-extrabold text-[13px] text-slate-900 leading-tight">{x.school}</p>
+                          <p className="text-[11.5px] text-slate-500 font-semibold">{x.major}</p>
+                          <p className="text-[10px] text-slate-400 font-bold">{x.startDate} – {x.endDate}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Attachments */}
+                {cvData.attachments && cvData.attachments.length > 0 && (
+                  <div className="space-y-2.5">
+                    <h3 className="text-[14px] font-extrabold uppercase tracking-widest border-b-2 pb-1 inline-block" style={{ color: accentColor, borderColor: accentColor + '20' }}>Thành tích</h3>
+                    <ul className="space-y-2 text-[12.5px] font-bold text-slate-600">
+                      {cvData.attachments.map((x, i) => (
+                        <li key={i} className="flex gap-2 items-start">
+                          <span className="text-amber-500 shrink-0">★</span>
+                          <div>
+                            <p className="text-slate-800 leading-normal">{x.name}</p>
+                            <p className="text-[10.5px] text-slate-400 font-medium">{x.organization}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── TEMPLATE 4: "quan-ly" (CV Executive - Tối giản hoàng gia, không header màu, sang trọng) ──
+    if (template === "quan-ly") {
+      return (
+        <div className="bg-white rounded-[24px] p-8 sm:p-10 space-y-6 border border-slate-200/60 shadow-lg min-h-[800px] transition-all duration-300">
+          {/* Centered Minimalist Header */}
+          <div className="text-center space-y-3 pb-6 border-b-2" style={{ borderColor: accentColor }}>
+            <h2 className="text-[32px] font-black text-slate-900 tracking-tight leading-none uppercase">{cvData.fullName || "HỌ VÀ TÊN"}</h2>
+            <p className="text-[15px] font-bold uppercase tracking-widest" style={{ color: accentColor }}>{cvData.jobTitle || "VỊ TRÍ ỨNG TUYỂN"}</p>
+
+            {/* Inline contact info with divider dots */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[12.5px] font-bold text-slate-500 pt-1">
+              {cvData.email && <span className="flex items-center gap-1"><Mail className="w-3.5 h-3.5" /> {cvData.email}</span>}
+              {cvData.phone && <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5" /> {cvData.phone}</span>}
+              {cvData.location && <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {cvData.location}</span>}
+            </div>
+
+            {/* Socials quick link list */}
+            {(cvData.socials || []).length > 0 && (
+              <div className="flex flex-wrap justify-center gap-4 text-[12px] font-extrabold text-slate-600">
+                {(cvData.socials || []).map((s, idx) => s.url && (
+                  <a key={idx} href={s.url} target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1 hover:text-slate-900 transition-colors">
+                    {renderSocialIcon(s.platform)} <span>{s.platform}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 1. Summary section */}
+          {cvData.summary && (
+            <div className="space-y-2">
+              <h3 className="text-[13px] font-black uppercase tracking-wider border-b pb-1" style={{ color: accentColor, borderColor: accentColor + '30' }}>Tóm lược chuyên môn</h3>
+              <p className="text-[13px] text-slate-600 leading-relaxed font-semibold text-justify whitespace-pre-wrap">{cvData.summary}</p>
+            </div>
+          )}
+
+          {/* 2. Experience */}
+          {cvData.experiences.length > 0 && (
+            <div className="space-y-3">
+              <h3 className="text-[13px] font-black uppercase tracking-wider border-b pb-1" style={{ color: accentColor, borderColor: accentColor + '30' }}>Lịch sử nghề nghiệp</h3>
+              <div className="space-y-4">
+                {cvData.experiences.map((x, i) => (
+                  <div key={i} className="space-y-1">
+                    <div className="flex justify-between items-baseline gap-2">
+                      <p className="font-extrabold text-[14.5px] text-slate-900">{x.position}</p>
+                      <span className="text-[11.5px] font-bold text-slate-500 shrink-0">{x.startDate} – {x.endDate}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-[12.5px] font-bold text-slate-500">
+                      <span>{x.company}</span>
+                    </div>
+                    {x.description && <p className="text-[13px] text-slate-600 leading-relaxed pt-1.5 text-justify whitespace-pre-wrap">{x.description}</p>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 3. Education & Skills grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            {/* Education */}
+            {cvData.educations.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-[13px] font-black uppercase tracking-wider border-b pb-1" style={{ color: accentColor, borderColor: accentColor + '30' }}>Học vấn & Bằng cấp</h3>
+                <div className="space-y-3">
+                  {cvData.educations.map((x, i) => (
+                    <div key={i} className="space-y-0.5">
+                      <div className="flex justify-between items-baseline gap-2">
+                        <p className="font-extrabold text-[13px] text-slate-900 leading-snug">{x.school}</p>
+                        <span className="text-[10px] font-bold text-slate-400 shrink-0">{x.startDate} – {x.endDate}</span>
+                      </div>
+                      {x.major && <p className="text-[11.5px] text-slate-500 font-semibold">{x.major}</p>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Skills */}
+            {cvData.skills.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-[13px] font-black uppercase tracking-wider border-b pb-1" style={{ color: accentColor, borderColor: accentColor + '30' }}>Kỹ năng cốt lõi</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {cvData.skills.map((s, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded bg-slate-50 border border-slate-100 text-[11px] font-bold text-slate-700 shadow-sm">
+                      {s.skillName}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 4. Certifications & Projects */}
+          {cvData.attachments && cvData.attachments.length > 0 && (
+            <div className="space-y-3 pt-2">
+              <h3 className="text-[13px] font-black uppercase tracking-wider border-b pb-1" style={{ color: accentColor, borderColor: accentColor + '30' }}>Chứng chỉ & Thành tích</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-[12.5px]">
+                {cvData.attachments.map((x, i) => (
+                  <div key={i} className="flex gap-2">
+                    <span className="text-slate-400 mt-0.5">•</span>
+                    <div>
+                      <p className="font-extrabold text-slate-800 leading-tight">{x.name}</p>
+                      <p className="text-[11px] text-slate-400 font-bold">{x.organization} {x.yearOrLevel ? `| ${x.yearOrLevel}` : ""}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return null;
   };
 
   const previewRef = useRef<HTMLDivElement>(null);
@@ -452,8 +1041,9 @@ function CvEditorContent() {
             <div className="flex flex-col lg:flex-row gap-6">
 
               {/* Left: Tools Sidebar */}
-              <aside className="lg:w-[260px] shrink-0 flex flex-col gap-4">
-                <div className="bg-white rounded-[24px] border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-5 sticky top-8">
+              <aside className="lg:w-[260px] shrink-0 flex flex-col gap-4 sticky top-8 h-fit">
+                {/* Support Tools Card */}
+                <div className="bg-white rounded-[24px] border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-5">
                   <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4 px-1">Công cụ hỗ trợ</h2>
 
                   <div className="flex flex-col gap-2.5">
@@ -471,8 +1061,8 @@ function CvEditorContent() {
                     <button
                       onClick={handleScoreCv}
                       className={`w-full px-4 py-3.5 rounded-xl text-[14px] font-bold transition-all flex items-center gap-3 cursor-pointer ${isAiReviewVisible
-                          ? 'bg-emerald-600 text-white shadow-[0_8px_20px_rgba(5,150,105,0.25)] hover:bg-emerald-700'
-                          : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+                        ? 'bg-emerald-600 text-white shadow-[0_8px_20px_rgba(5,150,105,0.25)] hover:bg-emerald-700'
+                        : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                         }`}
                     >
                       <Bot className={`w-5 h-5 ${isAiReviewVisible ? 'animate-bounce' : ''}`} />
@@ -482,8 +1072,8 @@ function CvEditorContent() {
                     <button
                       onClick={handleTogglePreview}
                       className={`w-full px-4 py-3.5 rounded-xl text-[14px] font-bold transition-all flex items-center gap-3 cursor-pointer ${isPreviewVisible
-                          ? 'bg-blue-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] hover:bg-blue-700'
-                          : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
+                        ? 'bg-blue-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.25)] hover:bg-blue-700'
+                        : 'bg-blue-50 text-blue-700 hover:bg-blue-100'
                         }`}
                     >
                       {isPreviewVisible ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -505,6 +1095,80 @@ function CvEditorContent() {
                       {saveStatus === 'error' && 'Lỗi lưu CV'}
                       {saveStatus === 'idle' && (selectedCvId ? 'Lưu thay đổi' : 'Tạo & Lưu CV')}
                     </button>
+                  </div>
+                </div>
+
+                {/* Templates & Colors Selector Card */}
+                <div className="bg-white rounded-[24px] border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-5">
+                  <div className="flex items-center gap-2 mb-4 px-1">
+                    <Palette className="w-4 h-4 text-violet-600" />
+                    <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Mẫu giao diện</h2>
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    {TEMPLATE_OPTIONS.map(opt => {
+                      const active = (cvData.template || "chuan") === opt.id;
+                      const IconComponent = opt.icon;
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => setCvData(p => ({ ...p, template: opt.id }))}
+                          className={`group relative flex items-center gap-3 p-3 rounded-xl border text-left transition-all duration-300 cursor-pointer bg-white ${active
+                            ? 'border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 z-10'
+                            : 'border-slate-100 hover:border-slate-300 hover:-translate-y-0.5 hover:shadow-sm'
+                            }`}
+                        >
+                          <div className={`p-2 rounded-lg shrink-0 transition-colors ${active ? 'bg-slate-100 text-slate-800' : 'bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-slate-600'}`}>
+                            <IconComponent className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-1.5">
+                              <p className="font-extrabold text-slate-800 text-[13px] leading-tight group-hover:text-slate-900 transition-colors">{opt.name}</p>
+                              {active && (
+                                <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-slate-900 text-white leading-none shrink-0 scale-90 font-mono">
+                                  Đang dùng
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-slate-400 text-[10px] truncate mt-0.5 font-medium">{opt.desc}</p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="h-px bg-slate-100 my-4"></div>
+
+                  {/* Accent Colors */}
+                  <div className="px-1">
+                    <h2 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Màu sắc chủ đạo</h2>
+                    <div className="flex flex-wrap gap-2 items-center">
+                      {ACCENT_COLORS.map(c => {
+                        const active = cvData.color === c.hex;
+                        return (
+                          <button
+                            key={c.hex}
+                            type="button"
+                            onClick={() => setCvData(p => ({ ...p, color: c.hex }))}
+                            className={`relative w-6 h-6 rounded-full cursor-pointer transition-all duration-300 ${active
+                              ? '-translate-y-1 scale-110'
+                              : 'hover:-translate-y-0.5 hover:shadow-md'
+                              }`}
+                            style={{
+                              backgroundColor: c.hex,
+                              boxShadow: active ? `0 0 0 2px #fff, 0 0 0 4px ${c.hex}, 0 6px 12px rgba(0,0,0,0.15)` : 'none'
+                            }}
+                            title={c.name}
+                          >
+                            {active && (
+                              <span className="absolute inset-0 flex items-center justify-center text-white text-[9px] font-bold leading-none">
+                                ✓
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </aside>
@@ -845,24 +1509,6 @@ function CvEditorContent() {
                     )}
                   </div>
                 </section>
-
-                <hr className="border-slate-100 mb-10" />
-
-                {/* Color */}
-                <section className="mb-4 group">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2.5 bg-pink-50 rounded-[14px] text-pink-600 group-hover:bg-pink-100 transition-colors"><Palette className="w-5 h-5" /></div>
-                    <h2 className="text-xl font-extrabold text-slate-800">Màu sắc chủ đạo</h2>
-                  </div>
-                  <div className="flex gap-4 flex-wrap p-6 bg-slate-50 rounded-[20px] border border-slate-100">
-                    {COLOR_OPTIONS.map(opt => (
-                      <button key={opt.value} type="button" title={opt.label}
-                        onClick={() => setCvData(p => ({ ...p, color: opt.value }))}
-                        className={`w-14 h-14 rounded-full border-[3px] transition-all hover:scale-110 shadow-sm ${cvData.color === opt.value ? 'border-slate-800 scale-110 ring-4 ring-slate-800/10' : 'border-white'}`}
-                        style={{ background: opt.value }} />
-                    ))}
-                  </div>
-                </section>
               </form>
             </div>
 
@@ -873,186 +1519,7 @@ function CvEditorContent() {
                 {/* Preview View */}
                 {isPreviewVisible && (
                   <div ref={previewRef} className="bg-white rounded-[24px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-slate-100 overflow-hidden min-h-[850px] print:shadow-none print:border-none origin-top transition-transform h-fit">
-
-                    {/* Header */}
-                    <div className="flex items-center gap-6 px-10 py-10 text-white transition-colors duration-500" style={{ backgroundColor: cvData.color || '#7c3aed' }}>
-                      <div className="w-20 h-20 rounded-[20px] bg-white/20 flex items-center justify-center text-4xl font-black shrink-0 shadow-inner backdrop-blur-sm">
-                        {cvData.fullName ? cvData.fullName[0].toUpperCase() : "?"}
-                      </div>
-                      <div className="flex flex-col gap-1.5">
-                        <p className="text-[32px] font-black tracking-tight leading-none">{cvData.fullName || "Họ và tên"}</p>
-                        <p className="text-lg font-semibold opacity-90">{cvData.jobTitle || "Vị trí ứng tuyển"}</p>
-                      </div>
-                    </div>
-
-                    <div className="px-10 py-10 flex flex-col gap-9">
-
-                      {/* Contact */}
-                      <section>
-                        <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Thông tin liên hệ</h3>
-                        <ul className="list-none p-0 m-0 flex flex-col gap-3 text-[14px] text-slate-600 font-semibold">
-                          {cvData.email && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Mail className="w-4 h-4" /></div> {cvData.email}</li>}
-                          {cvData.phone && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><Phone className="w-4 h-4" /></div> {cvData.phone}</li>}
-                          {cvData.location && <li className="flex items-center gap-3"><div className="p-1.5 rounded-md bg-slate-50 text-slate-400"><MapPin className="w-4 h-4" /></div> {cvData.location}</li>}
-                          
-                          {/* Social links in Contact list */}
-                          {(cvData.socials || []).map((s, idx) => (
-                            s.url && (
-                              <li key={idx} className="flex items-center gap-3">
-                                <div className="p-1.5 rounded-md bg-slate-50">
-                                  {renderSocialIcon(s.platform)}
-                                </div>
-                                <a href={s.url} target="_blank" rel="noreferrer" className="hover:underline text-slate-600 hover:text-slate-900 transition-colors">
-                                  {s.platform}: {s.url.replace(/^https?:\/\/(www\.)?/, '')}
-                                </a>
-                              </li>
-                            )
-                          ))}
-
-                          {!cvData.email && !cvData.phone && !cvData.location && (!cvData.socials || cvData.socials.length === 0) && (
-                            <li className="text-slate-400 italic text-sm font-medium">Chưa có thông tin liên hệ</li>
-                          )}
-                        </ul>
-                      </section>
-
-                      {/* Summary */}
-                      {cvData.summary && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Giới thiệu bản thân</h3>
-                          <p className="text-[14px] text-slate-700 leading-[1.8] font-medium text-justify whitespace-pre-wrap">{cvData.summary}</p>
-                        </section>
-                      )}
-
-                      {/* Skills */}
-                      {cvData.skills.length > 0 && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Kỹ năng chuyên môn</h3>
-                          <div className="flex flex-wrap gap-2.5">
-                            {cvData.skills.map((s, i) => (
-                              <span key={i} className="px-3.5 py-1.5 rounded-xl text-[13px] font-bold bg-slate-50 text-slate-700 border border-slate-200/60 shadow-sm">
-                                {s.skillName}{s.level ? <span className="opacity-50 ml-1.5 font-medium">| {s.level}</span> : ""}
-                              </span>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-
-                      {/* Experience */}
-                      {cvData.experiences.length > 0 && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Kinh nghiệm làm việc</h3>
-                          <div className="flex flex-col gap-7 border-l-[3px] border-slate-100 pl-5 ml-2">
-                            {cvData.experiences.map((x, i) => (
-                              <div key={i} className="relative">
-                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
-                                <div className="flex justify-between items-start gap-4">
-                                  <div>
-                                    <p className="text-[16px] font-extrabold text-slate-900">{x.position || "Vị trí"}</p>
-                                    <p className="text-[14px] font-bold text-slate-500 mt-0.5">{x.company}</p>
-                                  </div>
-                                  {(x.startDate || x.endDate) && (
-                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
-                                      {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
-                                    </span>
-                                  )}
-                                </div>
-                                {x.description && <p className="text-[14px] text-slate-600 mt-3 leading-[1.7] font-medium whitespace-pre-wrap">{x.description}</p>}
-                              </div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-
-                      {/* Education */}
-                      {cvData.educations.length > 0 && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Học vấn</h3>
-                          <div className="flex flex-col gap-6 border-l-[3px] border-slate-100 pl-5 ml-2">
-                            {cvData.educations.map((x, i) => (
-                              <div key={i} className="relative">
-                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
-                                <div className="flex justify-between items-start gap-4">
-                                  <div>
-                                    <p className="text-[15px] font-extrabold text-slate-900">{x.school || "Tên trường"}</p>
-                                    {x.major && <p className="text-[14px] font-semibold text-slate-500 mt-0.5">{x.major}</p>}
-                                  </div>
-                                  {(x.startDate || x.endDate) && (
-                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
-                                      {x.startDate}{x.endDate ? ` – ${x.endDate}` : ""}
-                                    </span>
-                                  )}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-
-                      {/* Projects */}
-                      {cvData.projects.length > 0 && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Dự án nổi bật</h3>
-                          <div className="flex flex-col gap-6">
-                            {cvData.projects.map((x, i) => (
-                              <div key={i} className="bg-slate-50/80 p-6 rounded-[20px] border border-slate-100">
-                                <div className="flex items-center justify-between gap-2 mb-3">
-                                  <p className="text-[16px] font-extrabold text-slate-900">{x.name || "Tên dự án"}</p>
-                                  {x.link && <a href={x.link} target="_blank" rel="noreferrer" className="text-[13px] font-bold underline transition-opacity hover:opacity-80" style={{ color: cvData.color || '#7c3aed' }}>Xem dự án ↗</a>}
-                                </div>
-                                {x.description && <p className="text-[14px] text-slate-600 mb-4 leading-[1.7] font-medium whitespace-pre-wrap">{x.description}</p>}
-                                {x.technologies && (
-                                  <div className="flex flex-wrap gap-2">
-                                    {x.technologies.split(',').map(t => t.trim()).filter(Boolean).map((t, j) => (
-                                      <span key={j} className="px-3 py-1 rounded-lg text-[12px] font-bold bg-white border border-slate-200 text-slate-600 shadow-sm">{t}</span>
-                                    ))}
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-
-                      {/* Certifications & Awards */}
-                      {cvData.attachments && cvData.attachments.length > 0 && (
-                        <section>
-                          <h3 className={accentH3} style={{ color: cvData.color || '#7c3aed' }}>Chứng chỉ & Giải thưởng</h3>
-                          <div className="flex flex-col gap-6 border-l-[3px] border-slate-100 pl-5 ml-2">
-                            {cvData.attachments.map((x, i) => (
-                              <div key={i} className="relative">
-                                <div className="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-white shadow-sm" style={{ backgroundColor: cvData.color || '#7c3aed' }}></div>
-                                <div className="flex justify-between items-start gap-4">
-                                  <div>
-                                    <p className="text-[15px] font-extrabold text-slate-900">
-                                      <span className="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded mr-2 bg-slate-100 text-slate-500 border border-slate-200">
-                                        {x.type}
-                                      </span>
-                                      {x.name || "Tên chứng chỉ / giải thưởng"}
-                                    </p>
-                                    {x.organization && <p className="text-[13px] font-bold text-slate-500 mt-1">{x.organization}</p>}
-                                  </div>
-                                  {x.yearOrLevel && (
-                                    <span className="text-[12px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg shrink-0 border border-slate-200/60">
-                                      {x.yearOrLevel}
-                                    </span>
-                                  )}
-                                </div>
-                                {x.description && <p className="text-[13.5px] text-slate-600 mt-2 leading-[1.6] font-medium whitespace-pre-wrap">{x.description}</p>}
-                              </div>
-                            ))}
-                          </div>
-                        </section>
-                      )}
-
-                      {/* Placeholder when empty */}
-                      {cvData.skills.length === 0 && cvData.experiences.length === 0 && cvData.educations.length === 0 && (
-                        <div className="flex flex-col items-center justify-center py-24 opacity-40">
-                          <FileText className="w-20 h-20 mb-5 text-slate-300" />
-                          <p className="text-slate-400 text-[15px] font-semibold text-center leading-relaxed">Bản xem trước CV<br />Hãy điền thông tin ở biểu mẫu bên trái để hiển thị.</p>
-                        </div>
-                      )}
-
-                    </div>
+                    {renderTemplatePreview()}
                   </div>
                 )}
 

@@ -15,6 +15,7 @@ export interface CvData {
    location: string;
    summary: string;
    color: string;
+   template?: string;
    skills: Skill[];
    experiences: Experience[];
    educations: Education[];
@@ -30,7 +31,8 @@ export const defaultCvData: CvData = {
    phone: "",
    location: "",
    summary: "",
-   color: "#7c3aed",
+   color: "#10b981",
+   template: "chuan",
    skills: [],
    experiences: [],
    educations: [],

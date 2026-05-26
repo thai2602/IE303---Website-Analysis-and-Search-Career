@@ -30,6 +30,9 @@ public class CvExtractionAgnosticService {
         4. Nếu thông tin nào không có trong CV, hãy gán giá trị là null (đối với chuỗi/số/object) hoặc mảng rỗng [] (đối với danh sách).
         5. Đối với các trường hệ thống không có trong text CV (như id, avatar, settings), hãy gán null hoặc giữ nguyên giá trị mặc định như trong mẫu.
         6. Lọc bỏ các thông tin thừa không thuộc bất kỳ trường nào trong cấu trúc JSON.
+        7. PHÂN BIỆT RÕ RÀNG giữa "experiences" (Kinh nghiệm làm việc) và "projects" (Dự án cá nhân):
+           - "experiences" CHỈ chứa các công việc làm thuê thực tế tại các công ty/tổ chức (phải có tên công ty và vị trí công việc rõ ràng, ví dụ: FPT Software, Software Engineer).
+           - "projects" CHỈ chứa các dự án cá nhân, dự án tốt nghiệp, bài tập lớn, ứng dụng hoặc sản phẩm tự làm. Tuyệt đối KHÔNG đưa các dự án này vào mục "experiences" dưới dạng các công ty trống hoặc vị trí trống.
         
         JSON MẪU ĐÍCH:
         ```json
