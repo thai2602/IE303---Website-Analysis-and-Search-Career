@@ -1,6 +1,7 @@
 package com.jobportal.modules.chatbot.config;
 
 import com.jobportal.modules.chatbot.rag.ContextAwareContentRetriever;
+import com.jobportal.modules.chatbot.rag.RerankContentRetriever;
 import com.jobportal.modules.chatbot.service.CvAiService;
 import com.jobportal.modules.chatbot.service.RagService;
 import com.jobportal.modules.chatbot.tools.CvAgentTools;
@@ -39,7 +40,8 @@ public class ChatbotConfig {
     }
 
     /**
-     * ChatMemoryProvider tạo ra bộ nhớ độc lập cho mỗi memoryId (userId / sessionId).
+     * ChatMemoryProvider tạo ra bộ nhớ độc lập cho mỗi memoryId (userId /
+     * sessionId).
      */
     @Bean
     public ChatMemoryProvider chatMemoryProvider() {
@@ -59,26 +61,32 @@ public class ChatbotConfig {
      */
     @Bean("hrContentRetriever")
     public ContentRetriever hrContentRetriever(RagService ragService) {
-        return EmbeddingStoreContentRetriever.builder()
+        ContentRetriever rawRetriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(ragService.getHrKnowledgeStore())
                 .embeddingModel(ragService.getEmbeddingModel())
-                .maxResults(4)
-                .minScore(0.70)
+                .maxResults(24) // Stage 1: Vector DB retrieves Top-24 candidates
+                .minScore(0.60) // Lower minScore so we don't miss relevant chunks before reranking
                 .build();
+
+        // Stage 2: Local BAAI Reranker re-scores down to Top-8
+        return new RerankContentRetriever(rawRetriever, 8);
     }
 
     /**
      * Job Market Retriever: truy vấn dữ liệu CSV việc làm, JD, yêu cầu tuyển dụng.
-     * minScore thấp hơn (0.65) vì job data đa dạng hơn và cần recall cao hơn.
+     * minScore thấp hơn (0.55) vì job data đa dạng hơn và cần recall cao hơn.
      */
     @Bean("jobContentRetriever")
     public ContentRetriever jobContentRetriever(RagService ragService) {
-        return EmbeddingStoreContentRetriever.builder()
+        ContentRetriever rawRetriever = EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(ragService.getJobMarketStore())
                 .embeddingModel(ragService.getEmbeddingModel())
-                .maxResults(3)
-                .minScore(0.65)
+                .maxResults(18) // Stage 1: Vector DB retrieves Top-18 candidates
+                .minScore(0.55)
                 .build();
+
+        // Stage 2: Local BAAI Reranker re-scores down to Top-6
+        return new RerankContentRetriever(rawRetriever, 6);
     }
 
     /**
@@ -87,10 +95,8 @@ public class ChatbotConfig {
      */
     @Bean
     public ContentRetriever contentRetriever(
-            @org.springframework.beans.factory.annotation.Qualifier("hrContentRetriever")
-            ContentRetriever hrRetriever,
-            @org.springframework.beans.factory.annotation.Qualifier("jobContentRetriever")
-            ContentRetriever jobRetriever) {
+            @org.springframework.beans.factory.annotation.Qualifier("hrContentRetriever") ContentRetriever hrRetriever,
+            @org.springframework.beans.factory.annotation.Qualifier("jobContentRetriever") ContentRetriever jobRetriever) {
         return new ContextAwareContentRetriever(hrRetriever, jobRetriever);
     }
 
@@ -98,9 +104,9 @@ public class ChatbotConfig {
 
     @Bean
     public CvAiService cvAiService(ChatLanguageModel chatLanguageModel,
-                                   ChatMemoryProvider chatMemoryProvider,
-                                   CvAgentTools cvAgentTools,
-                                   ContentRetriever contentRetriever) {
+            ChatMemoryProvider chatMemoryProvider,
+            CvAgentTools cvAgentTools,
+            ContentRetriever contentRetriever) {
         return AiServices.builder(CvAiService.class)
                 .chatLanguageModel(chatLanguageModel)
                 .chatMemoryProvider(chatMemoryProvider)

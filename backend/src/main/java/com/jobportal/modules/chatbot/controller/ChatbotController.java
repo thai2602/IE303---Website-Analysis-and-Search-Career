@@ -15,6 +15,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+import dev.langchain4j.rag.content.Content;
+import dev.langchain4j.rag.content.retriever.ContentRetriever;
+import dev.langchain4j.rag.query.Query;
+import dev.langchain4j.data.segment.TextSegment;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,6 +36,7 @@ public class ChatbotController {
     private final AuditChain auditChain;
     private final RewriteChain rewriteChain;
     private final ChatMemoryProvider chatMemoryProvider;
+    private final ContentRetriever contentRetriever;
     private final ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor();
 
     // ──────────────────────────────────────────────────────────────────────────
@@ -49,10 +54,13 @@ public class ChatbotController {
     public ResponseEntity<ChatResponse> chat(@RequestBody ChatRequest request) {
         String memoryId = resolveMemoryId(request.getUserId());
         try {
+            String reply;
             if (request.getActiveCvId() != null) {
                 CvContextHolder.set(request.getActiveCvId());
+                reply = cvAiService.chatWithCv(memoryId, request.getMessage());
+            } else {
+                reply = cvAiService.chat(memoryId, request.getMessage());
             }
-            String reply = cvAiService.chat(memoryId, request.getMessage());
             return ResponseEntity.ok(new ChatResponse(reply));
         } catch (Exception e) {
             log.error("Chat error for memoryId={}: {}", memoryId, e.getMessage(), e);
@@ -90,9 +98,13 @@ public class ChatbotController {
 
         executor.submit(() -> {
             try {
-                if (request.getActiveCvId() != null) CvContextHolder.set(request.getActiveCvId());
-
-                String reply = cvAiService.chat(memoryId, request.getMessage());
+                String reply;
+                if (request.getActiveCvId() != null) {
+                    CvContextHolder.set(request.getActiveCvId());
+                    reply = cvAiService.chatWithCv(memoryId, request.getMessage());
+                } else {
+                    reply = cvAiService.chat(memoryId, request.getMessage());
+                }
 
                 // Tách theo từng dòng, giữ nguyên cấu trúc markdown
                 String[] lines = reply.split("\n", -1);
@@ -205,6 +217,36 @@ public class ChatbotController {
         }
     }
 
+    @PostMapping("/eval")
+    public ResponseEntity<EvalResponse> evaluate(@RequestBody ChatRequest request) {
+        String memoryId = resolveMemoryId(request.getUserId());
+        try {
+            // 1. Retrieve RAG contexts
+            Query query = Query.from(request.getMessage());
+            List<Content> retrieved = contentRetriever.retrieve(query);
+            List<String> contexts = retrieved.stream()
+                    .map(Content::textSegment)
+                    .map(TextSegment::text)
+                    .collect(Collectors.toList());
+
+            // 2. Generate LLM answer
+            String answer;
+            if (request.getActiveCvId() != null) {
+                CvContextHolder.set(request.getActiveCvId());
+                answer = cvAiService.chatWithCv(memoryId, request.getMessage());
+            } else {
+                answer = cvAiService.chat(memoryId, request.getMessage());
+            }
+
+            return ResponseEntity.ok(new EvalResponse(answer, contexts));
+        } catch (Exception e) {
+            log.error("Evaluation error for memoryId={}: {}", memoryId, e.getMessage(), e);
+            return ResponseEntity.internalServerError().build();
+        } finally {
+            CvContextHolder.clear();
+        }
+    }
+
     // ──────────────────────────────────────────────────────────────────────────
     // Helpers & DTOs
     // ──────────────────────────────────────────────────────────────────────────
@@ -241,5 +283,11 @@ public class ChatbotController {
     public static class HistoryMessage {
         private final String role;   // "user" | "assistant" | "system"
         private final String content;
+    }
+
+    @Data
+    public static class EvalResponse {
+        private final String answer;
+        private final List<String> contexts;
     }
 }

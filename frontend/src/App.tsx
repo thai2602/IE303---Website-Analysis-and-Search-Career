@@ -16,6 +16,7 @@ import AppliedJobsPage from "./features/jobs/AppliedJobsPage";
 import JobDetailPage from "./features/jobs/JobDetailPage";
 import MyCvsPage from "./features/cv-builder/MyCvsPage";
 import GlobalSavedTray from "./components/GlobalSavedTray";
+import FloatingChatbot from "./components/FloatingChatbot";
 import ChatbotPage from "./features/chatbot/ChatbotPage";
 import CompanyDetailPage from "./features/companies/CompanyDetailPage";
 
@@ -39,6 +40,7 @@ function SiteLayout() {
             <Outlet />
          </main>
          <GlobalSavedTray />
+         <FloatingChatbot />
          <Footer />
       </div>
    );

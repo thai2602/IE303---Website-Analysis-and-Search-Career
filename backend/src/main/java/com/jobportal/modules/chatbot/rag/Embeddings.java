@@ -10,16 +10,16 @@ import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
 @Configuration
 public class Embeddings {
 
-    @Value("${langchain.embedding.api-key:lm-studio}")
+    @Value("${langchain.embedding.api-key}")
     private String apiKey;
 
-    @Value("${langchain.embedding.base-url:http://localhost:1234/v1}")
+    @Value("${langchain.embedding.base-url:https://openrouter.ai/api/v1}")
     private String baseUrl;
 
-    @Value("${langchain.embedding.model-name:text-embedding-nomic-embed-text-v1.5-embedding}")
+    @Value("${langchain.embedding.model-name:openai/text-embedding-3-small}")
     private String embeddingModelName;
 
-    @Value("${langchain.dimension:768}")
+    @Value("${langchain.dimension:1536}")
     private int dimension;
 
     /**

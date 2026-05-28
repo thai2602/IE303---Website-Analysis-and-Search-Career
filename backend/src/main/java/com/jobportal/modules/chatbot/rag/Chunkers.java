@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Slf4j
 @Component
@@ -19,14 +17,11 @@ public class Chunkers {
 
     // ── Ngưỡng kích thước ───────────────────────────────────────────────────
     /**
-     * Kích thước tối đa (ký tự) của một Markdown section trước khi cần split tiếp
+     * Kích thước tối đa (ký tự) của một text chunk tối ưu cho Ragas và LLM
      */
-    private static final int SECTION_MAX_CHARS = 800;
-    /** Overlap cho fallback splitter */
-    private static final int SECTION_OVERLAP = 150;
-
-    // ── Regex tìm Markdown header từ level 1 đến 3 ──────────────────────────
-    private static final Pattern HEADER_PATTERN = Pattern.compile("(?m)^(#{1,3})\\s+(.+)$");
+    private static final int SECTION_MAX_CHARS = 600;
+    /** Overlap tối ưu giúp giữ ngữ cảnh liền mạch ở ranh giới */
+    private static final int SECTION_OVERLAP = 100;
 
     // ── Splitter fallback dùng cho text thông thường / section dài ──────────
     private final DocumentSplitter fallbackSplitter = DocumentSplitters.recursive(SECTION_MAX_CHARS, SECTION_OVERLAP);
@@ -38,30 +33,151 @@ public class Chunkers {
     /**
      * Chọn chiến lược chunking tối ưu dựa trên loại tài liệu:
      * - job_description (từ CSV): mỗi document đã là 1 chunk → passthrough
-     * - Markdown có headers (##): dùng Header-Based Splitter
-     * - Còn lại: Recursive 800/150
+     * - Markdown và văn bản khác: sử dụng Recursive Splitter 600/100 để đảm bảo Overlap 
+     *   và tránh tạo ra các chunk siêu nhỏ/rỗng chỉ chứa tiêu đề.
      */
     public List<TextSegment> smartSplit(Document document) {
         String sourceType = document.metadata().getString("source_type");
+        String fileName = document.metadata().getString("file_name");
 
         // CSV Job Description: đã được cắt theo từng row ở Loaders → giữ nguyên
         if ("job_description".equals(sourceType)) {
-            return List.of(TextSegment.from(document.text(), copyMetadata(document.metadata())));
+            Metadata segmentMetadata = copyMetadata(document.metadata());
+            segmentMetadata.put("topic", inferTopic(document.text(), ""));
+            return List.of(TextSegment.from(document.text(), segmentMetadata));
         }
 
-        // Markdown có headers → Header-Based Semantic Splitting
-        if (hasMarkdownHeaders(document.text())) {
-            List<TextSegment> segments = splitByMarkdownHeaders(document);
-            log.debug("Markdown header split → {} segments from \"{}\"",
-                    segments.size(), document.metadata().getString("file_name"));
-            return segments;
+        // Nếu là Markdown (.md), chunk theo semantic section (##, ###)
+        if (fileName != null && fileName.endsWith(".md")) {
+            List<TextSegment> semanticSegments = splitByMarkdownSections(document.text(), document.metadata());
+            log.debug("Semantic Markdown split → {} segments from \"{}\"", semanticSegments.size(), fileName);
+            return semanticSegments;
         }
 
-        // Fallback: Recursive character splitter 800/150
-        List<TextSegment> segments = fallbackSplitter.split(document);
-        log.debug("Recursive split → {} segments from \"{}\"",
-                segments.size(), document.metadata().getString("file_name"));
+        // Sử dụng Recursive character splitter 600/100 làm fallback cho các văn bản khác
+        List<TextSegment> rawSegments = fallbackSplitter.split(document);
+        List<TextSegment> segments = new ArrayList<>();
+        for (TextSegment seg : rawSegments) {
+            String text = seg.text().trim();
+            if (!text.isEmpty() && !text.matches("^[-*_\\s]+$") && text.length() >= 5) {
+                Metadata segmentMetadata = copyMetadata(seg.metadata());
+                segmentMetadata.put("topic", inferTopic(text, ""));
+                segments.add(TextSegment.from(text, segmentMetadata));
+            }
+        }
+
+        log.debug("Recursive split → {} segments (filtered from {}) from \"{}\"",
+                segments.size(), rawSegments.size(), fileName);
         return segments;
+    }
+
+    private List<TextSegment> splitByMarkdownSections(String text, Metadata metadata) {
+        String[] lines = text.split("\r?\n");
+        List<Section> sections = new ArrayList<>();
+        Section currentSection = null;
+
+        for (String line : lines) {
+            boolean isHeader = line.trim().startsWith("##") || line.trim().startsWith("###");
+
+            if (isHeader) {
+                if (currentSection != null && !currentSection.content.toString().trim().isEmpty()) {
+                    sections.add(currentSection);
+                }
+                currentSection = new Section();
+                currentSection.header = line.trim();
+                currentSection.content.append(line).append("\n");
+            } else {
+                if (currentSection == null) {
+                    currentSection = new Section();
+                    currentSection.header = "";
+                }
+                currentSection.content.append(line).append("\n");
+            }
+        }
+        if (currentSection != null && !currentSection.content.toString().trim().isEmpty()) {
+            sections.add(currentSection);
+        }
+
+        List<TextSegment> segments = new ArrayList<>();
+        // Áp dụng overlap kề cận (~10-15%)
+        for (int i = 0; i < sections.size(); i++) {
+            Section current = sections.get(i);
+            StringBuilder chunkText = new StringBuilder();
+
+            // Tiền ngữ cảnh (Preceding Context - lấy 12% đuôi section trước)
+            if (i > 0) {
+                Section prev = sections.get(i - 1);
+                String prevText = prev.content.toString().trim();
+                int overlapLength = (int) (prevText.length() * 0.12);
+                if (overlapLength > 10) {
+                    int startIdx = prevText.length() - overlapLength;
+                    int firstSpace = prevText.indexOf(' ', startIdx);
+                    if (firstSpace != -1 && firstSpace < prevText.length() - 5) {
+                        startIdx = firstSpace;
+                    }
+                    String precedingContext = prevText.substring(startIdx).trim();
+                    chunkText.append("[Preceding Context]: ...").append(precedingContext).append("\n\n");
+                }
+            }
+
+            chunkText.append(current.content.toString().trim());
+
+            // Hậu ngữ cảnh (Succeeding Context - lấy 12% đầu section sau)
+            if (i < sections.size() - 1) {
+                Section next = sections.get(i + 1);
+                String nextText = next.content.toString().trim();
+                int overlapLength = (int) (nextText.length() * 0.12);
+                if (overlapLength > 10) {
+                    int endIdx = overlapLength;
+                    int lastSpace = nextText.lastIndexOf(' ', endIdx);
+                    if (lastSpace != -1 && lastSpace > 5) {
+                        endIdx = lastSpace;
+                    }
+                    String succeedingContext = nextText.substring(0, endIdx).trim();
+                    chunkText.append("\n\n[Succeeding Context]: ").append(succeedingContext).append("...");
+                }
+            }
+
+            Metadata segmentMetadata = copyMetadata(metadata);
+            String finalTxt = chunkText.toString().trim();
+
+            // Tag topic phục vụ metadata filtering
+            String topic = inferTopic(finalTxt, current.header);
+            segmentMetadata.put("topic", topic);
+
+            if (!finalTxt.isEmpty() && !finalTxt.matches("^[-*_\\s]+$") && finalTxt.length() >= 5) {
+                segments.add(TextSegment.from(finalTxt, segmentMetadata));
+            }
+        }
+
+        return segments;
+    }
+
+    private String inferTopic(String content, String header) {
+        String lower = (header + " " + content).toLowerCase();
+
+        if (lower.contains("java") || lower.contains("spring") || lower.contains("hibernate")) {
+            return "java";
+        }
+        if (lower.contains("red flag") || lower.contains("redflag") || lower.contains("cảnh báo đỏ") || lower.contains("cảnh báo")) {
+            return "red_flag";
+        }
+        if (lower.contains("ats") || lower.contains("applicant tracking") || lower.contains("parser") || lower.contains("bảng biểu")) {
+            return "ATS";
+        }
+        if (lower.contains("experience") || lower.contains("kinh nghiệm") || lower.contains("work history") || lower.contains("star method") || lower.contains("google xyz") || lower.contains("star")) {
+            return "work_experience";
+        }
+        if (lower.contains("kỹ năng") || lower.contains("skill") || lower.contains("competenc") || lower.contains("matrix") || lower.contains("technical")) {
+            return "technical_skills";
+        }
+
+        return "general_hr";
+    }
+
+    private static class Section {
+        String header = "";
+        StringBuilder content = new StringBuilder();
     }
 
     /**
@@ -76,7 +192,7 @@ public class Chunkers {
     }
 
     /**
-     * Splitter đơn giản 800/150 — giữ lại để RagService có thể dùng
+     * Splitter đơn giản 600/100 — giữ lại để RagService có thể dùng
      * khi cần giao cho EmbeddingStoreIngestor standard API.
      */
     public DocumentSplitter getRecursiveSplitter() {
@@ -86,98 +202,6 @@ public class Chunkers {
     // ────────────────────────────────────────────────────────────────────────
     // Private helpers
     // ────────────────────────────────────────────────────────────────────────
-
-    /** Kiểm tra văn bản có chứa ít nhất một Markdown header không */
-    private boolean hasMarkdownHeaders(String text) {
-        return HEADER_PATTERN.matcher(text).find();
-    }
-
-    /**
-     * Header-Based Splitter:
-     * 1. Tìm tất cả vị trí header (# / ## / ###)
-     * 2. Mỗi khoảng giữa hai header = một section
-     * 3. Nếu section > SECTION_MAX_CHARS → cắt tiếp bằng fallback
-     * 4. Mỗi TextSegment được gắn metadata: header_title, section_index
-     */
-    private List<TextSegment> splitByMarkdownHeaders(Document document) {
-        String text = document.text();
-        Metadata baseMetadata = document.metadata();
-
-        List<TextSegment> result = new ArrayList<>();
-        Matcher matcher = HEADER_PATTERN.matcher(text);
-
-        // Thu thập vị trí đầu các header
-        List<int[]> headerPositions = new ArrayList<>(); // [start, end, titleStart, titleEnd]
-        while (matcher.find()) {
-            headerPositions.add(new int[] { matcher.start(), matcher.end(), matcher.start(2), matcher.end(2) });
-        }
-
-        if (headerPositions.isEmpty()) {
-            // Không tìm được header nào (edge case) → fallback
-            return fallbackSplitter.split(document);
-        }
-
-        int sectionIndex = 0;
-
-        // Nếu có text TRƯỚC header đầu tiên → tạo chunk "preamble"
-        int firstHeaderStart = headerPositions.get(0)[0];
-        if (firstHeaderStart > 0) {
-            String preamble = text.substring(0, firstHeaderStart).strip();
-            if (!preamble.isEmpty()) {
-                result.addAll(wrapSection(preamble, "Preamble", sectionIndex++, baseMetadata));
-            }
-        }
-
-        // Duyệt từng section (header[i] → header[i+1])
-        for (int i = 0; i < headerPositions.size(); i++) {
-            // Nội dung section (bao gồm cả dòng header để giữ ngữ cảnh)
-            int sectionContentEnd = (i + 1 < headerPositions.size())
-                    ? headerPositions.get(i + 1)[0]
-                    : text.length();
-
-            // Lấy tiêu đề của section này
-            String headerTitle = text.substring(
-                    headerPositions.get(i)[2],
-                    headerPositions.get(i)[3]).strip();
-
-            // Nội dung section (bao gồm cả dòng header để giữ ngữ cảnh)
-            String sectionText = text.substring(headerPositions.get(i)[0], sectionContentEnd).strip();
-
-            if (!sectionText.isEmpty()) {
-                result.addAll(wrapSection(sectionText, headerTitle, sectionIndex++, baseMetadata));
-            }
-        }
-
-        return result;
-    }
-
-    /**
-     * Wrap một section text thành TextSegment(s).
-     * Nếu section quá dài → cắt tiếp bằng fallback splitter trước khi wrap.
-     */
-    private List<TextSegment> wrapSection(String sectionText, String headerTitle,
-            int sectionIndex, Metadata baseMetadata) {
-        List<TextSegment> out = new ArrayList<>();
-
-        if (sectionText.length() <= SECTION_MAX_CHARS) {
-            // Section đủ nhỏ → giữ nguyên
-            Metadata meta = copyMetadata(baseMetadata);
-            meta.put("header_title", headerTitle);
-            meta.put("section_index", String.valueOf(sectionIndex));
-            out.add(TextSegment.from(sectionText, meta));
-        } else {
-            // Section quá lớn → cắt tiếp bằng recursive splitter
-            Document tempDoc = Document.from(sectionText, copyMetadata(baseMetadata));
-            List<TextSegment> subSegments = fallbackSplitter.split(tempDoc);
-            for (int j = 0; j < subSegments.size(); j++) {
-                Metadata meta = copyMetadata(baseMetadata);
-                meta.put("header_title", headerTitle);
-                meta.put("section_index", sectionIndex + "." + j);
-                out.add(TextSegment.from(subSegments.get(j).text(), meta));
-            }
-        }
-        return out;
-    }
 
     /** Tạo bản sao Metadata để tránh mutation chung */
     private Metadata copyMetadata(Metadata source) {

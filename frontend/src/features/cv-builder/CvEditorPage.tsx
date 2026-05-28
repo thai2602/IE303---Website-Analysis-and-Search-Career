@@ -206,7 +206,7 @@ function CvEditorContent() {
     setCvData(p => { const a = [...(p.socials || [])]; a[i] = { ...a[i], [f]: v }; return { ...p, socials: a }; });
   const removeSocial = (i: number) => setCvData(p => ({ ...p, socials: (p.socials || []).filter((_, j) => j !== i) }));
 
-  const fetchAiScore = () => {
+  const fetchAiScore = (currentCvId?: number) => {
     setIsAiLoading(true);
     setAiFeedback(''); // reset để hiển thị loading khi fetch lại
     setIsStreaming(true);
@@ -215,11 +215,17 @@ function CvEditorContent() {
     // → tách hoàn toàn khỏi memory chatbot thông thường, tránh tích lũy lịch sử
     const scoringSessionId = `cv-score-${Date.now()}`;
     // activeCvId = CV đang được chọn trong editor → backend tự inject vào context AI
-    const activeCvId = selectedCvId ? Number(selectedCvId) : undefined;
+    const activeCvId = currentCvId || (selectedCvId ? Number(selectedCvId) : undefined);
 
-    const hasData = Object.entries(cvData).some(
-      ([k, v]) => k !== 'color' && typeof v === 'string' && v.trim() !== ''
-    );
+    const hasData = 
+      (cvData.fullName && cvData.fullName.trim() !== '') ||
+      (cvData.jobTitle && cvData.jobTitle.trim() !== '') ||
+      (cvData.summary && cvData.summary.trim() !== '') ||
+      (cvData.skills && cvData.skills.length > 0) ||
+      (cvData.experiences && cvData.experiences.length > 0) ||
+      (cvData.projects && cvData.projects.length > 0) ||
+      (cvData.educations && cvData.educations.length > 0);
+
     const apiMessage = hasData
       ? `Hãy chấm điểm CV này của tôi dựa trên dữ liệu sau (JSON): ${JSON.stringify(cvData)}\n\nPhân tích điểm mạnh, điểm yếu và gợi ý cải thiện chi tiết theo tiêu chuẩn ATS và nhà tuyển dụng.`
       : "Hãy chấm điểm CV và gợi ý cách cải thiện để CV trông chuyên nghiệp hơn với nhà tuyển dụng.";
@@ -250,12 +256,21 @@ function CvEditorContent() {
   };
 
 
-  const handleScoreCv = () => {
+  const handleScoreCv = async () => {
     setIsPreviewVisible(false);
     if (!isAiReviewVisible) {
       setIsAiReviewVisible(true);
-      if (!aiFeedback) {
-        fetchAiScore();
+      setAiFeedback('');
+      setIsAiLoading(true);
+
+      // Tự động lưu CV trước khi thực hiện chấm điểm để đảm bảo AI đọc đúng nội dung mới nhất trong DB
+      const saveResult = await handleSaveCv();
+      if (saveResult) {
+        const cvIdToScore = typeof saveResult === 'number' ? saveResult : (selectedCvId ? Number(selectedCvId) : undefined);
+        fetchAiScore(cvIdToScore);
+      } else {
+        setAiFeedback("Không thể tự động lưu CV. Vui lòng kiểm tra lại thông tin và thử lại.");
+        setIsAiLoading(false);
       }
     } else {
       setIsAiReviewVisible(false);
@@ -328,10 +343,10 @@ function CvEditorContent() {
     finally { setIsUploading(false); if (e.target) e.target.value = ''; }
   };
 
-  const handleSaveCv = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSaveCv = async (e?: React.FormEvent): Promise<number | boolean> => {
+    if (e) e.preventDefault();
     const currentUser = readAuthUser();
-    if (!currentUser?.email) { setSaveStatus('error'); return; }
+    if (!currentUser?.email) { setSaveStatus('error'); return false; }
     setSaveStatus('saving');
     const token = localStorage.getItem("accessToken");
     const headers: Record<string, string> = { 'Content-Type': 'application/json' };
@@ -378,17 +393,23 @@ function CvEditorContent() {
         throw new Error(`Save failed: ${cvRes.status}`);
       }
       // Nếu vừa tạo mới, lưu lại ID để lần sau sẽ update thay vì tạo tiếp
+      let finalId: number | undefined = selectedCvId ? Number(selectedCvId) : undefined;
       if (!isUpdate) {
         const saved = await cvRes.json();
-        if (saved?.id) setSelectedCvId(saved.id);
+        if (saved?.id) {
+          setSelectedCvId(saved.id);
+          finalId = saved.id;
+        }
       }
       setSaveStatus('success');
       await fetchCvs(); // Refresh danh sách CV sau khi lưu thành công
       setTimeout(() => setSaveStatus('idle'), 3000);
+      return finalId || true;
     } catch (err) {
       console.error('Save error:', err);
       setSaveStatus('error');
       setTimeout(() => setSaveStatus('idle'), 3000);
+      return false;
     }
   };
 
@@ -1538,7 +1559,7 @@ function CvEditorContent() {
                         </div>
                       </div>
                       <button
-                        onClick={fetchAiScore}
+                        onClick={() => fetchAiScore()}
                         disabled={isAiLoading}
                         className="relative z-10 flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-sm font-bold transition-colors disabled:opacity-50"
                       >

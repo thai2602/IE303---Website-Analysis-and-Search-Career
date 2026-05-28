@@ -166,7 +166,15 @@ public class RagService {
                 .embeddingStore(store)
                 .build();
 
-        ingestor.ingest(segmentDocs);
+        // Chia nhỏ thành các batch 500 tài liệu để tránh timeout và giới hạn payload của API OpenRouter
+        int batchSize = 500;
+        int totalSegments = segmentDocs.size();
+        for (int i = 0; i < totalSegments; i += batchSize) {
+            List<Document> batch = segmentDocs.subList(i, Math.min(i + batchSize, totalSegments));
+            log.info("[{}] Ingesting batch {}/{} (size: {})...", label, (i / batchSize) + 1, (totalSegments + batchSize - 1) / batchSize, batch.size());
+            ingestor.ingest(batch);
+        }
+        
         log.info("[{}] Embedded {} segment(s) into vector store.", label, segments.size());
 
         if (store instanceof InMemoryEmbeddingStore) {

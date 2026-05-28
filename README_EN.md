@@ -20,10 +20,10 @@
 
 | No. | Student ID | Full Name | Role | GitHub | Email |
 | :-- | :--------- | :---------------- | :---------------- | :------------------------------- | :--------------------- |
-| 1   | 23521416   | Le Hoang Thai     | Team Leader       | | <23521416@gm.uit.edu.vn> |
-| 2   | 23521478   | Le Tran Duc Thien | Member            | | <23521478@gm.uit.edu.vn> |
-| 3   | 23521664   | Nguyen Tan Trong  | Member            | | <23521664@gm.uit.edu.vn> |
-| 4   | 23521720   | Nguyen Minh Tuan  | Member            | [MinhTuan-K18](https://github.com/MinhTuan-K18)  | <23521720@gm.uit.edu.vn> |
+| 1   | 23521416   | Le Hoang Thai     | Team Leader       | [thai2602](https://github.com/thai2602) | <23521416@gm.uit.edu.vn> |
+| 2   | 23521478   | Le Tran Duc Thien | Member            | — | <23521478@gm.uit.edu.vn> |
+| 3   | 23521664   | Nguyen Tan Trong  | Member            | — | <23521664@gm.uit.edu.vn> |
+| 4   | 23521720   | Nguyen Minh Tuan  | Member            | [MinhTuan-K18](https://github.com/MinhTuan-K18) | <23521720@gm.uit.edu.vn> |
 
 ## Links
 
@@ -112,11 +112,23 @@
 - **Extract CV information** from PDF files (Apache PDFBox)
 - **Automatic CV evaluation** based on HR evaluation frameworks
 
-### AI Chatbot (RAG)
+### AI Chatbot & RAG Engine (Advanced Upgrade)
 
-- Career consulting, JD analysis, and labor market Q&A
-- Powered by **LangChain4j** and local LLM models via **LM Studio**
-- RAG datasets include: job postings, HR guidelines, and CV evaluation frameworks
+The career consulting, JD analysis, and job market Q&A chatbot is backed by an advanced, highly optimized RAG (Retrieval-Augmented Generation) pipeline:
+- **Two-Stage Retrieval:**
+  - **Stage 1 (Vector DB):** Retrieves candidate chunks (HR Store: Top-24, Job Market Store: Top-18) using the local embedding model `nomic-embed-text-v1.5` to maximize recall.
+  - **Stage 2 (Local Reranking):** Integrates a local BAAI Reranker API (`http://localhost:8000/rerank`) to re-score and filter down to the most relevant context chunks (HR: Top-8, Job Market: Top-6), featuring an automatic graceful fallback to raw Vector DB results if the Reranker API is offline.
+- **Context-Aware Routing & Dynamic Metadata Filtering:**
+  - Intelligent intent routing based on keyword signals. Automatically routes queries to the HR Store, Job Market Store, or merges them dynamically.
+  - **Dynamic Metadata Filtering:** Injects dynamic metadata filters for technical queries (e.g. Java-related queries automatically filter segments tagged with `java` or `technical_skills` topics) to eliminate irrelevant context.
+- **Smart Semantic Chunking & Overlap Windowing:**
+  - Markdown header-based chunking that prepends `[Preceding Context]` (15% overlap) and appends `[Succeeding Context]` (12% overlap) to prevent semantic boundary loss.
+  - Auto-categorizes document topics during ingestion into specific tags: `java`, `red_flag`, `ATS`, `work_experience`, `technical_skills`, `general_hr`.
+- **Dual-mode Endpoint Optimization:**
+  - Separates chat pathways between general conversation (`/chat`) and editor-centric CV auditing (`/chatWithCv`). Bypassing the heavy CV evaluation instructions for general queries significantly reduces token consumption and reduces latency.
+- **RAG Evaluation Endpoint:**
+  - Exposes a dedicated `/api/chatbot/eval` endpoint returning both the LLM's response and the raw retrieved context chunks, facilitating off-line testing and debugging.
+- **LLM Selection:** Leverages the advanced `google/gemma-3-12b-it` model via OpenRouter API.
 
 ### Company Profiles
 
@@ -277,12 +289,41 @@ npm run dev
 
 > The Frontend will run at: **<http://localhost:5173>**
 
-### 5. Configure the AI Chatbot (Optional)
+### 5. Configure the AI Chatbot & Reranker
 
-1. Download and start **LM Studio**.
-2. Load the LLM model `google/gemma-4-e4b` and the embedding model `nomic-embed-text-v1.5`.
-3. Start the Local Server on port `1234`.
-4. The Backend will automatically connect to it via `http://localhost:1234/v1`.
+The AI Chatbot in **JobPilot** integrates an LLM (via OpenRouter API) combined with a local Embedding model and a local Rerank service to ensure low latency and high accuracy.
+
+#### 5.1. Configure the Embedding Model (LM Studio)
+1. Download and install **LM Studio**.
+2. Search and download the embedding model **`nomic-embed-text-v1.5`**.
+3. Under LM Studio's **Local Server** tab, select the downloaded embedding model and click **Start Server** on port `1234`.
+4. The Backend is configured to connect to it via `http://localhost:1234/v1` (as defined in `application.properties`).
+
+#### 5.2. Configure the Reranker API (Optional)
+To enable the high-performance **Two-Stage Retrieval (Reranking)** pipeline, run a local Reranker service at `http://localhost:8000/rerank`:
+1. Use a simple Python server (e.g., FastAPI + HuggingFace Transformers) to load the **`BAAI/bge-reranker-large`** or **`BAAI/bge-reranker-base`** model.
+2. The server must expose a POST `/rerank` endpoint accepting the following payload:
+   ```json
+   {
+     "query": "your query string",
+     "documents": ["document 1", "document 2", ...]
+   }
+   ```
+   And return the sorted results:
+   ```json
+   {
+     "results": [
+       { "document": "document x", "score": 0.85 },
+       ...
+     ]
+   }
+   ```
+3. Run the Reranker API at `http://localhost:8000`.
+   *(Note: If the Reranker API is unavailable at port 8000, the RAG engine will **automatically fall back** to standard Vector DB search without interrupting the chat experience).*
+
+#### 5.3. Configure the Chat Model (LLM)
+- By default, the system is pre-configured with OpenRouter API using the **`google/gemma-3-12b-it`** model for both conversational QA and deep CV auditing.
+- You can customize `langchain.chat.api-key` and `langchain.chat.model-name` in `backend/src/main/resources/application.properties` to connect to alternative providers or models.
 
 ---
 

@@ -21,3 +21,5 @@ backend/src/main/resources/rag-data/raw/*
 PROJECT_DESCRIPTION.md
 backend/dev/*
 backend/src/main/resources/application.properties
+evals/*
+

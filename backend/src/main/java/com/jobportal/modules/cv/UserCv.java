@@ -1,7 +1,6 @@
 package com.jobportal.modules.cv;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jobportal.modules.user.User;
 import jakarta.persistence.*;
 import lombok.*;

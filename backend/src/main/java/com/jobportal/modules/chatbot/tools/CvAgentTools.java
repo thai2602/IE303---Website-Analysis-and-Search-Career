@@ -115,7 +115,7 @@ public class CvAgentTools {
             if (cv.getSkills() != null && !cv.getSkills().isEmpty()) {
                 String skills = cv.getSkills().stream()
                         .map(s -> {
-                            String name  = s.getSkillId() != null ? "Skill#" + s.getSkillId() : "?";
+                            String name  = s.getSkillName() != null && !s.getSkillName().isBlank() ? s.getSkillName() : (s.getSkillId() != null ? "Skill#" + s.getSkillId() : "?");
                             String level = s.getLevel()   != null ? " (" + s.getLevel() + ")" : "";
                             return name + level;
                         })
@@ -141,9 +141,13 @@ public class CvAgentTools {
             if (cv.getProjects() != null && !cv.getProjects().isEmpty()) {
                 sb.append("Projects     :\n");
                 for (UserCvProject proj : cv.getProjects()) {
-                    sb.append("  - ").append(proj.getName()).append("\n");
+                    String linkStr = (proj.getLink() != null && !proj.getLink().isBlank()) ? " (Link: " + proj.getLink() + ")" : "";
+                    sb.append("  - ").append(proj.getName()).append(linkStr).append("\n");
                     if (proj.getDescription() != null && !proj.getDescription().isBlank()) {
-                        sb.append("    ").append(proj.getDescription()).append("\n");
+                        sb.append("    Description: ").append(proj.getDescription()).append("\n");
+                    }
+                    if (proj.getTechnologies() != null && proj.getTechnologies().length > 0) {
+                        sb.append("    Technologies: ").append(String.join(", ", proj.getTechnologies())).append("\n");
                     }
                 }
             }

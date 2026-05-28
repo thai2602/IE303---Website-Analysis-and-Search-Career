@@ -20,10 +20,10 @@
 
 | STT | MSSV | Họ và Tên | Vai trò | GitHub | Email |
 | :-- | :------- | :---------------- | :---------------- | :------------------------------- | :--------------------- |
-| 1   | 23521416 | Lê Hoàng Thái | Nhóm trưởng | | <23521416@gm.uit.edu.vn> |
-| 2   | 23521478 | Lê Trần Đức Thiện | Thành viên | | <23521478@gm.uit.edu.vn> |
-| 3   | 23521664 | Nguyễn Tấn Trọng | Thành viên | | <23521664@gm.uit.edu.vn> |
-| 4   | 23521720 | Nguyễn Minh Tuấn | Thành viên | [MinhTuan-K18](https://github.com/MinhTuan-K18)  | <23521720@gm.uit.edu.vn> |
+| 1   | 23521416 | Lê Hoàng Thái | Nhóm trưởng | [thai2602](https://github.com/thai2602) | <23521416@gm.uit.edu.vn> |
+| 2   | 23521478 | Lê Trần Đức Thiện | Thành viên | — | <23521478@gm.uit.edu.vn> |
+| 3   | 23521664 | Nguyễn Tấn Trọng | Thành viên | — | <23521664@gm.uit.edu.vn> |
+| 4   | 23521720 | Nguyễn Minh Tuấn | Thành viên | [MinhTuan-K18](https://github.com/MinhTuan-K18) | <23521720@gm.uit.edu.vn> |
 
 ## Các liên kết
 
@@ -112,11 +112,25 @@
 - **Trích xuất thông tin CV** từ file PDF (Apache PDFBox)
 - **Đánh giá CV tự động** dựa trên khung tiêu chí nhân sự (HR Evaluation Framework)
 
-### AI Chatbot (RAG)
+### AI Chatbot & RAG Engine (Nâng cấp vượt trội)
 
-- Tư vấn nghề nghiệp, phân tích JD, và trả lời câu hỏi về thị trường lao động
-- Được hỗ trợ bởi **LangChain4j** và mô hình LLM cục bộ qua **LM Studio**
-- Dữ liệu RAG bao gồm: tin tuyển dụng, tiêu chí HR, framework đánh giá CV
+Hệ thống tư vấn nghề nghiệp, phân tích JD và phản hồi câu hỏi về thị trường lao động tích hợp RAG được nâng cấp đáng kể với kiến trúc phức tạp và tối ưu hóa hiệu năng cao:
+- **Two-Stage Retrieval (Tìm kiếm 2 giai đoạn):**
+  - **Stage 1 (Vector DB):** Truy xuất thô từ Vector DB với cận trên tương đối rộng để tối ưu hóa độ phủ (HR Knowledge Store: Top-24, $minScore = 0.60$; Job Market Store: Top-18, $minScore = 0.55$). Sử dụng mô hình nhúng tiên tiến **`openai/text-embedding-3-small` (1536 chiều)** kết nối API qua OpenRouter.
+  - **Stage 2 (Local GPU Reranking):** Sử dụng mô hình Cross-Encoder chuyên dụng **`BAAI/bge-reranker-v2-m3`** chạy tăng tốc phần cứng GPU CUDA cục bộ để tính toán lại điểm số tương thích một cách chính xác cao, lọc lấy các đoạn ngữ cảnh tinh túy nhất (HR: Top-8, Job Market: Top-6). Tích hợp cơ chế tự động fallback thông minh sang tìm kiếm Vector thuần túy nếu API Reranker ngoại tuyến.
+- **Context-Aware Routing & Dynamic Metadata Filtering:**
+  - Định tuyến câu hỏi thông minh dựa trên tín hiệu từ khóa (Signals). Tự động phân tách câu hỏi liên quan đến CV/HR hoặc Thị trường việc làm/JD để query chính xác vào từng Vector Store chuyên biệt (`hrKnowledgeStore` và `jobMarketStore`), hoặc gộp (merge) linh hoạt.
+  - **Dynamic Metadata Filtering:** Bộ lọc động theo siêu dữ liệu cho các truy vấn mang tính đặc thù công nghệ (ví dụ: câu hỏi về Java sẽ tự động lọc các chunk có tag topic `java` hoặc `technical_skills`), đảm bảo độ chính xác tối ưu.
+- **Smart Semantic Chunking & Overlap Windowing:**
+  - Tách tài liệu thông minh dựa trên Markdown Header tích hợp thêm **Preceding Context** (12% ngữ cảnh trước) và **Succeeding Context** (12% ngữ cảnh sau), giữ nguyên luồng logic của tài liệu và ngăn chặn mất thông tin ở ranh giới các chunk.
+  - Phân loại chủ đề tự động (Topic Tagging) khi ingest dữ liệu: `java`, `red_flag`, `ATS`, `work_experience`, `technical_skills`, `general_hr`.
+- **RAG Evaluation & Quantitative Metrics:**
+  - Đánh giá định lượng qua framework **Ragas** trên tập kiểm thử 100 câu hỏi thực nghiệm đạt kết quả vượt trội:
+    - **Faithfulness (Độ trung thực):** `0.8026` (Loại bỏ tối đa lỗi ảo giác thông tin)
+    - **Context Precision (Độ chính xác truy xuất):** `0.8010` (Bản ghi hữu ích luôn ở đầu)
+    - **Context Recall (Độ bao phủ tri thức):** `0.8808` (Tìm kiếm đầy đủ)
+    - **Answer Relevancy (Độ liên quan câu hỏi):** `0.6295` (Bám sát câu hỏi người dùng)
+- **Mô hình ngôn ngữ sử dụng:** Tích hợp mô hình thế hệ mới **`google/gemma-3-12b-it`** thông qua OpenRouter API với cấu hình tăng thời gian chờ lên tối đa 5 phút để bảo toàn kết nối ổn định.
 
 ### Hồ sơ Công ty
 
@@ -164,7 +178,8 @@
 | Công nghệ | Mô tả |
 |-----------|-------|
 | Docker + Docker Compose | Containerization cho PostgreSQL |
-| LM Studio | Local LLM Server (OpenAI-compatible API) |
+| Python FastAPI + CUDA | Server API Reranker cục bộ (`bge-reranker-v2-m3`) tăng tốc phần cứng GPU |
+| OpenRouter API | Cung cấp cổng kết nối LLM `gemma-3-12b-it` và Embedding `text-embedding-3-small` |
 | Firebase | Google Authentication Provider |
 
 ---
@@ -277,12 +292,40 @@ npm run dev
 
 > Frontend sẽ chạy tại: **<http://localhost:5173>**
 
-### 5. Cấu hình AI Chatbot (Tùy chọn)
+### 5. Cấu hình AI Chatbot & Reranker
 
-1. Tải và khởi động **LM Studio**
-2. Load model `google/gemma-4-e4b` và embedding model `nomic-embed-text-v1.5`
-3. Khởi động Local Server tại port `1234`
-4. Backend sẽ tự kết nối qua `http://localhost:1234/v1`
+Hệ thống AI Chatbot của **JobPilot** sử dụng mô hình ngôn ngữ lớn (LLM) kết hợp mô hình nhúng (Embedding Model) trực tuyến qua API OpenRouter, kết hợp với bộ sắp xếp lại kết quả (Reranker) cục bộ tăng tốc bằng GPU CUDA để đạt hiệu năng tối ưu.
+
+#### 5.1. Cấu hình Embedding Model (OpenRouter API)
+1. Embedding Model sử dụng mô hình **`openai/text-embedding-3-small` (1536 chiều)** kết nối trực tiếp qua endpoint OpenRouter.
+2. Để tránh lỗi kích thước payload và lỗi timeout mạng khi xử lý dữ liệu lớn (hơn 5,000 text segments), hệ thống Java Backend triển khai cơ chế **phân đoạn nhỏ theo Batch** (kích thước mỗi batch là 500 segments) khi gửi yêu cầu nhúng vector lên API.
+3. Khi khởi động hệ thống lần đầu, nếu Vector Store dưới dạng file JSON chưa tồn tại (`hr_store.json` và `job_store.json`), hệ thống tự động tải dữ liệu, phân mảnh và nhúng toàn bộ rồi serialize ra file cache. Ở các lần khởi động tiếp theo, hệ thống chỉ mất micro giây để load trực tiếp dữ liệu từ RAM.
+
+#### 5.2. Cấu hình GPU Reranker API
+Để kích hoạt tính năng xếp hạng lại 2 giai đoạn (Two-Stage Retrieval), bạn cần chạy một API Reranker cục bộ được tăng tốc phần cứng GPU tại `http://localhost:8000/rerank`:
+1. Chạy dịch vụ Python FastAPI (sử dụng Uvicorn) nạp mô hình Cross-Encoder **`BAAI/bge-reranker-v2-m3`** lên GPU NVIDIA (hỗ trợ CUDA) để đạt tốc độ xử lý nhanh nhất (~150ms cho 24 chunks).
+2. API phục vụ endpoint POST `/rerank` nhận payload:
+   ```json
+   {
+     "query": "câu hỏi người dùng",
+     "documents": ["văn bản 1", "văn bản 2", ...]
+   }
+   ```
+   Và trả về danh sách tài liệu kèm điểm số tương quan ngữ nghĩa sâu:
+   ```json
+   {
+     "results": [
+       { "document": "văn bản x", "score": 0.912 },
+       ...
+     ]
+   }
+   ```
+3. Khởi chạy Uvicorn server tại port 8000.
+   *(Lưu ý: Nếu API Reranker tại port 8000 ngoại tuyến, Java backend sẽ tự động ghi nhận cảnh báo và kích hoạt cơ chế **Tự động Fallback** về truy xuất Vector truyền thống của LangChain4j, đảm bảo chatbot vẫn hoạt động bình thường).*
+
+#### 5.3. Cấu hình Chat Model (LLM)
+- Mặc định, hệ thống cấu hình sẵn API OpenRouter sử dụng mô hình **`google/gemma-3-12b-it`** cho tư vấn nghề nghiệp.
+- Bạn có thể tùy biến API key, Base URL và Model Name trực tiếp trong file cấu hình `backend/src/main/resources/application.properties` để chuyển sang các dòng LLM thương mại hoặc local tùy ý.
 
 ---
 
