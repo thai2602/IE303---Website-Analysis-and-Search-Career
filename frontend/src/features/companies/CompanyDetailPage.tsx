@@ -193,23 +193,23 @@ export default function CompanyDetailPage() {
                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40" />
                <div className="p-8 relative z-10">
                   <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-                     <div className="space-y-4 text-white md:max-w-[60%]">
-                        <span className="inline-flex rounded-full bg-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
+                     <div className="space-y-4 md:max-w-[60%]">
+                        <span className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-600 border border-slate-200/50">
                            {selectedCompany.field}
                         </span>
-                        <h1 className="text-4xl font-black text-white">{selectedCompany.name}</h1>
-                        <p className="max-w-3xl text-base leading-7 text-white/90">{selectedCompany.description}</p>
+                        <h1 className="text-4xl font-black text-slate-900">{selectedCompany.name}</h1>
+                        <p className="max-w-3xl text-base leading-7 text-slate-650">{selectedCompany.description}</p>
                         <div className="flex flex-wrap gap-3">
-                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm border border-slate-200/60">
                               <Star className="h-4 w-4 text-amber-500" /> {selectedCompany.rating}/5
                            </span>
-                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm border border-slate-200/60">
                               <Users className="h-4 w-4 text-slate-500" /> {selectedCompany.employees}
                            </span>
-                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm border border-slate-200/60">
                               <MapPin className="h-4 w-4 text-slate-500" /> {selectedCompany.location}
                            </span>
-                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm border border-slate-200/60">
                               <Building2 className="h-4 w-4 text-slate-500" /> {selectedCompany.positions.length} vị trí đang mở
                            </span>
                         </div>

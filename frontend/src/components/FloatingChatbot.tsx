@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { MessageSquare, X, Send, Bot, User, Loader2, Sparkles, Trash2, ArrowUpRight } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { streamChat } from "../services/chatbotApi";
 
 interface Message {
@@ -179,6 +181,15 @@ export default function FloatingChatbot() {
         .animate-pulse-ring {
           animation: chatbot-pulse-ring 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
         }
+        .chatbot-user-bubble p, 
+        .chatbot-user-bubble span, 
+        .chatbot-user-bubble li, 
+        .chatbot-user-bubble strong,
+        .chatbot-user-bubble ul,
+        .chatbot-user-bubble ol,
+        .chatbot-user-bubble div {
+          color: #ffffff !important;
+        }
       `}</style>
 
       {/* ── Chatbot Bubble Toggle Button ── */}
@@ -299,13 +310,31 @@ export default function FloatingChatbot() {
                 <div
                   className={`max-w-[78%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed ${
                     msg.role === "user"
-                      ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-tr-sm shadow-md shadow-emerald-500/10"
+                      ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-tr-sm shadow-md shadow-emerald-500/10 chatbot-user-bubble"
                       : "bg-white border border-slate-100 text-slate-700 shadow-sm rounded-tl-sm font-semibold"
                   }`}
                 >
                   {msg.content ? (
-                    <span className="whitespace-pre-wrap">{msg.content}</span>
-                  ) : msg.isStreaming ? (
+                      <div className="chatbot-markdown-content text-inherit">
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            p: ({ children }) => <p className="mb-2 last:mb-0 leading-normal">{children}</p>,
+                            ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
+                            ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
+                            li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                            strong: ({ children }) => <strong className="font-black text-inherit">{children}</strong>,
+                            code: ({ children }) => (
+                              <code className={`px-1 py-0.5 rounded text-[11.5px] font-mono ${msg.role === 'user' ? 'bg-white/20 text-white' : 'bg-slate-100 text-emerald-700'}`}>
+                                {children}
+                              </code>
+                            )
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
+                    ) : msg.isStreaming ? (
                     <span className="flex items-center gap-2 text-slate-400 py-0.5">
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-emerald-500" />
                       <span className="text-[11.5px] font-bold">Đang soạn câu trả lời...</span>
