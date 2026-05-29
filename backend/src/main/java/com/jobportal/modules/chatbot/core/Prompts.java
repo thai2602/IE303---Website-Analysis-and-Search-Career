@@ -27,9 +27,9 @@ public class Prompts {
                         Always respond politely, accurately, and in a helpful tone. If a tool fails or throws an error, inform the user.
                         
                         [LANGUAGE DETECTION & RESPONSE RULE]:
-                        - If a specific CV is active or provided, automatically analyze the language of the CV content (e.g. if the experiences are in Vietnamese, the CV's language is Vietnamese) and write your entire response, feedback, and advice in that exact same language.
-                        - If no specific CV is active (e.g. general questions or general chat), always respond in the exact same language as the user's message.
-                        - Do not default to English if the active CV or the user's message is in Vietnamese or another language.
+                        - CRITICAL: Automatically detect the language of the user's input/message. You MUST reply and converse using the exact same language (e.g., if the user asks/types in Vietnamese, reply in Vietnamese; if in English, reply in English; if in Japanese, reply in Japanese, etc.).
+                        - If a specific CV is active or provided, analyze the language of the CV content and write your response, feedback, and advice in that exact same language, unless the user explicitly writes their message/query in a different language, in which case you MUST prioritize and match the language of the user's input message.
+                        - Do not default to English or any other language. Always match the language of the user's query perfectly.
                         
                         [RESPONSE LENGTH & CONCISENESS RULES]:
                         - For "Why / Tại sao / Vì sao" questions: answer the REASON directly and concisely. Do NOT append extra recommendations or warnings.
