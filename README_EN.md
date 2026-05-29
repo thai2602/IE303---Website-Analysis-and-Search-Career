@@ -85,8 +85,8 @@
 └──────────┬──────────────────────────┬───────────────────┘
            │                          │
 ┌──────────▼──────────┐   ┌──────────▼──────────────────┐
-│  PostgreSQL DB       │   │  LM Studio (Local LLM)       │
-│  (Docker / Local)    │   │  Gemma-4 · Nomic Embeddings  │
+│  PostgreSQL DB       │   │  OpenRouter (Cloud LLM)      │
+│  (Docker / Cloud)    │   │  Gemma-3 · OpenAI Embeddings │
 └─────────────────────┘   └─────────────────────────────┘
 ```
 
@@ -186,7 +186,10 @@ The career consulting, JD analysis, and job market Q&A chatbot is backed by an a
 ```
 Website-Analysis-and-Search-Career/
 │
+├── DEPLOY_GUIDE.md                    # Detailed deployment guide for Vercel & Render
+│
 ├── frontend/                          # React + TypeScript (Vite)
+│   ├── vercel.json                    # Vercel configuration for SPA client-side routing
 │   ├── src/
 │   │   ├── features/                  # Domain-driven UI modules
 │   │   │   ├── auth/                  # Login / Register
@@ -209,6 +212,7 @@ Website-Analysis-and-Search-Career/
 │   └── vite.config.ts
 │
 ├── backend/                           # Spring Boot (Java 21)
+│   ├── Dockerfile                     # Docker container configuration for Render
 │   └── src/main/
 │       ├── java/com/jobportal/
 │       │   ├── modules/               # Business logic modules

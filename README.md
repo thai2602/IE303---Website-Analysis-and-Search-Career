@@ -85,8 +85,8 @@
 └──────────┬──────────────────────────┬───────────────────┘
            │                          │
 ┌──────────▼──────────┐   ┌──────────▼──────────────────┐
-│  PostgreSQL DB       │   │  LM Studio (Local LLM)       │
-│  (Docker / Local)    │   │  Gemma-4 · Nomic Embeddings  │
+│  PostgreSQL DB       │   │  OpenRouter (Cloud LLM)      │
+│  (Docker / Cloud)    │   │  Gemma-3 · OpenAI Embeddings │
 └─────────────────────┘   └─────────────────────────────┘
 ```
 
@@ -189,7 +189,10 @@ Hệ thống tư vấn nghề nghiệp, phân tích JD và phản hồi câu h�
 ```
 Website-Analysis-and-Search-Career/
 │
+├── DEPLOY_GUIDE.md                    # Hướng dẫn deploy chi tiết lên Vercel & Render
+│
 ├── frontend/                          # React + TypeScript (Vite)
+│   ├── vercel.json                    # Cấu hình routing tránh lỗi 404 cho Vercel
 │   ├── src/
 │   │   ├── features/                  # Domain-driven UI modules
 │   │   │   ├── auth/                  # Đăng nhập / Đăng ký
@@ -212,6 +215,7 @@ Website-Analysis-and-Search-Career/
 │   └── vite.config.ts
 │
 ├── backend/                           # Spring Boot (Java 21)
+│   ├── Dockerfile                     # Cấu hình Docker build cho Render
 │   └── src/main/
 │       ├── java/com/jobportal/
 │       │   ├── modules/               # Business logic modules
