@@ -259,7 +259,6 @@ export default function JobsPage() {
 
    // --- API jobs state ---
    const [apiJobs, setApiJobs] = useState<Job[]>([]);
-   const [isLoadingJobs, setIsLoadingJobs] = useState(true);
 
    // --- Filters State ---
    const [searchTerm, setSearchTerm] = useState("");
@@ -319,7 +318,7 @@ export default function JobsPage() {
          .catch(() => {
             setApiJobs([]);
          })
-         .finally(() => setIsLoadingJobs(false));
+         .finally(() => {});
    }, []);
 
    const rawJobsList = apiJobs;

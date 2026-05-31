@@ -237,7 +237,6 @@ export default function CompaniesPage() {
 
    // --- API companies state ---
    const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
-   const [isLoadingCompanies, setIsLoadingCompanies] = useState(true);
 
    // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
    useEffect(() => {
@@ -305,7 +304,7 @@ export default function CompaniesPage() {
          .catch(() => {
             setApiCompanies([]);
          })
-         .finally(() => setIsLoadingCompanies(false));
+         .finally(() => {});
    }, []);
 
    const normalizeName = (name: string) =>
