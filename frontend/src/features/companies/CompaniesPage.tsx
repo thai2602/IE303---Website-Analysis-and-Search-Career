@@ -303,8 +303,7 @@ export default function CompaniesPage() {
             setApiCompanies(merged);
          })
          .catch(() => {
-            // Fallback về data tĩnh khi backend offline
-            setApiCompanies(companies);
+            setApiCompanies([]);
          })
          .finally(() => setIsLoadingCompanies(false));
    }, []);
@@ -370,7 +369,7 @@ export default function CompaniesPage() {
    };
 
    // Danh sách hiển thị: dùng apiCompanies khi đã load xong, nhưng vẫn giữ positions từ static data
-   const displayedCompanies = isLoadingCompanies ? companies : (apiCompanies.length > 0 ? apiCompanies.map(getMergedCompany) : companies);
+   const displayedCompanies = apiCompanies.map(getMergedCompany);
 
    useEffect(() => {
       const interval = setInterval(() => {

@@ -317,12 +317,12 @@ export default function JobsPage() {
             setApiJobs(mapped);
          })
          .catch(() => {
-            setApiJobs(companyJobs);
+            setApiJobs([]);
          })
          .finally(() => setIsLoadingJobs(false));
    }, []);
 
-   const rawJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
+   const rawJobsList = apiJobs;
 
    // --- Instant Filter Logic ---
    const filteredJobs = rawJobsList.filter(job => {
