@@ -380,8 +380,14 @@ export default function CompaniesPage() {
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
       const savedSavedJobs = localStorage.getItem("jobpilot_saved_jobs");
-      if (savedApplications) setApplications(JSON.parse(savedApplications));
-      if (savedSavedJobs) setSavedJobs(JSON.parse(savedSavedJobs));
+      if (savedApplications) {
+         const parsed = JSON.parse(savedApplications);
+         setApplications(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
+      if (savedSavedJobs) {
+         const parsed = JSON.parse(savedSavedJobs);
+         setSavedJobs(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
    }, []);
 
    useEffect(() => {

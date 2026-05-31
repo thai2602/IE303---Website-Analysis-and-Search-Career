@@ -63,7 +63,7 @@ const loadApplications = () => {
       }
 
       const parsed = JSON.parse(raw) as StoredApplication[];
-      return Array.isArray(parsed) ? parsed : [];
+      return Array.isArray(parsed) ? parsed.filter(Boolean) : [];
    } catch {
       return [] as StoredApplication[];
    }

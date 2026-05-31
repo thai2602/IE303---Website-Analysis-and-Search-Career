@@ -191,7 +191,7 @@ const companyJobsFromCatalog: Job[] = companiesCatalog.flatMap((company, company
    }));
 });
 
-const companyJobs: Job[] = [
+export const companyJobs: Job[] = [
    ...seedJobsFromKnownCompanies,
    ...companyJobsFromCatalog,
 ].filter((job, index, list) => list.findIndex((item) => item.company === job.company && item.title === job.title) === index);
@@ -351,8 +351,14 @@ export default function JobsPage() {
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
       const savedSavedJobs = localStorage.getItem("jobpilot_saved_jobs");
-      if (savedApplications) setApplications(JSON.parse(savedApplications));
-      if (savedSavedJobs) setSavedJobs(JSON.parse(savedSavedJobs));
+      if (savedApplications) {
+         const parsed = JSON.parse(savedApplications);
+         setApplications(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
+      if (savedSavedJobs) {
+         const parsed = JSON.parse(savedSavedJobs);
+         setSavedJobs(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
    }, []);
 
    useEffect(() => {
