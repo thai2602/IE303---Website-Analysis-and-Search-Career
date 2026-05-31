@@ -375,7 +375,7 @@ export default function FloatingChatbot() {
 
           {/* Input Area */}
           <div className="p-4 border-t border-slate-100 bg-white">
-            <div className="flex items-end gap-2.5 bg-slate-50 border border-slate-200/80 rounded-[20px] px-3.5 py-3 focus-within:border-emerald-500/50 focus-within:ring-4 focus-within:ring-emerald-500/5 focus-within:bg-white transition-all">
+            <div className="flex items-center gap-2.5 bg-slate-50 border border-slate-200/80 rounded-[20px] px-3.5 py-3 focus-within:border-emerald-500/50 focus-within:ring-4 focus-within:ring-emerald-500/5 focus-within:bg-white transition-all">
               <textarea
                 ref={inputRef}
                 rows={1}
@@ -384,8 +384,8 @@ export default function FloatingChatbot() {
                 onKeyDown={handleKeyDown}
                 placeholder="Hỏi AI Assistant..."
                 disabled={isLoading}
-                className="flex-1 resize-none bg-transparent text-[13px] font-bold text-slate-800 placeholder:text-slate-400 outline-none disabled:opacity-50 max-h-24 leading-normal overflow-hidden"
-                style={{ height: "20px" }}
+                className="flex-1 resize-none bg-transparent text-[13px] font-bold text-slate-800 placeholder:text-slate-400 !outline-none !border-none !ring-0 !shadow-none disabled:opacity-50 max-h-auto leading-normal overflow-hidden"
+                style={{ height: "20px", outline: "none", border: "none", boxShadow: "none" }}
               />
               <button
                 onClick={() => sendMessage(input)}
