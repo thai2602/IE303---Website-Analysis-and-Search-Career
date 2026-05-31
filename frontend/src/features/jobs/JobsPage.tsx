@@ -269,7 +269,8 @@ export default function JobsPage() {
 
    // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
    useEffect(() => {
-      fetch("http://localhost:8080/api/jobs")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/jobs`)
          .then((res) => {
             if (!res.ok) throw new Error("API error");
             return res.json() as Promise<Array<{

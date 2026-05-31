@@ -241,7 +241,8 @@ export default function CompaniesPage() {
 
    // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
    useEffect(() => {
-      fetch("http://localhost:8080/api/companies")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/companies`)
          .then((res) => {
             if (!res.ok) throw new Error("API error");
             return res.json() as Promise<Array<{
@@ -481,7 +482,8 @@ export default function CompaniesPage() {
       if (job.id) {
          try {
             const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:8080/api/applications", {
+            const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+            const res = await fetch(`${apiBase}/api/applications`, {
                method: "POST",
                headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                body: JSON.stringify({ jobId: job.id, cvId: 1 }) // Hardcode cvId for now as the user has a CV check
@@ -517,7 +519,8 @@ export default function CompaniesPage() {
       if (job.id && readAuthUser()) {
          try {
             const token = localStorage.getItem("token");
-            const res = await fetch("http://localhost:8080/api/saved-jobs", {
+            const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+            const res = await fetch(`${apiBase}/api/saved-jobs`, {
                method: "POST",
                headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                body: JSON.stringify({ jobId: job.id })

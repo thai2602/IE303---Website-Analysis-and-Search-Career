@@ -66,8 +66,9 @@ export default function JobDetailPage() {
    const [isApplied, setIsApplied] = useState(false);
 
    useEffect(() => {
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
       if (!job && jobSlug) {
-         fetch(`http://localhost:8080/api/jobs/slug/${jobSlug}`)
+         fetch(`${apiBase}/api/jobs/slug/${jobSlug}`)
             .then((res) => (res.ok ? res.json() : null))
             .then((data) => {
                if (!data) return;
@@ -104,7 +105,8 @@ export default function JobDetailPage() {
 
    useEffect(() => {
       if (relatedJobs.length > 0 || !job) return;
-      fetch("http://localhost:8080/api/jobs")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/jobs`)
          .then((res) => (res.ok ? res.json() : []))
          .then((data: any[]) => {
             const related = data

@@ -200,7 +200,8 @@ export default function UtilitiesPage() {
 
    // Fetch jobs on mount for suggestions
    useEffect(() => {
-      fetch("http://localhost:8080/api/jobs")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/jobs`)
          .then((res) => {
             if (!res.ok) throw new Error("API error");
             return res.json();
