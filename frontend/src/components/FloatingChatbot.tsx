@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MessageSquare, X, Send, Bot, User, Loader2, Sparkles, Trash2, ArrowUpRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { streamChat } from "../services/chatbotApi";
+import { readAuthUser } from "../utils/auth";
 
 interface Message {
   id: string;
@@ -27,6 +28,8 @@ const API_BASE = "/api/chatbot";
 
 export default function FloatingChatbot() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const isLoggedIn = Boolean(readAuthUser());
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -207,7 +210,13 @@ export default function FloatingChatbot() {
           <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-pulse-ring pointer-events-none" />
           
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              if (!isLoggedIn) {
+                navigate("/dang-nhap");
+                return;
+              }
+              setIsOpen(true);
+            }}
             className="w-full h-full rounded-full text-white flex items-center justify-center cursor-pointer shadow-[0_10px_35px_rgba(16,185,129,0.25)] transition-all duration-300 hover:scale-105 group bg-gradient-to-tr from-emerald-500 to-teal-600 relative overflow-hidden"
             title="Trò chuyện với AI Assistant"
           >

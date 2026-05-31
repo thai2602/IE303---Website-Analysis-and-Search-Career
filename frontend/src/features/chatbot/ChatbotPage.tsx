@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Bot, Send, Trash2, User, Loader2, Sparkles, X } from "lucide-react";
 import { streamChat } from "../../services/chatbotApi";
+import { Navigate } from "react-router-dom";
+import { readAuthUser } from "../../utils/auth";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -32,6 +34,11 @@ const SUGGESTIONS = [
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function ChatbotPage() {
+  const currentUser = readAuthUser();
+  if (!currentUser) {
+    return <Navigate to="/dang-nhap" replace />;
+  }
+
   const [messages, setMessages]   = useState<Message[]>([]);
   const [input, setInput]         = useState("");
   const [isLoading, setIsLoading] = useState(false);
