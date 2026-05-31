@@ -1,5 +1,8 @@
 package com.jobportal.modules.job;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,8 +19,9 @@ public class JobController {
     }
 
     @GetMapping
-    public List<Job> getAllJobs() {
-        return jobRepository.findAll();
+    public List<Job> getAllJobs(@RequestParam(defaultValue = "200") int limit) {
+        Pageable pageable = PageRequest.of(0, limit, Sort.by("id").descending());
+        return jobRepository.findAll(pageable).getContent();
     }
 
     @GetMapping("/{id}")

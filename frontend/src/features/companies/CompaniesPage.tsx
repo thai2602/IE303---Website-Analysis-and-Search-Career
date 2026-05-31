@@ -301,9 +301,10 @@ export default function CompaniesPage() {
             });
             setApiCompanies(merged);
          })
-         .catch(() => {
-            setApiCompanies([]);
-         })
+          .catch((err) => {
+             console.error("Lỗi tải API công ty, chuyển sang dữ liệu dự phòng:", err);
+             setApiCompanies(companies);
+          })
          .finally(() => {});
    }, []);
 

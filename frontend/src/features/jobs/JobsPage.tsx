@@ -313,9 +313,10 @@ export default function JobsPage() {
             }));
             setApiJobs(mapped);
          })
-         .catch(() => {
-            setApiJobs([]);
-         })
+          .catch((err) => {
+             console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
+             setApiJobs(companyJobs);
+          })
          .finally(() => {});
    }, []);
 
