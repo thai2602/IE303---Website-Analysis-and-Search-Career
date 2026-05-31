@@ -9,6 +9,7 @@ import { toVietnameseJobTitle } from "../../utils/jobTitle";
 import { generateSlug } from "../../utils/slug";
 import { readAuthUser } from "../../utils/auth";
 import { hasCreatedCv } from "../../utils/cv";
+import { companyJobs } from "./JobsPage";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
 import image3 from "../../assets/company_logo/image_3.png";
@@ -66,11 +67,26 @@ export default function JobDetailPage() {
    const [isApplied, setIsApplied] = useState(false);
 
    useEffect(() => {
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
       if (!job && jobSlug) {
-         fetch(`http://localhost:8080/api/jobs/slug/${jobSlug}`)
+         fetch(`${apiBase}/api/jobs/slug/${jobSlug}`)
             .then((res) => (res.ok ? res.json() : null))
             .then((data) => {
-               if (!data) return;
+               if (!data) {
+                  // Fallback to static
+                  const fallback = companyJobs.find((j) => {
+                     const slug = j.slug ?? generateSlug(`${j.title} ${j.company}`);
+                     return slug === jobSlug;
+                  });
+                  if (fallback) {
+                     setJob({
+                        ...fallback,
+                        field: fallback.field ?? "Nhóm ngành khác",
+                        tags: fallback.tags ?? [],
+                     } as JobDetail);
+                  }
+                  return;
+               }
                setJob({
                   title: data.title,
                   company: data.company?.name ?? "",
@@ -98,13 +114,27 @@ export default function JobDetailPage() {
                   expiredAt: data.expiredAt,
                });
             })
-            .catch(() => {});
+            .catch(() => {
+               // Fallback to static
+               const fallback = companyJobs.find((j) => {
+                  const slug = j.slug ?? generateSlug(`${j.title} ${j.company}`);
+                  return slug === jobSlug;
+               });
+               if (fallback) {
+                  setJob({
+                     ...fallback,
+                     field: fallback.field ?? "Nhóm ngành khác",
+                     tags: fallback.tags ?? [],
+                  } as JobDetail);
+               }
+            });
       }
    }, [job, jobSlug]);
 
    useEffect(() => {
       if (relatedJobs.length > 0 || !job) return;
-      fetch("http://localhost:8080/api/jobs")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/jobs`)
          .then((res) => (res.ok ? res.json() : []))
          .then((data: any[]) => {
             const related = data
@@ -134,10 +164,12 @@ export default function JobDetailPage() {
 
    useEffect(() => {
       if (!job) return;
-      const saved: any[] = JSON.parse(localStorage.getItem("jobpilot_saved_jobs") ?? "[]");
-      const applied: any[] = JSON.parse(localStorage.getItem("jobpilot_applications") ?? "[]");
-      setIsSaved(saved.some((s) => s.title === job.title && s.company === job.company));
-      setIsApplied(applied.some((a) => a.title === job.title && a.company === job.company));
+      const savedRaw = localStorage.getItem("jobpilot_saved_jobs");
+      const appliedRaw = localStorage.getItem("jobpilot_applications");
+      const saved: any[] = savedRaw ? (JSON.parse(savedRaw) ?? []).filter(Boolean) : [];
+      const applied: any[] = appliedRaw ? (JSON.parse(appliedRaw) ?? []).filter(Boolean) : [];
+      setIsSaved(saved.some((s) => s && s.title === job.title && s.company === job.company));
+      setIsApplied(applied.some((a) => a && a.title === job.title && a.company === job.company));
    }, [job]);
 
    const showToast = (message: string, kind: "success" | "error" = "success") => {
@@ -149,7 +181,8 @@ export default function JobDetailPage() {
       if (!readAuthUser()) { showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error"); return; }
       if (!hasCreatedCv()) { showToast("Bạn chưa có CV. Vui lòng tạo CV trước.", "error"); return; }
       if (isApplied) { showToast("Bạn đã ứng tuyển vị trí này rồi.", "error"); return; }
-      const applications: any[] = JSON.parse(localStorage.getItem("jobpilot_applications") ?? "[]");
+      const savedRaw = localStorage.getItem("jobpilot_applications");
+      const applications: any[] = savedRaw ? (JSON.parse(savedRaw) ?? []).filter(Boolean) : [];
       const id = `${job!.company}-${job!.title}-${Date.now()}`;
       localStorage.setItem("jobpilot_applications", JSON.stringify([
          { ...job, id, appliedAt: new Date().toLocaleString("vi-VN"), status: "Đang chờ xác nhận", trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi." },
@@ -160,9 +193,10 @@ export default function JobDetailPage() {
    };
 
    const handleSave = () => {
-      const saved: any[] = JSON.parse(localStorage.getItem("jobpilot_saved_jobs") ?? "[]");
+      const savedRaw = localStorage.getItem("jobpilot_saved_jobs");
+      const saved: any[] = savedRaw ? (JSON.parse(savedRaw) ?? []).filter(Boolean) : [];
       if (isSaved) {
-         localStorage.setItem("jobpilot_saved_jobs", JSON.stringify(saved.filter((s) => !(s.title === job!.title && s.company === job!.company))));
+         localStorage.setItem("jobpilot_saved_jobs", JSON.stringify(saved.filter((s) => s && !(s.title === job!.title && s.company === job!.company))));
          setIsSaved(false);
          showToast("Đã bỏ lưu công việc.");
          return;

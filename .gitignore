@@ -21,3 +21,6 @@ backend/dev/*
 evals/*
 
 
+DEPLOYMENT.md
+render.env
+vercel.env

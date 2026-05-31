@@ -146,7 +146,12 @@ public class CvExtractionAgnosticService {
         try {
             ApachePdfBoxDocumentParser parser = new ApachePdfBoxDocumentParser();
             Document document = parser.parse(file.getInputStream());
-            return document.text();
+            String text = document.text();
+            if (text != null) {
+                // Loại bỏ tất cả các ký tự điều khiển lỗi (Control Characters) trừ các khoảng trắng chuẩn (\n, \r, \t)
+                text = text.replaceAll("[\\p{Cntrl}&&[^\\r\\n\\t]]", "");
+            }
+            return text;
         } catch (IllegalArgumentException e) {
             if (e.getMessage() != null && e.getMessage().contains("text cannot be null or blank")) {
                 throw new IllegalArgumentException("Không thể trích xuất văn bản từ file PDF. File PDF này có thể là file ảnh/scan hoặc không có chữ. Vui lòng sử dụng file PDF có thể bôi đen chữ.");

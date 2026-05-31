@@ -190,7 +190,7 @@ const companyJobsFromCatalog: Job[] = companiesCatalog.flatMap((company, company
    }));
 });
 
-const companyJobs: Job[] = [
+export const companyJobs: Job[] = [
    ...seedJobsFromKnownCompanies,
    ...companyJobsFromCatalog,
 ].filter((job, index, list) => list.findIndex((item) => item.company === job.company && item.title === job.title) === index);
@@ -257,7 +257,6 @@ export default function JobsPage() {
 
    // --- API jobs state ---
    const [apiJobs, setApiJobs] = useState<Job[]>([]);
-   const [isLoadingJobs, setIsLoadingJobs] = useState(true);
 
    // --- Filters State ---
    const [searchTerm, setSearchTerm] = useState("");
@@ -267,7 +266,8 @@ export default function JobsPage() {
 
    // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
    useEffect(() => {
-      fetch("http://localhost:8080/api/jobs")
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/jobs`)
          .then((res) => {
             if (!res.ok) throw new Error("API error");
             return res.json() as Promise<Array<{
@@ -314,12 +314,12 @@ export default function JobsPage() {
             setApiJobs(mapped);
          })
          .catch(() => {
-            setApiJobs(companyJobs);
+            setApiJobs([]);
          })
-         .finally(() => setIsLoadingJobs(false));
+         .finally(() => {});
    }, []);
 
-   const rawJobsList = isLoadingJobs ? companyJobs : (apiJobs.length > 0 ? apiJobs : companyJobs);
+   const rawJobsList = apiJobs;
 
    // --- Instant Filter Logic ---
    const filteredJobs = rawJobsList.filter(job => {
@@ -349,8 +349,14 @@ export default function JobsPage() {
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
       const savedSavedJobs = localStorage.getItem("jobpilot_saved_jobs");
-      if (savedApplications) setApplications(JSON.parse(savedApplications));
-      if (savedSavedJobs) setSavedJobs(JSON.parse(savedSavedJobs));
+      if (savedApplications) {
+         const parsed = JSON.parse(savedApplications);
+         setApplications(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
+      if (savedSavedJobs) {
+         const parsed = JSON.parse(savedSavedJobs);
+         setSavedJobs(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }
    }, []);
 
    useEffect(() => {

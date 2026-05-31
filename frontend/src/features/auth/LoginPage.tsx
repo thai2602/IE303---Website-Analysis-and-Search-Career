@@ -103,14 +103,6 @@ export default function LoginPage() {
          return;
       }
 
-      setAuthUser({
-         name: buildNameFromEmail(trimmedEmail),
-         email: trimmedEmail,
-         password: password.trim(),
-      });
-      setCurrentUser(readAuthUser());
-      setErrorMessage("");
-      navigate("/", { replace: true });
       setIsSubmitting(true);
       setErrorMessage("");
 
@@ -135,7 +127,7 @@ export default function LoginPage() {
          if (error instanceof Error && error.message.trim()) {
             setErrorMessage(error.message);
          } else {
-            setErrorMessage("Đăng nhập thất bại. Vui lòng thử lại.");
+            setErrorMessage("Đăng nhập thất bại. Vui lòng kiểm tra lại email hoặc mật khẩu.");
          }
       } finally {
          setIsSubmitting(false);

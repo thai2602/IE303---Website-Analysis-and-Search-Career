@@ -393,7 +393,8 @@ export default function HomePage() {
          const raw = localStorage.getItem("jobpilot_applications");
          if (!raw) return new Set<string>();
          const saved = JSON.parse(raw) as Array<{ id?: string; company?: string; title?: string; industry?: string }>;
-         const ids = saved
+         const ids = (Array.isArray(saved) ? saved : [])
+            .filter(Boolean)
             .map((item) => item.id ?? `${item.industry ?? ""}-${item.company ?? ""}-${item.title ?? ""}`)
             .filter((id): id is string => Boolean(id));
          return new Set(ids);
@@ -448,7 +449,8 @@ export default function HomePage() {
       try {
          const raw = localStorage.getItem("jobpilot_applications");
          const current = raw ? (JSON.parse(raw) as Array<Record<string, string>>) : [];
-         const updated = [application, ...current.filter((item) => item.id !== id)];
+         const filteredCurrent = (Array.isArray(current) ? current : []).filter(Boolean);
+         const updated = [application, ...filteredCurrent.filter((item) => item && item.id !== id)];
          localStorage.setItem("jobpilot_applications", JSON.stringify(updated));
          window.dispatchEvent(new Event("jobpilot-data-updated"));
          setAppliedJobIds((prev) => new Set([...prev, id]));

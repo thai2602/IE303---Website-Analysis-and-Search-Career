@@ -24,7 +24,7 @@ const readList = (key: string): SavedItem[] => {
       }
 
       const parsed = JSON.parse(raw) as SavedItem[];
-      return Array.isArray(parsed) ? parsed : [];
+      return Array.isArray(parsed) ? parsed.filter(Boolean) : [];
    } catch {
       return [];
    }

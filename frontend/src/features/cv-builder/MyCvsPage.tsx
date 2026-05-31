@@ -28,7 +28,7 @@ interface UserCv {
   socials: UserCvSocial[];
 }
 
-const API_BASE = "http://localhost:8080";
+const API_BASE = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
 
 async function fetchUserId(email: string): Promise<number | null> {
   const res = await fetch(`${API_BASE}/api/users/by-email?email=${encodeURIComponent(email)}`);
