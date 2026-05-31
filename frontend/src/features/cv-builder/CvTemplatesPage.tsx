@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { 
-   Eye, X, Sparkles, CheckCircle2, XCircle, FileText, 
-   Award, BookOpen, Briefcase, GraduationCap, Phone, 
+import {
+   Eye, X, Sparkles, CheckCircle2, XCircle, FileText,
+   Award, BookOpen, Briefcase, GraduationCap, Phone,
    Mail, MapPin, Calendar, Heart, User, Check, ArrowRight
 } from "lucide-react";
 import profilePicture1 from "../../assets/profile_picture/image_1.png";
@@ -321,7 +321,7 @@ export default function CvTemplatesPage() {
    };
 
    const renderEntry = (entry: CvEntry) => (
-      <div 
+      <div
          key={`${entry.title}-${entry.period}`}
          className="bg-white border border-slate-100 p-5 rounded-2xl shadow-sm hover:border-slate-200 transition-all space-y-3"
       >
@@ -355,9 +355,6 @@ export default function CvTemplatesPage() {
             <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto text-center space-y-6">
-               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-extrabold tracking-wider uppercase">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" /> Sẵn sàng ứng tuyển 2026
-               </span>
                <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
                   Kho CV mẫu <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">chuẩn hóa và chuyên nghiệp</span>
                </h1>
@@ -365,7 +362,7 @@ export default function CvTemplatesPage() {
                   Khám phá bộ sưu tập mẫu CV thiết kế đẳng cấp cao, chuẩn cấu trúc tuyển dụng quốc tế. Có sẵn gợi ý mẫu để bạn sẵn sàng tạo dấu ấn riêng trong mắt nhà tuyển dụng.
                </p>
                <div className="pt-4 flex justify-center">
-                  <button 
+                  <button
                      onClick={openCreateCvModal}
                      className="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[14.5px] rounded-xl transition-all shadow-[0_12px_24px_rgba(16,185,129,0.25)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.35)] active:scale-95 cursor-pointer flex items-center gap-2"
                   >
@@ -393,7 +390,7 @@ export default function CvTemplatesPage() {
                      {/* Template Card Mockup Preview (Visual Wow) */}
                      <div className={`h-40 bg-gradient-to-br ${t.preview} p-6 relative overflow-hidden flex items-center justify-center shrink-0 border-b border-slate-100`}>
                         <div className="absolute inset-0 bg-slate-950/5 group-hover:bg-slate-950/0 transition-colors" />
-                        
+
                         {/* Dynamic Mini Mockup of a CV Card */}
                         <div className="w-[180px] h-[110px] bg-white rounded-xl shadow-lg border border-slate-100/50 p-3 flex gap-2 group-hover:scale-105 transition-transform duration-300 relative z-10 overflow-hidden">
                            {/* Mini sidebar */}
@@ -411,10 +408,10 @@ export default function CvTemplatesPage() {
                               <div className="w-full h-1 rounded bg-slate-50" />
                               <div className="w-5/6 h-1 rounded bg-slate-50" />
                            </div>
-                           
+
                            {/* Accent Glow Circle */}
-                           <div 
-                              className="absolute -right-6 -bottom-6 w-12 h-12 rounded-full opacity-30 blur-md group-hover:scale-150 transition-transform duration-500" 
+                           <div
+                              className="absolute -right-6 -bottom-6 w-12 h-12 rounded-full opacity-30 blur-md group-hover:scale-150 transition-transform duration-500"
                               style={{ backgroundColor: t.accent }}
                            />
                         </div>
@@ -442,7 +439,7 @@ export default function CvTemplatesPage() {
                            >
                               <Eye className="w-4 h-4" /> Xem mẫu
                            </button>
-                           <button 
+                           <button
                               onClick={openCreateCvModal}
                               className="px-4 py-2.5 bg-slate-950 hover:bg-slate-800 text-white text-[12px] font-extrabold rounded-xl transition-all cursor-pointer flex items-center gap-1.5"
                            >
@@ -490,14 +487,14 @@ export default function CvTemplatesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                {cvWritingTips.map((tip) => (
-                  <article 
-                     key={tip.title} 
+                  <article
+                     key={tip.title}
                      className="border border-slate-100/70 rounded-3xl p-5 bg-slate-50/50 space-y-4 hover:bg-white hover:shadow-md hover:border-slate-100 transition-all duration-300 flex flex-col justify-between"
                   >
                      <h4 className="font-extrabold text-[15px] text-slate-900 flex items-center gap-2">
                         <FileText className="w-4 h-4 text-emerald-500 shrink-0" /> {tip.title}
                      </h4>
-                     
+
                      <div className="space-y-3 flex-grow">
                         {/* Good side */}
                         <div className="rounded-2xl bg-emerald-50/60 border border-emerald-100/40 p-3.5 space-y-1">
@@ -570,7 +567,7 @@ export default function CvTemplatesPage() {
                   {/* Premium 2-Column CV Page Preview */}
                   <div className="p-6 overflow-y-auto flex-grow max-h-[70vh]">
                      <div className="bg-white border border-slate-200 rounded-[24px] shadow-sm p-6 sm:p-8 space-y-8 max-w-3xl mx-auto">
-                        
+
                         {/* 1. Header Information section */}
                         <div className="flex flex-col md:flex-row gap-6 items-start pb-6 border-b border-slate-100">
                            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-100 shrink-0 bg-slate-50 shadow-inner">
@@ -585,7 +582,7 @@ export default function CvTemplatesPage() {
 
                         {/* 2. Premium 2-Column Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.8fr] gap-8 items-start">
-                           
+
                            {/* LEFT COLUMN: Sidebar (Contact, Skills, Certs, Awards, Hobbies) */}
                            <div className="space-y-6">
                               {/* Contact detail */}

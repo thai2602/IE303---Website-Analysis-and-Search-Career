@@ -274,7 +274,7 @@ export default function HandbookPage() {
    };
 
    return (
-      <div className="space-y-8">
+      <div className="space-y-8" style={{ fontFamily: 'var(--font-body)' }}>
          {/* Hero */}
          <div style={{
             borderRadius: "20px",
@@ -292,7 +292,7 @@ export default function HandbookPage() {
                borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
             }} />
 
-            <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px" }}>
+            <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px", fontFamily: 'var(--font-heading)' }}>
                Cẩm nang việc làm
             </h1>
             <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7 }}>
@@ -300,151 +300,137 @@ export default function HandbookPage() {
             </p>
          </div>
 
-         {/* Search and Filters */}
-         <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row gap-4">
-               <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                  <input
-                     type="text"
-                     placeholder="Tìm kiếm bài viết..."
-                     value={searchQuery}
-                     onChange={(e) => setSearchQuery(e.target.value)}
-                     className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+         {/* Main layout: Sidebar + Content */}
+         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
+            <aside className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm lg:sticky lg:top-8 z-10">
+               <div className="mb-4">
+                  <div className="relative">
+                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                     <input
+                        type="text"
+                        placeholder="Tìm kiếm bài viết..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                     />
+                  </div>
                </div>
-               <div className="flex gap-2">
-                  <button
-                     onClick={() => setSelectedCategory(null)}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${!selectedCategory ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                  >
-                     Tất cả
-                  </button>
-                  <button
-                     onClick={() => setSelectedCategory("CV & Hồ sơ")}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "CV & Hồ sơ" ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                  >
-                     CV
-                  </button>
-                  <button
-                     onClick={() => setSelectedCategory("Phỏng vấn")}
-                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === "Phỏng vấn" ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                  >
-                     Phỏng vấn
-                  </button>
-               </div>
-            </div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-               {allTags.slice(0, 12).map((tag) => (
-                  <button
-                     key={tag}
-                     onClick={() => toggleTag(tag)}
-                     className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium transition-colors ${selectedTags.includes(tag)
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }`}
-                  >
-                     <Tag className="h-3 w-3" />
-                     {tag}
-                  </button>
-               ))}
-            </div>
-         </div>
-
-         {/* Category pills */}
-         <div className="flex gap-2 flex-wrap">
-            {categories.map((cat) => (
-               <button
-                  key={cat.label}
-                  onClick={() => setSelectedCategory(cat.label)}
-                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-colors ${selectedCategory === cat.label
-                     ? "bg-[#0f4c51] text-white"
-                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                     }`}
-               >
-                  {cat.label}
-                  <span className="bg-gray-300 text-gray-900 rounded-full px-2 py-0.5 text-xs font-bold">
-                     {cat.count}
-                  </span>
-               </button>
-            ))}
-         </div>
-
-         {/* Featured articles */}
-         {featuredGuides.length > 0 && (
-            <div className="space-y-4">
-               <h2 className="text-xl font-bold text-gray-900">Bài viết nổi bật</h2>
-               {featuredGuides.map((featured) => (
-                  <div
-                     key={featured.title}
-                     className="rounded-lg bg-white border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer"
-                     onClick={() => setSelectedArticleTitle(featured.title)}
-                  >
-                     <div className="flex flex-col sm:flex-row gap-6">
-                        <div className="flex-1">
-                           <div className="flex items-center gap-3 mb-3">
-                              <span className="px-2 py-1 bg-[#0f4c51] text-white text-xs font-bold rounded-full">
-                                 ✦ NỔI BẬT
-                              </span>
-                              <span className="flex items-center gap-1 text-xs text-gray-600">
-                                 <Clock className="w-3 h-3" /> {featured.readTime}
-                              </span>
-                           </div>
-                           <h3 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">{featured.title}</h3>
-                           <p className="text-gray-600 mb-4 text-sm">Hướng dẫn chi tiết giúp bạn tối ưu cơ hội xin việc và thành công trong sự nghiệp.</p>
-                           <div className="flex flex-wrap gap-2">
-                              {featured.tags.map((tag) => (
-                                 <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-                                    {tag}
-                                 </span>
-                              ))}
-                           </div>
-                        </div>
+               <div className="mb-6">
+                  <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3">Danh mục</h3>
+                  <div className="flex flex-col gap-2">
+                     {categories.map((cat) => (
                         <button
-                           className="px-4 py-2 bg-[#0f4c51] hover:bg-[#1b7377] text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
+                           key={cat.label}
+                           onClick={() => setSelectedCategory(cat.label)}
+                           className={`w-full text-left px-3 py-2 rounded-xl text-sm font-bold transition-colors ${selectedCategory === cat.label ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 border border-slate-100 hover:bg-slate-50'}`}
                         >
-                           Đọc ngay
+                           <div className="flex items-center justify-between">
+                              <span>{cat.label}</span>
+                              <span className="text-xs font-bold bg-gray-100 px-2 py-0.5 rounded-full">{cat.count}</span>
+                           </div>
                         </button>
-                     </div>
+                     ))}
                   </div>
-               ))}
-            </div>
-         )}
+               </div>
 
-         {/* Article list */}
-         <div className="space-y-3">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
-               {regularGuides.length > 0 ? `Bài viết khác (${regularGuides.length})` : "Không tìm thấy bài viết nào"}
-            </h3>
-            {regularGuides.map((item) => {
-               const Icon = item.icon;
-               return (
-                  <div
-                     key={item.title}
-                     className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer"
-                     onClick={() => setSelectedArticleTitle(item.title)}
-                  >
-                     <div className="flex-shrink-0 w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-[#0f4c51]" />
+               {/* Quick tags removed per design request */}
+
+               {featuredGuides.length > 0 && (
+                  <div>
+                     <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3" style={{ fontFamily: 'var(--font-heading)' }}>Nổi bật</h3>
+                     <div className="space-y-3">
+                        {featuredGuides.slice(0, 3).map(f => (
+                           <div key={f.title} className="flex items-start gap-3">
+                              <div className="w-12 h-10 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden">
+                                 <img src={articleIllustrations[f.title]} alt={f.title} className="w-full h-full object-cover" />
+                              </div>
+                              <div>
+                                 <h4 className="text-sm font-bold text-slate-900 line-clamp-2" style={{ fontFamily: 'var(--font-heading)' }}>{f.title}</h4>
+                                 <p className="text-xs text-slate-500">{f.readTime}</p>
+                              </div>
+                           </div>
+                        ))}
                      </div>
-                     <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 text-sm">{item.title}</h4>
-                        <div className="flex items-center gap-2 mt-1">
-                           <span className="text-xs text-gray-600">{item.category}</span>
-                           <span className="text-xs text-gray-500 flex items-center gap-1">
-                              <Clock className="w-3 h-3" /> {item.readTime}
-                           </span>
-                        </div>
-                     </div>
-                     <ChevronRight className="w-5 h-5 text-gray-400" />
                   </div>
-               );
-            })}
+               )}
+            </aside>
+
+            <main className="space-y-6">
+
+               {/* Featured articles */}
+               {featuredGuides.length > 0 && (
+                  <div className="space-y-4">
+                     <h2 className="text-xl font-bold text-gray-900" style={{ fontFamily: 'var(--font-heading)' }}>Bài viết nổi bật</h2>
+                     {featuredGuides.map((featured) => (
+                        <div
+                           key={featured.title}
+                           className="rounded-lg bg-white border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer"
+                           onClick={() => setSelectedArticleTitle(featured.title)}
+                        >
+                           <div className="flex flex-col sm:flex-row gap-6">
+                              <div className="flex-1">
+                                 <div className="flex items-center gap-3 mb-3">
+                                    <span className="px-2 py-1 bg-[#0f4c51] text-white text-xs font-bold rounded-full">
+                                       ✦ NỔI BẬT
+                                    </span>
+                                    <span className="flex items-center gap-1 text-xs text-gray-600">
+                                       <Clock className="w-3 h-3" /> {featured.readTime}
+                                    </span>
+                                 </div>
+                                 <h3 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">{featured.title}</h3>
+                                 <p className="text-gray-600 mb-4 text-sm">Hướng dẫn chi tiết giúp bạn tối ưu cơ hội xin việc và thành công trong sự nghiệp.</p>
+                                 <div className="flex flex-wrap gap-2">
+                                    {featured.tags.map((tag) => (
+                                       <span key={tag} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                                          {tag}
+                                       </span>
+                                    ))}
+                                 </div>
+                              </div>
+                              <button
+                                 className="px-4 py-2 bg-[#0f4c51] hover:bg-[#1b7377] text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
+                              >
+                                 Đọc ngay
+                              </button>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+               )}
+
+               {/* Article list */}
+               <div className="space-y-3">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                     {regularGuides.length > 0 ? `Bài viết khác (${regularGuides.length})` : "Không tìm thấy bài viết nào"}
+                  </h3>
+                  {regularGuides.map((item) => {
+                     const Icon = item.icon;
+                     return (
+                        <div
+                           key={item.title}
+                           className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md hover:border-gray-300 transition-all cursor-pointer"
+                           onClick={() => setSelectedArticleTitle(item.title)}
+                        >
+                           <div className="flex-shrink-0 w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                              <Icon className="w-5 h-5 text-[#0f4c51]" />
+                           </div>
+                           <div className="flex-1">
+                              <h4 className="font-semibold text-gray-900 text-sm" style={{ fontFamily: 'var(--font-heading)' }}>{item.title}</h4>
+                              <div className="flex items-center gap-2 mt-1">
+                                 <span className="text-xs text-gray-600">{item.category}</span>
+                                 <span className="text-xs text-gray-500 flex items-center gap-1">
+                                    <Clock className="w-3 h-3" /> {item.readTime}
+                                 </span>
+                              </div>
+                           </div>
+                           <ChevronRight className="w-5 h-5 text-gray-400" />
+                        </div>
+                     );
+                  })}
+               </div>
+
+            </main>
          </div>
 
          {selectedGuide && selectedContent && (
@@ -475,7 +461,7 @@ export default function HandbookPage() {
                         </div>
                      </div>
 
-                     <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900">{selectedGuide.title}</h2>
+                     <h2 className="mt-4 text-2xl font-bold tracking-tight text-gray-900" style={{ fontFamily: 'var(--font-heading)' }}>{selectedGuide.title}</h2>
 
                      {selectedIllustration && (
                         <div className="mt-5 overflow-hidden rounded-xl border border-gray-200">
@@ -492,7 +478,7 @@ export default function HandbookPage() {
                      <div className="mt-6 space-y-5">
                         {selectedContent.sections.map((section) => (
                            <article key={section.heading}>
-                              <h3 className="text-base font-semibold text-gray-900">{section.heading}</h3>
+                              <h3 className="text-base font-semibold text-gray-900" style={{ fontFamily: 'var(--font-heading)' }}>{section.heading}</h3>
                               <p className="mt-2 text-sm leading-7 text-gray-600">{section.body}</p>
                            </article>
                         ))}
