@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { generateSlug } from "../../utils/slug";
-import { Clock3, MapPin, Wallet, Search, Flame, Bookmark, X, Building2, CalendarClock, Trash2, SlidersHorizontal, Briefcase, Award, CheckCircle2, History } from "lucide-react";
+import { Clock3, MapPin, Wallet, Search, Flame, Bookmark, X, CalendarClock, SlidersHorizontal, Briefcase, Award, CheckCircle2 } from "lucide-react";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
 import image3 from "../../assets/company_logo/image_3.png";
 import { companies as companiesCatalog } from "../companies/CompaniesPage";
 import { readAuthUser } from "../../utils/auth";
-import { getApplicationStatusMeta } from "../../utils/application";
 import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
 
@@ -254,7 +253,6 @@ export default function JobsPage() {
    const navigate = useNavigate();
    const [applications, setApplications] = useState<any[]>([]);
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
-   const [showTray, setShowTray] = useState(false);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
    // --- API jobs state ---
@@ -333,15 +331,15 @@ export default function JobsPage() {
          job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
       // 2. Location match
-      const matchesLocation = !selectedLocation || 
+      const matchesLocation = !selectedLocation ||
          job.place.toLowerCase().includes(selectedLocation.toLowerCase());
 
       // 3. Job Type match
-      const matchesJobType = !selectedJobType || 
+      const matchesJobType = !selectedJobType ||
          job.type.toLowerCase() === selectedJobType.toLowerCase();
 
       // 4. Job Level match
-      const matchesLevel = !selectedLevel || 
+      const matchesLevel = !selectedLevel ||
          job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
          (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
 
@@ -357,10 +355,12 @@ export default function JobsPage() {
 
    useEffect(() => {
       localStorage.setItem("jobpilot_applications", JSON.stringify(applications));
+      window.dispatchEvent(new Event("jobpilot-data-updated"));
    }, [applications]);
 
    useEffect(() => {
       localStorage.setItem("jobpilot_saved_jobs", JSON.stringify(savedJobs));
+      window.dispatchEvent(new Event("jobpilot-data-updated"));
    }, [savedJobs]);
 
    useEffect(() => {
@@ -415,18 +415,6 @@ export default function JobsPage() {
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
 
-   const removeApplication = (id: string, e: React.MouseEvent) => {
-      e.stopPropagation();
-      setApplications((current) => current.filter((item) => item.id !== id));
-      showToast("Đã xóa hồ sơ ứng tuyển.");
-   };
-
-   const removeSavedJob = (id: string, e: React.MouseEvent) => {
-      e.stopPropagation();
-      setSavedJobs((current) => current.filter((item) => item.id !== id));
-      showToast("Đã xóa mục đã lưu.");
-   };
-
    const clearFilters = () => {
       setSearchTerm("");
       setSelectedLocation(null);
@@ -440,11 +428,10 @@ export default function JobsPage() {
       <div className="space-y-10 pb-16">
          {/* Toast Notification */}
          {toast && (
-            <div className={`fixed bottom-6 right-6 z-[2000] px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3 animate-slide-up border transition-all ${
-               toast.kind === "success" 
-                  ? "bg-slate-900 border-slate-800 text-white" 
-                  : "bg-rose-50 border-rose-100 text-rose-800"
-            }`}>
+            <div className={`fixed bottom-6 right-6 z-[2000] px-5 py-4 rounded-2xl shadow-xl flex items-center gap-3 animate-slide-up border transition-all ${toast.kind === "success"
+               ? "bg-slate-900 border-slate-800 text-white"
+               : "bg-rose-50 border-rose-100 text-rose-800"
+               }`}>
                <CheckCircle2 className={`w-5 h-5 shrink-0 ${toast.kind === "success" ? "text-emerald-400" : "text-rose-500"}`} />
                <span className="text-[13.5px] font-bold">{toast.message}</span>
             </div>
@@ -457,9 +444,6 @@ export default function JobsPage() {
             <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto text-center space-y-6">
-               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-extrabold tracking-wider uppercase">
-                  <Flame className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Xu hướng tuyển dụng 2026
-               </span>
                <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
                   Khám phá cơ hội nghề nghiệp <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">bứt phá tương lai</span>
                </h1>
@@ -495,7 +479,7 @@ export default function JobsPage() {
 
          {/* ── Main Layout: Filters sidebar + Jobs List grid ── */}
          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
-            
+
             {/* 1. Left Sidebar: Interactive Filters */}
             <aside className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm space-y-6 lg:sticky lg:top-8 z-10">
                <div className="flex items-center justify-between">
@@ -503,7 +487,7 @@ export default function JobsPage() {
                      <SlidersHorizontal className="w-4.5 h-4.5 text-slate-500" /> Bộ lọc thông minh
                   </h2>
                   {hasFiltersActive && (
-                     <button 
+                     <button
                         onClick={clearFilters}
                         className="text-[11.5px] font-extrabold text-rose-500 hover:text-rose-700 bg-rose-50 hover:bg-rose-100/70 px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
                      >
@@ -525,11 +509,10 @@ export default function JobsPage() {
                               key={loc}
                               type="button"
                               onClick={() => setSelectedLocation(active ? null : loc)}
-                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
-                                 active 
-                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
-                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
-                              }`}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${active
+                                 ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900"
+                                 : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                                 }`}
                            >
                               <span>{loc}</span>
                               {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
@@ -552,11 +535,10 @@ export default function JobsPage() {
                               key={type}
                               type="button"
                               onClick={() => setSelectedJobType(active ? null : type)}
-                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
-                                 active 
-                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
-                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
-                              }`}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${active
+                                 ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900"
+                                 : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                                 }`}
                            >
                               <span>{type}</span>
                               {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
@@ -579,11 +561,10 @@ export default function JobsPage() {
                               key={key}
                               type="button"
                               onClick={() => setSelectedLevel(active ? null : key)}
-                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${
-                                 active 
-                                    ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900" 
-                                    : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
-                              }`}
+                              className={`w-full px-3.5 py-2.5 rounded-xl text-[13px] font-bold text-left transition-all duration-300 cursor-pointer flex items-center justify-between border bg-white ${active
+                                 ? "border-slate-900 -translate-y-1 shadow-[0_12px_24px_rgba(0,0,0,0.06)] scale-[1.02] border-2 text-slate-900"
+                                 : "border-slate-100 text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:-translate-y-0.5 hover:shadow-sm"
+                                 }`}
                            >
                               <span>{label}</span>
                               {active && <span className="w-1.5 h-1.5 rounded-full bg-slate-900 animate-pulse" />}
@@ -615,7 +596,7 @@ export default function JobsPage() {
                         <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
                            Hãy thử thay đổi từ khóa tìm kiếm hoặc tắt bớt các điều kiện lọc để tiếp cận nhiều cơ hội việc làm hơn.
                         </p>
-                        <button 
+                        <button
                            onClick={clearFilters}
                            className="px-5 py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-xl text-[13px] font-bold transition-all active:scale-95 cursor-pointer"
                         >
@@ -634,7 +615,7 @@ export default function JobsPage() {
                               className="group relative bg-white border border-slate-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:border-emerald-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 cursor-pointer flex flex-col sm:flex-row gap-5 items-start sm:items-center"
                            >
                               {/* Company Logo wrapper with dynamic color border */}
-                              <div 
+                              <div
                                  className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300 group-hover:scale-105"
                                  style={{ borderLeft: `4px solid ${job.companyColor}` }}
                               >
@@ -654,7 +635,7 @@ export default function JobsPage() {
                                  <h3 className="text-lg font-black text-slate-900 leading-snug group-hover:text-emerald-600 transition-colors truncate">
                                     {job.title}
                                  </h3>
-                                 
+
                                  {/* Badges / Tags metadata */}
                                  <div className="flex flex-wrap gap-2 pt-1">
                                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 text-slate-600 border border-slate-200/50 text-[11.5px] font-bold">
@@ -666,7 +647,7 @@ export default function JobsPage() {
                                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 text-slate-600 border border-slate-200/50 text-[11.5px] font-bold">
                                        <Clock3 className="w-3.5 h-3.5 text-slate-400" /> {job.type}
                                     </span>
-                                    
+
                                     {/* Tech Tag highlights */}
                                     {job.tags.slice(0, 3).map((tag, tIdx) => (
                                        <span key={tIdx} className="inline-flex items-center px-3 py-1 rounded-xl bg-emerald-50/50 text-emerald-700 border border-emerald-100/60 text-[11px] font-extrabold uppercase">
@@ -680,18 +661,17 @@ export default function JobsPage() {
                               <div className="w-full sm:w-auto shrink-0 flex sm:flex-col gap-2.5 items-center sm:items-end justify-between border-t border-slate-50 sm:border-t-0 pt-4 sm:pt-0">
                                  <span className="text-[11.5px] font-bold text-slate-400">{job.posted}</span>
                                  <div className="flex items-center gap-2">
-                                    <button 
+                                    <button
                                        onClick={(e) => addSavedJob(job, e)}
-                                       className={`p-3 rounded-xl border transition-all active:scale-95 cursor-pointer ${
-                                          isSaved 
-                                             ? "bg-rose-50 border-rose-100 text-rose-500 shadow-sm" 
-                                             : "bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300"
-                                       }`}
+                                       className={`p-3 rounded-xl border transition-all active:scale-95 cursor-pointer ${isSaved
+                                          ? "bg-rose-50 border-rose-100 text-rose-500 shadow-sm"
+                                          : "bg-white border-slate-200 text-slate-400 hover:text-slate-600 hover:border-slate-300"
+                                          }`}
                                        title={isSaved ? "Bỏ lưu tin" : "Lưu tin tuyển dụng"}
                                     >
                                        <Bookmark className={`w-4 h-4 ${isSaved ? "fill-current" : ""}`} />
                                     </button>
-                                    <button 
+                                    <button
                                        onClick={(e) => addApplication(job, e)}
                                        className="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[13.5px] rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
                                     >
@@ -727,7 +707,7 @@ export default function JobsPage() {
                         <p className="text-[13px] text-slate-700 font-extrabold">{promo.subtitle}</p>
                         <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{promo.description}</p>
                      </div>
-                     <button 
+                     <button
                         onClick={() => {
                            if (promo.title.toLowerCase().includes("it")) {
                               setSearchTerm("React");
@@ -756,7 +736,7 @@ export default function JobsPage() {
                <h2 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2.5">
                   <CalendarClock className="w-6 h-6 text-slate-500" /> Bài viết cẩm nang sự nghiệp
                </h2>
-                <Link to="/cam-nang" className="text-[13px] font-extrabold text-sky-600 hover:text-sky-700 hover:underline">Xem tất cả bài viết ↗</Link>
+               <Link to="/cam-nang" className="text-[13px] font-extrabold text-sky-600 hover:text-sky-700 hover:underline">Xem tất cả bài viết ↗</Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -780,131 +760,6 @@ export default function JobsPage() {
             </div>
          </section>
 
-         {/* ── Floating History & Saved Drawer Toggle ── */}
-         <button 
-            onClick={() => setShowTray(true)}
-            className="fixed bottom-6 left-6 z-[1000] px-5 py-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 shadow-2xl hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer flex items-center gap-2.5 font-bold text-[13.5px]"
-         >
-            <History className="w-5 h-5 text-emerald-400" />
-            <span>Lịch sử & Đã lưu ({applications.length + savedJobs.length})</span>
-         </button>
-
-         {/* Drawer Overlay & Content */}
-         {showTray && (
-            <>
-               <div 
-                  onClick={() => setShowTray(false)}
-                  className="fixed inset-0 z-[1500] bg-slate-950/40 backdrop-blur-sm transition-all"
-               />
-               <div className="fixed top-0 right-0 bottom-0 w-full sm:w-[480px] z-[1600] bg-white border-l border-slate-100 shadow-[0_0_60px_rgba(0,0,0,0.1)] flex flex-col justify-between animate-slide-left">
-                  {/* Drawer Header */}
-                  <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between shrink-0 bg-slate-50">
-                     <div className="flex items-center gap-2.5">
-                        <History className="w-5 h-5 text-emerald-500" />
-                        <h3 className="text-lg font-black text-slate-900">Thông tin cá nhân & Đã lưu</h3>
-                     </div>
-                     <button 
-                        onClick={() => setShowTray(false)}
-                        className="p-1.5 rounded-lg border border-slate-200 text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer transition-colors"
-                     >
-                        <X className="w-4.5 h-4.5" />
-                     </button>
-                  </div>
-
-                  {/* Drawer Scrollable Body */}
-                  <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
-                     
-                     {/* 1. Applied Applications */}
-                     <div className="space-y-4">
-                        <h4 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center justify-between">
-                           <span>Hồ sơ đã ứng tuyển</span>
-                           <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-extrabold">{applications.length}</span>
-                        </h4>
-                        
-                        {applications.length === 0 ? (
-                           <div className="text-center py-10 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-slate-400 text-[13px] font-medium leading-relaxed">
-                              Bạn chưa nộp hồ sơ vào vị trí nào.<br />Hãy chọn một công việc hấp dẫn để ứng tuyển ngay!
-                           </div>
-                        ) : (
-                           <div className="space-y-4">
-                              {applications.map((app) => {
-                                 const statusMeta = getApplicationStatusMeta(app.status);
-                                 return (
-                                    <div key={app.id} className="bg-slate-50/50 border border-slate-200/60 rounded-2xl p-4.5 space-y-3 relative group">
-                                       <button 
-                                          onClick={(e) => removeApplication(app.id, e)}
-                                          className="absolute top-4 right-4 p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
-                                          title="Xóa lịch sử"
-                                       >
-                                          <Trash2 className="w-4 h-4" />
-                                       </button>
-                                       <div className="flex justify-between items-start pr-6">
-                                          <div className="space-y-1">
-                                             <h5 className="font-extrabold text-[14.5px] text-slate-900 leading-snug">{toVietnameseJobTitle(app.title)}</h5>
-                                             <p className="text-[12px] text-slate-500 font-bold flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-slate-400" /> {app.company}</p>
-                                          </div>
-                                       </div>
-                                       <div className="flex flex-wrap gap-2">
-                                          <span className="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-extrabold uppercase border border-emerald-100">{app.place}</span>
-                                          <span className="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] font-extrabold uppercase border border-indigo-100">{app.type}</span>
-                                          <span className="px-2.5 py-0.5 rounded bg-amber-50 text-amber-700 text-[10px] font-extrabold uppercase border border-amber-100">{statusMeta.label}</span>
-                                       </div>
-                                       <p className="text-[11.5px] text-slate-400 font-semibold flex items-center gap-1"><CalendarClock className="w-3.5 h-3.5" /> Nộp lúc {app.appliedAt}</p>
-                                    </div>
-                                 );
-                              })}
-                           </div>
-                        )}
-                     </div>
-
-                     <hr className="border-slate-100" />
-
-                     {/* 2. Saved Jobs */}
-                     <div className="space-y-4">
-                        <h4 className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest flex items-center justify-between">
-                           <span>Tin tuyển dụng đã lưu</span>
-                           <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-extrabold">{savedJobs.length}</span>
-                        </h4>
-
-                        {savedJobs.length === 0 ? (
-                           <div className="text-center py-10 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-slate-400 text-[13px] font-medium leading-relaxed">
-                              Chưa có tin tuyển dụng nào được lưu.
-                           </div>
-                        ) : (
-                           <div className="space-y-4">
-                              {savedJobs.map((job) => (
-                                 <div 
-                                    key={job.id} 
-                                    onClick={() => { setShowTray(false); navigate(`/tim-viec/${job.slug ?? generateSlug(`${job.title} ${job.company}`)}`, { state: { job, relatedJobs: rawJobsList.filter((j) => j.title !== job.title || j.company !== job.company).slice(0, 3) } }) }}
-                                    className="bg-slate-50/50 border border-slate-200/60 hover:border-indigo-200/80 rounded-2xl p-4.5 space-y-3 relative group cursor-pointer transition-all"
-                                 >
-                                    <button 
-                                       onClick={(e) => removeSavedJob(job.id, e)}
-                                       className="absolute top-4 right-4 p-1 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
-                                       title="Xóa lưu tin"
-                                    >
-                                       <Trash2 className="w-4 h-4" />
-                                    </button>
-                                    <div className="flex justify-between items-start pr-6">
-                                       <div className="space-y-1">
-                                          <h5 className="font-extrabold text-[14.5px] text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors">{toVietnameseJobTitle(job.title)}</h5>
-                                          <p className="text-[12px] text-slate-500 font-bold flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-slate-400" /> {job.company}</p>
-                                       </div>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                       <span className="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-extrabold uppercase border border-emerald-100">{job.place}</span>
-                                       <span className="px-2.5 py-0.5 rounded bg-indigo-50 text-indigo-700 text-[10px] font-extrabold uppercase border border-indigo-100">{job.type}</span>
-                                    </div>
-                                 </div>
-                              ))}
-                           </div>
-                        )}
-                     </div>
-
-                  </div>
-               </div>
-            </>
-         )}
       </div>
    );
 }

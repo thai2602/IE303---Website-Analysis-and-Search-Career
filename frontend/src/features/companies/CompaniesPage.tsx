@@ -439,10 +439,12 @@ export default function CompaniesPage() {
 
    useEffect(() => {
       localStorage.setItem("jobpilot_applications", JSON.stringify(applications));
+      window.dispatchEvent(new Event("jobpilot-data-updated"));
    }, [applications]);
 
    useEffect(() => {
       localStorage.setItem("jobpilot_saved_jobs", JSON.stringify(savedJobs));
+      window.dispatchEvent(new Event("jobpilot-data-updated"));
    }, [savedJobs]);
 
    useEffect(() => {

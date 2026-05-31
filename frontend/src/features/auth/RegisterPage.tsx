@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Eye, EyeOff, User, Mail, Lock, CheckCircle2, Sparkles } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -120,6 +120,7 @@ const perks = [
 
 export default function RegisterPage() {
    const navigate = useNavigate();
+   const location = useLocation();
    const [showPassword, setShowPassword] = useState(false);
    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
    const [fullName, setFullName] = useState("");
@@ -298,10 +299,53 @@ export default function RegisterPage() {
                   {[1, 2, 3].map((step) => (
                      <div key={step} style={{
                         height: "4px", flex: 1, borderRadius: "99px",
-                        background: step === 1 ? "#10b981" : step === 2 ? "#d1fae5" : "#f1f5f9",
+                        background: step === 1 ? "#10b981" : step === 2 ? "#a7f3d0" : "#cbd5e1",
                      }} />
                   ))}
                </div>
+
+               {/* <div style={{ display: "flex", gap: 10, marginBottom: 22 }}>
+                  {[
+                     { label: "Đăng nhập", href: "/dang-nhap" },
+                     { label: "Đăng ký", href: "/dang-ky" },
+                  ].map((item) => {
+                     const isActive = location.pathname === item.href;
+                     return (
+                        <Link
+                           key={item.href}
+                           to={item.href}
+                           style={{
+                              padding: "10px 16px",
+                              borderRadius: 999,
+                              border: isActive ? "1px solid #10b981" : "1px solid #e2e8f0",
+                              background: isActive ? "#ecfdf5" : "#fff",
+                              color: isActive ? "#047857" : "#475569",
+                              fontSize: 13,
+                              fontWeight: 800,
+                              textDecoration: "none",
+                              boxShadow: isActive ? "0 8px 18px rgba(16,185,129,0.08)" : "none",
+                              transition: "transform 0.2s ease, background 0.2s ease, border-color 0.2s ease",
+                           }}
+                           onMouseEnter={(event) => {
+                              if (!isActive) {
+                                 event.currentTarget.style.transform = "translateY(-1px)";
+                                 event.currentTarget.style.background = "#f8fafc";
+                                 event.currentTarget.style.borderColor = "#10b981";
+                              }
+                           }}
+                           onMouseLeave={(event) => {
+                              if (!isActive) {
+                                 event.currentTarget.style.transform = "";
+                                 event.currentTarget.style.background = "#fff";
+                                 event.currentTarget.style.borderColor = "#e2e8f0";
+                              }
+                           }}
+                        >
+                           {item.label}
+                        </Link>
+                     );
+                  })}
+               </div> */}
 
                <h1 style={{ fontSize: "26px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "6px" }}>
                   Tạo tài khoản
@@ -464,8 +508,8 @@ export default function RegisterPage() {
                      />
                      <span style={{ fontSize: "12px", color: "#64748b", lineHeight: 1.6 }}>
                         Tôi đồng ý với{" "}
-                        <a 
-                           href="#" 
+                        <a
+                           href="#"
                            onClick={(e) => {
                               e.preventDefault();
                               setErrorMessage("Điều khoản dịch vụ đang được cập nhật bản mới nhất cho năm 2026. Quý khách vui lòng quay lại sau.");
@@ -475,8 +519,8 @@ export default function RegisterPage() {
                            Điều khoản dịch vụ
                         </a>
                         {" "}và{" "}
-                        <a 
-                           href="#" 
+                        <a
+                           href="#"
                            onClick={(e) => {
                               e.preventDefault();
                               setErrorMessage("Chính sách bảo mật dữ liệu cá nhân đang được nâng cấp theo chuẩn mới. Quý khách vui lòng quay lại sau.");
@@ -500,19 +544,18 @@ export default function RegisterPage() {
                      type="submit"
                      disabled={isSubmitting || isGoogleSubmitting}
                      style={{
-                     width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                     background: "linear-gradient(135deg, #0f172a, #1e293b)",
-                     color: "#fff", borderRadius: "12px", padding: "13px",
-                     fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
-                     opacity: isSubmitting ? 0.8 : 1,
-                     boxShadow: "0 8px 25px rgba(15,23,42,0.3)",
-                     transition: "transform 0.2s",
-                  }}
+                        width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
+                        background: "linear-gradient(135deg, #0f172a, #1e293b)",
+                        color: "#fff", borderRadius: "12px", padding: "13px",
+                        fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
+                        opacity: isSubmitting ? 0.8 : 1,
+                        boxShadow: "0 8px 25px rgba(15,23,42,0.3)",
+                        transition: "transform 0.2s",
+                     }}
                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; }}
                   >
-                     <img src={logoImg} alt="JobPilot logo" style={{ width: 16, height: 16, objectFit: "contain" }} /> Tạo tài khoản ngay
-                     <Sparkles style={{ width: 16, height: 16 }} /> {isSubmitting ? "Đang tạo tài khoản..." : "Tạo tài khoản ngay"}
+                     {isSubmitting ? "Đang tạo tài khoản..." : "Tạo tài khoản ngay"}
                   </button>
 
                   {/* Divider */}
@@ -526,12 +569,12 @@ export default function RegisterPage() {
                      type="button"
                      disabled={isSubmitting || isGoogleSubmitting}
                      style={{
-                     width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
-                     background: "#fff", color: "#374151",
-                     border: "1.5px solid #e2e8f0", borderRadius: "12px", padding: "11px",
-                     fontSize: "14px", fontWeight: 600, cursor: "pointer",
-                     opacity: isGoogleSubmitting ? 0.8 : 1,
-                  }}
+                        width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "10px",
+                        background: "#fff", color: "#374151",
+                        border: "1.5px solid #e2e8f0", borderRadius: "12px", padding: "11px",
+                        fontSize: "14px", fontWeight: 600, cursor: "pointer",
+                        opacity: isGoogleSubmitting ? 0.8 : 1,
+                     }}
                      onClick={handleGoogleRegister}
                   >
                      <svg width="18" height="18" viewBox="0 0 24 24">
@@ -550,7 +593,7 @@ export default function RegisterPage() {
          <div className="res-auth-deco" style={{
             flex: "1 1 300px",
             borderRadius: "24px",
-            background: "linear-gradient(145deg, #10b981 0%, #059669 100%)",
+            background: "linear-gradient(145deg, #f8fafc 0%, #ecfdf5 40%, #f8fafc 100%)",
             padding: "48px 40px",
             position: "relative",
             overflow: "hidden",
@@ -558,22 +601,22 @@ export default function RegisterPage() {
          }}>
             <div style={{
                position: "absolute", top: "-40px", right: "-40px", width: "200px", height: "200px",
-               borderRadius: "50%", background: "rgba(167,243,208,0.1)", filter: "blur(40px)",
+               borderRadius: "50%", background: "rgba(16,185,129,0.08)", filter: "blur(40px)",
             }} />
             <div style={{
                position: "absolute", bottom: "-30px", left: "10%", width: "150px", height: "150px",
-               borderRadius: "50%", background: "rgba(167,243,208,0.1)", filter: "blur(35px)",
+               borderRadius: "50%", background: "rgba(148,163,184,0.08)", filter: "blur(35px)",
             }} />
 
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "32px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginBottom: "32px", background: "rgba(255,255,255,0.92)", border: "1px solid rgba(148,163,184,0.18)", borderRadius: "12px", padding: "10px 14px" }}>
                <img src={logoImg} alt="JobPilot logo" style={{ width: 18, height: 18, objectFit: "contain" }} />
-               <span style={{ color: "#fff", fontWeight: 800, fontSize: "16px" }}>JobPilot</span>
+               <span style={{ color: "#0f172a", fontWeight: 800, fontSize: "16px" }}>JobPilot</span>
             </div>
 
-            <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "8px" }}>
+            <h2 style={{ fontSize: "24px", fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", marginBottom: "8px" }}>
                Mở khóa toàn bộ tính năng
             </h2>
-            <p style={{ fontSize: "14px", color: "#ffffff", marginBottom: "32px", lineHeight: 1.6 }}>
+            <p style={{ fontSize: "14px", color: "#334155", marginBottom: "32px", lineHeight: 1.6 }}>
                Tạo tài khoản miễn phí và bắt đầu hành trình sự nghiệp ngay hôm nay.
             </p>
 
@@ -582,12 +625,12 @@ export default function RegisterPage() {
                   <div key={perk} style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
                      <div style={{
                         width: "22px", height: "22px", borderRadius: "50%",
-                        background: "rgba(255,255,255,0.2)", border: "1px solid rgba(255,255,255,0.3)",
+                        background: "rgba(255,255,255,0.88)", border: "1px solid rgba(16,185,129,0.22)",
                         display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
                      }}>
-                        <CheckCircle2 style={{ width: 13, height: 13, color: "#ffffff" }} />
+                        <CheckCircle2 style={{ width: 13, height: 13, color: "#10b981" }} />
                      </div>
-                     <span style={{ fontSize: "14px", color: "#ffffff", lineHeight: 1.5 }}>{perk}</span>
+                     <span style={{ fontSize: "14px", color: "#0f172a", lineHeight: 1.5 }}>{perk}</span>
                   </div>
                ))}
             </div>
@@ -595,7 +638,7 @@ export default function RegisterPage() {
             {/* Social proof */}
             <div style={{
                marginTop: "40px", paddingTop: "28px",
-               borderTop: "1px solid rgba(255,255,255,0.15)",
+               borderTop: "1px solid rgba(148,163,184,0.18)",
             }}>
                <div style={{ display: "flex", gap: "-8px" }}>
                   {["A", "B", "C", "D"].map((l, i) => (
@@ -611,7 +654,7 @@ export default function RegisterPage() {
                      </div>
                   ))}
                </div>
-               <p style={{ fontSize: "12px", color: "#64748b", marginTop: "10px" }}>
+               <p style={{ fontSize: "12px", color: "#475569", marginTop: "10px" }}>
                   <span style={{ color: "#10b981", fontWeight: 700 }}>15,000+</span> bạn trẻ đã tìm được việc cùng JobPilot
                </p>
             </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Building2, MapPin, Star, Users, Wallet, Briefcase, ArrowUpRight } from "lucide-react";
+import { Building2, MapPin, Star, Users, Wallet, Briefcase, ArrowUpRight, Check } from "lucide-react";
 import { companies, companyAvatars, companyImages } from "./CompaniesPage";
 import { generateSlug } from "../../utils/slug";
 
@@ -64,8 +64,8 @@ const getDefaultContact = (companyName: string) => ({
 
 const getDefaultTerms = () => [
    "Chính sách bảo mật thông tin",
-   "Môi trường làm việc chuyên nghiệp",
-   "Chế độ đãi ngộ cạnh tranh",
+   "Môi trường làm chuyên nghiệp",
+   "Chế độ đãi ngộ hấp dẫn",
 ];
 
 const getCompanyIntroduction = (company: CompanyItem) => {
@@ -115,7 +115,7 @@ export default function CompanyDetailPage() {
          setIsLoading(false);
          return;
       }
-      
+
       fetch(`http://localhost:8080/api/companies/${companySlug}`)
          .then((res) => {
             if (!res.ok) throw new Error("API error");
@@ -127,7 +127,7 @@ export default function CompanyDetailPage() {
                setCompany({ ...staticMatch });
                return;
             }
-            
+
             const benefitsArr = apiItem.benefits?.split(",").map((b: string) => b.trim()).filter(Boolean) ?? [];
             const mappedPositions = apiItem.positions?.map((pos: any) => ({
                id: pos.id,
@@ -248,28 +248,34 @@ export default function CompanyDetailPage() {
                   ))}
                </div>
 
-               <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-3xl bg-slate-50 p-6">
-                     <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Phúc lợi</h3>
-                     <ul className="mt-4 space-y-3 text-sm text-slate-700">
+               <div className="grid gap-6 sm:grid-cols-2">
+                  <div>
+                     <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 mb-4">Phúc lợi</h3>
+                     <div className="grid gap-3">
                         {selectedCompany.benefits.map((benefit) => (
-                           <li key={benefit} className="flex items-start gap-3">
-                              <span className="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700">★</span>
-                              <span>{benefit}</span>
-                           </li>
+                           <article key={benefit} className="rounded-[12px] border border-gray-200 bg-white p-4 shadow-sm flex items-center gap-2">
+                              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-slate-200">
+                                 <Star className="h-5 w-5 text-amber-500" />
+                              </div>
+                              <div className="flex-1 text-sm text-slate-700 font-medium text-left">
+                                 {benefit}
+                              </div>
+                           </article>
                         ))}
-                     </ul>
+                     </div>
                   </div>
-                  <div className="rounded-3xl bg-slate-50 p-6">
-                     <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Điều khoản</h3>
-                     <ul className="mt-4 space-y-3 text-sm text-slate-700">
+                  <div>
+                     <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500 mb-4">Điều khoản</h3>
+                     <div className="grid gap-3">
                         {getDefaultTerms().map((term) => (
-                           <li key={term} className="flex items-start gap-3">
-                              <span className="mt-1 inline-flex h-7 w-7 items-center justify-center rounded-2xl bg-sky-100 text-sky-700">✓</span>
-                              <span>{term}</span>
-                           </li>
+                           <article key={term} className="rounded-[12px] border border-gray-200 bg-white p-4 shadow-sm flex items-center gap-2">
+                              <div className="h-10 w-10 flex items-center justify-center rounded-full border border-slate-200">
+                                 <Check className="h-5 w-5 text-sky-600" />
+                              </div>
+                              <div className="flex-1 text-sm text-slate-700 font-medium text-left">{term}</div>
+                           </article>
                         ))}
-                     </ul>
+                     </div>
                   </div>
                </div>
 
@@ -284,30 +290,30 @@ export default function CompanyDetailPage() {
                      {selectedCompany.positions.map((position) => {
                         const jobSlug = generateSlug(`${position.title} ${selectedCompany.name}`);
                         return (
-                           <article 
-                              key={position.title} 
+                           <article
+                              key={position.title}
                               onClick={() => navigate(`/tim-viec/${jobSlug}`)}
                               className="group relative bg-white border border-slate-100 rounded-[24px] p-6 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                               style={{ borderLeft: `4px solid ${selectedCompany.color || '#6366f1'}` }}
                            >
                               <div className="space-y-3 flex-1 min-w-0">
                                  <div className="flex flex-wrap gap-2 items-center">
-                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 border border-indigo-100/50 px-2 py-0.5 rounded">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-indigo-600 bg-transparent border border-indigo-100/40 px-2 py-0.5 rounded">
                                        <Briefcase className="w-3.5 h-3.5" /> {position.workingHours}
                                     </span>
-                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 bg-emerald-50 border border-emerald-100/50 px-2 py-0.5 rounded">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-600 bg-transparent border border-emerald-100/40 px-2 py-0.5 rounded">
                                        <Wallet className="w-3.5 h-3.5" /> {position.salary}
                                     </span>
                                  </div>
-                                 
+
                                  <h3 className="text-[17px] font-black text-slate-950 truncate group-hover:text-indigo-600 transition-colors">
                                     {position.title}
                                  </h3>
-                                 
+
                                  <p className="text-slate-500 text-[13px] leading-relaxed line-clamp-2">
                                     {position.description}
                                  </p>
-                                 
+
                                  <div className="flex flex-wrap gap-1.5 pt-1">
                                     {position.skills.map((skill) => (
                                        <span key={skill} className="rounded-full bg-slate-50 border border-slate-100 px-3 py-1 text-[11px] font-bold text-slate-600">
@@ -316,9 +322,9 @@ export default function CompanyDetailPage() {
                                     ))}
                                  </div>
                               </div>
-                              
+
                               <div className="shrink-0 flex items-center gap-3">
-                                 <button 
+                                 <button
                                     onClick={(e) => {
                                        e.stopPropagation();
                                        navigate(`/tim-viec/${jobSlug}`);

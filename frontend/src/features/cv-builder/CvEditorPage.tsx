@@ -217,7 +217,7 @@ function CvEditorContent() {
     // activeCvId = CV đang được chọn trong editor → backend tự inject vào context AI
     const activeCvId = currentCvId || (selectedCvId ? Number(selectedCvId) : undefined);
 
-    const hasData = 
+    const hasData =
       (cvData.fullName && cvData.fullName.trim() !== '') ||
       (cvData.jobTitle && cvData.jobTitle.trim() !== '') ||
       (cvData.summary && cvData.summary.trim() !== '') ||
@@ -984,7 +984,7 @@ function CvEditorContent() {
   }, [cvData.color]);
 
   return (
-    <div className="min-h-screen bg-slate-50/50 font-sans text-slate-900 flex">
+    <div className="min-h-screen bg-slate-50/50 text-slate-900 flex">
       {/* ── Main Navigation Sidebar (Vertical) ── */}
       <nav className="w-[80px] lg:w-[220px] bg-white border-r border-slate-200 text-slate-500 flex flex-col items-center lg:items-start shrink-0 h-screen sticky top-0 py-5 px-3 lg:px-4 z-10 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
         <Link to="/" className="text-slate-900 flex items-center justify-center lg:justify-start w-full gap-2.5 mb-8 hover:text-emerald-600 transition-colors">
@@ -1247,7 +1247,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-blue-50 rounded-[14px] text-blue-600 group-hover:bg-blue-100 transition-colors"><Code className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-blue-100/40 rounded-[14px] text-blue-600 transition-colors"><Code className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Kỹ năng</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addSkill}>
@@ -1285,7 +1285,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-emerald-50 rounded-[14px] text-emerald-600 group-hover:bg-emerald-100 transition-colors"><Briefcase className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-emerald-100/40 rounded-[14px] text-emerald-600 transition-colors"><Briefcase className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Kinh nghiệm làm việc</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addExp}>
@@ -1337,7 +1337,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-amber-50 rounded-[14px] text-amber-600 group-hover:bg-amber-100 transition-colors"><GraduationCap className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-amber-100/40 rounded-[14px] text-amber-600 transition-colors"><GraduationCap className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Học vấn</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addEdu}>
@@ -1385,7 +1385,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-rose-50 rounded-[14px] text-rose-600 group-hover:bg-rose-100 transition-colors"><FolderGit2 className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-rose-100/40 rounded-[14px] text-rose-600 transition-colors"><FolderGit2 className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Dự án cá nhân</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addProj}>
@@ -1433,7 +1433,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-amber-50 rounded-[14px] text-amber-600 group-hover:bg-amber-100 transition-colors"><Sparkles className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-amber-100/40 rounded-[14px] text-amber-600 transition-colors"><Sparkles className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Chứng chỉ & Giải thưởng</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addAtt}>
@@ -1490,7 +1490,7 @@ function CvEditorContent() {
                 <section className="mb-10 group">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-sky-50 rounded-[14px] text-sky-600 group-hover:bg-sky-100 transition-colors"><Mail className="w-5 h-5" /></div>
+                      <div className="p-2.5 bg-transparent border border-sky-100/40 rounded-[14px] text-sky-600 transition-colors"><Mail className="w-5 h-5" /></div>
                       <h2 className="text-xl font-extrabold text-slate-800">Mạng xã hội & Liên kết</h2>
                     </div>
                     <button type="button" className={addBtnCls} onClick={addSocial}>

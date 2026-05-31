@@ -40,16 +40,24 @@ export default function FloatingChatbot() {
   const userId = localStorage.getItem("userId") ?? undefined;
 
   // Quyết định trang nào hiển thị bong bóng
-  // Các trang chính: homepage (/), tim-viec, cong-ty, tien-ich, cam-nang, cv-mau
-  const allowedPaths = ["/", "/tim-viec", "/cong-ty", "/tien-ich", "/cam-nang", "/cv-mau"];
-  const isAllowedPath = allowedPaths.includes(location.pathname) || 
-                        location.pathname.startsWith("/tim-viec/") || 
-                        location.pathname.startsWith("/cong-ty/");
+  // Thêm cả các trang auth và hồ sơ người dùng.
+  const allowedPaths = [
+    "/",
+    "/tim-viec",
+    "/cong-ty",
+    "/tien-ich",
+    "/cam-nang",
+    "/cv-mau",
+    "/dang-nhap",
+    "/dang-ky",
+    "/ho-so-nguoi-dung",
+  ];
+  const isAllowedPath = allowedPaths.includes(location.pathname) ||
+    location.pathname.startsWith("/tim-viec/") ||
+    location.pathname.startsWith("/cong-ty/");
 
-  // Xác định vị trí dựa trên sự hiện diện của nút Trái Tim (GlobalSavedTray)
-  // GlobalSavedTray ẩn ở /tim-viec và /cong-ty
-  const hasSavedTray = !["/tim-viec", "/cong-ty"].includes(location.pathname);
-  const rightOffset = hasSavedTray ? "100px" : "24px";
+  // Giữ chatbot tách khỏi nút trái tim ở mọi trang
+  const rightOffset = "100px";
 
   // Tự động scroll xuống dưới
   useEffect(() => {
@@ -137,7 +145,7 @@ export default function FloatingChatbot() {
     setMessages([]);
     setError(null);
     if (userId) {
-      await fetch(`${API_BASE}/history?userId=${userId}`, { method: "DELETE" }).catch(() => {});
+      await fetch(`${API_BASE}/history?userId=${userId}`, { method: "DELETE" }).catch(() => { });
     }
   };
 
@@ -194,7 +202,7 @@ export default function FloatingChatbot() {
 
       {/* ── Chatbot Bubble Toggle Button ── */}
       {!isOpen && (
-        <div 
+        <div
           className="fixed z-[1000] flex items-center justify-center transition-all duration-300"
           style={{
             right: rightOffset,
@@ -205,7 +213,7 @@ export default function FloatingChatbot() {
         >
           {/* Pulsing ring backdrop */}
           <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-pulse-ring pointer-events-none" />
-          
+
           <button
             onClick={() => setIsOpen(true)}
             className="w-full h-full rounded-full text-white flex items-center justify-center cursor-pointer shadow-[0_10px_35px_rgba(16,185,129,0.25)] transition-all duration-300 hover:scale-105 group bg-gradient-to-tr from-emerald-500 to-teal-600 relative overflow-hidden"
@@ -242,7 +250,7 @@ export default function FloatingChatbot() {
                 <p className="text-[10.5px] text-slate-400 font-bold mt-0.5">Trợ lý định hướng nghề nghiệp</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
               {messages.length > 0 && (
                 <button
@@ -298,43 +306,41 @@ export default function FloatingChatbot() {
                 className={`flex gap-3 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
               >
                 <div
-                  className={`w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5 border ${
-                    msg.role === "assistant"
-                      ? "bg-slate-50 border-slate-100 text-emerald-600"
-                      : "bg-slate-100 border-slate-200 text-slate-500"
-                  }`}
+                  className={`w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center mt-0.5 border ${msg.role === "assistant"
+                    ? "bg-slate-50 border-slate-100 text-emerald-600"
+                    : "bg-slate-100 border-slate-200 text-slate-500"
+                    }`}
                 >
                   {msg.role === "assistant" ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
                 </div>
 
                 <div
-                  className={`max-w-[78%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed ${
-                    msg.role === "user"
-                      ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-tr-sm shadow-md shadow-emerald-500/10 chatbot-user-bubble"
-                      : "bg-white border border-slate-100 text-slate-700 shadow-sm rounded-tl-sm font-semibold"
-                  }`}
+                  className={`max-w-[78%] rounded-2xl px-4 py-3 text-[13px] leading-relaxed ${msg.role === "user"
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-tr-sm shadow-md shadow-emerald-500/10 chatbot-user-bubble"
+                    : "bg-white border border-slate-100 text-slate-700 shadow-sm rounded-tl-sm font-semibold"
+                    }`}
                 >
                   {msg.content ? (
-                      <div className="chatbot-markdown-content text-inherit">
-                        <ReactMarkdown
-                          remarkPlugins={[remarkGfm]}
-                          components={{
-                            p: ({ children }) => <p className="mb-2 last:mb-0 leading-normal">{children}</p>,
-                            ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
-                            ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
-                            li: ({ children }) => <li className="mb-0.5">{children}</li>,
-                            strong: ({ children }) => <strong className="font-black text-inherit">{children}</strong>,
-                            code: ({ children }) => (
-                              <code className={`px-1 py-0.5 rounded text-[11.5px] font-mono ${msg.role === 'user' ? 'bg-white/20 text-white' : 'bg-slate-100 text-emerald-700'}`}>
-                                {children}
-                              </code>
-                            )
-                          }}
-                        >
-                          {msg.content}
-                        </ReactMarkdown>
-                      </div>
-                    ) : msg.isStreaming ? (
+                    <div className="chatbot-markdown-content text-inherit">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          p: ({ children }) => <p className="mb-2 last:mb-0 leading-normal">{children}</p>,
+                          ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
+                          ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
+                          li: ({ children }) => <li className="mb-0.5">{children}</li>,
+                          strong: ({ children }) => <strong className="font-black text-inherit">{children}</strong>,
+                          code: ({ children }) => (
+                            <code className={`px-1 py-0.5 rounded text-[11.5px] font-mono ${msg.role === 'user' ? 'bg-white/20 text-white' : 'bg-slate-100 text-emerald-700'}`}>
+                              {children}
+                            </code>
+                          )
+                        }}
+                      >
+                        {msg.content}
+                      </ReactMarkdown>
+                    </div>
+                  ) : msg.isStreaming ? (
                     <span className="flex items-center gap-2 text-slate-400 py-0.5">
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-emerald-500" />
                       <span className="text-[11.5px] font-bold">Đang soạn câu trả lời...</span>

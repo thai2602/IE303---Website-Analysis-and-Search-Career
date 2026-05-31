@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -84,6 +84,7 @@ function decodeGoogleEmail(idToken: string): string | null {
 
 export default function LoginPage() {
    const navigate = useNavigate();
+   const location = useLocation();
    const [showPassword, setShowPassword] = useState(false);
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
@@ -248,7 +249,7 @@ export default function LoginPage() {
          <div className="res-auth-deco" style={{
             flex: "1 1 300px",
             borderRadius: "24px",
-            background: "linear-gradient(145deg, #10b981 0%, #059669 60%, #047857 100%)",
+            background: "linear-gradient(145deg, #f8fafc 0%, #ecfdf5 45%, #f8fafc 100%)",
             padding: "48px 40px",
             position: "relative",
             overflow: "hidden",
@@ -271,43 +272,46 @@ export default function LoginPage() {
             <div>
                <div style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
-                  background: "rgba(255,255,255,0.15)", borderRadius: "12px",
-                  padding: "8px 14px", marginBottom: "36px",
+                  background: "rgba(255,255,255,0.92)", borderRadius: "12px",
+                  border: "1px solid rgba(148,163,184,0.18)",
+                  padding: "8px 14px", marginBottom: "24px",
                }}>
                   <img src={logoImg} alt="JobPilot logo" style={{ width: 18, height: 18, objectFit: "contain" }} />
-                  <span style={{ color: "#fff", fontWeight: 800, fontSize: "16px", letterSpacing: "-0.01em" }}>JobPilot</span>
+                  <span style={{ color: "#0f172a", fontWeight: 800, fontSize: "16px", letterSpacing: "-0.01em" }}>JobPilot</span>
                </div>
 
+
+
                <h2 style={{
-                  fontSize: "28px", fontWeight: 800, color: "#fff",
+                  fontSize: "28px", fontWeight: 800, color: "#0f172a",
                   lineHeight: 1.25, letterSpacing: "-0.02em", marginBottom: "16px",
                }}>
-                  Chào mừng <br />trở lại! 👋
+                  Chào mừng trở lại! 👋
                </h2>
-               <p style={{ color: "#ffffff", fontSize: "14px", lineHeight: 1.7 }}>
+               <p style={{ color: "#334155", fontSize: "14px", lineHeight: 1.7 }}>
                   Đăng nhập để tiếp tục hành trình nghề nghiệp của bạn cùng JobPilot.
                </p>
             </div>
 
             {/* Testimonial */}
             <div style={{
-               background: "rgba(255,255,255,0.12)", borderRadius: "16px",
+               background: "rgba(255,255,255,0.92)", borderRadius: "16px",
                padding: "20px", backdropFilter: "blur(8px)",
-               border: "1px solid rgba(255,255,255,0.2)",
+               border: "1px solid rgba(148,163,184,0.18)",
             }}>
-               <p style={{ color: "#ffffff", fontSize: "13px", lineHeight: 1.7, marginBottom: "12px" }}>
+               <p style={{ color: "#334155", fontSize: "13px", lineHeight: 1.7, marginBottom: "12px" }}>
                   "JobPilot giúp mình tìm được việc ưng ý chỉ trong 3 tuần — CV mẫu rất xịn!"
                </p>
                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <div style={{
                      width: "32px", height: "32px", borderRadius: "50%",
-                     background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+                     background: "linear-gradient(135deg, #e2e8f0, #cbd5e1)",
                      display: "flex", alignItems: "center", justifyContent: "center",
-                     fontSize: "13px", fontWeight: 800, color: "#047857",
+                     fontSize: "13px", fontWeight: 800, color: "#0f172a",
                   }}>A</div>
                   <div>
-                     <p style={{ color: "#fff", fontSize: "13px", fontWeight: 700 }}>Anh Tuấn</p>
-                     <p style={{ color: "#ffffff", fontSize: "11px" }}>Frontend Developer tại NovaTech</p>
+                     <p style={{ color: "#0f172a", fontSize: "13px", fontWeight: 700 }}>Anh Tuấn</p>
+                     <p style={{ color: "#475569", fontSize: "11px" }}>Frontend Developer tại NovaTech</p>
                   </div>
                </div>
             </div>
@@ -434,8 +438,8 @@ export default function LoginPage() {
                         <div>
                            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                               <label style={{ fontSize: "13px", fontWeight: 700, color: "#374151" }}>Mật khẩu</label>
-                              <a 
-                                 href="#" 
+                              <a
+                                 href="#"
                                  onClick={(e) => {
                                     e.preventDefault();
                                     setErrorMessage("Tính năng thiết lập lại mật khẩu qua Email đang được bảo trì. Vui lòng liên hệ hotro@jobpilot.vn để được hỗ trợ.");

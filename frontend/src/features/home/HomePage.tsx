@@ -30,7 +30,7 @@ import {
    Legend,
    ResponsiveContainer,
 } from "recharts";
-import mascotImage from "../../assets/linh_vật_web_xóa nền.png";
+// mascot image removed from HomePage (kept in Header as global fixed mascot)
 import companyLogo1 from "../../assets/company_logo/image_1.png";
 import companyLogo4 from "../../assets/company_logo/image_4.png";
 import companyLogo7 from "../../assets/company_logo/image_7.png";
@@ -219,11 +219,11 @@ const jobDistributionData = [
 
 // Dữ liệu mức lương theo vị trí
 const salaryByPositionData = [
-   { position: "Intern", salary: 5, applicants: 450 },
-   { position: "Junior", salary: 12, applicants: 680 },
-   { position: "Senior", salary: 28, applicants: 320 },
-   { position: "Lead", salary: 40, applicants: 180 },
-   { position: "Manager", salary: 50, applicants: 120 },
+   { position: "Intern", salary: 5, applicants: 450, color: "#60a5fa" }, // blue
+   { position: "Junior", salary: 12, applicants: 680, color: "#34d399" }, // green
+   { position: "Senior", salary: 28, applicants: 320, color: "#7c3aed" }, // purple
+   { position: "Lead", salary: 40, applicants: 180, color: "#f59e0b" }, // amber
+   { position: "Manager", salary: 50, applicants: 120, color: "#fb7185" }, // pink
 ];
 
 const companyHighlights = [
@@ -282,7 +282,7 @@ function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
          <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3">
                <div
-                  className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-gray-100"
+                  className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-2xl bg-transparent border border-slate-100"
                >
                   {company.avatar ? (
                      <img src={company.avatar} alt={company.name} className="h-full w-full object-cover" />
@@ -297,7 +297,7 @@ function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
                   <p className="mt-1 text-xs text-slate-700">{company.category}</p>
                </div>
             </div>
-            <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2 py-1">
+            <div className="flex items-center gap-1 rounded-full bg-transparent border border-amber-100/40 px-2 py-1">
                <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                <span className="text-xs font-bold text-amber-700">{company.rating}</span>
             </div>
@@ -345,11 +345,11 @@ function TopIndustryCard({
                         <h4 className="font-semibold text-gray-900 text-sm">{job.title}</h4>
                         <p className="text-xs text-slate-700 mt-1">{job.company}</p>
                         <div className="mt-3 flex flex-wrap gap-2">
-                           <span className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-transparent border border-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                               <MapPin className="h-3 w-3 text-slate-600" />
                               {job.place}
                            </span>
-                           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                           <span className="inline-flex items-center gap-2 rounded-full bg-transparent border border-emerald-100/40 px-3 py-1 text-xs font-semibold text-emerald-700">
                               <Wallet className="h-3 w-3 text-emerald-600" />
                               {job.salary}
                            </span>
@@ -450,6 +450,7 @@ export default function HomePage() {
          const current = raw ? (JSON.parse(raw) as Array<Record<string, string>>) : [];
          const updated = [application, ...current.filter((item) => item.id !== id)];
          localStorage.setItem("jobpilot_applications", JSON.stringify(updated));
+         window.dispatchEvent(new Event("jobpilot-data-updated"));
          setAppliedJobIds((prev) => new Set([...prev, id]));
          showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
       } catch {
@@ -460,37 +461,26 @@ export default function HomePage() {
    return (
       <div className="space-y-12">
          {/* ===== BANNER SECTION ===== */}
-         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-16">
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-16 min-h-[360px] md:min-h-[460px]">
             {/* Decorative orbs */}
             <div className="home-banner-orb home-banner-orb-1" />
             <div className="home-banner-orb home-banner-orb-2" />
 
-            {/* Mascot positioned bottom-right as accent */}
-            <div className="absolute -right-20 md:-bottom-7 md:-right-2 opacity-70 md:opacity-60 pointer-events-none">
-               <div className="ai-mascot-wrap inline-flex h-40 w-40 md:h-64 md:w-64">
-                  <img src={mascotImage} alt="Linh vật JobPilot" className="ai-mascot-image" style={{ filter: 'brightness(1.05)' }} />
-               </div>
-            </div>
+            {/* Mascot moved out of banner (placed after the banner) */}
 
-            <div className="relative grid gap-6 lg:grid-cols-3 lg:items-start">
-               {/* Main content - Left side */}
-               <div className="space-y-6 lg:col-span-2">
-                  <div className="space-y-2">
-                     <span className="inline-flex items-center rounded-full border border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-700 shadow-sm">
-                        Nền tảng tìm việc hàng đầu
-                     </span>
-                  </div>
-
+            <div className="relative grid gap-6 lg:grid-cols-3 items-center lg:items-center">
+               {/* Main content - centered across banner */}
+               <div className="space-y-6 lg:col-span-3 text-center mx-auto max-w-3xl">
                   <div className="space-y-3">
-                     <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-                        Tìm việc dễ dàng,<br />Ứng tuyển nhanh chóng
+                     <h1 className="text-[24px] md:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
+                        Ứng tuyển nhanh, việc làm tốt
                      </h1>
                      <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-xl">
                         JobPilot giúp bạn kết nối với các công ty uy tín, nhận gợi ý việc phù hợp từng ngày, và tối ưu hồ sơ để ứng tuyển hiệu quả.
                      </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                      <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
                         Khám phá việc làm <ArrowRight className="h-4 w-4" />
                      </Link>
@@ -500,85 +490,39 @@ export default function HomePage() {
                   </div>
 
                   {/* Stats row */}
-                  <div className="pt-4 grid grid-cols-3 gap-3 md:gap-4">
+                  <div className="pt-4 grid grid-cols-3 gap-3 md:gap-4 justify-items-center">
                      {bannerMarketStats.map((stat) => (
-                        <div key={stat.label} className="group rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-3 md:p-4 transition-all hover:shadow-md">
+                        <div key={stat.label} className="group rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-3 md:p-4 transition-all hover:shadow-md text-center">
                            <p className="text-xs md:text-[11px] uppercase tracking-widest text-slate-600 font-semibold">{stat.label}</p>
-                           <p className="mt-2 text-xl md:text-2xl font-bold" style={{ color: stat.accent }}>{stat.value}</p>
+                           <p className="mt-2 text-xl md:text-2xl " style={{ color: stat.accent }}>{stat.value}</p>
                         </div>
                      ))}
                   </div>
                </div>
 
-               {/* Right side - Features/Highlights */}
-               <div className="hidden lg:block lg:col-span-1 pt-2">
-                  <div className="space-y-3">
-                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-blue-50/50 to-transparent p-4 backdrop-blur-sm">
-                        <div className="flex items-start gap-3">
-                           <div className="mt-1">
-                              <ShieldCheck className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                           </div>
-                           <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-sm text-slate-900">Công ty xác minh</h4>
-                              <p className="text-xs text-slate-600 mt-0.5">Kiểm duyệt trước đăng tin</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-emerald-50/50 to-transparent p-4 backdrop-blur-sm">
-                        <div className="flex items-start gap-3">
-                           <div className="mt-1">
-                              <TrendingUp className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                           </div>
-                           <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-sm text-slate-900">Hỗ trợ tối ưu</h4>
-                              <p className="text-xs text-slate-600 mt-0.5">Hướng dẫn & gợi ý việc</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="rounded-xl border border-slate-100 bg-gradient-to-br from-purple-50/50 to-transparent p-4 backdrop-blur-sm">
-                        <div className="flex items-start gap-3">
-                           <div className="mt-1">
-                              <MapPin className="h-5 w-5 text-purple-600 flex-shrink-0" />
-                           </div>
-                           <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-sm text-slate-900">Toàn quốc</h4>
-                              <p className="text-xs text-slate-600 mt-0.5">34 tỉnh thành</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
          </section>
+
+         {/* Gray/secondary mascot removed — global colored mascot in Header remains */}
 
          {/* ===== RECRUITMENT STATISTICS SECTION ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
                <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                     <TrendingUp className="h-6 w-6" />
-                  </div>
                   <div>
                      <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
                         Tình hình tuyển dụng hiện tại
                      </h2>
-                     <p className="mt-1 text-sm text-slate-900 font-medium">Xu hướng thị trường việc làm theo từng tháng</p>
                   </div>
                </div>
-               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700 flex-shrink-0">
-                  Cập nhật hàng tháng
-               </span>
             </div>
 
             <div className="grid gap-6">
                {/* Recruitment Trend Chart */}
                <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                   <div className="flex items-start gap-3">
-                     <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                        <TrendingUp className="h-5 w-5" />
-                     </div>
                      <div>
-                        <h3 className="text-lg font-bold text-slate-900">Tăng trưởng việc làm & Công ty</h3>
+                        <h3 className="text-lg font-bold text-slate-900">Biểu đồ tăng trưởng</h3>
                         <p className="mt-0.5 text-sm text-slate-700">Số lượng việc làm mới và công ty tuyển dụng mỗi tháng</p>
                      </div>
                   </div>
@@ -623,12 +567,8 @@ export default function HomePage() {
                   {/* Job Distribution Pie Chart */}
                   <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                      <div className="flex items-start gap-3">
-                        <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                           <PieChartIcon className="h-5 w-5" />
-                        </div>
                         <div>
                            <h3 className="text-lg font-bold text-slate-900">Phân bố việc làm theo ngành</h3>
-                           <p className="mt-0.5 text-sm text-slate-700">Tổng <span className="font-bold">{jobDistributionData.reduce((a, b) => a + b.value, 0)}+</span> việc làm mở</p>
                         </div>
                      </div>
 
@@ -658,12 +598,8 @@ export default function HomePage() {
                   {/* Salary by Position */}
                   <div className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
                      <div className="flex items-start gap-3">
-                        <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                           <BarChart3 className="h-5 w-5" />
-                        </div>
                         <div>
-                           <h3 className="text-lg font-bold text-slate-900">Mức lương theo cấp độ</h3>
-                           <p className="mt-0.5 text-sm text-slate-700">Mức lương trung bình (triệu VND)</p>
+                           <h3 className="text-lg font-bold text-slate-900">Mức lương trung bình</h3>
                         </div>
                      </div>
 
@@ -680,7 +616,11 @@ export default function HomePage() {
                                     borderRadius: "8px",
                                  }}
                               />
-                              <Bar dataKey="salary" fill="#7c3aed" name="Lương (triệu)" radius={[8, 8, 0, 0]} />
+                              <Bar dataKey="salary" name="Lương (triệu)" radius={[8, 8, 0, 0]}>
+                                 {salaryByPositionData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.color} />
+                                 ))}
+                              </Bar>
                            </BarChart>
                         </ResponsiveContainer>
                      </div>
@@ -693,14 +633,10 @@ export default function HomePage() {
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
                <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-100 text-blue-700 flex-shrink-0">
-                     <Building2 className="h-6 w-6" />
-                  </div>
                   <div>
                      <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-                        Doanh nghiệp uy tín hàng đầu
+                        Doanh nghiệp uy tín, chất lượng
                      </h2>
-                     <p className="mt-1 text-sm text-emerald-700 font-medium">Những công ty hàng đầu đang tuyển dụng</p>
                   </div>
                </div>
                <Link to="/cong-ty" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800 flex-shrink-0">
@@ -716,104 +652,40 @@ export default function HomePage() {
          </section>
 
          {/* ===== COMPANY HIGHLIGHTS ===== */}
-         <section className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
-            <div className="flex items-start gap-3 mb-6">
-               <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                  <Star className="h-6 w-6" />
-               </div>
-               <h2 className="text-2xl font-bold text-slate-900">Tại sao chọn JobPilot</h2>
-            </div>
+         <div className="flex items-start gap-3 mb-4">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">Tại sao nên tìm việc qua JobPilot?</h2>
+         </div>
+         <section className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-8 md:px-8">
             <div className="grid gap-6 md:grid-cols-3">
                {companyHighlights.map((item) => {
                   const Icon = item.icon;
                   return (
-                     <div key={item.title} className="flex flex-col items-start gap-3">
-                        <div className="grid h-12 w-12 place-items-center rounded-lg text-white" style={{ background: item.accent }}>
-                           <Icon className="h-5 w-5" />
+                     <article key={item.title} className="rounded-[12px] border border-gray-200/80 bg-white p-6 shadow-sm text-center">
+                        <div className="flex flex-col items-center gap-4">
+                           <div className="h-16 w-16 flex items-center justify-center rounded-full border border-slate-200">
+                              <Icon className="h-8 w-8" style={{ color: item.accent }} />
+                           </div>
+                           <div>
+                              <h4 className="text-lg font-semibold text-slate-900">{item.title}</h4>
+                              <p className="mt-2 text-sm text-slate-600 max-w-[22rem] mx-auto">{item.desc}</p>
+                           </div>
                         </div>
-                        <div>
-                           <h4 className="font-bold text-slate-900">{item.title}</h4>
-                           <p className="mt-1 text-sm text-emerald-800">{item.desc}</p>
-                        </div>
-                     </div>
+                     </article>
                   );
                })}
             </div>
          </section>
 
-         {/* ===== PLATFORM STATS ===== */}
-         <section className="rounded-[12px] border border-gray-200/80 bg-white px-6 py-12 md:px-8">
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
-               <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-emerald-100 text-emerald-700 flex-shrink-0">
-                     <TrendingUp className="h-6 w-6" />
-                  </div>
-                  <div>
-                     <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-3xl">
-                        Thống kê tăng trưởng JobPilot
-                     </h2>
-                     <p className="mt-1 text-sm text-emerald-700 font-medium">Những con số ấn tượng và xu hướng phát triển của nền tảng</p>
-                  </div>
-               </div>
-               <span className="rounded-full border border-emerald-300 bg-white px-4 py-1.5 text-xs font-semibold text-emerald-700 flex-shrink-0">
-                  Cập nhật hàng tuần
-               </span>
-            </div>
 
-            <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {platformStats.map((item) => (
-                     <article key={item.label} className="group rounded-[12px] border border-emerald-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:border-emerald-300">
-                        <p className="text-4xl font-bold tracking-tight text-emerald-700">{item.value}</p>
-                        <p className="mt-3 text-sm font-semibold text-emerald-800">{item.label}</p>
-                     </article>
-                  ))}
-               </div>
-
-               <div className="rounded-[12px] border border-emerald-200 bg-white p-6 shadow-sm">
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                     <div>
-                        <h3 className="text-lg font-bold text-slate-900">Biểu đồ tăng trưởng</h3>
-                        <p className="mt-1 text-sm text-emerald-700">Lượt kết nối ứng viên theo từng tháng</p>
-                     </div>
-                     <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 flex-shrink-0">
-                        6 tháng
-                     </span>
-                  </div>
-
-                  <div className="mt-6 h-56">
-                     <ResponsiveContainer width="100%" height="100%">
-                        <BarChart data={platformGrowthData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
-                           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                           <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                           <YAxis tickLine={false} axisLine={false} />
-                           <Tooltip
-                              contentStyle={{
-                                 backgroundColor: "#fff",
-                                 border: "1px solid #e2e8f0",
-                                 borderRadius: "8px",
-                              }}
-                           />
-                           <Bar dataKey="value" fill="#10b981" radius={[8, 8, 0, 0]} />
-                        </BarChart>
-                     </ResponsiveContainer>
-                  </div>
-               </div>
-            </div>
-         </section>
 
          {/* ===== TOP INDUSTRY JOBS ===== */}
          <section className="space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
                <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-purple-100 text-purple-700 flex-shrink-0">
-                     <Briefcase className="h-6 w-6" />
-                  </div>
                   <div>
                      <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
                         Cơ hội việc làm top ngành nghề
                      </h2>
-                     <p className="mt-1 text-sm text-emerald-700 font-medium">Khám phá cơ hội trong các ngành hot nhất hiện nay</p>
                   </div>
                </div>
                <Link to="/tim-viec" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800 transition-colors flex-shrink-0">
@@ -857,9 +729,6 @@ export default function HomePage() {
          <section>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
                <div className="flex items-start gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-orange-100 text-orange-700 flex-shrink-0">
-                     <Compass className="h-6 w-6" />
-                  </div>
                   <div>
                      <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
                         Khám phá các chuyên mục
@@ -871,25 +740,21 @@ export default function HomePage() {
                {quickLinks.map((item) => {
                   const Icon = item.icon;
                   return (
-                     <Link
-                        key={item.to}
-                        to={item.to}
-                        className="group relative overflow-hidden rounded-[12px] border border-emerald-200 transition-all duration-300 hover:shadow-lg"
-                        style={{ background: item.bg }}
-                     >
-                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: `${item.accent}08` }} />
-                        <div className="relative p-7">
-                           <div className="flex items-center justify-between gap-4">
-                              <div className="grid h-12 w-12 place-items-center rounded-xl text-white shadow-md" style={{ background: item.accent }}>
-                                 <Icon className="h-5 w-5" />
+                     <Link key={item.to} to={item.to} className="group">
+                        <article className="rounded-[12px] border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+                           <div className="flex flex-col items-center text-center gap-4">
+                              <div className="h-14 w-14 flex items-center justify-center rounded-full border border-slate-200">
+                                 <Icon className="h-7 w-7" style={{ color: item.accent }} />
                               </div>
+                              <div>
+                                 <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                                 <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                              </div>
+                              <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition-transform duration-200 group-hover:translate-x-1">
+                                 Xem ngay <ArrowRight className="h-4 w-4" />
+                              </span>
                            </div>
-                           <h3 className="mt-6 text-xl font-bold tracking-tight text-slate-900">{item.title}</h3>
-                           <p className="mt-2 text-sm leading-6 text-slate-900">{item.desc}</p>
-                           <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold transition-transform duration-200 group-hover:translate-x-1" style={{ color: item.accent }}>
-                              Xem ngay <ArrowRight className="h-4 w-4" />
-                           </span>
-                        </div>
+                        </article>
                      </Link>
                   );
                })}

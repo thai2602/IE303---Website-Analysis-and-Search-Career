@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Building2, CalendarClock, Clock3, Heart, MapPin, Trash2, Wallet, X } from "lucide-react";
 import { getApplicationStatusMeta } from "../utils/application";
 import { toVietnameseJobTitle } from "../utils/jobTitle";
@@ -32,12 +31,9 @@ const readList = (key: string): SavedItem[] => {
 };
 
 export default function GlobalSavedTray() {
-   const location = useLocation();
    const [showTray, setShowTray] = useState(false);
    const [applications, setApplications] = useState<SavedItem[]>([]);
    const [savedJobs, setSavedJobs] = useState<SavedItem[]>([]);
-
-   const shouldHideBecausePageHasOwnTray = location.pathname === "/tim-viec" || location.pathname === "/cong-ty";
 
    const syncFromStorage = () => {
       setApplications(readList("jobpilot_applications"));
@@ -47,12 +43,29 @@ export default function GlobalSavedTray() {
    useEffect(() => {
       syncFromStorage();
 
-      const intervalId = window.setInterval(syncFromStorage, 1200);
-      window.addEventListener("storage", syncFromStorage);
+      // Listen for storage events from other tabs
+      const handleStorage = (event: StorageEvent) => {
+         if (event.key === "jobpilot_applications" || event.key === "jobpilot_saved_jobs" || event.key === null) {
+            syncFromStorage();
+         }
+      };
 
+      // Listen for custom events from same tab
+      const handleCustomUpdate = () => {
+         syncFromStorage();
+      };
+
+      // Polling fallback - check localStorage every 300ms
+      const pollInterval = setInterval(() => {
+         syncFromStorage();
+      }, 300);
+
+      window.addEventListener("storage", handleStorage);
+      window.addEventListener("jobpilot-data-updated", handleCustomUpdate);
       return () => {
-         window.clearInterval(intervalId);
-         window.removeEventListener("storage", syncFromStorage);
+         window.removeEventListener("storage", handleStorage);
+         window.removeEventListener("jobpilot-data-updated", handleCustomUpdate);
+         clearInterval(pollInterval);
       };
    }, []);
 
@@ -76,35 +89,35 @@ export default function GlobalSavedTray() {
       localStorage.setItem("jobpilot_saved_jobs", JSON.stringify(updated));
    };
 
-   if (shouldHideBecausePageHasOwnTray) {
-      return null;
-   }
-
    return (
       <>
-         <button
-            onClick={() => setShowTray(true)}
-            style={{
-               position: "fixed",
-               right: "24px",
-               bottom: "24px",
-               width: "60px",
-               height: "60px",
-               borderRadius: "999px",
-               border: "none",
-               background: "linear-gradient(135deg, #ec4899, #db2777)",
-               color: "#fff",
-               display: "flex",
-               alignItems: "center",
-               justifyContent: "center",
-               cursor: "pointer",
-               boxShadow: "0 14px 30px rgba(236,72,153,0.35)",
-               zIndex: 900,
-            }}
-            title="Ứng tuyển và công việc đã lưu"
-         >
-            <Heart style={{ width: 24, height: 24, color: "#fff" }} />
-         </button>
+         <style>{`
+            @keyframes saved-tray-pulse-ring {
+               0% { transform: scale(0.95); opacity: 0.6; }
+               50% { transform: scale(1.2); opacity: 0.3; }
+               100% { transform: scale(1.4); opacity: 0; }
+            }
+            .saved-tray-pulse-ring {
+               animation: saved-tray-pulse-ring 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            }
+         `}</style>
+
+         {!showTray && (
+            <div
+               className="fixed z-[1000] flex items-center justify-center transition-all duration-300"
+               style={{ right: "24px", bottom: "24px", width: "60px", height: "60px" }}
+            >
+               <div className="absolute inset-0 rounded-full bg-rose-500/20 saved-tray-pulse-ring pointer-events-none" />
+               <button
+                  onClick={() => setShowTray(true)}
+                  className="group relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-rose-500 to-pink-600 text-white shadow-[0_10px_35px_rgba(244,63,94,0.28)] transition-all duration-300 hover:scale-105"
+                  title="Thông tin cá nhân & Đã lưu"
+               >
+                  <div className="absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <Heart className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
+               </button>
+            </div>
+         )}
 
          {showTray && (
             <>
@@ -113,6 +126,7 @@ export default function GlobalSavedTray() {
                   style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.5)", backdropFilter: "blur(4px)", zIndex: 1100 }}
                />
                <div
+                  className="border border-slate-200/80"
                   style={{
                      position: "fixed",
                      right: "24px",
@@ -121,14 +135,22 @@ export default function GlobalSavedTray() {
                      maxHeight: "72vh",
                      overflowY: "auto",
                      background: "#fff",
-                     borderRadius: "18px",
-                     boxShadow: "0 24px 70px rgba(15,23,42,0.3)",
+                     borderRadius: "28px",
+                     boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
                      zIndex: 1101,
-                     padding: "18px",
+                     padding: "20px",
                   }}
                >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                     <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a" }}>Mục đã lưu</h3>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                        <div style={{ width: 40, height: 40, borderRadius: 16, background: "linear-gradient(135deg, #fda4af, #ec4899)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 24px rgba(244,63,94,0.22)" }}>
+                           <Heart style={{ width: 18, height: 18, color: "#fff" }} />
+                        </div>
+                        <div>
+                           <h3 style={{ fontSize: "18px", fontWeight: 800, color: "#0f172a", lineHeight: 1.2 }}>Vị trí đã ứng tuyển</h3>
+                           <p style={{ margin: 0, fontSize: 12, color: "#64748b" }}>Theo dõi hồ sơ ứng tuyển và mục đã lưu</p>
+                        </div>
+                     </div>
                      <button
                         onClick={() => setShowTray(false)}
                         style={{

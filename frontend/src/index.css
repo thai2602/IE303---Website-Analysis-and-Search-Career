@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap");
+/* Use Inter for all typography per request */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,8 +17,8 @@
   --text-light: #868e96;
   --line: #e9ecef;
   --line-strong: #dee2e6;
-  --font-body: "Inter", sans-serif;
-  --font-heading: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radius-card: 12px;
   --shadow-soft: 0 2px 8px rgba(31, 45, 61, 0.08);
   --shadow-medium: 0 4px 16px rgba(31, 45, 61, 0.12);
