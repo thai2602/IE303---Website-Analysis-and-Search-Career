@@ -46,7 +46,10 @@ public class SecurityConfig {
             "http://127.0.0.1:5173",
             "http://127.0.0.1:3000",
             "http://localhost:5174",
-            "http://127.0.0.1:5174"
+            "http://127.0.0.1:5174",
+            "https://website-analysis-and-search-career.vercel.app",
+            "https://website-analysis-and-search-career-git-main-thai2602s-projects.vercel.app",
+            "https://website-analysis-and-search-career-5ijh46vyx-thai2602s-projects.vercel.app"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
