@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import { Eye, EyeOff, User, Mail, Lock, CheckCircle2, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Eye, EyeOff, User, Mail, Lock, CheckCircle2 } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
@@ -120,7 +120,6 @@ const perks = [
 
 export default function RegisterPage() {
    const navigate = useNavigate();
-   const location = useLocation();
    const [showPassword, setShowPassword] = useState(false);
    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
    const [fullName, setFullName] = useState("");
@@ -545,15 +544,15 @@ export default function RegisterPage() {
                      disabled={isSubmitting || isGoogleSubmitting}
                      style={{
                         width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                        background: "linear-gradient(135deg, #0f172a, #1e293b)",
+                        background: "linear-gradient(135deg, #34d399, #10b981)",
                         color: "#fff", borderRadius: "12px", padding: "13px",
                         fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
                         opacity: isSubmitting ? 0.8 : 1,
-                        boxShadow: "0 8px 25px rgba(15,23,42,0.3)",
-                        transition: "transform 0.2s",
+                        boxShadow: "0 8px 25px rgba(52,211,153,0.28)",
+                        transition: "transform 0.2s, box-shadow 0.2s",
                      }}
-                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
-                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; }}
+                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(16,185,129,0.36)"; }}
+                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(52,211,153,0.28)"; }}
                   >
                      {isSubmitting ? "Đang tạo tài khoản..." : "Tạo tài khoản ngay"}
                   </button>

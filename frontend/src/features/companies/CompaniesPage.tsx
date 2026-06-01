@@ -739,23 +739,33 @@ export default function CompaniesPage() {
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}
-         <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
-            <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} style={{ width: "100%", height: "500px", objectFit: "cover", display: "block" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.05), rgba(15,23,42,0.75))" }} />
-            <div style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
-               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
-                  {companyBannerItems[bannerIndex].title}
-               </h2>
-               <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
-                  {companyBannerItems[bannerIndex].description}
-               </p>
-               <div className={styles.bannerDots}>
-                  {companyBannerItems.map((_, idx) => (
-                     <button key={idx} onClick={() => setBannerIndex(idx)} className={`${styles.bannerDot} ${idx === bannerIndex ? styles.bannerDotActive : styles.bannerDotInactive}`} title={`Go to slide ${idx + 1}`} />
-                  ))}
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] min-h-[400px] md:min-h-[520px]">
+            {/* Background image with overlay */}
+            <div className="absolute inset-0">
+               <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} className="w-full h-full object-cover" />
+               <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70" />
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/60" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 py-16 md:py-20">
+               <div className="max-w-3xl">
+                  <div className="flex items-center gap-3 mb-4">
+                  </div>
+                  <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-5">
+                     {companyBannerItems[bannerIndex].title}
+                  </h1>
+                  <p className="text-sm sm:text-base text-slate-700 max-w-2xl leading-relaxed mb-6">
+                     {companyBannerItems[bannerIndex].description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                     {companyBannerItems.map((_, idx) => (
+                        <button key={idx} onClick={() => setBannerIndex(idx)} className={`h-2 rounded-full transition-all ${idx === bannerIndex ? 'bg-emerald-600 w-8' : 'bg-slate-300 w-2 hover:bg-slate-400'}`} title={`Go to slide ${idx + 1}`} />
+                     ))}
+                  </div>
                </div>
             </div>
-         </div>
+         </section>
 
          {/* Dynamic Banner */}
          {selectedPosition && (

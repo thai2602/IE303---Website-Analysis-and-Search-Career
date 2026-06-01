@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
    Eye, X, Sparkles, CheckCircle2, XCircle, FileText,
    Award, BookOpen, Briefcase, GraduationCap, Phone,
@@ -348,26 +348,34 @@ export default function CvTemplatesPage() {
 
    return (
       <div className="space-y-12 pb-16">
-         {/* ── Hero Banner Section (Glassmorphism & Rich Gradient) ── */}
-         <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-950 via-emerald-950/70 to-slate-950 px-6 sm:px-12 py-16 sm:py-20 shadow-[0_28px_80px_rgba(16,185,129,0.12)] border border-emerald-900/30">
+         {/* ── Hero Banner Section ── */}
+         <div className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-20 min-h-[400px] md:min-h-[520px]">
             {/* Blurry abstract glow items */}
-            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl" />
-            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl" />
+            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-purple-500/10 blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto text-center space-y-6">
-               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                  Kho CV mẫu <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">chuẩn hóa và chuyên nghiệp</span>
+               <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-full bg-emerald-100">
+                     <FileText className="w-8 h-8 text-emerald-600" />
+                  </div>
+               </div>
+               <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                  Kho CV mẫu chuẩn hóa
                </h1>
-               <p className="text-[14px] sm:text-[16px] text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-                  Khám phá bộ sưu tập mẫu CV thiết kế đẳng cấp cao, chuẩn cấu trúc tuyển dụng quốc tế. Có sẵn gợi ý mẫu để bạn sẵn sàng tạo dấu ấn riêng trong mắt nhà tuyển dụng.
+               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                  Khám phá bộ sưu tập mẫu CV thiết kế đẳng cấp cao, chuẩn cấu trúc tuyển dụng quốc tế. Có sẵn gợi ý để bạn sẵn sàng tạo dấu ấn riêng.
                </p>
-               <div className="pt-4 flex justify-center">
+               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <button
                      onClick={openCreateCvModal}
-                     className="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[14.5px] rounded-xl transition-all shadow-[0_12px_24px_rgba(16,185,129,0.25)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.35)] active:scale-95 cursor-pointer flex items-center gap-2"
+                     className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
                   >
-                     Tạo CV online ngay <ArrowRight className="w-4.5 h-4.5" />
+                     Tạo CV ngay <ArrowRight className="h-4 w-4" />
                   </button>
+                  <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:shadow-md transition-all hover:border-slate-400">
+                     Xem công việc phù hợp
+                  </Link>
                </div>
             </div>
          </div>

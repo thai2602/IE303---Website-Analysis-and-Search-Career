@@ -443,45 +443,50 @@ export default function JobsPage() {
             </div>
          )}
 
-         {/* ── Hero Banner Section (Glassmorphism & Rich Gradient) ── */}
-         <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-950 via-emerald-950/70 to-slate-950 px-6 sm:px-12 py-16 sm:py-20 shadow-[0_28px_80px_rgba(4,120,87,0.15)] border border-emerald-900/30">
-            {/* Blurry abstract glow items */}
-            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl" />
-            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
+         {/* ── Hero Banner Section ── */}
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-20 min-h-[400px] md:min-h-[520px]">
+            {/* Decorative orbs */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl" />
+            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto text-center space-y-6">
-               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                  Khám phá cơ hội nghề nghiệp <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">bứt phá tương lai</span>
+               <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-full bg-emerald-100">
+                     <Briefcase className="w-8 h-8 text-emerald-600" />
+                  </div>
+               </div>
+               <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+                  Khám phá cơ hội nghề nghiệp bứt phá
                </h1>
-               <p className="text-[14px] sm:text-[16px] text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
+               <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-2xl mx-auto">
                   Kết nối trực tiếp cùng các nhà tuyển dụng hàng đầu. Sử dụng bộ lọc thông minh tức thì và ứng tuyển siêu tốc chỉ với một cú click chuột.
                </p>
 
                {/* Search Bar */}
-               <div className="pt-4 max-w-2xl mx-auto">
-                  <div className="flex flex-col sm:flex-row gap-3 bg-white/5 backdrop-blur-md border border-white/10 p-2 rounded-2xl shadow-2xl focus-within:border-emerald-500/40 focus-within:ring-4 focus-within:ring-emerald-500/5 transition-all">
-                     <div className="flex-1 flex items-center gap-3 px-3 py-2">
-                        <Search className="w-5 h-5 text-emerald-400 shrink-0" />
+               <div className="pt-4 max-w-2xl mx-auto w-full">
+                  <div className="flex flex-col sm:flex-row gap-3 bg-white border border-slate-200 p-3 rounded-2xl shadow-md focus-within:border-emerald-500/60 focus-within:ring-4 focus-within:ring-emerald-500/10 transition-all">
+                     <div className="flex-1 flex items-center gap-3 px-4">
+                        <Search className="w-5 h-5 text-slate-400 shrink-0" />
                         <input
                            type="text"
-                           placeholder="Nhập vị trí, công ty hoặc từ khóa kỹ năng (VD: React, Node...)"
+                           placeholder="Nhập vị trí, công ty hoặc kỹ năng..."
                            value={searchTerm}
                            onChange={(e) => setSearchTerm(e.target.value)}
-                           className="bg-transparent border-none outline-none text-white text-[14.5px] w-full placeholder:text-slate-400 font-medium"
+                           className="bg-transparent border-none outline-none text-slate-900 text-[14.5px] w-full placeholder:text-slate-400 font-medium"
                         />
                         {searchTerm && (
-                           <button onClick={() => setSearchTerm("")} className="text-slate-400 hover:text-white transition-colors cursor-pointer">
+                           <button onClick={() => setSearchTerm("")} className="text-slate-400 hover:text-slate-600 transition-colors cursor-pointer">
                               <X className="w-4 h-4" />
                            </button>
                         )}
                      </div>
-                     <button className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[14px] rounded-xl transition-all shadow-[0_12px_24px_rgba(16,185,129,0.25)] hover:shadow-[0_16px_32px_rgba(16,185,129,0.35)] active:scale-95 cursor-pointer shrink-0">
-                        Tìm kiếm ngay
+                     <button className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-[14px] rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer shrink-0">
+                        Tìm kiếm
                      </button>
                   </div>
                </div>
             </div>
-         </div>
+         </section>
 
          {/* ── Main Layout: Filters sidebar + Jobs List grid ── */}
          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
