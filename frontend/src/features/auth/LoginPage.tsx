@@ -1,7 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import { type FormEvent, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { clearAuthUser, readAuthUser, setAuthUser } from "../../utils/auth";
 import { loginUser, loginWithGoogle } from "../../services/authApi";
 import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
@@ -84,7 +83,6 @@ function decodeGoogleEmail(idToken: string): string | null {
 
 export default function LoginPage() {
    const navigate = useNavigate();
-   const location = useLocation();
    const [showPassword, setShowPassword] = useState(false);
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
@@ -475,15 +473,15 @@ export default function LoginPage() {
 
                         <button type="submit" disabled={isSubmitting || isGoogleSubmitting} style={{
                            width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px",
-                           background: "linear-gradient(135deg, #10b981, #059669)",
+                           background: "linear-gradient(135deg, #34d399, #10b981)",
                            color: "#fff", borderRadius: "12px", padding: "13px",
                            fontSize: "15px", fontWeight: 700, border: "none", cursor: "pointer",
                            opacity: isSubmitting ? 0.8 : 1,
-                           boxShadow: "0 8px 25px rgba(16,185,129,0.4)",
+                           boxShadow: "0 8px 25px rgba(52,211,153,0.28)",
                            transition: "transform 0.2s, box-shadow 0.2s",
                         }}
-                           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(16,185,129,0.5)"; }}
-                           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(16,185,129,0.4)"; }}
+                           onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(16,185,129,0.36)"; }}
+                           onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(52,211,153,0.28)"; }}
                         >
                            {isSubmitting ? "Đang đăng nhập..." : "Đăng nhập"} <ArrowRight style={{ width: 16, height: 16 }} />
                         </button>

@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { BadgeDollarSign, Gift, Banknote, Store, Columns, TrendingUp, Info, CheckCircle } from "lucide-react";
 
 // input in millions (VND)
@@ -279,19 +280,33 @@ export default function UtilitiesPage() {
    return (
       <div className="space-y-10 pb-16">
          {/* ── Hero Banner Section ── */}
-         <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-slate-950 via-emerald-950/70 to-slate-950 px-6 sm:px-12 py-16 sm:py-20 shadow-[0_28px_80px_rgba(4,120,87,0.15)] border border-emerald-900/30">
-            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl" />
-            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-indigo-500/10 blur-3xl" />
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-20 min-h-[400px] md:min-h-[520px]">
+            {/* Blurry abstract glow items */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl" />
+            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl" />
 
             <div className="relative max-w-4xl mx-auto text-center space-y-6">
-               <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                  Tiện ích chuyên nghiệp <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">tối ưu lương & phúc lợi</span>
+               <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-full bg-emerald-100">
+                     <BadgeDollarSign className="w-8 h-8 text-emerald-600" />
+                  </div>
+               </div>
+               <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                  Tiện ích tìm việc thông minh
                </h1>
-               <p className="text-[14px] sm:text-[16px] text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
+               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
                   Ước tính lương net/gross, so sánh phúc lợi giữa công ty và theo dõi xu hướng thị trường nhân sự chỉ trong vài giây.
                </p>
+               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <button className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                     Khám phá tiện ích <TrendingUp className="h-4 w-4" />
+                  </button>
+                  <Link to="/cv-mau" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:shadow-md transition-all hover:border-slate-400">
+                     Xem mẫu CV
+                  </Link>
+               </div>
             </div>
-         </div>
+         </section>
 
          {/* ── Main Layout: Tools sidebar + Utilities grid ── */}
          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">

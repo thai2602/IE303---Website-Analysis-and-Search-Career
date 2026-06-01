@@ -180,7 +180,7 @@ export default function Header() {
 
                         <Link
                            to="/dang-ky"
-                           className={`px-4 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-200 ${isRegisterPage ? "bg-slate-900 text-white shadow-lg shadow-slate-900/15" : "text-white bg-slate-900/90 hover:bg-slate-800"}`}
+                           className={`px-4 py-2 text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-200 ${isRegisterPage ? "bg-white text-slate-900 border border-slate-200 shadow-sm" : "text-slate-700 border border-white/50 bg-white/40 hover:bg-white/90 hover:text-slate-900"}`}
                         >
                            Đăng ký
                         </Link>

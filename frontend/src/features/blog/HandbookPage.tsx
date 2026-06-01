@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { CheckCircle, Clock, ChevronRight, TrendingUp, Lightbulb, MessageSquare, Shield, Search, Building, Users, Heart, Tag, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, Clock, ChevronRight, TrendingUp, Lightbulb, MessageSquare, Shield, Search, Building, Users, Heart, BookOpen, X } from "lucide-react";
 import articleBanner1 from "../../assets/banner/company/image_1.png";
 import articleBanner2 from "../../assets/banner/company/image_2.png";
 import articleBanner3 from "../../assets/banner/company/image_3.png";
@@ -235,16 +236,9 @@ const categories = [
    { label: "Văn hóa doanh nghiệp", count: 14, color: "#0f4c51" },
 ];
 
-const allTags = [
-   "CV", "ATS", "Từ khóa", "Phỏng vấn", "Chuẩn bị", "Kinh nghiệm", "Lương", "Đàm phán", "Kỹ năng",
-   "Môi trường", "Văn hóa", "Làm việc", "STAR", "CNTT", "Hiệu quả", "Kỹ năng mềm", "Văn phòng", "Giao tiếp",
-   "NovaTech", "Review", "BluePixel", "Doanh nghiệp", "ScaleHub"
-];
-
 export default function HandbookPage() {
    const [searchQuery, setSearchQuery] = useState("");
    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-   const [selectedTags, setSelectedTags] = useState<string[]>([]);
    const [selectedArticleTitle, setSelectedArticleTitle] = useState<string | null>(null);
 
    const filteredGuides = useMemo(() => {
@@ -255,11 +249,9 @@ export default function HandbookPage() {
 
          const matchesCategory = !selectedCategory || guide.category === selectedCategory;
 
-         const matchesTags = selectedTags.length === 0 || selectedTags.some(tag => guide.tags.includes(tag));
-
-         return matchesSearch && matchesCategory && matchesTags;
+         return matchesSearch && matchesCategory;
       });
-   }, [searchQuery, selectedCategory, selectedTags]);
+   }, [searchQuery, selectedCategory]);
 
    const featuredGuides = filteredGuides.filter(guide => guide.featured);
    const regularGuides = filteredGuides.filter(guide => !guide.featured);
@@ -267,38 +259,36 @@ export default function HandbookPage() {
    const selectedContent = selectedGuide ? articleContents[selectedGuide.title] : null;
    const selectedIllustration = selectedGuide ? articleIllustrations[selectedGuide.title] : null;
 
-   const toggleTag = (tag: string) => {
-      setSelectedTags(prev =>
-         prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-      );
-   };
-
    return (
       <div className="space-y-8" style={{ fontFamily: 'var(--font-body)' }}>
          {/* Hero */}
-         <div style={{
-            borderRadius: "20px",
-            background: "linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%)",
-            padding: "48px",
-            position: "relative",
-            overflow: "hidden",
-         }}>
-            <div style={{
-               position: "absolute", top: "-50px", right: "-30px", width: "220px", height: "220px",
-               borderRadius: "50%", background: "rgba(167,243,208,0.2)", filter: "blur(40px)",
-            }} />
-            <div style={{
-               position: "absolute", bottom: "-40px", left: "30%", width: "180px", height: "180px",
-               borderRadius: "50%", background: "rgba(110,231,183,0.15)", filter: "blur(35px)",
-            }} />
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-20 min-h-[400px] md:min-h-[520px]">
+            {/* Blurry abstract glow items */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/15 blur-3xl" />
+            <div className="absolute -bottom-20 left-1/4 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl" />
 
-            <h1 style={{ fontSize: "36px", fontWeight: 800, color: "#fff", letterSpacing: "-0.02em", marginBottom: "10px", fontFamily: 'var(--font-heading)' }}>
-               Cẩm nang việc làm
-            </h1>
-            <p style={{ color: "#ffffff", fontSize: "15px", lineHeight: 1.7 }}>
-               Bộ nội dung hướng dẫn từ viết CV đến phỏng vấn, đàm phán lương và phát triển sự nghiệp.
-            </p>
-         </div>
+            <div className="relative max-w-4xl mx-auto text-center space-y-6">
+               <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-full bg-emerald-100">
+                     <BookOpen className="w-8 h-8 text-emerald-600" />
+                  </div>
+               </div>
+               <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                  Cẩm nang việc làm toàn diện
+               </h1>
+               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                  Bộ nội dung hướng dẫn từ viết CV đến phỏng vấn, đàm phán lương và phát triển sự nghiệp thành công.
+               </p>
+               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <button className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                     Đọc bài viết nổi bật <Lightbulb className="h-4 w-4" />
+                  </button>
+                  <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:shadow-md transition-all hover:border-slate-400">
+                     Tìm việc ngay
+                  </Link>
+               </div>
+            </div>
+         </section>
 
          {/* Main layout: Sidebar + Content */}
          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">

@@ -11,9 +11,6 @@ import {
    Users,
    Wallet,
    Star,
-   TrendingUp,
-   PieChart as PieChartIcon,
-   BarChart3,
 } from "lucide-react";
 import {
    LineChart,
@@ -253,24 +250,6 @@ const bannerMarketStats = [
    { label: "Ứng viên hài lòng", value: "98%", accent: "#6366f1" },
 ];
 
-const platformStats = [
-   { value: "320+", label: "Việc làm đang tuyển dụng" },
-   { value: "50+", label: "Doanh nghiệp hợp tác" },
-   { value: "12k+", label: "Hồ sơ ứng viên" },
-   { value: "1.5k+", label: "Kết nối thành công" },
-   { value: "98%", label: "Độ hài lòng" },
-   { value: "24/7", label: "Hỗ trợ cập nhật" },
-];
-
-const platformGrowthData = [
-   { month: "T1", value: 1200 },
-   { month: "T2", value: 1450 },
-   { month: "T3", value: 1680 },
-   { month: "T4", value: 1970 },
-   { month: "T5", value: 2230 },
-   { month: "T6", value: 2480 },
-];
-
 // ============ COMPONENTS ============
 
 function CompanyCard({ company }: { company: (typeof featuredCompanies)[0] }) {
@@ -463,7 +442,7 @@ export default function HomePage() {
    return (
       <div className="space-y-12">
          {/* ===== BANNER SECTION ===== */}
-         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-12 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-16 min-h-[360px] md:min-h-[460px]">
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white px-6 py-16 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:px-12 md:py-20 min-h-[400px] md:min-h-[520px]">
             {/* Decorative orbs */}
             <div className="home-banner-orb home-banner-orb-1" />
             <div className="home-banner-orb home-banner-orb-2" />
@@ -473,16 +452,16 @@ export default function HomePage() {
             <div className="relative grid gap-6 lg:grid-cols-3 items-center lg:items-center">
                {/* Main content - centered across banner */}
                <div className="space-y-6 lg:col-span-3 text-center mx-auto max-w-3xl">
-                  <div className="space-y-3">
-                     <h1 className="text-[24px] md:text-[48px] font-semibold tracking-tight text-slate-900 leading-tight">
+                  <div className="space-y-7">
+                     <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
                         Ứng tuyển nhanh, việc làm tốt
                      </h1>
-                     <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-xl">
+                     <p className="text-sm sm:text-base leading-relaxed text-slate-600 max-w-xl mx-auto">
                         JobPilot giúp bạn kết nối với các công ty uy tín, nhận gợi ý việc phù hợp từng ngày, và tối ưu hồ sơ để ứng tuyển hiệu quả.
                      </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-5">
                      <Link to="/tim-viec" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
                         Khám phá việc làm <ArrowRight className="h-4 w-4" />
                      </Link>

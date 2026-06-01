@@ -387,6 +387,78 @@ export default function CompaniesPage() {
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
+   // --- API companies state ---
+   const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
+
+   // Fetch công ty từ API, fallback về data tĩnh nếu thất bại
+   useEffect(() => {
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      fetch(`${apiBase}/api/companies`)
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json() as Promise<Array<{
+               id: number; name: string; slug: string; size?: string;
+               description?: string; benefits?: string; isFeatured?: boolean;
+               color?: string; positions?: any[];
+            }>>;
+         })
+         .then((apiData) => {
+            if (!apiData || apiData.length === 0) {
+               setApiCompanies(companies);
+               return;
+            }
+            // Map API data -> CompanyItem, filling missing fields from static data
+            const merged: CompanyItem[] = apiData.map((apiItem, idx) => {
+               const normalizeName = (name: string) =>
+                  name
+                     .trim()
+                     .normalize("NFD")
+                     .replace(/[đĐ]/g, (c) => (c === "đ" ? "d" : "D"))
+                     .replace(/[\u0300-\u036f]/g, "")
+                     .toLowerCase()
+                     .replace(/[^a-z0-9]+/g, "-")
+                     .replace(/^-+|-+$/g, "");
+               const staticMatch = companies.find(
+                  (c) => normalizeName(c.name) === normalizeName(apiItem.name)
+               );
+               if (staticMatch) return { ...staticMatch };
+               // Fallback cho công ty chỉ có trong DB
+               const benefitsArr = apiItem.benefits?.split(",").map((b) => b.trim()).filter(Boolean) ?? [];
+
+               const mappedPositions = apiItem.positions?.map((pos: any) => ({
+                  id: pos.id,
+                  title: pos.title,
+                  salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
+                  workingHours: pos.jobType || "Toàn thời gian",
+                  description: pos.description || "Mô tả công việc đang được cập nhật.",
+                  skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
+               })) || [];
+
+               return {
+                  name: apiItem.name,
+                  slug: apiItem.slug,  // Lưu slug gốc từ API để dùng cho URL
+                  field: "Technology",
+                  rating: "4.5",
+                  employees: apiItem.size ?? "Đang cập nhật",
+                  location: "Việt Nam",
+                  openJobs: mappedPositions.length,
+                  color: apiItem.color || "#6366f1",
+                  bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+                  initial: apiItem.name.charAt(0).toUpperCase(),
+                  description: apiItem.description ?? "Thông tin đang được cập nhật.",
+                  benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
+                  positions: mappedPositions,
+                  image: companyAvatars[idx % companyAvatars.length],
+               } as CompanyItem;
+            });
+            setApiCompanies(merged);
+         })
+         .catch((err) => {
+            console.warn("Failed to fetch companies from API, falling back to static list:", err);
+            setApiCompanies(companies);
+         })
+         .finally(() => { });
+   }, []);
 
    const normalizeName = (name: string) =>
       name
@@ -796,22 +868,25 @@ export default function CompaniesPage() {
 
 
    const getCompanyLogo = (company: CompanyItem) => {
+      if (company.image) return company.image;
       const index = companies.findIndex((c) => c.name === company.name);
       if (index >= 0) {
          return companyAvatars[index % companyAvatars.length];
       }
-      return companyAvatars[0];
+      // stable hash fallback so different company names map to different avatars
+      const hash = Array.from(company.name).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+      return companyAvatars[hash % companyAvatars.length];
    };
 
    const getCompanyImage = (company: CompanyItem) => {
-      if (company.image) {
-         return company.image;
-      }
+      if (company.companyImage) return company.companyImage;
+      if (company.image) return company.image;
       const index = companies.findIndex((c) => c.name === company.name);
       if (index >= 0) {
          return companyImages[index % companyImages.length];
       }
-      return companyImages[0];
+      const hash = Array.from(company.name).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+      return companyImages[hash % companyImages.length];
    };
 
    const selectedCompanyLogo = selectedCompany ? getCompanyLogo(selectedCompany) : companyAvatars[0];
@@ -820,23 +895,33 @@ export default function CompaniesPage() {
    return (
       <div className="space-y-8">
          {/* Top rotating company banner */}
-         <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 18px 48px rgba(15,23,42,0.18)", marginTop: "-36px", zIndex: 1 }}>
-            <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} style={{ width: "100%", height: "500px", objectFit: "cover", display: "block" }} />
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,23,42,0.05), rgba(15,23,42,0.75))" }} />
-            <div style={{ position: "absolute", left: "24px", bottom: "24px", right: "24px", color: "#fff", zIndex: 2 }}>
-               <h2 style={{ marginTop: "16px", marginBottom: "12px", fontSize: "32px", fontWeight: 800, lineHeight: 1.05, color: "#ffffff" }}>
-                  {companyBannerItems[bannerIndex].title}
-               </h2>
-               <p style={{ fontSize: "15px", maxWidth: "62%", lineHeight: 1.75, color: "rgba(255,255,255,0.9)" }}>
-                  {companyBannerItems[bannerIndex].description}
-               </p>
-               <div className={styles.bannerDots}>
-                  {companyBannerItems.map((_, idx) => (
-                     <button key={idx} onClick={() => setBannerIndex(idx)} className={`${styles.bannerDot} ${idx === bannerIndex ? styles.bannerDotActive : styles.bannerDotInactive}`} title={`Go to slide ${idx + 1}`} />
-                  ))}
+         <section className="relative overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] min-h-[400px] md:min-h-[520px]">
+            {/* Background image with overlay */}
+            <div className="absolute inset-0">
+               <img src={companyBannerItems[bannerIndex].image} alt={companyBannerItems[bannerIndex].title} className="w-full h-full object-cover" />
+               <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70" />
+               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white/60" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 py-16 md:py-20">
+               <div className="max-w-3xl">
+                  <div className="flex items-center gap-3 mb-4">
+                  </div>
+                  <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-5">
+                     {companyBannerItems[bannerIndex].title}
+                  </h1>
+                  <p className="text-sm sm:text-base text-slate-700 max-w-2xl leading-relaxed mb-6">
+                     {companyBannerItems[bannerIndex].description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                     {companyBannerItems.map((_, idx) => (
+                        <button key={idx} onClick={() => setBannerIndex(idx)} className={`h-2 rounded-full transition-all ${idx === bannerIndex ? 'bg-emerald-600 w-8' : 'bg-slate-300 w-2 hover:bg-slate-400'}`} title={`Go to slide ${idx + 1}`} />
+                     ))}
+                  </div>
                </div>
             </div>
-         </div>
+         </section>
 
          {/* Dynamic Banner */}
          {selectedPosition && (
@@ -895,8 +980,8 @@ export default function CompaniesPage() {
          <div className="grid grid-cols-1 gap-5">
             {filteredCompanies.map((item, index) => {
                const fc = fieldColors[item.field] ?? { bg: "#f1f5f9", text: "#475569" };
-               const avatarSrc = companyAvatars[index % companyAvatars.length];
-               const companyImageSrc = companyImages[index % companyImages.length];
+               const avatarSrc = getCompanyLogo(item);
+               const companyImageSrc = getCompanyImage(item);
                const detailDescription = item.introduction
                   ? item.introduction
                   : `${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
