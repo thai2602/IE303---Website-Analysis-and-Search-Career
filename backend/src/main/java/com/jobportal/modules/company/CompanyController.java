@@ -2,9 +2,8 @@ package com.jobportal.modules.company;
 
 import java.util.List;
 
-import org.springframework.data.domain.PageRequest;
+import com.jobportal.common.OffsetBasedPageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +23,10 @@ public class CompanyController {
     }
 
     @GetMapping
-    public List<Company> getAllCompanies(@RequestParam(defaultValue = "80") int limit) {
-        Pageable pageable = PageRequest.of(0, limit, Sort.by("id").descending());
+    public List<Company> getAllCompanies(
+            @RequestParam(defaultValue = "0") int offset,
+            @RequestParam(defaultValue = "10") int limit) {
+        Pageable pageable = new OffsetBasedPageRequest(offset, limit);
         return companyRepository.findAllWithPositions(pageable);
     }
 
