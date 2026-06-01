@@ -301,10 +301,11 @@ export default function CompaniesPage() {
             });
             setApiCompanies(merged);
          })
-         .catch(() => {
-            setApiCompanies([]);
+         .catch((err) => {
+            console.warn("Failed to fetch companies from API, falling back to static list:", err);
+            setApiCompanies(companies);
          })
-         .finally(() => {});
+         .finally(() => { });
    }, []);
 
    const normalizeName = (name: string) =>
