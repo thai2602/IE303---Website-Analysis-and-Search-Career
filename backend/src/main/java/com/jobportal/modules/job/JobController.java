@@ -1,5 +1,7 @@
 package com.jobportal.modules.job;
 
+import com.jobportal.common.OffsetBasedPageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -16,8 +18,11 @@ public class JobController {
     }
 
     @GetMapping
-    public List<Job> getAllJobs() {
-        return jobRepository.findAll();
+    public List<Job> getAllJobs(
+            @RequestParam(defaultValue = "0") int offset,
+            @RequestParam(defaultValue = "20") int limit) {
+        Pageable pageable = new OffsetBasedPageRequest(offset, limit);
+        return jobRepository.findAll(pageable).getContent();
     }
 
     @GetMapping("/{id}")

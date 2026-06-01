@@ -10,6 +10,7 @@ backend/target/
 backend/test/
 frontend/dist/
 .claude/
+data/*
 
 # RAG Data Config
 backend/src/main/resources/rag-data/embeddings/*

@@ -231,6 +231,158 @@ export default function CompaniesPage() {
    const [bannerIndex, setBannerIndex] = useState(0);
    const [applications, setApplications] = useState<any[]>([]);
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
+
+    // --- API companies state & Pagination ---
+    const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
+    const [offset, setOffset] = useState(0);
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+    const [isUsingFallback, setIsUsingFallback] = useState(false);
+
+    const mapApiCompanies = (apiData: any[]): CompanyItem[] => {
+       return apiData.map((apiItem, idx) => {
+          const normalizeName = (name: string) =>
+             name
+                .trim()
+                .normalize("NFD")
+                .replace(/[đĐ]/g, (c) => (c === "đ" ? "d" : "D"))
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+          const staticMatch = companies.find(
+             (c) => normalizeName(c.name) === normalizeName(apiItem.name)
+          );
+          if (staticMatch) return { ...staticMatch };
+
+          const benefitsArr = apiItem.benefits?.split(",").map((b: string) => b.trim()).filter(Boolean) ?? [];
+
+          const mappedPositions = apiItem.positions?.map((pos: any) => ({
+             id: pos.id,
+             title: pos.title,
+             salary: pos.salaryMin && pos.salaryMax ? `${pos.salaryMin} - ${pos.salaryMax} triệu` : "Thỏa thuận",
+             workingHours: pos.jobType || "Toàn thời gian",
+             description: pos.description || "Mô tả công việc đang được cập nhật.",
+             skills: [pos.jobLevel || "Nhân viên", "Kinh nghiệm " + (pos.experienceYears || "1 năm")]
+          })) || [];
+
+          return {
+             name: apiItem.name,
+             slug: apiItem.slug,
+             field: "Technology",
+             rating: "4.5",
+             employees: apiItem.size ?? "Đang cập nhật",
+             location: "Việt Nam",
+             openJobs: mappedPositions.length,
+             color: apiItem.color || "#6366f1",
+             bg: "linear-gradient(135deg, #eef2ff, #e0e7ff)",
+             initial: apiItem.name.charAt(0).toUpperCase(),
+             description: apiItem.description ?? "Thông tin đang được cập nhật.",
+             benefits: benefitsArr.length ? benefitsArr : ["Phúc lợi cạnh tranh"],
+             positions: mappedPositions,
+             image: companyAvatars[idx % companyAvatars.length],
+          } as CompanyItem;
+       });
+    };
+
+    // Fetch công ty từ API (lần đầu 10)
+    useEffect(() => {
+       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+       setLoadingMore(true);
+       fetch(`${apiBase}/api/companies?offset=0&limit=10`)
+          .then((res) => {
+             if (!res.ok) throw new Error("API error");
+             return res.json() as Promise<Array<any>>;
+          })
+          .then((apiData) => {
+             if (!apiData || apiData.length === 0) {
+                setApiCompanies(companies.slice(0, 10));
+                setHasMore(companies.length > 10);
+                setOffset(10);
+                setIsUsingFallback(true);
+                return;
+             }
+             const mapped = mapApiCompanies(apiData);
+             setApiCompanies(mapped);
+             setHasMore(apiData.length === 10);
+             setOffset(10);
+             setIsUsingFallback(false);
+          })
+          .catch((err) => {
+             console.error("Lỗi tải API công ty, chuyển sang dữ liệu dự phòng:", err);
+             setApiCompanies(companies.slice(0, 10));
+             setHasMore(companies.length > 10);
+             setOffset(10);
+             setIsUsingFallback(true);
+          })
+          .finally(() => {
+             setLoadingMore(false);
+          });
+    }, []);
+
+    // Load thêm 10 công ty khi cuộn
+    const loadMoreCompanies = () => {
+       if (loadingMore || !hasMore) return;
+       setLoadingMore(true);
+
+       if (isUsingFallback) {
+          setTimeout(() => {
+             const nextBatch = companies.slice(offset, offset + 10);
+             if (nextBatch.length > 0) {
+                setApiCompanies((prev) => [...prev, ...nextBatch]);
+                setOffset((prev) => prev + 10);
+                setHasMore(companies.length > offset + 10);
+             } else {
+                setHasMore(false);
+             }
+             setLoadingMore(false);
+          }, 400);
+          return;
+       }
+
+       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+       fetch(`${apiBase}/api/companies?offset=${offset}&limit=10`)
+          .then((res) => {
+             if (!res.ok) throw new Error("API error");
+             return res.json() as Promise<Array<any>>;
+          })
+          .then((apiData) => {
+             if (!apiData || apiData.length === 0) {
+                setHasMore(false);
+                return;
+             }
+             const mapped = mapApiCompanies(apiData);
+             setApiCompanies((prev) => [...prev, ...mapped]);
+             setOffset((prev) => prev + 10);
+             setHasMore(apiData.length === 10);
+          })
+          .catch((err) => {
+             console.error("Lỗi tải thêm công ty từ API, chuyển sang dữ liệu dự phòng:", err);
+             const nextBatch = companies.slice(offset, offset + 10);
+             if (nextBatch.length > 0) {
+                setApiCompanies((prev) => [...prev, ...nextBatch]);
+                setOffset((prev) => prev + 10);
+                setHasMore(companies.length > offset + 10);
+             } else {
+                setHasMore(false);
+             }
+          })
+          .finally(() => {
+             setLoadingMore(false);
+          });
+    };
+
+    // Scroll listener
+    useEffect(() => {
+       const handleScroll = () => {
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
+             loadMoreCompanies();
+          }
+       };
+       window.addEventListener("scroll", handleScroll);
+       return () => window.removeEventListener("scroll", handleScroll);
+    }, [offset, loadingMore, hasMore, isUsingFallback]);
+
    const [showTray, setShowTray] = useState(false);
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
@@ -875,6 +1027,16 @@ export default function CompaniesPage() {
                   </Link>
                );
             })}
+            {loadingMore && (
+               <div style={{ textAlign: "center", padding: "20px", color: "#059669", fontWeight: 800, fontSize: "14px" }} className="animate-pulse">
+                  Đang tải thêm công ty...
+               </div>
+            )}
+            {!hasMore && apiCompanies.length > 0 && (
+               <div style={{ textAlign: "center", padding: "20px", color: "#94a3b8", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px" }}>
+                  Đã tải hết tất cả công ty
+               </div>
+            )}
          </div>
 
          {selectedCompany && (

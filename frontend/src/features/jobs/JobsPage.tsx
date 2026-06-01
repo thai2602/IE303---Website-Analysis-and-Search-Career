@@ -255,71 +255,148 @@ export default function JobsPage() {
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
-   // --- API jobs state ---
-   const [apiJobs, setApiJobs] = useState<Job[]>([]);
+    // --- API jobs state & Pagination ---
+    const [apiJobs, setApiJobs] = useState<Job[]>([]);
+    const [offset, setOffset] = useState(0);
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+    const [isUsingFallback, setIsUsingFallback] = useState(false);
 
-   // --- Filters State ---
-   const [searchTerm, setSearchTerm] = useState("");
-   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-   const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
-   const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+    // --- Filters State ---
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+    const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
+    const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
 
-   // Fetch công việc từ API, fallback về data tĩnh nếu thất bại
-   useEffect(() => {
-      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
-      fetch(`${apiBase}/api/jobs`)
-         .then((res) => {
-            if (!res.ok) throw new Error("API error");
-            return res.json() as Promise<Array<{
-               id: number; title: string; slug: string;
-               company: { name: string; color: string; description: string; logoUrl?: string; slug?: string };
-               jobType: string; jobLevel?: string; experienceYears?: string;
-               locationCity: string; locationAddress?: string;
-               description: string; requirements?: string; benefits?: string;
-               salaryMin: number; salaryMax: number; expiredAt?: string;
-            }>>;
-         })
-         .then((apiData) => {
-            if (!apiData || apiData.length === 0) {
-               setApiJobs(companyJobs);
-               return;
-            }
-            const mapped: Job[] = apiData.map((apiItem) => ({
-               title: apiItem.title,
-               company: apiItem.company.name,
-               companyColor: apiItem.company.color || "#0ea5e9",
-               companyDescription: apiItem.company.description || "",
-               description: apiItem.description,
-               requirements: apiItem.requirements,
-               benefits: apiItem.benefits,
-               place: apiItem.locationCity,
-               locationAddress: apiItem.locationAddress,
-               field: toVietnameseField(apiItem.title), // Phân loại tự động dựa trên tiêu đề
-               type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
-               salary: `${Math.round((apiItem.salaryMin ?? 0) / 1_000_000)}–${Math.round((apiItem.salaryMax ?? 0) / 1_000_000)} triệu`,
-               tags: [
-                  apiItem.jobLevel ? (levelMap[apiItem.jobLevel] ?? apiItem.jobLevel) : null,
-                  apiItem.experienceYears ? `${apiItem.experienceYears} năm KN` : null,
-                  apiItem.locationCity || null,
-               ].filter((t): t is string => Boolean(t)),
-               hot: false,
-               posted: "Vừa cập nhật",
-               image: apiItem.company.logoUrl || image1,
-               companyUrl: `/cong-ty/${apiItem.company.slug ?? ""}`,
-               slug: apiItem.slug,
-               jobLevel: apiItem.jobLevel,
-               experienceYears: apiItem.experienceYears,
-               expiredAt: apiItem.expiredAt,
-            }));
-            setApiJobs(mapped);
-         })
-         .catch(() => {
-            setApiJobs([]);
-         })
-         .finally(() => {});
-   }, []);
+    const mapApiJobs = (apiData: any[]): Job[] => {
+       return apiData.map((apiItem) => ({
+          title: apiItem.title,
+          company: apiItem.company?.name || "",
+          companyColor: apiItem.company?.color || "#0ea5e9",
+          companyDescription: apiItem.company?.description || "",
+          description: apiItem.description || "",
+          requirements: apiItem.requirements,
+          benefits: apiItem.benefits,
+          place: apiItem.locationCity || "Việt Nam",
+          locationAddress: apiItem.locationAddress,
+          field: toVietnameseField(apiItem.title),
+          type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
+          salary: `${Math.round((apiItem.salaryMin ?? 0) / 1_000_000)}–${Math.round((apiItem.salaryMax ?? 0) / 1_000_000)} triệu`,
+          tags: [
+             apiItem.jobLevel ? (levelMap[apiItem.jobLevel] ?? apiItem.jobLevel) : null,
+             apiItem.experienceYears ? `${apiItem.experienceYears} năm KN` : null,
+             apiItem.locationCity || null,
+          ].filter((t): t is string => Boolean(t)),
+          hot: false,
+          posted: "Vừa cập nhật",
+          image: apiItem.company?.logoUrl || image1,
+          companyUrl: `/cong-ty/${apiItem.company?.slug ?? ""}`,
+          slug: apiItem.slug,
+          jobLevel: apiItem.jobLevel,
+          experienceYears: apiItem.experienceYears,
+          expiredAt: apiItem.expiredAt,
+       }));
+    };
 
-   const rawJobsList = apiJobs;
+    // Initial load: 20 jobs
+    useEffect(() => {
+       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+       setLoadingMore(true);
+       fetch(`${apiBase}/api/jobs?offset=0&limit=20`)
+          .then((res) => {
+             if (!res.ok) throw new Error("API error");
+             return res.json() as Promise<Array<any>>;
+          })
+          .then((apiData) => {
+             if (!apiData || apiData.length === 0) {
+                setApiJobs(companyJobs.slice(0, 20));
+                setHasMore(companyJobs.length > 20);
+                setOffset(20);
+                setIsUsingFallback(true);
+                return;
+             }
+             const mapped = mapApiJobs(apiData);
+             setApiJobs(mapped);
+             setHasMore(apiData.length === 20);
+             setOffset(20);
+             setIsUsingFallback(false);
+          })
+          .catch((err) => {
+             console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
+             setApiJobs(companyJobs.slice(0, 20));
+             setHasMore(companyJobs.length > 20);
+             setOffset(20);
+             setIsUsingFallback(true);
+          })
+          .finally(() => {
+             setLoadingMore(false);
+          });
+    }, []);
+
+    // Load more: 10 jobs
+    const loadMoreJobs = () => {
+       if (loadingMore || !hasMore) return;
+       setLoadingMore(true);
+
+       if (isUsingFallback) {
+          setTimeout(() => {
+             const nextBatch = companyJobs.slice(offset, offset + 10);
+             if (nextBatch.length > 0) {
+                setApiJobs((prev) => [...prev, ...nextBatch]);
+                setOffset((prev) => prev + 10);
+                setHasMore(companyJobs.length > offset + 10);
+             } else {
+                setHasMore(false);
+             }
+             setLoadingMore(false);
+          }, 400);
+          return;
+       }
+
+       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+       fetch(`${apiBase}/api/jobs?offset=${offset}&limit=10`)
+          .then((res) => {
+             if (!res.ok) throw new Error("API error");
+             return res.json() as Promise<Array<any>>;
+          })
+          .then((apiData) => {
+             if (!apiData || apiData.length === 0) {
+                setHasMore(false);
+                return;
+             }
+             const mapped = mapApiJobs(apiData);
+             setApiJobs((prev) => [...prev, ...mapped]);
+             setOffset((prev) => prev + 10);
+             setHasMore(apiData.length === 10);
+          })
+          .catch((err) => {
+             console.error("Lỗi tải thêm công việc từ API, chuyển sang dữ liệu dự phòng:", err);
+             const nextBatch = companyJobs.slice(offset, offset + 10);
+             if (nextBatch.length > 0) {
+                setApiJobs((prev) => [...prev, ...nextBatch]);
+                setOffset((prev) => prev + 10);
+                setHasMore(companyJobs.length > offset + 10);
+             } else {
+                setHasMore(false);
+             }
+          })
+          .finally(() => {
+             setLoadingMore(false);
+          });
+    };
+
+    // Scroll listener
+    useEffect(() => {
+       const handleScroll = () => {
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
+             loadMoreJobs();
+          }
+       };
+       window.addEventListener("scroll", handleScroll);
+       return () => window.removeEventListener("scroll", handleScroll);
+    }, [offset, loadingMore, hasMore, isUsingFallback]);
+
+    const rawJobsList = apiJobs;
 
    // --- Instant Filter Logic ---
    const filteredJobs = rawJobsList.filter(job => {
@@ -693,6 +770,16 @@ export default function JobsPage() {
                            </article>
                         );
                      })
+                  )}
+                  {loadingMore && (
+                     <div className="text-center py-4 text-slate-500 font-extrabold text-sm animate-pulse">
+                        Đang tải thêm công việc...
+                     </div>
+                  )}
+                  {!hasMore && apiJobs.length > 0 && (
+                     <div className="text-center py-4 text-slate-400 font-extrabold text-xs uppercase tracking-wider">
+                        Đã tải hết tất cả công việc
+                     </div>
                   )}
                </div>
             </main>
