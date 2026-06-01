@@ -716,22 +716,25 @@ export default function CompaniesPage() {
 
 
    const getCompanyLogo = (company: CompanyItem) => {
+      if (company.image) return company.image;
       const index = companies.findIndex((c) => c.name === company.name);
       if (index >= 0) {
          return companyAvatars[index % companyAvatars.length];
       }
-      return companyAvatars[0];
+      // stable hash fallback so different company names map to different avatars
+      const hash = Array.from(company.name).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+      return companyAvatars[hash % companyAvatars.length];
    };
 
    const getCompanyImage = (company: CompanyItem) => {
-      if (company.image) {
-         return company.image;
-      }
+      if (company.companyImage) return company.companyImage;
+      if (company.image) return company.image;
       const index = companies.findIndex((c) => c.name === company.name);
       if (index >= 0) {
          return companyImages[index % companyImages.length];
       }
-      return companyImages[0];
+      const hash = Array.from(company.name).reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+      return companyImages[hash % companyImages.length];
    };
 
    const selectedCompanyLogo = selectedCompany ? getCompanyLogo(selectedCompany) : companyAvatars[0];
@@ -825,8 +828,8 @@ export default function CompaniesPage() {
          <div className="grid grid-cols-1 gap-5">
             {filteredCompanies.map((item, index) => {
                const fc = fieldColors[item.field] ?? { bg: "#f1f5f9", text: "#475569" };
-               const avatarSrc = companyAvatars[index % companyAvatars.length];
-               const companyImageSrc = companyImages[index % companyImages.length];
+               const avatarSrc = getCompanyLogo(item);
+               const companyImageSrc = getCompanyImage(item);
                const detailDescription = item.introduction
                   ? item.introduction
                   : `${item.description} Doanh nghiệp hiện có quy mô ${item.employees} nhân sự tại ${item.location}, đang tuyển ${item.positions.length} vị trí với lộ trình phát triển rõ ràng và môi trường làm việc chú trọng đào tạo. Phúc lợi nổi bật gồm: ${item.benefits.join(", ")}.`;
