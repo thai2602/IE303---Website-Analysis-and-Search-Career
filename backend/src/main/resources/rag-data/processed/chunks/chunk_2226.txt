@@ -1,0 +1,20 @@
+---
+job_id: PMGR-E-009
+role: Project Manager
+level: Experienced
+years_of_experience: 6-9
+skills:
+* Project lifecycle management
+* Advanced scheduling and budgeting
+* Risk and quality oversight
+* Stakeholder communication
+* Team management and conflict resolution
+* Change management
+* Reporting and dashboard creation
+* Data-driven decision making
+* Use of MS Project, Primavera, Jira, Trello
+* Strategic project alignment
+keywords:
+* Project Management
+* Risk Management
+* Stakeholder Engagement

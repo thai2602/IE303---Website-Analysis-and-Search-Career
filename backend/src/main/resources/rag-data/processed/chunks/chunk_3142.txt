@@ -1,0 +1,11 @@
+## Responsibilities
+* Create and maintain manuals, guides, and API documentation
+* Collaborate with engineering and product teams
+* Ensure structured authoring and standard compliance
+* Manage content in CMS
+* Use AI-assisted writing tools
+* Implement Agile documentation workflows
+* Maintain version control
+* Prepare visuals and diagrams
+* Ensure technical accuracy
+* Continuously update content

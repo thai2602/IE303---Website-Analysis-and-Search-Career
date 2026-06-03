@@ -1,0 +1,15 @@
+## Responsibilities
+* Lead QA initiatives
+* Design and maintain automated test frameworks
+* Perform performance and security testing
+* Mentor junior QA engineers
+
+## ATS Keywords
+* QA
+* Software Testing
+* Automation
+* Senior-Level
+* Remote
+* Leadership
+* Selenium
+* Performance Testing

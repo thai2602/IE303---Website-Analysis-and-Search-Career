@@ -1,0 +1,25 @@
+## Skills
+* AWS multi-cloud
+* Azure networking
+* Kubernetes orchestration
+* CloudFormation
+* Ansible
+* DevOps automation
+* Leadership
+
+## Responsibilities
+* Lead cloud migration projects
+* Architect hybrid cloud environments
+* Mentor junior engineers
+* Ensure compliance with governance frameworks
+
+## ATS Keywords
+* Cloud Architecture
+* Hybrid Cloud
+* AWS
+* Azure
+* GCP
+* Kubernetes
+* DevOps
+* CloudFormation
+* Leadership

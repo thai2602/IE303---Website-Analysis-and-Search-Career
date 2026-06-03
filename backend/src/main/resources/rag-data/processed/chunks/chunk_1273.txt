@@ -1,0 +1,8 @@
+* Smart Contracts
+* Machine Learning
+* Cybersecurity
+* API Architecture
+* Cloud Computing
+* Financial Analysis
+* Regulatory Compliance
+---

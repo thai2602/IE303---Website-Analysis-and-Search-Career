@@ -1,0 +1,12 @@
+## Responsibilities
+* Design and manage cloud networking
+* Optimize VPCs and subnets
+* Integrate with load balancers
+* Automate with Ansible
+
+## ATS Keywords
+* Cloud Networking
+* AWS
+* Azure
+* VPC
+* Ansible

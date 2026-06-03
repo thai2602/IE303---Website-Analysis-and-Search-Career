@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead SRE team
+* Design and manage scalable distributed systems
+* Automate deployments and monitoring
+* Implement CI/CD pipelines and IaC
+* Ensure uptime and performance
+* Mentor junior engineers
+* Collaborate with development, operations, and security teams
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

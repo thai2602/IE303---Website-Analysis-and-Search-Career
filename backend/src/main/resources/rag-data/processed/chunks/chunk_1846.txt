@@ -1,0 +1,16 @@
+## Responsibilities
+* Design and maintain ML infrastructure
+* Lead model deployment and optimize pipelines
+* Mentor engineers and ensure scalable ML solutions
+* Collaborate with cross-functional teams
+* Implement best practices in cloud environments
+
+## ATS Keywords
+* Senior ML Infrastructure Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Cloud Deployment

@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead design and programming of robotics systems
+* Integrate sensors and actuators with control systems
+* Apply computer vision and machine learning algorithms
+* Simulate and test robotics in Gazebo and RViz
+* Mentor junior engineers
+* Coordinate cross-functional teams for robotics projects
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership

@@ -1,0 +1,13 @@
+## Responsibilities
+* Lead development of scalable mobile apps.
+* Design MVVM-based modular architecture.
+* Integrate GraphQL APIs into app flows.
+* Ensure CI/CD pipelines with GitHub Actions.
+* Optimize app crash rate through proactive monitoring.
+
+## ATS Keywords
+* MVVM
+* GraphQL
+* CI/CD
+* Swift
+* App Optimization

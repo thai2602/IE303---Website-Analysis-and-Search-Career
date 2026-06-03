@@ -1,0 +1,26 @@
+# Big Data Specialist
+
+## Experience Level
+Experienced (4+ years)
+
+## Skills
+* Hadoop ecosystem
+* Spark Streaming
+* Kafka
+* Flink
+* Java
+* Scala
+* Python
+* Redshift
+* BigQuery
+* Snowflake
+* AWS
+* Azure
+* GCP
+* Tableau
+* Power BI
+* QlikView
+* MLlib
+* TensorFlow basics
+* Data governance
+* Team leadership

@@ -1,0 +1,37 @@
+* TensorFlow
+* PyTorch
+---
+
+# AI Engineer - Experienced
+
+## Experience Level
+Mid-Senior Level (3–6 years years)
+
+## Skills
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* Reinforcement Learning
+* NLP
+* Computer Vision
+* Generative AI
+* LLMs
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face Transformers
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* MLOps
+* Apache Spark
+* Hadoop
+* Docker
+* Kubernetes
+* Model Monitoring
+* SHAP
+* LIME

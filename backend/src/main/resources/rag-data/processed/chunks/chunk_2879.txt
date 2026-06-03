@@ -1,0 +1,23 @@
+---
+job_id: SEO-009
+role: SEO Specialist
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Technical SEO audits
+* Page speed and performance optimization
+* Schema markup and structured data
+* Content optimization
+* AI-driven SEO tools
+* Link building strategy
+* Local SEO optimization
+* Voice and visual search optimization
+* Analytics and reporting
+* Privacy compliance (GDPR)
+keywords:
+* Technical SEO
+* Page Speed
+* Schema Markup
+* Content Optimization
+* AI SEO Tools
+* Link Building

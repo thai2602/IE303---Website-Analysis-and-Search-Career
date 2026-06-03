@@ -1,0 +1,46 @@
+---
+job_id: UIE014
+role: UI Designer
+level: Experienced
+years_of_experience: 5
+skills:
+* Figma
+* Adobe XD
+* Micro-Interactions
+* Usability Testing
+* Interaction Design
+* Team Leadership
+keywords:
+* Micro-Interactions
+* Team Leadership
+* Figma
+* Interaction Design
+* Usability Testing
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (5 years)
+
+## Skills
+* Figma
+* Adobe XD
+* Micro-Interactions
+* Usability Testing
+* Interaction Design
+* Team Leadership
+
+## Responsibilities
+* Oversee UI consistency across multiple products.
+* Mentor design team members and interns.
+* Introduce advanced animation and micro-interactions.
+* Improve conversion rates through UI redesign.
+* Collaborate with cross-functional teams on product strategy.
+
+## ATS Keywords
+* Micro-Interactions
+* Team Leadership
+* Figma
+* Interaction Design
+* Usability Testing

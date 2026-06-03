@@ -1,0 +1,30 @@
+---
+job_id: BA-101
+role: Business Analyst
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Data analysis
+* Excel
+* SQL basics
+* Tableau basics
+* Power BI basics
+* Requirement gathering
+* Documentation
+* Agile methodology awareness
+* Communication
+* Problem-solving
+keywords:
+* Business Analysis
+* Data Analysis
+* Excel
+* SQL
+* Tableau
+* Power BI
+* Requirement Gathering
+* Agile
+* Problem Solving
+* Documentation
+---
+
+# Business Analyst

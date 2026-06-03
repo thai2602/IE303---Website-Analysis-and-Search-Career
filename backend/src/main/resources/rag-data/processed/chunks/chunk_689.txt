@@ -1,0 +1,24 @@
+## Skills
+* Splunk
+* QRadar
+* Threat Hunting
+* Risk Management
+* Incident Response
+* Python
+* Bash
+* Cloud Security (AWS/Azure)
+
+## Responsibilities
+* Lead SOC operations
+* Perform threat hunting
+* Oversee risk assessments
+* Ensure compliance with standards
+* Reduce incident response times
+
+## ATS Keywords
+* Threat Hunting
+* SIEM
+* SOC
+* Incident Response
+* Risk Management
+* Cloud Security

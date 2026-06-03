@@ -1,0 +1,27 @@
+---
+job_id: TA010
+role: Test Automation Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* Java
+* Python basics
+* Selenium
+* Appium basics
+* Functional testing
+* Regression testing
+* JIRA
+* Postman basics
+keywords:
+* QA
+* Automation
+* Fresher
+* Entry-Level
+* CI/CD
+* Regression Testing
+---
+
+# Test Automation Engineer - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)

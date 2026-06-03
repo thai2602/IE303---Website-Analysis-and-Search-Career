@@ -1,0 +1,49 @@
+---
+job_id: QA014
+role: QA Engineer - Experienced
+level: Senior-Level
+years_of_experience: 5–10 years
+skills:
+* Test Automation: Selenium, Appium, Cucumber, TestNG
+* Performance & Security Testing: JMeter, LoadRunner
+* CI/CD: Jenkins, GitLab CI/CD, Bamboo
+* Programming: Java, Python, C#, JavaScript
+* API & Mobile Testing: Postman, SoapUI, Appium
+* Bug Tracking & Documentation: JIRA, TestRail, ALM
+keywords:
+* QA
+* Automation
+* Software
+* Senior-Level
+* San Francisco
+* Leadership
+* Performance Testing
+---
+
+# QA Engineer - Experienced
+
+## Experience Level
+Senior-Level (5–10 years years)
+
+## Skills
+* Test Automation: Selenium, Appium, Cucumber, TestNG
+* Performance & Security Testing: JMeter, LoadRunner
+* CI/CD: Jenkins, GitLab CI/CD, Bamboo
+* Programming: Java, Python, C#, JavaScript
+* API & Mobile Testing: Postman, SoapUI, Appium
+* Bug Tracking & Documentation: JIRA, TestRail, ALM
+
+## Responsibilities
+* Design and maintain automated test frameworks
+* Conduct performance and security testing
+* Integrate testing in CI/CD pipelines
+* Lead QA teams
+
+## ATS Keywords
+* QA
+* Automation
+* Software
+* Senior-Level
+* San Francisco
+* Leadership
+* Performance Testing

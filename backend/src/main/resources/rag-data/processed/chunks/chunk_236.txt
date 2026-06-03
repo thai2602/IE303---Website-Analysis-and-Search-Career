@@ -1,0 +1,15 @@
+## Responsibilities
+* Build Android app screens and connect basic APIs.
+* Ensure responsive layouts and follow Material Design principles.
+* Write unit tests for small modules.
+* Document development workflows.
+* Collaborate with senior developers for guidance.
+
+## ATS Keywords
+* Java
+* Kotlin
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

@@ -1,0 +1,19 @@
+## Responsibilities
+* Design enterprise solutions for cloud platforms
+* Implement IaC using Terraform/CloudFormation
+* Deploy and manage microservices
+* Ensure security and compliance
+* Collaborate with business stakeholders
+* Lead teams and manage projects
+
+## ATS Keywords
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* Microservices
+* CI/CD

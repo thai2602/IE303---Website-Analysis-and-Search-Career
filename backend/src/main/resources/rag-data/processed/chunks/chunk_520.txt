@@ -1,0 +1,20 @@
+# Big Data Specialist
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Hadoop (HDFS, MapReduce, Hive, Pig)
+* Apache Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics (MongoDB, HBase)
+* ETL concepts
+* Talend basics
+* Apache NiFi basics
+* Linux/Unix basics
+* Analytical thinking
+* Problem-solving
+* Teamwork

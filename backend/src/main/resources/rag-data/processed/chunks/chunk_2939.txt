@@ -1,0 +1,11 @@
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Monitoring

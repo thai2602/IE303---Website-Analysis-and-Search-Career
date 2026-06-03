@@ -1,0 +1,6 @@
+## Responsibilities
+* Build end-to-end web solutions
+* Work with frontend frameworks React or Angular
+* Implement backend technologies Node.js or Django
+* Manage SQL/NoSQL databases
+* Participate in debugging, testing, and Agile ceremonies

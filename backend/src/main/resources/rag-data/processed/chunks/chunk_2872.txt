@@ -1,0 +1,9 @@
+## Responsibilities
+* Execute technical SEO audits and implement best practices
+* Optimize content for search engines
+* Lead link building campaigns and backlink analysis
+* Improve page speed and site performance
+* Implement schema markup and structured data
+* Optimize for voice, video, and visual search
+* Ensure SEO compliance with privacy regulations
+* Generate reports using analytics tools

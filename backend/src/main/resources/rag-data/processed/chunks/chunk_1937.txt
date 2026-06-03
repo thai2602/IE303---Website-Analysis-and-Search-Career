@@ -1,0 +1,12 @@
+## Responsibilities
+* Assist with router/switch configuration
+* Help troubleshoot network outages
+* Document network processes
+* Perform routine maintenance
+
+## ATS Keywords
+* Cisco IOS
+* DHCP
+* DNS
+* Subnetting
+* Entry-Level Networking

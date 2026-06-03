@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* Cucumber
+* JMeter
+* LoadRunner
+* Jenkins
+* GitLab
+* Docker
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+
+## Responsibilities
+* Manage QA automation
+* Design frameworks
+* Oversee performance testing
+* Integrate with CI/CD and train QA teams
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Leadership
+* CI/CD
+* Training

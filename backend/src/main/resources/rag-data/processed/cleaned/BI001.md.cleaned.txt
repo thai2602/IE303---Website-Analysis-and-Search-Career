@@ -1,0 +1,59 @@
+---
+job_id: BI001
+role: BI Analyst - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* SQL
+* MySQL basics
+* PostgreSQL basics
+* Tableau
+* Power BI
+* Excel charts and dashboards
+* Basic statistics
+* ETL awareness
+* Business acumen
+* Data analysis
+keywords:
+* BI
+* Analytics
+* Fresher
+* Entry-Level
+* SQL
+* Tableau
+* Power BI
+* ETL
+---
+
+# BI Analyst - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* SQL
+* MySQL basics
+* PostgreSQL basics
+* Tableau
+* Power BI
+* Excel charts and dashboards
+* Basic statistics
+* ETL awareness
+* Business acumen
+* Data analysis
+
+## Responsibilities
+* Assist in analyzing datasets
+* Create dashboards
+* Prepare reports
+* Support business decision-making processes
+
+## ATS Keywords
+* BI
+* Analytics
+* Fresher
+* Entry-Level
+* SQL
+* Tableau
+* Power BI
+* ETL

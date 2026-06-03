@@ -1,0 +1,29 @@
+---
+job_id: RE-E-014
+role: Robotics Engineer
+level: Experienced
+years_of_experience: 10+
+skills:
+* Python expert
+* C++ expert
+* MATLAB
+* ROS advanced
+* CAD/SolidWorks advanced
+* Robotics control algorithms
+* Embedded systems design
+* Sensor fusion
+* Computer vision
+* ML in robotics
+* Simulation (Gazebo, RViz)
+* Hardware interfacing
+* Team leadership
+* Project management
+* Innovation in robotics
+* Cross-functional collaboration
+keywords:
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD

@@ -1,0 +1,21 @@
+---
+job_id: PM-E-009
+role: Product Manager
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Product vision and roadmap development
+* Data analysis and experimentation
+* Cross-functional leadership
+* Stakeholder management
+* User experience research
+* Agile methodologies
+* Metrics-driven product growth
+* Strategic planning
+* Resource prioritization
+* Tools: JIRA, Confluence, Tableau, Figma
+keywords:
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership

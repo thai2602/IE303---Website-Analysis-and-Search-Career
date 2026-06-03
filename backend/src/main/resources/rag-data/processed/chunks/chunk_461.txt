@@ -1,0 +1,31 @@
+---
+job_id: BD-F-002
+role: Blockchain Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Java basics
+* Python basics
+* C++ basics
+* Solidity basics
+* Ethereum fundamentals
+* Hyperledger basics
+* Smart contract testing
+* Cryptography fundamentals
+* DApps basics
+* Git
+* Truffle
+* Remix IDE
+* Problem-solving
+* Teamwork
+* Adaptability
+keywords:
+* Blockchain
+* Ethereum
+* Solidity
+* Smart Contracts
+* Cryptography
+* DApps
+* Hyperledger
+* Corda
+---

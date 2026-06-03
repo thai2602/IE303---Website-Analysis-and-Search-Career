@@ -1,0 +1,73 @@
+---
+job_id: AR-F-005
+role: AR/VR Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C++ basics
+* C# basics
+* JavaScript basics
+* Unity basics
+* Unreal Engine basics
+* ARKit basics
+* ARCore basics
+* Blender/Maya basics
+* 3D modeling basics
+* UI/UX fundamentals
+* Spatial computing basics
+* Motion tracking basics
+* Teamwork
+* Communication
+* Problem-solving
+keywords:
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Modeling
+* Spatial Computing
+* Motion Tracking
+* JavaScript
+---
+
+# AR/VR Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C++ basics
+* C# basics
+* JavaScript basics
+* Unity basics
+* Unreal Engine basics
+* ARKit basics
+* ARCore basics
+* Blender/Maya basics
+* 3D modeling basics
+* UI/UX fundamentals
+* Spatial computing basics
+* Motion tracking basics
+* Teamwork
+* Communication
+* Problem-solving
+
+## Responsibilities
+* Assist in AR/VR project tasks
+* Create basic interactive 3D models
+* Support development in Unity and Unreal Engine
+* Help integrate ARKit/ARCore features
+* Collaborate with design teams
+* Perform testing and debugging of AR/VR interactions
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Modeling
+* Spatial Computing
+* Motion Tracking
+* JavaScript

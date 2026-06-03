@@ -1,0 +1,30 @@
+---
+job_id: SE010
+role: System Engineer - Security
+level: Experienced
+years_of_experience: 5+
+skills:
+* Linux Security
+* Firewalls
+* AWS IAM
+* Compliance
+* PowerShell
+keywords:
+* System Security
+* IAM
+* Linux
+* Compliance
+* Troubleshooting
+---
+
+# System Engineer - Security
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* Linux Security
+* Firewalls
+* AWS IAM
+* Compliance
+* PowerShell

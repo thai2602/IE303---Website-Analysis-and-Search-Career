@@ -1,0 +1,13 @@
+## Responsibilities
+* Develop small modules of iOS apps under supervision.
+* Implement UI layouts and validate responsiveness.
+* Follow Apple’s Human Interface Guidelines.
+* Participate in team discussions for requirement understanding.
+* Document code and workflows for easy maintenance.
+
+## ATS Keywords
+* Swift
+* Objective-C
+* UI/UX Design
+* Xcode
+* iOS SDK

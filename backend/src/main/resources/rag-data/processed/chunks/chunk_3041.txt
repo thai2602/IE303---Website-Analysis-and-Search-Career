@@ -1,0 +1,23 @@
+## Skills
+* Java
+* Python basics
+* Selenium
+* TestNG basics
+* Regression testing
+* Functional testing
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Assist in developing test cases
+* Execute automation scripts
+* Document defects
+* Perform regression testing
+
+## ATS Keywords
+* QA
+* Software Testing
+* Fresher
+* Entry-Level
+* Automation
+* Regression Testing

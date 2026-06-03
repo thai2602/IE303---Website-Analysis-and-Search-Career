@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in building academic or POC mobile apps.
+* Learn basics of Git version control in project workflow.
+* Develop UI with basic controls and interactions.
+* Collaborate with peers on group-based coding tasks.
+* Help prepare testing reports for assigned modules.
+
+## ATS Keywords
+* Swift
+* Xcode
+* UIKit
+* Git
+* App Development

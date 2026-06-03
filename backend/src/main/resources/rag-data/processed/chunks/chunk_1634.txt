@@ -1,0 +1,11 @@
+## Responsibilities
+* Work on backend APIs with supervision
+* Commit and manage code using Git
+* Assist in writing basic REST endpoints
+* Collaborate with senior developers
+
+## ATS Keywords
+* Java
+* REST APIs
+* Git
+* Problem Solving

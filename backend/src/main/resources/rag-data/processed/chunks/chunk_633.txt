@@ -1,0 +1,24 @@
+# Cloud Engineer - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform basics
+* CloudFormation basics
+* Docker basics
+* Kubernetes basics
+* Python
+* Bash
+* Shell scripting
+* Jenkins
+* GitHub Actions
+* AWS CodePipeline
+* Monitoring: CloudWatch, Prometheus, Azure Monitor
+* VPC
+* VPN
+* IAM basics
+* Git/GitHub/GitLab

@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead architecture and development of IoT solutions
+* Optimize embedded firmware and device software
+* Integrate complex sensors and actuators
+* Manage cloud and edge computing platforms
+* Develop data pipelines and analytics workflows
+* Implement secure communication protocols
+* Mentor team members and guide project delivery

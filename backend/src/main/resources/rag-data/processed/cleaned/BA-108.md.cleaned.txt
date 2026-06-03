@@ -1,0 +1,69 @@
+---
+job_id: BA-108
+role: Business Analyst
+level: Experienced
+years_of_experience: 6-10
+skills:
+* Advanced data analysis
+* SQL
+* Excel
+* Tableau
+* Power BI
+* AI-enhanced analytics
+* Requirement management
+* Agile leadership
+* Stakeholder engagement
+* Business process optimization
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Business Process
+* Data Visualization
+---
+
+# Business Analyst
+
+## Experience Level
+Experienced (6-10 years)
+
+## Skills
+* Advanced data analysis
+* SQL
+* Excel
+* Tableau
+* Power BI
+* AI-enhanced analytics
+* Requirement management
+* Agile leadership
+* Stakeholder engagement
+* Business process optimization
+
+## Responsibilities
+* Lead complex business analysis projects
+* Design and maintain BI dashboards and reports
+* Oversee requirement elicitation and documentation
+* Implement AI-driven analytics solutions
+* Facilitate Agile project management
+* Collaborate with business and technical teams
+* Provide actionable insights to executives
+* Support strategic planning
+* Mentor junior analysts
+* Automate KPI tracking and reporting
+
+## ATS Keywords
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Business Process
+* Data Visualization

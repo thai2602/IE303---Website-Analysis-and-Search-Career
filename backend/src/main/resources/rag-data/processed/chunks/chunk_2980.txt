@@ -1,0 +1,15 @@
+* Leadership
+* Collaboration
+* Communication
+keywords:
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems
+---

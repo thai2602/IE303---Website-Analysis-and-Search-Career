@@ -1,0 +1,29 @@
+---
+job_id: CA007
+role: Senior Cloud Architect
+level: Experienced
+years_of_experience: 7
+skills:
+* AWS multi-cloud
+* Azure networking
+* Kubernetes orchestration
+* CloudFormation
+* Ansible
+* DevOps automation
+* Leadership
+keywords:
+* Cloud Architecture
+* Hybrid Cloud
+* AWS
+* Azure
+* GCP
+* Kubernetes
+* DevOps
+* CloudFormation
+* Leadership
+---
+
+# Senior Cloud Architect
+
+## Experience Level
+Experienced (7 years)

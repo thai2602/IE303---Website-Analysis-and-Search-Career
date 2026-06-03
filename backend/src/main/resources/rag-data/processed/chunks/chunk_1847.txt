@@ -1,0 +1,23 @@
+---
+job_id: ML-S5
+role: Lead ML/AI Engineer
+level: Senior
+years_of_experience: 6+
+skills:
+* Python
+* R
+* Java
+* SQL
+* Scala
+* Advanced ML/DL: deep learning, reinforcement learning, NLP, computer vision, transfer learning
+* Frameworks: TensorFlow, PyTorch, Keras, Scikit-learn (advanced), ONNX
+* MLOps: CI/CD pipelines, monitoring, cloud deployment (AWS/GCP/Azure)
+* Big data: Hadoop, Spark
+* Feature engineering, ETL pipelines
+keywords:
+* Lead ML/AI Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps

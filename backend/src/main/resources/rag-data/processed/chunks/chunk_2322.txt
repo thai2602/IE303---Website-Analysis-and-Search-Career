@@ -1,0 +1,21 @@
+## Responsibilities
+* Lead Python application architecture and development
+* Build REST and GraphQL APIs
+* Integrate ML frameworks
+* Optimize database performance
+* Implement DevOps with Docker/Kubernetes/AWS
+* Mentor developers
+* Conduct testing and reviews
+* Collaborate with teams and stakeholders
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest

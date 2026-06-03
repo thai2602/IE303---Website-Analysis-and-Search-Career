@@ -1,0 +1,12 @@
+## Responsibilities
+* Monitor SIEM alerts
+* Respond to incidents
+* Perform malware analysis
+* Maintain SOC dashboards
+
+## ATS Keywords
+* SIEM
+* Incident Response
+* SOC
+* Malware Analysis
+* Threat Hunting

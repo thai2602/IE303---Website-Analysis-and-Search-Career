@@ -1,0 +1,12 @@
+## Responsibilities
+* Conduct enterprise-wide risk assessments
+* Ensure compliance with GDPR and HIPAA
+* Automate risk reporting with scripts
+* Recommend remediation strategies
+
+## ATS Keywords
+* Risk Management
+* Compliance
+* Security Auditing
+* Incident Response
+* Vulnerability Assessment

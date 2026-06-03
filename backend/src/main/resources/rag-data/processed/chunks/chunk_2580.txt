@@ -1,0 +1,25 @@
+---
+job_id: SD008
+role: Software Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* Python
+* SQL
+* Git
+* ML libraries (scikit-learn, pandas)
+* Problem-solving
+* Collaboration
+keywords:
+* Software Developer
+* Entry-Level
+* Fresher
+* AI
+* Data Analytics
+* Machine Learning
+---
+
+# Software Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)

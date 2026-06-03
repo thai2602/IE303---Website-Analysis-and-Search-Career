@@ -1,0 +1,19 @@
+## Responsibilities
+* Lead design and implementation of cloud solutions
+* Develop infrastructure as code
+* Deploy containerized applications
+* Ensure security compliance
+* Coordinate with stakeholders and cross-functional teams
+* Mentor junior architects
+
+## ATS Keywords
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* CI/CD
+* Security Compliance

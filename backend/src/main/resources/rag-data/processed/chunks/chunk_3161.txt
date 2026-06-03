@@ -1,0 +1,13 @@
+## Responsibilities
+* Build responsive UI for web and mobile products.
+* Collaborate with developers during implementation.
+* Conduct A/B tests and analyze outcomes.
+* Design user-centered layouts and workflows.
+* Improve engagement metrics through UI optimization.
+
+## ATS Keywords
+* Responsive Design
+* A/B Testing
+* Figma
+* Design Systems
+* User Flows

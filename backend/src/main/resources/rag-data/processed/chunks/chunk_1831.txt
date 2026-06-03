@@ -1,0 +1,22 @@
+---
+job_id: ML-S1
+role: Senior Machine Learning Engineer
+level: Senior
+years_of_experience: 5+
+skills:
+* Python
+* R
+* Java
+* SQL
+* Scala
+* Advanced ML/DL: deep learning, NLP, reinforcement learning, computer vision, transfer learning
+* Frameworks: TensorFlow, PyTorch, Keras, Scikit-learn (advanced)
+* MLOps: CI/CD pipelines, model monitoring, cloud deployment (AWS/GCP/Azure)
+* Big data: Spark, Hadoop
+* Feature engineering, ETL automation
+keywords:
+* Senior ML Engineer
+* Python
+* R
+* Java
+* ML/DL

@@ -1,0 +1,12 @@
+## Responsibilities
+* Lead incident investigations
+* Perform digital forensics
+* Coordinate response teams
+* Develop incident response playbooks
+
+## ATS Keywords
+* Incident Response
+* Forensics
+* Malware Analysis
+* Threat Hunting
+* SOC

@@ -1,0 +1,30 @@
+---
+job_id: OM-112
+role: Operations Manager
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Basic Team Coordination
+* Workflow Observation
+* Time Management
+* Communication
+* Collaboration
+* ERP/CRM Basics
+* Problem-Solving
+* Adaptability
+* Reporting
+* Process Awareness
+keywords:
+* Operations Management
+* Team Coordination
+* Workflow Observation
+* ERP
+* CRM
+* Time Management
+* Collaboration
+* Reporting
+* Problem Solving
+* Adaptability
+---
+
+# Operations Manager

@@ -1,0 +1,10 @@
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* HTML
+* CSS

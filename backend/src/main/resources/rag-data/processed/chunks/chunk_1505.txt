@@ -1,0 +1,19 @@
+## Responsibilities
+* Assist in developing game features
+* Collaborate with team on game mechanics and physics
+* Support graphics and shader development
+* Debug and maintain code
+* Participate in version control workflows
+* Contribute to mobile and console game projects
+* Document development processes
+
+## ATS Keywords
+* C++
+* C#
+* Unity
+* Unreal Engine
+* Game Design
+* Game Mechanics
+* Graphics Programming
+* Git
+* Debugging

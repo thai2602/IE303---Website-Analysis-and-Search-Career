@@ -1,0 +1,19 @@
+## Skills
+* LogRhythm
+* Vulnerability Management
+* PowerShell
+* Cloud Security
+* Compliance (GDPR, PCI-DSS)
+
+## Responsibilities
+* Conduct advanced threat detection
+* Lead vulnerability management programs
+* Ensure cloud infrastructure security
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Security Auditing
+* Compliance
+* Cloud Security
+* Incident Response
+* Vulnerability Assessment

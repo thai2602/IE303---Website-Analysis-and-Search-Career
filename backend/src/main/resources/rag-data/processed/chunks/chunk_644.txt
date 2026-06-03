@@ -1,0 +1,26 @@
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform/CloudFormation basics
+* Docker/Kubernetes
+* Python/Bash scripting
+* Jenkins
+* AWS CodePipeline
+* Monitoring: CloudWatch, Prometheus
+* Git
+
+## Responsibilities
+* Implement basic cloud deployments
+* Manage infrastructure scripts
+* Containerize applications for training or academic projects
+* Collaborate in teamwork projects
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Entry-Level
+* Fresher
+* Pune
+* Remote
+* DevOps

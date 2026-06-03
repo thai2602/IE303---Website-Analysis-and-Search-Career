@@ -1,0 +1,14 @@
+## Responsibilities
+* Support the team in coding features for iOS apps.
+* Implement UI components using UIKit and Interface Builder.
+* Consume REST APIs and handle JSON data.
+* Participate in writing unit test cases for app modules.
+* Assist with initial App Store submission processes.
+
+## ATS Keywords
+* Swift
+* iOS SDK
+* Cocoa Touch
+* REST APIs
+* Git
+* Unit Testing

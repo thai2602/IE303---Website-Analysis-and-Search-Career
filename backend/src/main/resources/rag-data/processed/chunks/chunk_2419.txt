@@ -1,0 +1,12 @@
+## Responsibilities
+* Manage QA operations
+* Develop automated testing strategies
+* Integrate testing into CI/CD pipelines
+* Mentor QA engineers
+
+## ATS Keywords
+* QA
+* Automation
+* Senior-Level
+* Leadership
+* Strategy

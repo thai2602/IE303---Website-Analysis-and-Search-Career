@@ -1,0 +1,11 @@
+## Responsibilities
+* Optimize Java applications for performance
+* Design microservices architecture
+* Ensure concurrency handling in applications
+
+## ATS Keywords
+* Java
+* JVM
+* Performance Tuning
+* Microservices
+* Spring Boot

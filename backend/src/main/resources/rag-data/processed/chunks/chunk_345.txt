@@ -1,0 +1,11 @@
+## Responsibilities
+* Lead cross-functional analysis initiatives
+* Design and maintain BI dashboards
+* Manage requirement gathering and validation
+* Implement AI-driven data analysis solutions
+* Facilitate Agile ceremonies and project workflows
+* Collaborate with business units to optimize processes
+* Present actionable insights to leadership
+* Support strategic business planning
+* Mentor junior BAs and analysts
+* Oversee KPI tracking and reporting automation

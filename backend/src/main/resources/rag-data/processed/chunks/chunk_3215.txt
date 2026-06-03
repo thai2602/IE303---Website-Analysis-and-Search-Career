@@ -1,0 +1,14 @@
+## Responsibilities
+* Create simple wireframes for internal projects
+* Document usability findings from academic assignments
+* Collaborate with front-end developers during practice projects
+* Practice low-fidelity prototypes in Figma
+* Learn usability evaluation techniques
+
+## ATS Keywords
+* Wireframing
+* Figma
+* Prototyping
+* HTML
+* CSS
+* Adobe XD

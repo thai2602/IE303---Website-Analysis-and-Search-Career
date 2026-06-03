@@ -1,0 +1,78 @@
+---
+job_id: RE-E-016
+role: Robotics Engineer
+level: Experienced
+years_of_experience: 11+
+skills:
+* Python expert
+* C++ expert
+* MATLAB
+* ROS advanced
+* CAD/SolidWorks
+* Control systems advanced
+* Embedded systems design
+* Sensor integration and fusion
+* Computer vision
+* Machine learning
+* Simulation (Gazebo, RViz)
+* Hardware interfacing
+* Project leadership
+* Team management
+* Innovation
+keywords:
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership
+* Innovation
+---
+
+# Robotics Engineer
+
+## Experience Level
+Experienced (11+ years)
+
+## Skills
+* Python expert
+* C++ expert
+* MATLAB
+* ROS advanced
+* CAD/SolidWorks
+* Control systems advanced
+* Embedded systems design
+* Sensor integration and fusion
+* Computer vision
+* Machine learning
+* Simulation (Gazebo, RViz)
+* Hardware interfacing
+* Project leadership
+* Team management
+* Innovation
+
+## Responsibilities
+* Manage development of advanced robotic systems
+* Integrate sensors, AI, and control algorithms
+* Simulate and test robotics applications
+* Lead and mentor engineering teams
+* Drive cross-functional innovation projects
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership
+* Innovation

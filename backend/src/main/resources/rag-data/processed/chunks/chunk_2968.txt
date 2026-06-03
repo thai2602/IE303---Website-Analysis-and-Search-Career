@@ -1,0 +1,18 @@
+## Skills
+* Python advanced
+* Go, Java
+* Bash scripting
+* Linux/Windows administration
+* AWS, Azure, GCP
+* Docker, Kubernetes
+* CI/CD pipelines (Jenkins, GitHub Actions)
+* Infrastructure as Code (Terraform, Ansible, Puppet)
+* Monitoring (Prometheus, Grafana, ELK Stack, Nagios, Splunk)
+* Networking (TCP/IP, DNS, Load Balancing, CDN)
+* Automation scripting
+* Distributed systems
+* Security and compliance
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication

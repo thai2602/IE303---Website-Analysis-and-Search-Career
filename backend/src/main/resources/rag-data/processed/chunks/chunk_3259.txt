@@ -1,0 +1,30 @@
+---
+job_id: VC-L-018
+role: Vibe Coder
+level: Lead
+years_of_experience: 8+
+skills:
+* Python expert
+* JavaScript expert
+* Ruby advanced
+* React/Vue expert
+* AI coding assistant mastery
+* Prompt engineering expert
+* Debugging AI outputs
+* Project leadership
+* Mentoring
+* Team management
+* Agile oversight
+* Strategic planning
+* Innovation management
+* Problem-solving
+keywords:
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile

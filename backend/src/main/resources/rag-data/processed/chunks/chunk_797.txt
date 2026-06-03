@@ -1,0 +1,24 @@
+---
+job_id: CW-016
+role: Content Writer
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Content strategy leadership
+* Advanced SEO techniques
+* Content marketing
+* Editing and proofreading
+* Multi-format content creation
+* Digital marketing tools proficiency
+* AI-assisted content creation
+* Performance tracking
+* Collaboration and mentoring
+* Project management
+keywords:
+* Content Strategy
+* SEO
+* Content Marketing
+* Multi-format Content
+* Editing
+* Digital Marketing Tools
+* AI Tools

@@ -1,0 +1,69 @@
+---
+job_id: GD-117
+role: Graphic Designer
+level: Mid-Level
+years_of_experience: 3-6
+skills:
+* Adobe Photoshop
+* Illustrator
+* InDesign
+* After Effects
+* Figma
+* Adobe XD
+* Typography
+* Color Theory
+* Motion Graphics
+* Web Design
+keywords:
+* Graphic Design
+* Adobe Creative Suite
+* UI/UX Design
+* Figma
+* Motion Graphics
+* Branding
+* Typography
+* Color Theory
+* Web Design
+* Animation
+---
+
+# Graphic Designer
+
+## Experience Level
+Mid-Level (3-6 years)
+
+## Skills
+* Adobe Photoshop
+* Illustrator
+* InDesign
+* After Effects
+* Figma
+* Adobe XD
+* Typography
+* Color Theory
+* Motion Graphics
+* Web Design
+
+## Responsibilities
+* Create and deliver visual assets for multiple channels
+* Design branding and marketing collateral
+* Produce UI/UX designs for web and mobile
+* Develop motion graphics and animations
+* Collaborate with cross-functional teams
+* Maintain consistency of visual identity
+* Manage multiple projects
+* Incorporate feedback for improvements
+* Organize digital assets
+* Stay current with design trends
+
+## ATS Keywords
+* Graphic Design
+* Adobe Creative Suite
+* UI/UX Design
+* Figma
+* Motion Graphics
+* Branding
+* Typography
+* Color Theory
+* Web Design
+* Animation

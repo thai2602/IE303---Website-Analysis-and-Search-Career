@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in deploying and managing cloud resources
+* Support basic automation and containerization
+* Implement CI/CD pipeline setups
+* Support cloud deployments for training or academic projects
+* Collaborate with team members
+* Create basic infrastructure scripts
+
+## ATS Keywords
+* Cloud
+* DevOps
+* Infrastructure
+* Fresher
+* Entry-Level
+* Remote
+* AWS
+* Azure
+* GCP

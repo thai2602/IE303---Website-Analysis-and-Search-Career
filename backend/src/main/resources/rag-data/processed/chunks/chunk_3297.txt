@@ -1,0 +1,21 @@
+## Skills
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Express.js
+* SQL
+* MongoDB
+* Docker
+* AWS
+* REST APIs
+* GraphQL
+* CI/CD
+
+## Responsibilities
+* Design and implement front-end and back-end components
+* Develop full stack applications using React and Node.js
+* Manage SQL and NoSQL databases
+* Implement Docker containers and AWS deployment
+* Design and consume REST and GraphQL APIs
+* Maintain CI/CD pipelines

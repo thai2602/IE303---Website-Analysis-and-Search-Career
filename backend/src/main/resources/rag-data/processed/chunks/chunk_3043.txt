@@ -1,0 +1,22 @@
+## Skills
+* Java
+* Python basics
+* Selenium WebDriver
+* Appium basics
+* Black-box testing
+* Functional testing
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Collaborate with QA team to write automated scripts
+* Execute manual and automation tests
+* Document results
+
+## ATS Keywords
+* QA
+* Automation
+* Fresher
+* Entry-Level
+* Manual Testing
+* Automation Scripts

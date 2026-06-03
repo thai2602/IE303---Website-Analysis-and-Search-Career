@@ -1,0 +1,16 @@
+## Responsibilities
+* Architect multi-region cloud solutions
+* Implement automation and monitoring
+* Secure cloud environments
+* Lead cloud engineering teams
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Security

@@ -1,0 +1,18 @@
+## Responsibilities
+* Independently create AI-assisted coding solutions
+* Craft and optimize prompts for AI code generation
+* Review and debug AI-generated code
+* Collaborate with cross-functional teams
+* Contribute to low-code/no-code development
+* Document AI workflows and best practices
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile

@@ -1,0 +1,69 @@
+---
+job_id: BA-102
+role: Business Analyst
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Advanced data analysis
+* SQL
+* Tableau
+* Power BI
+* Business process mapping
+* Requirement gathering
+* Agile methodologies
+* Stakeholder communication
+* Critical thinking
+* Data storytelling
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* Agile
+* Requirement Gathering
+* Stakeholder Management
+* Data Storytelling
+* Critical Thinking
+* Process Improvement
+---
+
+# Business Analyst
+
+## Experience Level
+Mid-Level (2-5 years)
+
+## Skills
+* Advanced data analysis
+* SQL
+* Tableau
+* Power BI
+* Business process mapping
+* Requirement gathering
+* Agile methodologies
+* Stakeholder communication
+* Critical thinking
+* Data storytelling
+
+## Responsibilities
+* Analyze business data to identify trends and insights
+* Develop and maintain dashboards and reports
+* Gather, document, and validate business requirements
+* Participate in Agile projects and sprint planning
+* Collaborate with cross-functional teams
+* Perform scenario modeling and risk analysis
+* Present data-driven recommendations to stakeholders
+* Support BI tool adoption and automation initiatives
+* Track KPIs and business metrics
+* Drive continuous process improvement
+
+## ATS Keywords
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* Agile
+* Requirement Gathering
+* Stakeholder Management
+* Data Storytelling
+* Critical Thinking
+* Process Improvement

@@ -1,0 +1,13 @@
+## Responsibilities
+* Lead QA automation projects
+* Optimize automation frameworks
+* Perform advanced testing
+* Mentor junior QA engineers
+
+## ATS Keywords
+* QA
+* Automation
+* Senior-Level
+* Leadership
+* CI/CD
+* Performance Testing

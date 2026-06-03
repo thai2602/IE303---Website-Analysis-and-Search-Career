@@ -1,0 +1,11 @@
+## Responsibilities
+* Lead design of scalable Java systems
+* Guide team in microservices adoption
+* Ensure best practices in coding and architecture
+
+## ATS Keywords
+* Java
+* System Design
+* Microservices
+* Spring Boot
+* Leadership

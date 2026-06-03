@@ -1,0 +1,14 @@
+## Responsibilities
+* Lead migration of on-prem pipelines to cloud
+* Design and implement scalable data architecture
+* Mentor data engineering teams
+* Ensure compliance with security standards
+* Oversee high-performance ETL pipelines
+
+## ATS Keywords
+* Python
+* SQL
+* Snowflake
+* BigQuery
+* Airflow
+* Data Governance

@@ -1,0 +1,21 @@
+## Skills
+* JavaScript
+* TypeScript
+* Angular
+* Node.js
+* Express.js
+* Django
+* SQL
+* Redis
+* Docker
+* AWS
+* CI/CD
+* Testing with Jest
+
+## Responsibilities
+* Develop and maintain Angular front-end apps
+* Implement Node.js and Django backend services
+* Optimize database performance and caching with Redis
+* Deploy applications using Docker and AWS
+* Set up automated testing with Jest
+* Manage CI/CD pipelines

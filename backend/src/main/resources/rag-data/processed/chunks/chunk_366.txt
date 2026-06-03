@@ -1,0 +1,11 @@
+## ATS Keywords
+* Business Analysis
+* Excel
+* SQL
+* Power BI
+* Requirement Gathering
+* Agile
+* Data Analysis
+* Documentation
+* Collaboration
+* Problem Solving

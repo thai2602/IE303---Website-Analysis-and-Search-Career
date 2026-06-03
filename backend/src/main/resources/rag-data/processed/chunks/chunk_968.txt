@@ -1,0 +1,39 @@
+---
+job_id: DE-E-008
+role: Data Engineer
+level: Experienced
+years_of_experience: 5+
+skills:
+* Python
+* SQL
+* Scala
+* Snowflake
+* BigQuery
+* Hadoop
+* Airflow
+* Kafka
+* Data Governance
+keywords:
+* Python
+* SQL
+* Snowflake
+* BigQuery
+* Airflow
+* Data Governance
+---
+
+# Data Engineer
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* Python
+* SQL
+* Scala
+* Snowflake
+* BigQuery
+* Hadoop
+* Airflow
+* Kafka
+* Data Governance

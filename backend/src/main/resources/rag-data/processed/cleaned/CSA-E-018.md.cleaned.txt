@@ -1,0 +1,45 @@
+---
+job_id: CSA-E-018
+role: Cyber Defense Analyst
+level: Experienced
+years_of_experience: 4-8
+skills:
+* SOC Operations
+* Threat Hunting
+* SIEM Tools
+* Compliance Auditing
+* Firewall Management
+* Malware Analysis
+keywords:
+* SOC
+* Threat Hunting
+* Malware Analysis
+* Compliance
+* Incident Response
+---
+
+# Cyber Defense Analyst
+
+## Experience Level
+Experienced (4-8 years)
+
+## Skills
+* SOC Operations
+* Threat Hunting
+* SIEM Tools
+* Compliance Auditing
+* Firewall Management
+* Malware Analysis
+
+## Responsibilities
+* Monitor SOC
+* Hunt advanced persistent threats
+* Conduct malware reverse engineering
+* Ensure compliance with PCI-DSS
+
+## ATS Keywords
+* SOC
+* Threat Hunting
+* Malware Analysis
+* Compliance
+* Incident Response

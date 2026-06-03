@@ -1,0 +1,18 @@
+---
+job_id: QA011
+role: QA Engineer - Experienced
+level: Senior-Level
+years_of_experience: 4–8 years
+skills:
+* Test Automation: Selenium, Appium, Cucumber, JUnit, TestNG
+* Performance Testing: JMeter
+* CI/CD Integration: Jenkins, GitLab CI/CD, Bamboo
+* Programming: Java, Python, C#, JavaScript
+* API & Mobile Testing: Postman, SoapUI, Appium
+* Bug & Test Management: JIRA, Bugzilla, Quality Center
+* Test Documentation & Reporting
+keywords:
+* QA
+* Software Testing
+* Automation
+* Senior-Level

@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in Spark-based tasks
+* Support pipeline testing
+* Work on database administration basics
+* Collaborate on ETL workflows
+* Support cloud deployments
+
+## ATS Keywords
+* SQL
+* Python
+* ETL
+* Spark Basics
+* Azure

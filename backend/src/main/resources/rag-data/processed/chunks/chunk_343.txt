@@ -1,0 +1,30 @@
+---
+job_id: BA-104
+role: Business Analyst
+level: Experienced
+years_of_experience: 6-10
+skills:
+* Advanced analytics
+* SQL
+* Excel
+* Tableau
+* Power BI
+* AI-enhanced analytics
+* Requirement elicitation
+* Agile leadership
+* Stakeholder engagement
+* Business process optimization
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Business Process
+* Data Visualization
+---
+
+# Business Analyst

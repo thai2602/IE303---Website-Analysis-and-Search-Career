@@ -1,0 +1,11 @@
+## Responsibilities
+* Build RESTful and SOAP APIs
+* Collaborate with frontend teams using Angular/React
+* Manage relational and NoSQL databases
+
+## ATS Keywords
+* Java
+* REST APIs
+* SOAP
+* Angular
+* NoSQL

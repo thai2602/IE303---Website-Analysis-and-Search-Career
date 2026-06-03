@@ -1,0 +1,11 @@
+## ATS Keywords
+* Technical Writing
+* API Documentation
+* Structured Authoring
+* Adobe FrameMaker
+* MadCap Flare
+* XML
+* HTML
+* CMS
+* AI Writing Tools
+* UX Documentation

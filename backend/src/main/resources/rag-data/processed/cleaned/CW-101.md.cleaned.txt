@@ -1,0 +1,69 @@
+---
+job_id: CW-101
+role: Copywriter
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Clear and persuasive writing
+* Grammar and punctuation mastery
+* Proofreading and editing
+* Tone and style adaptation
+* Creativity and storytelling
+* Basic SEO knowledge
+* Research and fact-checking
+* Familiarity with digital marketing channels
+* CMS basics (WordPress, HubSpot)
+* AI writing tool awareness
+keywords:
+* Copywriting
+* SEO
+* Grammar
+* Proofreading
+* CMS
+* AI Tools
+* Digital Marketing
+* Storytelling
+* Creativity
+* Content Writing
+---
+
+# Copywriter
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Clear and persuasive writing
+* Grammar and punctuation mastery
+* Proofreading and editing
+* Tone and style adaptation
+* Creativity and storytelling
+* Basic SEO knowledge
+* Research and fact-checking
+* Familiarity with digital marketing channels
+* CMS basics (WordPress, HubSpot)
+* AI writing tool awareness
+
+## Responsibilities
+* Write clear and compelling copy for web, social media, and email
+* Proofread and edit content for accuracy and clarity
+* Adapt writing style to target audiences and brand voice
+* Conduct basic research for content accuracy
+* Apply basic SEO and keyword usage
+* Collaborate with marketing team
+* Publish content using CMS tools
+* Use AI tools to enhance content creation
+* Meet deadlines for multiple content pieces
+* Learn content performance tracking basics
+
+## ATS Keywords
+* Copywriting
+* SEO
+* Grammar
+* Proofreading
+* CMS
+* AI Tools
+* Digital Marketing
+* Storytelling
+* Creativity
+* Content Writing

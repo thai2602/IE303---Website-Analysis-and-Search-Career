@@ -1,0 +1,57 @@
+---
+job_id: FE015
+role: Frontend Developer - Experienced
+level: Senior-Level
+years_of_experience: 4–6 years
+skills:
+* Advanced React (Hooks, Redux)
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance tuning
+* Lazy loading
+* Unit/Integration/E2E testing
+* Git
+* CI/CD
+keywords:
+* Frontend
+* Dashboard Development
+* Senior
+* React
+* UI
+* SPA/PWA
+---
+
+# Frontend Developer - Experienced
+
+## Experience Level
+Senior-Level (4–6 years years)
+
+## Skills
+* Advanced React (Hooks, Redux)
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance tuning
+* Lazy loading
+* Unit/Integration/E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Architect scalable web dashboards and SPAs
+* Optimize frontend performance
+* Implement automated testing
+* Manage cross-browser compatibility
+
+## ATS Keywords
+* Frontend
+* Dashboard Development
+* Senior
+* React
+* UI
+* SPA/PWA

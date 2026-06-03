@@ -1,0 +1,74 @@
+---
+job_id: FE-E-011
+role: Fintech Engineer
+level: Experienced
+years_of_experience: 3+
+skills:
+* Python advanced
+* JavaScript advanced
+* SQL advanced
+* Blockchain development
+* Smart contracts
+* Machine learning predictive analytics
+* Cybersecurity expertise
+* Financial analysis
+* Quantitative modeling
+* API architecture
+* Microservices design
+* Cloud computing (AWS, Azure)
+* DevOps in fintech
+* Leadership
+* Cross-functional collaboration
+* Innovation management
+keywords:
+* Blockchain Technology
+* Smart Contracts
+* Machine Learning
+* Cybersecurity
+* API Architecture
+* Cloud Computing
+* Financial Analysis
+* Regulatory Compliance
+---
+
+# Fintech Engineer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* Python advanced
+* JavaScript advanced
+* SQL advanced
+* Blockchain development
+* Smart contracts
+* Machine learning predictive analytics
+* Cybersecurity expertise
+* Financial analysis
+* Quantitative modeling
+* API architecture
+* Microservices design
+* Cloud computing (AWS, Azure)
+* DevOps in fintech
+* Leadership
+* Cross-functional collaboration
+* Innovation management
+
+## Responsibilities
+* Design and implement fintech solutions
+* Develop blockchain-based applications and smart contracts
+* Apply machine learning for predictive analytics
+* Lead API and microservices architecture
+* Ensure cybersecurity, data privacy, and compliance
+* Collaborate with cross-functional teams
+* Mentor junior engineers
+
+## ATS Keywords
+* Blockchain Technology
+* Smart Contracts
+* Machine Learning
+* Cybersecurity
+* API Architecture
+* Cloud Computing
+* Financial Analysis
+* Regulatory Compliance

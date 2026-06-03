@@ -1,0 +1,21 @@
+## Responsibilities
+* Lead Python development projects
+* Design REST APIs and GraphQL endpoints
+* Integrate with data science frameworks
+* Optimize databases and queries
+* Implement DevOps pipelines using Docker, Kubernetes, AWS
+* Mentor and guide junior developers
+* Perform testing and code reviews
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest

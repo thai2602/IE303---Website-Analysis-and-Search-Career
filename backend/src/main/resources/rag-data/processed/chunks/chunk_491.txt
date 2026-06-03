@@ -1,0 +1,20 @@
+## Responsibilities
+* Design and implement big data architectures
+* Build and optimize ETL pipelines
+* Implement streaming solutions with Spark/Kafka/Flink
+* Work with cloud big data services
+* Provide data visualization solutions
+* Ensure data governance and compliance
+* Lead cross-functional big data projects
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Flink
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala

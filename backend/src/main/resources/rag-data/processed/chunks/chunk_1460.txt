@@ -1,0 +1,27 @@
+* Multiplayer
+* Performance Optimization
+---
+
+# Game Developer
+
+## Experience Level
+Experienced (7+ years)
+
+## Skills
+* C++ expert
+* C# expert
+* Python advanced
+* Java advanced
+* Unity expert
+* Unreal Engine expert
+* Godot basics
+* Gameplay systems and AI
+* Multiplayer networking
+* Physics
+* Shader programming
+* Graphics optimization
+* Cross-platform development
+* Debugging and profiling
+* Leadership
+* Project management
+* Team collaboration

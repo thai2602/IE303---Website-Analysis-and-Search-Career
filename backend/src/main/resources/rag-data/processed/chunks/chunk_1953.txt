@@ -1,0 +1,12 @@
+## Responsibilities
+* Configure and maintain enterprise networks
+* Implement advanced routing protocols
+* Optimize network performance
+* Support large-scale deployments
+
+## ATS Keywords
+* BGP
+* OSPF
+* MPLS
+* QoS
+* Cisco Nexus

@@ -1,0 +1,10 @@
+## Summary: ATS Optimization at a Glance
+
+| Area | Key Action |
+|------|-----------|
+| How ATS works | Parses, scores, and ranks CVs by keyword match before human review |
+| File format | Use `.docx` or text-based `.pdf`; avoid image PDFs |
+| Layout | Single column, standard headers, no tables or graphics |
+| Keywords | Mirror JD language; include both acronyms and full forms |
+| Placement | Summary, Skills section, and Work Experience bullets |
+| Common mistakes | Multi-column layout, missing dates, generic descriptions, one-size CV |

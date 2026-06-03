@@ -1,0 +1,48 @@
+---
+job_id: PD-F-003
+role: Product Designer
+level: Fresher
+years_of_experience: 0-1 Years
+skills:
+* Sketch
+* Figma
+* Adobe XD
+* Wireframing
+* Responsive Design
+* Basic JavaScript
+keywords:
+* Wireframing
+* Responsive Design
+* User Research
+* Adobe XD
+* Sketch
+* Product Design
+---
+
+# Product Designer
+
+## Experience Level
+Fresher (0-1 Years years)
+
+## Skills
+* Sketch
+* Figma
+* Adobe XD
+* Wireframing
+* Responsive Design
+* Basic JavaScript
+
+## Responsibilities
+* Assist in creating mobile-first design prototypes
+* Support design team in conducting heuristic evaluations
+* Create user personas under guidance
+* Contribute to maintaining design assets
+* Participate in design reviews and feedback sessions
+
+## ATS Keywords
+* Wireframing
+* Responsive Design
+* User Research
+* Adobe XD
+* Sketch
+* Product Design

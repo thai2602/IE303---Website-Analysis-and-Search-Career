@@ -1,0 +1,39 @@
+---
+job_id: NET-E-011
+role: .NET Developer
+level: Experienced
+years_of_experience: 3+
+skills:
+* C#
+* .NET Core
+* ASP.NET MVC
+* SQL Server
+* Entity Framework
+* REST APIs
+* Docker
+* Azure
+keywords:
+* .NET Core
+* C#
+* ASP.NET MVC
+* Microservices
+* Azure
+* Entity Framework
+* REST APIs
+* Docker
+---
+
+# .NET Developer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* C#
+* .NET Core
+* ASP.NET MVC
+* SQL Server
+* Entity Framework
+* REST APIs
+* Docker
+* Azure

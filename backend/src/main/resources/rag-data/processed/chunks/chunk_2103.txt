@@ -1,0 +1,33 @@
+---
+job_id: PD-E-015
+role: Product Designer
+level: Experienced
+years_of_experience: 3-6 Years
+skills:
+* Figma
+* Adobe Creative Suite
+* Marvel
+* Agile Methods
+* Data-Driven UX
+* User Testing
+keywords:
+* Product Design Strategy
+* UX/UI Design
+* Agile
+* Data-Driven UX
+* Prototyping
+* A/B Testing
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (3-6 Years years)
+
+## Skills
+* Figma
+* Adobe Creative Suite
+* Marvel
+* Agile Methods
+* Data-Driven UX
+* User Testing

@@ -1,0 +1,16 @@
+# Product Manager
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Basic product management concepts
+* Market research and competitor analysis
+* Data analysis (Excel, SQL basics)
+* UX awareness
+* Agile (Scrum, Kanban basics)
+* Communication
+* Teamwork
+* Problem-solving
+* Adaptability
+* Tools: JIRA, Confluence

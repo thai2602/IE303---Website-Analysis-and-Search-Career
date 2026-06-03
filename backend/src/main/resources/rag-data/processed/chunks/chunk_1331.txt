@@ -1,0 +1,23 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* React basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+
+## Responsibilities
+* Assist in designing and coding responsive web pages
+* Implement dynamic UI components
+* Debug browser issues
+* Collaborate with senior developers
+
+## ATS Keywords
+* Frontend
+* Web Development
+* UI
+* Entry-Level
+* Fresher

@@ -1,0 +1,36 @@
+---
+job_id: SA-E-016
+role: Solutions Architect
+level: Experienced
+years_of_experience: 3+
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Microservices
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD
+* Security protocols
+* Project management
+* Leadership
+* Stakeholder management
+keywords:
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* Microservices
+* CI/CD
+---
+
+# Solutions Architect

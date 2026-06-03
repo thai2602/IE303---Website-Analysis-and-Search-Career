@@ -1,0 +1,20 @@
+### 2.2 Layout & Structure Rules
+
+**Use standard section headers** — ATS parsers recognize common labels:
+- `Work Experience` / `Professional Experience`
+- `Education`
+- `Skills`
+- `Certifications`
+- `Summary` / `Professional Summary`
+
+**Avoid** creative or ambiguous headers like:
+- "My Journey", "What I've Done", "Where I've Been"
+
+**Use a single-column layout**:
+- Multi-column layouts cause ATS to misread the reading order
+- Avoid tables for structuring key content — use plain bullet points instead
+
+**Font and spacing**:
+- Use standard fonts: Arial, Calibri, Times New Roman, or Georgia
+- Font size: 10–12pt for body text, 14–16pt for name/headers
+- Avoid text boxes, headers/footers (ATS often skips these), and icons

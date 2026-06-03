@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and implement scalable cloud architectures
+* Manage multi-cloud deployment strategies
+* Develop infrastructure as code using Terraform/CloudFormation
+* Implement microservices and container orchestration
+* Ensure security and compliance adherence
+* Lead projects and mentor junior engineers
+* Collaborate with stakeholders to define solutions

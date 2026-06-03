@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop gameplay features using C++ and Unity
+* Debug and test game functionality
+* Collaborate with artists in agile workflows
+* Integrate assets into projects
+* Learn and apply SDLC practices
+
+## ATS Keywords
+* Software Engineer
+* C++
+* Unity
+* Game Development
+* Agile
+* Debugging

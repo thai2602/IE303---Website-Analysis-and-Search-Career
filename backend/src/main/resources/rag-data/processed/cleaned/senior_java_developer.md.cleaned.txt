@@ -1,0 +1,30 @@
+# Senior Java Backend Developer
+
+**Công ty:** TechNova Solutions
+**Địa điểm:** Thành phố Hồ Chí Minh, Việt Nam (Hybrid)
+**Mức lương:** $2,000 - $3,500/tháng
+
+## Mô tả công việc (Job Description)
+Chúng tôi đang tìm kiếm một Senior Java Backend Developer gia nhập đội ngũ phát triển sản phẩm cốt lõi. Bạn sẽ chịu trách nhiệm thiết kế, xây dựng và bảo trì các hệ thống microservices chịu tải cao.
+
+## Trách nhiệm chính (Responsibilities)
+- Thiết kế và phát triển các API RESTful và GraphQL hiệu suất cao bằng Java 17+ và Spring Boot 3.
+- Xây dựng hệ thống Microservices kết hợp với Docker và Kubernetes.
+- Tối ưu hóa truy vấn Database (PostgreSQL, MySQL) và triển khai hệ thống cache (Redis, Memcached).
+- Triển khai và quản lý hàng đợi tin nhắn bằng Apache Kafka hoặc RabbitMQ.
+- Phối hợp chặt chẽ với Frontend team (React/Next.js) và DevOps để deploy liên tục (CI/CD).
+- Review code và đào tạo, hướng dẫn các thành viên Junior/Mid-level.
+
+## Yêu cầu công việc (Requirements)
+- Có ít nhất 4 năm kinh nghiệm làm việc thực tế với Java/Spring Boot.
+- Kiến thức sâu sắc về Object-Oriented Programming (OOP) và Design Patterns.
+- Kinh nghiệm làm việc với hệ quản trị cơ sở dữ liệu quan hệ (RDBMS) và NoSQL.
+- Đã từng làm việc với kiến trúc Microservices và hiểu về Event-driven architecture.
+- Quen thuộc với quy trình làm việc Agile/Scrum.
+- Khả năng giao tiếp tiếng Anh tốt (đọc tài liệu kỹ thuật và họp với team nước ngoài).
+
+## Phúc lợi (Benefits)
+- Môi trường làm việc năng động, linh hoạt (2 ngày làm ở nhà/tuần).
+- Cung cấp Macbook Pro M3 và màn hình ngoài cho công việc.
+- Bảo hiểm sức khỏe toàn diện (PVI) cho nhân viên và người thân.
+- Thưởng tháng 13 và thưởng hiệu suất cuối năm.

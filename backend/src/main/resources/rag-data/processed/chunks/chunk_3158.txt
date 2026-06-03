@@ -1,0 +1,30 @@
+---
+job_id: UIE018
+role: UI Designer
+level: Experienced
+years_of_experience: 2
+skills:
+* Figma
+* Adobe XD
+* InVision
+* Usability Testing
+* Prototyping
+keywords:
+* Usability Testing
+* Prototyping
+* Figma
+* UI/UX Collaboration
+* Responsive Design
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (2 years)
+
+## Skills
+* Figma
+* Adobe XD
+* InVision
+* Usability Testing
+* Prototyping

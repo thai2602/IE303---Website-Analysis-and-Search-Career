@@ -1,0 +1,31 @@
+---
+job_id: CA001
+role: Cloud Architect
+level: Fresher
+years_of_experience: 0
+skills:
+* AWS fundamentals
+* Azure basics
+* GCP basics
+* Docker introduction
+* Kubernetes basics
+* Python basics
+* Bash scripting
+* Cloud security fundamentals
+keywords:
+* Cloud Computing
+* AWS
+* Azure
+* GCP
+* Docker
+* Kubernetes
+* Python
+* Cloud Security
+* Scripting
+* Virtualization
+---
+
+# Cloud Architect
+
+## Experience Level
+Fresher (0 years)

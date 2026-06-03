@@ -1,0 +1,14 @@
+## Responsibilities
+* Design resilient infrastructure
+* Architect hybrid environments
+* Manage large-scale cloud networking
+* Collaborate with IT security
+
+## ATS Keywords
+* Cloud Infrastructure
+* Hybrid Cloud
+* AWS
+* Azure
+* Terraform
+* Networking
+* Python

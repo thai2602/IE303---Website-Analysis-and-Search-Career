@@ -1,0 +1,19 @@
+## Responsibilities
+* Assist in Python backend development
+* Support framework-based web applications
+* Perform data processing and visualization tasks
+* Write unit tests
+* Collaborate with team members
+* Document coding practices
+* Follow Git version control
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* NumPy
+* Pandas
+* SQL
+* Git
+* REST APIs
+* OOP

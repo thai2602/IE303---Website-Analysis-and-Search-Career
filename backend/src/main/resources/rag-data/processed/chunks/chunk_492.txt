@@ -1,0 +1,38 @@
+---
+job_id: BDS-E-012
+role: Big Data Specialist
+level: Experienced
+years_of_experience: 4+
+skills:
+* Hadoop ecosystem
+* Spark Streaming
+* Kafka
+* Flink
+* Java
+* Scala
+* Python
+* Redshift
+* BigQuery
+* Snowflake
+* AWS
+* Azure
+* GCP
+* Tableau
+* Power BI
+* QlikView
+* MLlib
+* TensorFlow basics
+* Data governance
+* Team leadership
+keywords:
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala
+* SQL
+---

@@ -1,0 +1,7 @@
+### 3.4 Use Both Acronyms and Full Forms
+ATS may search for one or the other. Candidates should include both:
+- `Search Engine Optimization (SEO)`
+- `Key Performance Indicators (KPIs)`
+- `Customer Acquisition Cost (CAC)`
+
+---

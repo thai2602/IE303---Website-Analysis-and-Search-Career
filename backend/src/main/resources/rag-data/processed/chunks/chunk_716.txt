@@ -1,0 +1,12 @@
+## Responsibilities
+* Help configure security policies
+* Assist with incident logging
+* Participate in security awareness programs
+* Analyze basic threat alerts
+
+## ATS Keywords
+* Firewall Management
+* Incident Response
+* Vulnerability Scanning
+* SIEM
+* Network Security

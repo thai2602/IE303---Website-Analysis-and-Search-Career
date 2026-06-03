@@ -1,0 +1,24 @@
+## Skills
+* Java
+* Python basics
+* Selenium
+* Cypress basics
+* Functional testing
+* Regression testing
+* JIRA
+* Bugzilla
+* Postman basics
+
+## Responsibilities
+* Assist in test case automation
+* Log bugs
+* Support manual and regression testing
+* Contribute to QA documentation
+
+## ATS Keywords
+* QA
+* Software Testing
+* Automation
+* Fresher
+* Entry-Level
+* Regression Testing

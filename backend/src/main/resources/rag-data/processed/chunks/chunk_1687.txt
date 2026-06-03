@@ -1,0 +1,18 @@
+## Responsibilities
+* Lead full-stack JS projects
+* Implement advanced front-end frameworks
+* Integrate APIs and state management
+* Optimize performance and scalability
+* Mentor team members
+* Manage project delivery and CI/CD pipelines
+
+## ATS Keywords
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker

@@ -1,0 +1,12 @@
+## Responsibilities
+* Assist with cloud deployments
+* Configure test databases in cloud
+* Work on container deployments
+
+## ATS Keywords
+* Cloud Computing
+* AWS
+* Azure
+* Docker
+* Cloud Databases
+* Virtualization

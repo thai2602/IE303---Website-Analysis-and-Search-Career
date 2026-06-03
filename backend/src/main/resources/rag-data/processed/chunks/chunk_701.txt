@@ -1,0 +1,20 @@
+## Skills
+* Vulnerability Management
+* Threat Intelligence
+* Splunk
+* QRadar
+* Python
+* Incident Response
+
+## Responsibilities
+* Conduct vulnerability assessments
+* Respond to advanced threats
+* Develop threat intelligence reports
+* Automate incident response scripts
+
+## ATS Keywords
+* Threat Intelligence
+* Incident Response
+* Vulnerability Assessment
+* SIEM
+* SOC

@@ -1,0 +1,69 @@
+---
+job_id: MRA-119
+role: Market Research Analyst
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Excel
+* Survey Design
+* Qualitative Research
+* Data Visualization Basics
+* Report Writing
+* Presentation Skills
+* Communication
+* Critical Thinking
+* Attention to Detail
+* Time Management
+keywords:
+* Market Research
+* Excel
+* Survey Design
+* Qualitative Research
+* Report Writing
+* Data Visualization
+* Presentation Skills
+* Critical Thinking
+* Attention to Detail
+* Consumer Behavior
+---
+
+# Market Research Analyst
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Excel
+* Survey Design
+* Qualitative Research
+* Data Visualization Basics
+* Report Writing
+* Presentation Skills
+* Communication
+* Critical Thinking
+* Attention to Detail
+* Time Management
+
+## Responsibilities
+* Support market research projects and data collection
+* Assist in designing surveys and research instruments
+* Analyze basic data trends
+* Prepare reports and presentations
+* Collaborate with team members
+* Ensure accuracy and data integrity
+* Learn data visualization tools
+* Assist in consumer and competitor research
+* Document research procedures
+* Provide actionable insights under supervision
+
+## ATS Keywords
+* Market Research
+* Excel
+* Survey Design
+* Qualitative Research
+* Report Writing
+* Data Visualization
+* Presentation Skills
+* Critical Thinking
+* Attention to Detail
+* Consumer Behavior

@@ -1,0 +1,13 @@
+## Responsibilities
+* Build real-time data pipelines
+* Integrate structured and unstructured data sources
+* Collaborate with data science teams
+* Ensure pipeline scalability and reliability
+* Automate workflows
+
+## ATS Keywords
+* SQL
+* Python
+* Kafka
+* Airflow
+* BigQuery

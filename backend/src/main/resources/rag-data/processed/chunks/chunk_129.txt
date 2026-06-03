@@ -1,0 +1,18 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* Intro to NLP
+* Hugging Face basics
+* SpaCy basics
+* NLTK basics
+* Prompt writing
+* OpenAI GPT basics
+* TensorFlow basics
+* PyTorch basics
+* Problem-solving
+* Communication
+* Teamwork
+* Creativity

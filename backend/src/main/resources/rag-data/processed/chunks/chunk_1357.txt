@@ -1,0 +1,27 @@
+## Skills
+* React/Redux
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance optimization
+* Lazy loading
+* Unit/Integration/E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Build and optimize frontend for media streaming platforms
+* Implement advanced React patterns
+* Ensure cross-browser compatibility
+* Optimize load times
+* Mentor junior developers
+
+## ATS Keywords
+* Frontend
+* Media Streaming
+* Senior
+* React
+* UI
+* SPA/PWA

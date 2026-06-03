@@ -1,0 +1,25 @@
+## Skills
+* Cloud security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Terraform
+* Kubernetes
+
+## Responsibilities
+* Secure cloud workloads
+* Design IAM and compliance frameworks
+* Lead audits
+* Collaborate with security teams
+
+## ATS Keywords
+* Cloud Security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Terraform
+* Kubernetes

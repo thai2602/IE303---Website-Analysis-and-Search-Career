@@ -1,0 +1,24 @@
+## Skills
+* SQL
+* MySQL/PostgreSQL
+* Tableau
+* Power BI
+* Excel charts and dashboards
+* Basic statistics
+* ETL knowledge
+* KPI understanding
+
+## Responsibilities
+* Support business teams
+* Extract, clean, and visualize data
+* Assist in reporting and decision support
+
+## ATS Keywords
+* BI
+* Analytics
+* Fresher
+* Entry-Level
+* SQL
+* Power BI
+* Tableau
+* ETL

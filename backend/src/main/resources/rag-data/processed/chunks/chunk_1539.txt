@@ -1,0 +1,18 @@
+## Skills
+* Swift
+* Objective-C
+* Xcode
+* Simulator
+* Cocoa Touch
+* UIKit
+* Git
+* REST APIs
+* JSON
+* UI/UX Design
+
+## Responsibilities
+* Assist in developing and testing iOS applications under guidance.
+* Write clean, basic Swift and Objective-C code for app modules.
+* Use Xcode and Simulator for debugging and testing.
+* Learn and implement MVC architecture for small projects.
+* Collaborate with UI/UX designers to follow Apple’s guidelines.

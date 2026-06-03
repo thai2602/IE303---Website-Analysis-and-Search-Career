@@ -1,0 +1,30 @@
+## Skills
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Express.js
+* SQL
+* MongoDB
+* Docker
+* Kubernetes
+* GraphQL
+* REST APIs
+
+## Responsibilities
+* Develop and maintain full stack applications
+* Integrate GraphQL and REST APIs
+* Deploy using Docker/Kubernetes
+* Optimize database and server performance
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* React
+* Node.js
+* Express.js
+* SQL
+* MongoDB
+* Docker
+* Kubernetes
+* GraphQL
+* REST APIs

@@ -1,0 +1,27 @@
+## Skills
+* JavaScript
+* Python
+* Java
+* Angular
+* React
+* SQL
+* NoSQL
+* Git
+* Collaboration
+* Problem-solving
+
+## Responsibilities
+* Assist in front-end development with Angular or React
+* Write backend logic in Node.js or Python
+* Maintain SQL/NoSQL databases
+* Perform testing
+* Collaborate in Agile sprints
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Agile
+* Web Development

@@ -1,0 +1,22 @@
+## Skills
+* Java
+* JavaScript basics
+* Selenium basics
+* Manual testing concepts
+* JIRA
+* Bugzilla
+* Postman basics
+
+## Responsibilities
+* Work on test case creation
+* Assist in automation scripting
+* Execute manual tests
+* Log bugs
+
+## ATS Keywords
+* QA
+* Test Automation
+* Fresher
+* Entry-Level
+* Manual Testing
+* Automation

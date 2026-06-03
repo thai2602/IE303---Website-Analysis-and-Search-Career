@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in designing cloud architectures
+* Support DevOps automation tasks
+* Learn microservices basics
+* Participate in Docker/Kubernetes tasks
+* Collaborate with stakeholders
+* Document architecture processes
+
+## ATS Keywords
+* Cloud Computing
+* Architecture Design
+* AWS
+* Azure
+* DevOps
+* CI/CD
+* Java
+* Python

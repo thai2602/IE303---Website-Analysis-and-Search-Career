@@ -1,0 +1,30 @@
+---
+job_id: AI-E-015
+role: AI Prompt Engineer
+level: Experienced
+years_of_experience: 3+
+skills:
+* Python
+* Advanced NLP
+* Hugging Face Transformers
+* PyTorch
+* TensorFlow
+* Prompt optimization techniques
+* Chain-of-thought prompts
+* LLM tuning
+* OpenAI API
+* Azure Cognitive Services
+* Data analytics
+* Leadership
+* Problem-solving
+* Collaboration
+* Creativity
+keywords:
+* Prompt Optimization
+* LLM
+* Machine Learning
+* NLP
+* Python
+* AI Frameworks
+* API Integration
+---

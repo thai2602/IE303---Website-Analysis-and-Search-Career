@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop microservices architecture
+* Work with Docker and Kubernetes for deployment
+* Integrate with Azure services
+* Lead junior developers
+* Optimize application performance
+
+## ATS Keywords
+* .NET Core
+* C#
+* Microservices
+* Docker
+* Kubernetes
+* Azure

@@ -1,0 +1,8 @@
+## Responsibilities
+* Develop secure, scalable web applications
+* Lead frontend and backend development
+* Manage SQL/NoSQL databases
+* Implement CI/CD pipelines
+* Ensure secure authentication
+* Collaborate in Agile sprints
+* Mentor junior developers

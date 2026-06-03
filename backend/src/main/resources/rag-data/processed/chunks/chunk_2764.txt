@@ -1,0 +1,27 @@
+## Skills
+* Python
+* Django
+* REST APIs
+* SQL
+* Git
+* CI/CD
+* Docker
+* Agile
+* Testing
+* Mentoring
+
+## Responsibilities
+* Develop backend services using Django
+* Integrate REST APIs and databases
+* Manage CI/CD pipelines
+* Ensure code quality and performance
+* Mentor junior engineers
+
+## ATS Keywords
+* Software Engineer
+* Python
+* Django
+* Backend
+* REST APIs
+* CI/CD
+* Mentoring

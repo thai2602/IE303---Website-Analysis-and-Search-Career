@@ -1,0 +1,15 @@
+## Responsibilities
+* Design and manage microservices architecture
+* Deploy apps on Kubernetes clusters
+* Ensure best practices with SOLID principles
+* Lead development sprints
+* Coordinate with product teams
+
+## ATS Keywords
+* .NET Core
+* C#
+* Microservices
+* Kubernetes
+* Entity Framework
+* Azure
+* SOLID

@@ -1,0 +1,8 @@
+## Responsibilities
+* Develop scalable, secure web applications
+* Lead frontend development with React or Angular
+* Develop backend APIs with Node.js or Django
+* Manage databases
+* Implement CI/CD pipelines
+* Ensure secure authentication
+* Collaborate in Agile sprints

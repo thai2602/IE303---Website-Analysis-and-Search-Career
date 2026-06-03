@@ -1,0 +1,26 @@
+## Skills
+* AWS basics
+* Azure basics
+* GCP basics
+* Terraform/CloudFormation awareness
+* Docker/Kubernetes
+* Python/Bash scripting
+* Jenkins
+* GitHub Actions
+* Monitoring fundamentals
+* Git
+
+## Responsibilities
+* Assist in deploying cloud resources
+* Create basic automation scripts
+* Support containerized app deployments
+* Collaborate on academic or personal projects
+
+## ATS Keywords
+* Cloud
+* DevOps
+* Entry-Level
+* Fresher
+* Hyderabad
+* Remote
+* Containerization

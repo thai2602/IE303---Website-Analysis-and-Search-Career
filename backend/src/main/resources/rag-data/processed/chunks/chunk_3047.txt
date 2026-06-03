@@ -1,0 +1,21 @@
+## Skills
+* Python
+* Java basics
+* Selenium
+* TestNG basics
+* Manual testing concepts
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Execute manual and automation test cases
+* Document findings
+* Support QA team in defect tracking
+
+## ATS Keywords
+* QA
+* Software QA
+* Fresher
+* Entry-Level
+* Automation
+* Defect Tracking

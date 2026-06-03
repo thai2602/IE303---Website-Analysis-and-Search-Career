@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop and manage design systems for projects.
+* Create advanced prototypes with interactions.
+* Implement accessibility standards (WCAG 2.1).
+* Collaborate with UX teams on journey mapping.
+* Improve engagement metrics through UI enhancements.
+
+## ATS Keywords
+* Design Systems
+* Figma
+* Micro-Interactions
+* Accessibility
+* User Flows
+* Responsive Design

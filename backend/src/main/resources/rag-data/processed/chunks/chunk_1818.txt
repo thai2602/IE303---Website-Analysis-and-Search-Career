@@ -1,0 +1,16 @@
+## Responsibilities
+* Implement basic ML models
+* Assist in data cleaning and feature engineering
+* Visualize datasets and insights
+* Contribute to academic or internship projects
+* Collaborate with team members
+
+## ATS Keywords
+* Junior ML Engineer
+* Python
+* R
+* Java
+* Data Preprocessing
+* ML Models
+* Visualization
+* Kaggle Projects

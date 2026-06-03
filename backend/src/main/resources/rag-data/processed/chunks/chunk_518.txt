@@ -1,0 +1,20 @@
+## Responsibilities
+* Design scalable big data solutions
+* Develop ETL and streaming pipelines
+* Work with multi-cloud big data services
+* Provide analytics dashboards
+* Ensure governance, compliance, and security
+* Lead cross-functional big data projects
+* Mentor junior engineers
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala
+* SQL

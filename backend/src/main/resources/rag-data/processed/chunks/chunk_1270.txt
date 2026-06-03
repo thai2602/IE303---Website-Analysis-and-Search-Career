@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead fintech projects and architecture
+* Develop blockchain-based applications
+* Apply machine learning models for financial analytics
+* Design APIs and microservices solutions
+* Ensure cybersecurity and regulatory compliance
+* Coordinate and mentor teams
+* Drive innovation initiatives

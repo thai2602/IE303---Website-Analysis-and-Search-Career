@@ -1,0 +1,36 @@
+---
+job_id: CA009
+role: Cloud Security Architect
+level: Experienced
+years_of_experience: 6
+skills:
+* Cloud security
+* IAM
+* Encryption
+* Compliance frameworks
+* AWS
+* Azure
+* Python scripting
+keywords:
+* Cloud Security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Python
+---
+
+# Cloud Security Architect
+
+## Experience Level
+Experienced (6 years)
+
+## Skills
+* Cloud security
+* IAM
+* Encryption
+* Compliance frameworks
+* AWS
+* Azure
+* Python scripting

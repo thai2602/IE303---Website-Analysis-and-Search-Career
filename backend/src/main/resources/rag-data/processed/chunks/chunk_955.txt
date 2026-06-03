@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop and maintain robust ETL pipelines
+* Optimize SQL queries for large-scale datasets
+* Work with big data technologies
+* Deploy pipelines on AWS cloud
+* Ensure data quality and governance
+
+## ATS Keywords
+* Python
+* SQL
+* Spark
+* Kafka
+* ETL
+* AWS
+* Data Warehousing

@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead infrastructure design and SRE initiatives
+* Implement and manage CI/CD and IaC pipelines
+* Manage containerized and distributed systems
+* Ensure reliability, scalability, and performance of services
+* Monitor and resolve incidents
+* Collaborate with development and operations teams
+* Develop automation scripts to optimize system operations
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Automation

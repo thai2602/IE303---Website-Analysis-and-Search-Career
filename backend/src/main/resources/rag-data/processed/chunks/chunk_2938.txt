@@ -1,0 +1,8 @@
+## Responsibilities
+* Design, implement, and manage reliable infrastructure
+* Automate deployments and monitoring
+* Manage containerized applications with Kubernetes and Docker
+* Implement Infrastructure as Code (IaC) solutions
+* Troubleshoot and optimize distributed systems
+* Collaborate with DevOps, security, and development teams
+* Monitor and ensure high availability of services

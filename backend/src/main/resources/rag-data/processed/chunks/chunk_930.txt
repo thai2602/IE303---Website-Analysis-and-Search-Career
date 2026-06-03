@@ -1,0 +1,33 @@
+---
+job_id: DA011
+role: Data Analyst - Experienced
+level: Senior-Level
+years_of_experience: 5–9 years
+skills:
+* Predictive modeling
+* Machine learning
+* Time-series forecasting
+* Advanced SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Looker
+* ETL
+* Data warehousing
+* Hadoop
+* Spark
+* Kafka
+* Hypothesis testing
+* Statistical modeling
+keywords:
+* Data Analytics
+* BI
+* Senior-Level
+* Advanced Analytics
+* ETL
+* Dashboards
+---
+
+# Data Analyst - Experienced

@@ -1,0 +1,11 @@
+## Responsibilities
+* Shadow senior engineers
+* Learn and apply networking fundamentals
+* Support network security monitoring
+* Assist in device installations
+
+## ATS Keywords
+* LAN/WAN
+* Firewalls
+* Nagios
+* Network Security Basics

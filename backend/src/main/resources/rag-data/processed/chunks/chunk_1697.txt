@@ -1,0 +1,33 @@
+---
+job_id: JS-E-016
+role: JavaScript Developer
+level: Experienced
+years_of_experience: 13+
+skills:
+* Advanced JavaScript
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Jest, Mocha, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker, CI/CD
+* Leadership
+* Project management
+* Performance tuning
+keywords:
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker
+---
+
+# JavaScript Developer

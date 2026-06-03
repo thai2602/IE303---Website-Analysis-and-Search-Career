@@ -1,0 +1,10 @@
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems
+---

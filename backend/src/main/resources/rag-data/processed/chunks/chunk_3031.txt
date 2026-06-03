@@ -1,0 +1,28 @@
+## Skills
+* Java
+* Python
+* JavaScript basics
+* Selenium
+* Cypress
+* Appium
+* Functional testing
+* Regression testing
+* JIRA
+* Bugzilla
+* Postman basics
+* Test case writing
+* Test documentation
+
+## Responsibilities
+* Assist in creating and executing automated test scripts
+* Support manual testing
+* Collaborate with QA teams
+* Learn automation frameworks
+
+## ATS Keywords
+* QA
+* Test Automation
+* Fresher
+* Entry-Level
+* Automation
+* Testing

@@ -1,0 +1,6 @@
+## Responsibilities
+* Define architecture strategies for multiple Android projects.
+* Lead app performance optimization, debugging, and CI/CD integration.
+* Mentor teams on advanced Android development patterns.
+* Ensure Play Store compliance and smooth deployment.
+* Collaborate with stakeholders for technical solutions and metrics.

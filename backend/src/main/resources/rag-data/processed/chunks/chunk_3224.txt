@@ -1,0 +1,30 @@
+---
+job_id: UXF009
+role: UX Trainee Designer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Figma
+* Adobe XD
+* User Flows
+* Prototyping
+* Typography
+keywords:
+* Wireframing
+* Figma
+* Prototyping
+* User Research
+* Typography
+---
+
+# UX Trainee Designer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Figma
+* Adobe XD
+* User Flows
+* Prototyping
+* Typography

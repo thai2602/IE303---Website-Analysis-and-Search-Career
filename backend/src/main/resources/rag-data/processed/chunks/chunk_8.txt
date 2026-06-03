@@ -1,0 +1,7 @@
+### 2.1 Recommended File Format
+| Format | ATS Compatibility | Notes |
+|--------|------------------|-------|
+| `.docx` (Word) | ✅ Best | Most universally parsed |
+| Text-based `.pdf` | ✅ Good | Must be text-selectable, not scanned |
+| Image-based `.pdf` | ❌ Avoid | Text cannot be extracted |
+| `.pages`, `.odt` | ⚠️ Risky | May not be supported by all ATS platforms |

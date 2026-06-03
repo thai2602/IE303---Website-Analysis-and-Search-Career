@@ -1,0 +1,24 @@
+## Skills
+* Java
+* Python basics
+* Selenium WebDriver
+* TestNG
+* Regression testing
+* Black-box testing
+* JIRA
+* Postman basics
+* Test documentation
+
+## Responsibilities
+* Execute test scripts under guidance
+* Assist in automation setup
+* Document test results
+* Participate in defect reporting
+
+## ATS Keywords
+* QA
+* Automation
+* Fresher
+* Entry-Level
+* Testing
+* Defect Tracking

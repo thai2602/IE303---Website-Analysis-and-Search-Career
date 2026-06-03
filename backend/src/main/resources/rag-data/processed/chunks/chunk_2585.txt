@@ -1,0 +1,23 @@
+## Skills
+* Java
+* Python
+* C++
+* JavaScript/TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django
+* Spring Boot
+* SQL
+* NoSQL
+* Git
+* Agile/Scrum
+
+## Responsibilities
+* Develop robust software solutions
+* Build frontend applications using React, Angular, or Vue.js
+* Implement backend services and REST APIs
+* Optimize database queries
+* Participate in Agile sprints and code reviews
+* Collaborate with cross-functional teams

@@ -1,0 +1,20 @@
+## Responsibilities
+* Manage SRE operations for large-scale systems
+* Lead automation and CI/CD initiatives
+* Implement and manage container orchestration
+* Monitor and optimize system performance
+* Ensure system reliability
+* Mentor and train team members
+* Collaborate with multiple teams
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

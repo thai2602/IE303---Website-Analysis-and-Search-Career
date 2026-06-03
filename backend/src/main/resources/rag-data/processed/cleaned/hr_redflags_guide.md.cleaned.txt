@@ -1,0 +1,131 @@
+# CV Red Flags: Warning Signs to Watch for During Screening
+
+## Metadata
+- **Topic**: CV / Resume Red Flags and Risk Signals
+- **Audience**: HR Professionals, Recruiters
+- **Language**: English
+
+---
+
+## Overview
+
+Identifying red flags during CV screening helps HR quickly spot candidates who may pose a risk to the organization. These warning signs do not automatically disqualify a candidate, but each warrants careful consideration before moving forward.
+
+> **Key principle**: Red flags are signals to investigate further — not automatic rejections. Context and explanation matter.
+
+---
+
+## 1. Employment Gaps
+
+**Description**: Unexplained periods of unemployment or inactivity in a candidate's work history.
+
+**Why it matters**: Gaps without reasonable explanation may indicate instability, performance issues, or gaps in professional development.
+
+**How to handle**:
+- Ask the candidate to explain the gap during screening or interview
+- Where possible, seek clarification from previous employers
+- Accept valid reasons: caregiving responsibilities, health recovery, further education, relocation
+
+---
+
+## 2. Frequent Job-Hopping
+
+**Description**: A pattern of changing companies or roles every 1–2 years or less.
+
+**Why it matters**: High turnover frequency may reflect lack of long-term commitment, difficulty adapting, or impatience with work environments.
+
+**How to handle**:
+- Investigate the reasons behind each transition — via interview or cover letter
+- Accept valid reasons: career advancement, toxic environments, company closure, industry shifts
+- Distinguish between intentional moves (promotions, growth) and reactive departures
+
+---
+
+## 3. Lack of Personalization
+
+**Description**: A generic CV that has not been tailored to the specific role or company.
+
+**Why it matters**: Sending identical CVs to multiple employers without adjusting for the JD suggests the candidate has not researched the role and is not genuinely invested in the opportunity.
+
+**How to handle**:
+- Prioritize CVs that reference role-specific skills, company values, or JD language
+- A personalized CV signals that the candidate understands the position and has put in genuine effort
+
+---
+
+## 4. Spelling, Grammar & Factual Errors
+
+**Description**: Typos, grammatical mistakes, or inconsistent information within the CV.
+
+**Why it matters**: Errors signal a lack of attention to detail and professionalism — qualities that matter in virtually every role.
+
+**How to handle**:
+- Minor isolated errors: allow the candidate to clarify during the interview
+- Repeated or serious errors: treat as a signal of low care and responsibility
+- Pay special attention to errors in key sections such as job titles, dates, and contact information
+
+---
+
+## 5. Vague or Unsubstantiated Descriptions
+
+**Description**: Job responsibilities and achievements described in overly general terms, without specific outcomes or metrics.
+
+**Examples**:
+
+| Vague (Red Flag) | Specific (Green Flag) |
+|------------------|----------------------|
+| "Contributed to company growth" | "Grew revenue by 20% over 6 months" |
+| "Worked on marketing campaigns" | "Managed $10K ad budget, achieving 3x ROAS" |
+| "Helped improve team efficiency" | "Reduced report turnaround time by 30% through process redesign" |
+
+**Why it matters**: Vague descriptions make it impossible to assess actual impact or capability.
+
+**How to handle**:
+- Ask candidates to clarify specific achievements and their direct role in key projects
+- Request quantified evidence where relevant, especially for senior roles
+
+---
+
+## 6. Inconsistency with External Profiles (LinkedIn, Portfolio)
+
+**Description**: Information in the CV does not match the candidate's LinkedIn profile, portfolio, or other public records — such as differing job titles, dates, or educational background.
+
+**Why it matters**: Discrepancies may indicate dishonesty, deliberate omission of unfavorable information, or simple carelessness.
+
+**How to handle**:
+- Cross-check CV against LinkedIn, portfolio sites, and any publicly available information
+- Flag any significant inconsistencies and request clarification during the interview
+- Pay particular attention to mismatched employment dates or role titles
+
+---
+
+## 7. Missing Key Skills or Achievements
+
+**Description**: The CV omits critical competencies, tools, or notable results expected for the role.
+
+**Why it matters**: A candidate who fails to highlight core qualifications may lack the experience — or may not have invested enough effort in presenting themselves effectively.
+
+**How to handle**:
+- Ask the candidate to provide additional detail on relevant skills and projects
+- Determine whether the omission reflects a genuine gap or simply poor CV presentation
+- Use the CV scorecard to objectively assess what is and isn't present
+
+---
+
+## Summary: Red Flags Quick Reference
+
+| # | Red Flag | Primary Risk | First Action |
+|---|----------|-------------|--------------|
+| 1 | Employment gaps | Instability or performance issues | Request explanation |
+| 2 | Frequent job-hopping | Lack of commitment | Probe reasons in interview |
+| 3 | No personalization | Low genuine interest | Deprioritize in shortlist |
+| 4 | Spelling / grammar errors | Poor attention to detail | Assess severity and frequency |
+| 5 | Vague descriptions | Unverifiable capability | Ask for specific examples |
+| 6 | Inconsistency with LinkedIn | Potential dishonesty | Cross-check and clarify |
+| 7 | Missing key skills / achievements | Incomplete or weak profile | Request supplementary detail |
+
+---
+
+## Key Takeaway
+
+Red flags are investigation triggers, not automatic disqualifiers. HR should identify, document, and follow up on each signal — using structured interviews and reference checks to build a complete, accurate picture of the candidate before making a final decision.

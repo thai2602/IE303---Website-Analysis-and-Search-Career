@@ -1,0 +1,28 @@
+---
+job_id: MKT-F-001
+role: Marketing Specialist
+level: Fresher
+years_of_experience: 0-1
+skills:
+* SEO basics
+* SEM basics
+* PPC campaigns
+* Content creation
+* Social media management
+* Email marketing basics
+* Marketing automation tools (Mailchimp, HubSpot)
+* Google Analytics basics
+* Market research
+* Collaboration and communication
+keywords:
+* Digital Marketing
+* SEO
+* SEM
+* PPC
+* Content Creation
+* Email Marketing
+* Social Media
+* Marketing Automation
+* Google Analytics
+* Market Research
+---

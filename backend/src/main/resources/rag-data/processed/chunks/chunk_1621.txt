@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in programming IoT devices
+* Integrate and test sensors and actuators
+* Implement basic wireless communication protocols
+* Work with cloud platforms for data handling
+* Participate in networking setup
+* Document project workflows
+* Collaborate with team members
+* Support data visualization tasks
+
+## ATS Keywords
+* Embedded Systems
+* IoT Protocols
+* Python
+* MQTT
+* Cloud IoT
+* Sensor Integration
+* Edge Computing

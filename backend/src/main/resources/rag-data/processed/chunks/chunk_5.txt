@@ -1,0 +1,8 @@
+### 1.2 What ATS Evaluates
+| ATS Signal | What It Looks For |
+|------------|-------------------|
+| Keywords | Exact or near-exact matches with JD terms |
+| Job titles | Alignment with the role being advertised |
+| Section headers | Standard labels (e.g. "Work Experience", "Education") |
+| Date formats | Consistent, machine-readable formats (e.g. MM/YYYY) |
+| File format | Clean text extraction — typically prefers `.docx` or plain `.pdf` |

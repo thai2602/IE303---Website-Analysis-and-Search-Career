@@ -1,0 +1,41 @@
+---
+job_id: NE017
+role: Network Automation Engineer
+level: Experienced
+years_of_experience: 3-5
+skills:
+* Python
+* Bash
+* Ansible
+* Automation
+* Cisco IOS
+keywords:
+* Automation
+* Python
+* Ansible
+* Bash
+---
+
+# Network Automation Engineer
+
+## Experience Level
+Experienced (3-5 years)
+
+## Skills
+* Python
+* Bash
+* Ansible
+* Automation
+* Cisco IOS
+
+## Responsibilities
+* Develop automation scripts
+* Optimize routine configurations
+* Integrate automation in network ops
+* Collaborate with DevOps teams
+
+## ATS Keywords
+* Automation
+* Python
+* Ansible
+* Bash

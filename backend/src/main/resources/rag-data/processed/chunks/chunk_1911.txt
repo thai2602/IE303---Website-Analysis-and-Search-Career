@@ -1,0 +1,11 @@
+## ATS Keywords
+* Market Research
+* Predictive Analytics
+* Python
+* R
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Market Segmentation
+* Business Strategy

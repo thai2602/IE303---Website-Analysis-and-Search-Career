@@ -1,0 +1,28 @@
+---
+job_id: BD-E-011
+role: Blockchain Developer
+level: Experienced
+years_of_experience: 3+
+skills:
+* Java advanced
+* Python advanced
+* Solidity advanced
+* Rust basics
+* Ethereum
+* Hyperledger Fabric
+* Corda
+* Smart contract optimization
+* Cryptography advanced
+* Scalable DApps
+* Cross-chain development
+* Git advanced
+* Truffle advanced
+* Remix IDE advanced
+* Leadership
+* Collaboration
+* Problem-solving
+keywords:
+* Blockchain Architecture
+* Smart Contract Optimization
+* Multi-chain
+* Cross-chain

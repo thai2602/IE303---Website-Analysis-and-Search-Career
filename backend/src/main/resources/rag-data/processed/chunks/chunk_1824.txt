@@ -1,0 +1,15 @@
+## Responsibilities
+* Support ML projects with supervised and unsupervised learning models
+* Perform data cleaning and feature engineering
+* Create visualizations for insights
+* Collaborate with senior engineers
+* Participate in open-source projects or Kaggle competitions
+
+## ATS Keywords
+* Fresher ML Engineer
+* Python
+* R
+* Java
+* ML Projects
+* Data Preprocessing
+* Visualization

@@ -1,0 +1,14 @@
+## Responsibilities
+* Build simple wireframes for internal or client projects.
+* Translate concepts into visual layouts.
+* Practice typography and spacing for consistent UI.
+* Support front-end integration with basic HTML/CSS.
+* Learn usability fundamentals under mentorship.
+
+## ATS Keywords
+* Wireframing
+* Responsive Design
+* UI Basics
+* Figma
+* Typography
+* Color Theory

@@ -1,0 +1,30 @@
+* PyTest
+---
+
+# Python Developer
+
+## Experience Level
+Experienced (4+ years)
+
+## Skills
+* Python advanced
+* Async programming
+* Decorators
+* Generators
+* Django advanced
+* Flask advanced
+* FastAPI
+* TensorFlow
+* Scikit-learn
+* PyTorch
+* REST APIs
+* GraphQL
+* PostgreSQL
+* MySQL
+* NoSQL
+* SQLAlchemy
+* Docker
+* Kubernetes basics
+* AWS basics
+* Leadership
+* Team collaboration

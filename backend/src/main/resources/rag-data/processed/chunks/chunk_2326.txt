@@ -1,0 +1,22 @@
+## Responsibilities
+* Lead Python application projects
+* Design and implement APIs
+* Integrate ML frameworks
+* Optimize databases
+* Implement DevOps pipelines
+* Mentor junior developers
+* Conduct testing and code reviews
+* Collaborate with cross-functional teams
+* Drive innovation initiatives
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest

@@ -1,0 +1,69 @@
+---
+job_id: CW-006
+role: Content Writer
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Advanced content strategy
+* SEO and keyword research
+* Content marketing
+* Multi-format content creation (blogs, whitepapers, social media, scripts)
+* Editing and fact-checking
+* Digital marketing tools (Google Analytics, SEMrush, HubSpot)
+* AI-assisted content creation
+* Performance tracking and KPI analysis
+* Collaboration with teams
+* Project management for content initiatives
+keywords:
+* Content Strategy
+* SEO
+* Content Marketing
+* Multi-format Content
+* Google Analytics
+* SEMrush
+* HubSpot
+* AI Tools
+* Editing
+* Project Management
+---
+
+# Content Writer
+
+## Experience Level
+Experienced (5-10 years)
+
+## Skills
+* Advanced content strategy
+* SEO and keyword research
+* Content marketing
+* Multi-format content creation (blogs, whitepapers, social media, scripts)
+* Editing and fact-checking
+* Digital marketing tools (Google Analytics, SEMrush, HubSpot)
+* AI-assisted content creation
+* Performance tracking and KPI analysis
+* Collaboration with teams
+* Project management for content initiatives
+
+## Responsibilities
+* Develop and implement content strategies
+* Create multi-format content aligned with SEO and marketing goals
+* Conduct keyword research and optimize content
+* Edit and proofread all content
+* Collaborate with marketing, design, and SEO teams
+* Track content performance using analytics tools
+* Use AI tools to enhance content production
+* Ensure content aligns with brand voice and guidelines
+* Manage content calendars and deadlines
+* Mentor and guide junior writers
+
+## ATS Keywords
+* Content Strategy
+* SEO
+* Content Marketing
+* Multi-format Content
+* Google Analytics
+* SEMrush
+* HubSpot
+* AI Tools
+* Editing
+* Project Management

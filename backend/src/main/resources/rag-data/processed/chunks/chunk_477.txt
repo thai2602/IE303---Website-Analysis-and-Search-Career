@@ -1,0 +1,21 @@
+# Blockchain Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Java basics
+* Python basics
+* C++ basics
+* Solidity basics
+* Ethereum basics
+* Hyperledger basics
+* Smart contract testing
+* Cryptography basics
+* DApps fundamentals
+* Git
+* Truffle
+* Remix IDE
+* Problem-solving
+* Communication
+* Collaboration

@@ -1,0 +1,8 @@
+## Responsibilities
+* Oversee enterprise-wide test automation initiatives
+* Design and maintain high-quality test frameworks
+* Integrate automated testing in CI/CD pipelines
+* Perform advanced performance and load testing
+* Mentor and guide SDET teams
+* Define strategic QA planning and metrics
+* Collaborate across teams to ensure software quality

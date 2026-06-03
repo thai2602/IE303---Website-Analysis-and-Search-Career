@@ -1,0 +1,44 @@
+---
+job_id: SE013
+role: System Engineer
+level: Experienced
+years_of_experience: 6-8
+skills:
+* Linux
+* Active Directory
+* AWS
+* PowerShell
+* System Architecture
+keywords:
+* System Architecture
+* AWS
+* Active Directory
+* Linux
+* Automation
+---
+
+# System Engineer
+
+## Experience Level
+Experienced (6-8 years)
+
+## Skills
+* Linux
+* Active Directory
+* AWS
+* PowerShell
+* System Architecture
+
+## Responsibilities
+* Design system architecture
+* Manage hybrid environments
+* Implement automation pipelines
+* Lead cross-team projects
+* Maintain documentation
+
+## ATS Keywords
+* System Architecture
+* AWS
+* Active Directory
+* Linux
+* Automation

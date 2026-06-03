@@ -1,0 +1,19 @@
+* Kaggle Projects
+---
+
+# Junior Machine Learning Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python
+* R
+* Java
+* ML fundamentals: regression, classification, clustering, decision trees
+* Data preprocessing
+* Feature engineering
+* ML frameworks: Scikit-learn, TensorFlow, PyTorch, Keras
+* Statistics: probability, linear algebra
+* Data visualization: Matplotlib, Seaborn
+* Git/GitHub

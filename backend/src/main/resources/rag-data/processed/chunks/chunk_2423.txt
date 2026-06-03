@@ -1,0 +1,8 @@
+## Responsibilities
+* Develop and program robotic systems using Python, C++, and ROS
+* Design and test mechanical and electrical components
+* Implement advanced control algorithms
+* Integrate sensors and actuators for complex robotics systems
+* Perform simulations using Gazebo and RViz
+* Collaborate with multidisciplinary teams
+* Mentor junior engineers

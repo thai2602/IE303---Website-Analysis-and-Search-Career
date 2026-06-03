@@ -1,0 +1,25 @@
+## Experience Level
+Experienced (14+ years)
+
+## Skills
+* JavaScript expert
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Jest, Cypress, Mocha
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker
+* CI/CD
+* Leadership
+* Project management
+
+## Responsibilities
+* Architect, lead, and develop full-stack JS applications
+* Implement automated testing and CI/CD
+* Optimize performance
+* Mentor developers
+* Coordinate cross-team initiatives

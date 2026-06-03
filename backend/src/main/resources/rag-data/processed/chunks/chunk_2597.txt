@@ -1,0 +1,36 @@
+---
+job_id: SD016
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 7–9 years
+skills:
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Azure
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Agile/Scrum
+* Microservices
+keywords:
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Architecture
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (7–9 years years)

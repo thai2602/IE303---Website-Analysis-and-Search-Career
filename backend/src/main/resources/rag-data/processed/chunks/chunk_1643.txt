@@ -1,0 +1,32 @@
+---
+job_id: JD-JAVA-009
+role: Java Developer
+level: Fresher
+years_of_experience: 0
+skills:
+* Spring Basics
+* Hibernate Basics
+* JUnit
+* TestNG
+keywords:
+* Java
+* Spring
+* Hibernate
+* JUnit
+---
+
+# Java Developer
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Spring Basics
+* Hibernate Basics
+* JUnit
+* TestNG
+
+## Responsibilities
+* Assist in writing entity classes in Hibernate
+* Learn and use Spring dependency injection
+* Conduct basic unit testing

@@ -1,0 +1,30 @@
+## Skills
+* JavaScript
+* React
+* Node.js
+* Express.js
+* MongoDB
+* Docker
+* Kubernetes
+* AWS
+* REST APIs
+* GraphQL
+
+## Responsibilities
+* Build scalable web applications
+* Implement React front-end and Node.js back-end
+* Manage MongoDB databases
+* Deploy with Docker and Kubernetes
+* Develop and integrate REST and GraphQL APIs
+* Ensure web performance and security
+
+## ATS Keywords
+* React
+* Node.js
+* Express.js
+* MongoDB
+* Docker
+* Kubernetes
+* AWS
+* REST APIs
+* GraphQL

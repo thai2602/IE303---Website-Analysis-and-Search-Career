@@ -1,0 +1,28 @@
+---
+job_id: OM-107
+role: Operations Manager
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Team Coordination
+* Basic Workflow Management
+* Time Management
+* Communication
+* Collaboration
+* Observation
+* Basic ERP/CRM Knowledge
+* Problem-Solving
+* Adaptability
+* Report Preparation
+keywords:
+* Operations Management
+* Team Coordination
+* Workflow Management
+* ERP
+* CRM
+* Time Management
+* Collaboration
+* Reporting
+* Problem Solving
+* Adaptability
+---

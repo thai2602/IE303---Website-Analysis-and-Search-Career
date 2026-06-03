@@ -1,0 +1,33 @@
+---
+job_id: CW-012
+role: Content Writer
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Writing clarity and grammar
+* SEO basics
+* Keyword usage
+* Research skills
+* CMS familiarity
+* AI tool awareness
+* Content formatting
+* Digital marketing awareness
+* Communication skills
+* Creativity
+keywords:
+* Content Writing
+* SEO
+* Keywords
+* CMS
+* AI Tools
+* Blogs
+* Articles
+* Editing
+* Research
+* Creativity
+---
+
+# Content Writer
+
+## Experience Level
+Fresher (0-2 years)

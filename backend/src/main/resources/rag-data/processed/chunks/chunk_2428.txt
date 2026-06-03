@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead programming and integration of robotic systems
+* Design complex mechanical and electrical parts
+* Implement advanced control algorithms
+* Integrate sensors and actuators
+* Perform simulations and testing of robotics systems
+* Guide junior engineers and collaborate with cross-functional teams
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership

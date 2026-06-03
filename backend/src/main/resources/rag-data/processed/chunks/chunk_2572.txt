@@ -1,0 +1,30 @@
+---
+job_id: SD004
+role: Software Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* Java
+* Python
+* C++
+* HTML
+* CSS
+* JavaScript
+* SQL
+* Git
+* Analytical thinking
+* Collaboration
+keywords:
+* Software Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Agile
+* Teamwork
+---
+
+# Software Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)

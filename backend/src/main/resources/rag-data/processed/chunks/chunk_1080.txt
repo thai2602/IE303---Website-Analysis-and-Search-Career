@@ -1,0 +1,5 @@
+### Backend Engineer - FinTech Vietnam (01/2022 - Hiện tại)
+- Thiết kế và phát triển RESTful APIs cho ứng dụng ví điện tử bằng Spring Boot, phục vụ hơn 50,000 lượt truy cập mỗi ngày.
+- Tối ưu hóa các câu truy vấn cơ sở dữ liệu PostgreSQL, giảm 30% thời gian phản hồi của hệ thống.
+- Xây dựng hệ thống xử lý giao dịch bất đồng bộ sử dụng Apache Kafka, tăng khả năng chịu tải lên 50%.
+- Cấu hình CI/CD pipeline bằng Jenkins, giúp tự động hóa việc deploy lên AWS.

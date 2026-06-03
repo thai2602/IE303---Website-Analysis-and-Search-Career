@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop cross-platform responsive designs.
+* Ensure WCAG compliance in all UI elements.
+* Collaborate closely with front-end developers.
+* Drive A/B testing to validate design decisions.
+* Manage and scale design systems across projects.
+
+## ATS Keywords
+* Accessibility
+* Design Systems
+* Figma
+* Responsive Design
+* A/B Testing
+* User Flows

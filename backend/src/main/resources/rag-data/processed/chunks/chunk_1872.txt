@@ -1,0 +1,33 @@
+---
+job_id: MRA-106
+role: Market Research Analyst
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Advanced Data Analysis
+* Predictive Modeling
+* Python
+* R
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Competitive Intelligence
+* Forecasting
+keywords:
+* Market Research
+* Predictive Analytics
+* Python
+* R
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Competitive Intelligence
+* Forecasting
+---
+
+# Market Research Analyst
+
+## Experience Level
+Experienced (5-10 years)

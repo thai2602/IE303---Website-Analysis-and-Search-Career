@@ -1,0 +1,14 @@
+## Responsibilities
+* Support new feature development
+* Assist with application configuration
+* Help in database schema setup
+* Perform small unit testing tasks
+* Follow agile methodology basics
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server
+* Git

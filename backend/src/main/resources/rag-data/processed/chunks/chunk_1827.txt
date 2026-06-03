@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop and test ML models for small datasets
+* Perform feature engineering and data preprocessing
+* Create visualizations for insights
+* Work under guidance from senior team members
+* Collaborate on entry-level projects
+
+## ATS Keywords
+* Entry-Level ML Engineer
+* Python
+* R
+* Java
+* ML Models
+* Data Preprocessing
+* Visualization

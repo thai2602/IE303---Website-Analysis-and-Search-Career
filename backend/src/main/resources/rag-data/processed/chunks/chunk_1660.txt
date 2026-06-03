@@ -1,0 +1,11 @@
+## Responsibilities
+* Tune database queries for performance
+* Work with NoSQL databases like MongoDB and Cassandra
+* Ensure optimal persistence layer design
+
+## ATS Keywords
+* Java
+* SQL
+* NoSQL
+* MongoDB
+* Performance Tuning

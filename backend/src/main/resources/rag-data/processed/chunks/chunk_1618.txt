@@ -1,0 +1,33 @@
+---
+job_id: IOT-F-004
+role: IoT Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C basics
+* C++ basics
+* Python basics
+* Java basics
+* Embedded systems development
+* Sensor integration
+* Actuator integration
+* Bluetooth
+* Zigbee
+* MQTT
+* CoAP
+* AWS IoT basics
+* Azure IoT basics
+* Google Cloud IoT basics
+* TCP/IP basics
+* IPv6 basics
+* Tableau basics
+* Power BI basics
+* Communication
+* Teamwork
+* Problem-solving
+keywords:
+* Embedded Systems
+* IoT Protocols
+* Python
+* MQTT
+* Cloud IoT

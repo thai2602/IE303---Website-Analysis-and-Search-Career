@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead design and implementation of big data architectures
+* Manage ETL and data integration pipelines
+* Develop streaming solutions using Spark/Kafka/Flink
+* Integrate cloud data services
+* Provide analytics and visualization solutions
+* Ensure data compliance and governance
+* Mentor junior engineers
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala
+* SQL

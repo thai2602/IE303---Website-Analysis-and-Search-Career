@@ -1,0 +1,36 @@
+---
+job_id: CA013
+role: Cloud Migration Specialist
+level: Experienced
+years_of_experience: 4
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform
+* Python
+* Cloud migration
+* Database migration
+keywords:
+* Cloud Migration
+* AWS
+* Azure
+* GCP
+* Terraform
+* Database Migration
+* Cloud Architecture
+---
+
+# Cloud Migration Specialist
+
+## Experience Level
+Experienced (4 years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* Python
+* Cloud migration
+* Database migration

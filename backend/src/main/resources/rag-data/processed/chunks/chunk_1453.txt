@@ -1,0 +1,19 @@
+## Responsibilities
+* Design and implement complex gameplay systems
+* Develop AI and multiplayer features
+* Optimize graphics and shader performance
+* Lead cross-platform game development
+* Manage testing and debugging workflows
+* Mentor team members
+* Collaborate with multidisciplinary teams
+* Ensure project quality and delivery
+
+## ATS Keywords
+* C++
+* C#
+* Unity
+* Unreal Engine
+* Game AI
+* Shader Programming
+* Multiplayer
+* Performance Optimization

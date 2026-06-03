@@ -1,0 +1,32 @@
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Agile
+* Team Leadership
+
+## Responsibilities
+* Lead enterprise software development
+* Drive cloud adoption strategies
+* Oversee CI/CD pipelines
+* Mentor technical teams and set best practices
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Agile

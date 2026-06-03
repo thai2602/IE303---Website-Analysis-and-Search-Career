@@ -1,0 +1,7 @@
+## Responsibilities
+* Build scalable web applications
+* Develop frontend using React, Angular, or Vue.js
+* Develop backend APIs using Node.js or Django
+* Maintain SQL/NoSQL databases
+* Assist in testing and debugging
+* Learn deployment best practices

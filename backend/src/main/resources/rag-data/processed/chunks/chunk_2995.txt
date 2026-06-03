@@ -1,0 +1,22 @@
+# Site Reliability Engineer
+
+## Experience Level
+Experienced (11+ years)
+
+## Skills
+* Python, Go, Java
+* Bash/Zsh scripting
+* Linux/Windows administration
+* Cloud platforms expert
+* Docker, Kubernetes
+* CI/CD pipelines
+* IaC (Terraform, Ansible, Puppet, Chef)
+* Monitoring & logging
+* Networking
+* Automation
+* Distributed systems
+* Security and compliance
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication

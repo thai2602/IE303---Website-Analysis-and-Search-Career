@@ -1,0 +1,43 @@
+---
+job_id: CSA-E-012
+role: Senior Security Analyst
+level: Experienced
+years_of_experience: 4-6
+skills:
+* LogRhythm
+* Vulnerability Management
+* PowerShell
+* Cloud Security
+* Compliance (GDPR, PCI-DSS)
+keywords:
+* Security Auditing
+* Compliance
+* Cloud Security
+* Incident Response
+* Vulnerability Assessment
+---
+
+# Senior Security Analyst
+
+## Experience Level
+Experienced (4-6 years)
+
+## Skills
+* LogRhythm
+* Vulnerability Management
+* PowerShell
+* Cloud Security
+* Compliance (GDPR, PCI-DSS)
+
+## Responsibilities
+* Conduct advanced threat detection
+* Lead vulnerability management programs
+* Ensure cloud infrastructure security
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Security Auditing
+* Compliance
+* Cloud Security
+* Incident Response
+* Vulnerability Assessment

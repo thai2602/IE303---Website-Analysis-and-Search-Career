@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in AI-generated coding workflows
+* Create and refine prompts under supervision
+* Review AI outputs for functionality and performance
+* Collaborate with senior developers
+* Document AI-assisted coding tasks
+* Follow coding best practices
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* Ruby
+* React
+* Prompt Engineering
+* Debugging
+* Collaboration

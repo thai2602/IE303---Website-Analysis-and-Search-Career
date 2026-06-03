@@ -1,0 +1,11 @@
+## Responsibilities
+* Monitor network performance in NOC
+* Generate and escalate alerts
+* Assist in incident response
+* Maintain monitoring dashboards
+
+## ATS Keywords
+* NOC
+* Network Monitoring
+* SolarWinds
+* Incident Response

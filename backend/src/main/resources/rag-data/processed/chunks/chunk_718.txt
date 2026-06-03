@@ -1,0 +1,12 @@
+## Responsibilities
+* Perform basic threat analysis
+* Document vulnerabilities
+* Assist in antivirus updates
+* Work with team on security awareness
+
+## ATS Keywords
+* Risk Management
+* Vulnerability Assessment
+* Firewall Configuration
+* Malware Analysis
+* Incident Response

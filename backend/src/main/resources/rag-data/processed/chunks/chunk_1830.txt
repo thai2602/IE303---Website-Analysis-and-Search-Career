@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in developing ML algorithms
+* Preprocess datasets and build visualization dashboards
+* Gain experience in ML pipeline development
+* Collaborate with team members
+* Learn ML best practices
+
+## ATS Keywords
+* ML Engineer Trainee
+* Python
+* R
+* Java
+* Data Preprocessing
+* ML Pipelines
+* Visualization

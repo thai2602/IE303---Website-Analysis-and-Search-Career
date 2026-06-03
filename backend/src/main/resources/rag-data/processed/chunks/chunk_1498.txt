@@ -1,0 +1,28 @@
+---
+job_id: GD-E-020
+role: Game Developer
+level: Experienced
+years_of_experience: 17+
+skills:
+* C++ expert
+* C# expert
+* Python advanced
+* Java advanced
+* Unity expert
+* Unreal Engine expert
+* Godot basics
+* Advanced AI/gameplay systems
+* Multiplayer networking
+* Physics and collision systems
+* Shader programming HLSL/GLSL
+* Graphics optimization
+* Cross-platform development
+* Testing/debugging
+* Leadership
+* Team collaboration
+* Project management
+keywords:
+* C++
+* C#
+* Unity
+* Unreal Engine

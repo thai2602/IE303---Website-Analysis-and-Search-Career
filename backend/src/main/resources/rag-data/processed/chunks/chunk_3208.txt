@@ -1,0 +1,28 @@
+---
+job_id: UXF002
+role: Junior UX Designer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* InVision
+* Figma
+* Adobe XD
+* Information Architecture
+* Wireframing
+* Basic Usability Testing
+* Color Theory
+* Layout Design
+keywords:
+* InVision
+* Wireframing
+* Information Architecture
+* Usability Testing
+* Figma
+* Adobe XD
+* User Research
+---
+
+# Junior UX Designer
+
+## Experience Level
+Fresher (0-1 years)

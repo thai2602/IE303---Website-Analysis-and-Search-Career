@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead blockchain development projects
+* Optimize and audit smart contracts
+* Build scalable DApps with cross-chain capabilities
+* Integrate blockchain with cloud services
+* Mentor junior developers
+* Collaborate with cross-functional teams
+* Drive innovation in blockchain applications

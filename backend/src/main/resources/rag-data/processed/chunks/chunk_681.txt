@@ -1,0 +1,32 @@
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* CI/CD
+* Cloud Security
+* Monitoring
+* Networking
+* Storage
+* Python/Bash/PowerShell
+
+## Responsibilities
+* Architect enterprise-scale deployments
+* Implement CI/CD pipelines
+* Enforce security compliance
+* Mentor junior engineers
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* DevOps

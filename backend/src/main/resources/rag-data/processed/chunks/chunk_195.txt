@@ -1,0 +1,22 @@
+## Experience Level
+Experienced (3-4 years years)
+
+## Skills
+* Java
+* Kotlin
+* Android Studio
+* MVVM
+* Clean Architecture
+* Dagger
+* Room
+* REST APIs
+* Firebase
+* Unit Testing
+* CI/CD
+
+## Responsibilities
+* Lead development of scalable Android apps with clean architecture.
+* Implement dependency injection using Dagger/Koin.
+* Integrate APIs and optimize app performance.
+* Automate CI/CD pipelines and testing.
+* Guide junior developers and review code quality.

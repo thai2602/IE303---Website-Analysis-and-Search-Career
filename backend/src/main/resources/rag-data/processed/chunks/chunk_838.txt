@@ -1,0 +1,26 @@
+---
+job_id: CW-105
+role: Copywriter
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Content strategy
+* Advanced copywriting and editing
+* SEO optimization and analytics
+* Brand messaging
+* Multi-format content creation
+* Digital marketing channels and tools
+* AI-assisted content creation
+* Collaboration and leadership
+* Project management
+* Time management
+keywords:
+* Copywriting
+* Content Strategy
+* SEO
+* Editing
+* Brand Messaging
+* CMS
+* AI Tools
+* Digital Marketing
+* Collaboration

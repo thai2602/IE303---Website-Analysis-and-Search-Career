@@ -1,0 +1,27 @@
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform/CloudFormation basics
+* Docker/Kubernetes fundamentals
+* Python/Bash scripting
+* Jenkins
+* GitHub Actions
+* Monitoring: CloudWatch, Azure Monitor
+* Git/GitHub
+
+## Responsibilities
+* Assist in deploying cloud services
+* Containerize apps
+* Implement basic CI/CD pipelines
+* Monitor resource usage
+* Collaborate with team members
+
+## ATS Keywords
+* Cloud
+* DevOps
+* Entry-Level
+* Fresher
+* Chennai
+* Remote
+* Automation

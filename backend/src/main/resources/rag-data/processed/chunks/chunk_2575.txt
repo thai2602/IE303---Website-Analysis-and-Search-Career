@@ -1,0 +1,27 @@
+## Skills
+* Java
+* Python
+* C++
+* HTML
+* CSS
+* JavaScript
+* SQL
+* Git
+* Problem-solving
+* Communication
+
+## Responsibilities
+* Write code in Java, Python, or C++
+* Assist in front-end web development with HTML, CSS, and JavaScript
+* Maintain SQL databases
+* Debug and test modules
+* Collaborate with senior engineers in Agile ceremonies
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Agile
+* Collaboration

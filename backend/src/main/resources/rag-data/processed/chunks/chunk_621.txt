@@ -1,0 +1,13 @@
+## Responsibilities
+* Design cloud platforms for enterprise
+* Implement Kubernetes clusters
+* Lead container orchestration strategies
+
+## ATS Keywords
+* Cloud Platform
+* Kubernetes
+* Docker Swarm
+* AWS
+* Azure
+* Terraform
+* CI/CD

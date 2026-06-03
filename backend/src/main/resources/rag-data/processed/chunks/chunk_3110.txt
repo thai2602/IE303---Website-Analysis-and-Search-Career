@@ -1,0 +1,11 @@
+## Responsibilities
+* Develop and maintain comprehensive technical documentation
+* Collaborate with cross-functional teams and SMEs
+* Implement structured document standards
+* Use CMS and publishing tools
+* Integrate AI tools to improve efficiency
+* Prepare visuals and infographics
+* Maintain version control and continuous updates
+* Ensure UX-focused documentation
+* Ensure technical accuracy and clarity
+* Measure and report content impact

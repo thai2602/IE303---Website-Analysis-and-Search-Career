@@ -1,0 +1,27 @@
+## Skills
+* Java
+* Kotlin
+* Swift
+* Android Studio
+* Xcode
+* SQL
+* NoSQL
+* Git
+* Teamwork
+* Analytical thinking
+
+## Responsibilities
+* Assist in developing Android/iOS applications
+* Write frontend components
+* Maintain backend services
+* Perform testing
+* Collaborate with UX/UI designers
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Mobile Development
+* Android
+* iOS
+* Agile

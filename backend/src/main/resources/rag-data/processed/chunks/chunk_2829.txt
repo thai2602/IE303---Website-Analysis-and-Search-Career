@@ -1,0 +1,13 @@
+## Responsibilities
+* Lead system design initiatives
+* Manage enterprise-scale infrastructure
+* Ensure compliance adherence
+* Oversee automation projects
+* Mentor junior engineers
+
+## ATS Keywords
+* Enterprise Systems
+* System Architecture
+* AWS
+* Terraform
+* Compliance

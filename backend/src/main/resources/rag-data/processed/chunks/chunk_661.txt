@@ -1,0 +1,17 @@
+## Responsibilities
+* Design and manage multi-region cloud solutions
+* Automate infrastructure
+* Lead cloud migration projects
+* Mentor junior engineers
+* Ensure security and compliance
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* DevOps

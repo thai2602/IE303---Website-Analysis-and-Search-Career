@@ -1,0 +1,7 @@
+## Overview
+
+An Applicant Tracking System (ATS) is software used by companies to automatically collect, parse, and rank CVs before a human recruiter ever sees them. A candidate may be highly qualified but still get filtered out if their CV isn't structured for ATS compatibility.
+
+This guide helps HR professionals understand how ATS works — and how to advise candidates to optimize their CVs accordingly.
+
+---

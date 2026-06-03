@@ -1,0 +1,12 @@
+## Responsibilities
+* Assist in security audits
+* Help update security tools
+* Support SOC team with monitoring
+* Participate in vulnerability management
+
+## ATS Keywords
+* Vulnerability Assessment
+* SIEM
+* GDPR
+* Incident Response
+* Firewall Configuration

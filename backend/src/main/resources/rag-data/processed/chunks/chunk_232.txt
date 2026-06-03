@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop Android app screens with XML layouts.
+* Collaborate with designers to implement UI components.
+* Integrate basic REST APIs and handle JSON responses.
+* Participate in peer code reviews.
+* Document small modules and features for clarity.
+
+## ATS Keywords
+* Java
+* Kotlin
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

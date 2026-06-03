@@ -1,0 +1,64 @@
+---
+job_id: UXF001
+role: UX Designer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Figma
+* Adobe XD
+* Sketch
+* Wireframing
+* Prototyping
+* User Research
+* Typography
+* Color Theory
+* HTML Basics
+* CSS Basics
+keywords:
+* Figma
+* Wireframing
+* User Research
+* Prototyping
+* Typography
+* Adobe XD
+* Sketch
+* User Flows
+* Collaboration
+* Usability Testing
+---
+
+# UX Designer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Figma
+* Adobe XD
+* Sketch
+* Wireframing
+* Prototyping
+* User Research
+* Typography
+* Color Theory
+* HTML Basics
+* CSS Basics
+
+## Responsibilities
+* Assist in wireframing and prototyping for web and mobile apps
+* Conduct basic user research through surveys and interviews
+* Collaborate with design teams to create user flows
+* Apply visual design principles in academic or project work
+* Support senior designers in usability testing
+
+## ATS Keywords
+* Figma
+* Wireframing
+* User Research
+* Prototyping
+* Typography
+* Adobe XD
+* Sketch
+* User Flows
+* Collaboration
+* Usability Testing

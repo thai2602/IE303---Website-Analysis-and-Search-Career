@@ -1,0 +1,19 @@
+## Responsibilities
+* Design and optimize prompts for LLMs
+* Apply advanced NLP techniques for prompt tuning
+* Collaborate with AI and data science teams
+* Implement AI model evaluation metrics
+* Develop prompt optimization strategies
+* Lead prompt-related projects
+* Mentor junior prompt engineers
+
+## ATS Keywords
+* Prompt Optimization
+* LLM
+* Machine Learning
+* NLP
+* Python
+* AI Frameworks
+* API Integration
+* AI Ethics
+* Model Fine-tuning

@@ -1,0 +1,15 @@
+## 5. HR Checklist: Advising Candidates on ATS Optimization
+
+Use this checklist when coaching candidates or reviewing submissions:
+
+**Format**
+- [ ] CV submitted as `.docx` or text-based `.pdf`
+- [ ] Single-column layout with no tables or text boxes
+- [ ] Standard section headers used throughout
+- [ ] Standard font, 10–12pt, no icons or images
+
+**Keywords**
+- [ ] JD reviewed and key terms identified
+- [ ] High-priority keywords included in Summary and Skills sections
+- [ ] Both acronyms and full forms used where relevant
+- [ ] Keywords embedded naturally within experience descriptions

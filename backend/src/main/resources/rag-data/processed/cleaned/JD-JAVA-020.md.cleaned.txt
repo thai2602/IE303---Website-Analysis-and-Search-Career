@@ -1,0 +1,42 @@
+---
+job_id: JD-JAVA-020
+role: Java Developer
+level: Experienced
+years_of_experience: 5+
+skills:
+* System Design
+* Microservices
+* Spring Boot
+* Kubernetes
+* Leadership
+keywords:
+* Java
+* System Design
+* Microservices
+* Spring Boot
+* Leadership
+---
+
+# Java Developer
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* System Design
+* Microservices
+* Spring Boot
+* Kubernetes
+* Leadership
+
+## Responsibilities
+* Lead design of scalable Java systems
+* Guide team in microservices adoption
+* Ensure best practices in coding and architecture
+
+## ATS Keywords
+* Java
+* System Design
+* Microservices
+* Spring Boot
+* Leadership

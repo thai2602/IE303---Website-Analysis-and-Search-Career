@@ -1,0 +1,31 @@
+* Sensor Integration
+* Edge Computing
+---
+
+# IoT Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C basics
+* C++ basics
+* Python basics
+* Java basics
+* Embedded systems development
+* Sensor integration
+* Actuator integration
+* Bluetooth
+* Zigbee
+* MQTT
+* CoAP
+* AWS IoT basics
+* Azure IoT basics
+* Google Cloud IoT basics
+* TCP/IP basics
+* IPv6 basics
+* Tableau basics
+* Power BI basics
+* Communication
+* Teamwork
+* Problem-solving

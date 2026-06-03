@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop backend services with Node.js and MongoDB
+* Apply data structures and algorithms for efficiency
+* Assist in integration testing
+* Document processes for clarity
+* Collaborate in agile sprints
+
+## ATS Keywords
+* Software Engineer
+* Node.js
+* MongoDB
+* APIs
+* Agile
+* Integration Testing

@@ -1,0 +1,31 @@
+---
+job_id: 9
+role: Full Stack Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django/Flask
+* MySQL
+* MongoDB
+* Git
+keywords:
+* Full Stack Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Web Development
+* Agile
+---
+
+# Full Stack Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)

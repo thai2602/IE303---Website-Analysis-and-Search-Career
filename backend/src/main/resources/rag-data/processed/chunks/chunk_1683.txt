@@ -1,0 +1,20 @@
+# JavaScript Developer
+
+## Experience Level
+Experienced (8+ years)
+
+## Skills
+* Advanced JavaScript
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Testing frameworks: Jest, Mocha, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux, Vuex
+* Docker, CI/CD
+* Performance tuning
+* Leadership
+* Project management

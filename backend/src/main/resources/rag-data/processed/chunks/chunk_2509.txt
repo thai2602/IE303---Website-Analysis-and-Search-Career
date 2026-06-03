@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead solution architecture design
+* Deploy scalable and secure cloud applications
+* Implement infrastructure as code
+* Oversee containerized applications
+* Manage security and compliance protocols
+* Coordinate with stakeholders and cross-functional teams
+* Monitor and optimize system performance
+
+## ATS Keywords
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Microservices
+* Docker
+* Kubernetes
+* CI/CD

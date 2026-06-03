@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop backend services with Python and Django
+* Write SQL queries for data management
+* Assist in debugging and bug fixing
+* Participate in agile sprints and Git workflows
+* Document code for scalability
+
+## ATS Keywords
+* Software Engineer
+* Python
+* Django
+* SQL
+* Backend
+* Agile
+* Debugging

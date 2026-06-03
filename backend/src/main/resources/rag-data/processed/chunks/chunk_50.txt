@@ -1,0 +1,13 @@
+## 5. Vague or Unsubstantiated Descriptions
+
+**Description**: Job responsibilities and achievements described in overly general terms, without specific outcomes or metrics.
+
+**Examples**:
+
+| Vague (Red Flag) | Specific (Green Flag) |
+|------------------|----------------------|
+| "Contributed to company growth" | "Grew revenue by 20% over 6 months" |
+| "Worked on marketing campaigns" | "Managed $10K ad budget, achieving 3x ROAS" |
+| "Helped improve team efficiency" | "Reduced report turnaround time by 30% through process redesign" |
+
+**Why it matters**: Vague descriptions make it impossible to assess actual impact or capability.

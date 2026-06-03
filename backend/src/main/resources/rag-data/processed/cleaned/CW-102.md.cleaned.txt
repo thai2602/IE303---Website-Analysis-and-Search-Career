@@ -1,0 +1,69 @@
+---
+job_id: CW-102
+role: Copywriter
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Persuasive copywriting
+* Content editing and proofreading
+* Creativity and storytelling
+* Basic SEO practices
+* Research and accuracy
+* Adaptable writing style
+* Email and social media familiarity
+* CMS usage
+* AI-assisted writing tools
+* Time management
+keywords:
+* Copywriting
+* Content Editing
+* SEO
+* Storytelling
+* CMS
+* AI Tools
+* Digital Marketing
+* Creativity
+* Email Marketing
+* Social Media
+---
+
+# Copywriter
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* Persuasive copywriting
+* Content editing and proofreading
+* Creativity and storytelling
+* Basic SEO practices
+* Research and accuracy
+* Adaptable writing style
+* Email and social media familiarity
+* CMS usage
+* AI-assisted writing tools
+* Time management
+
+## Responsibilities
+* Produce engaging copy for campaigns
+* Proofread and edit content
+* Research for content accuracy and relevance
+* Apply SEO basics and keywords
+* Adapt tone for brand consistency
+* Collaborate with marketing and design teams
+* Use CMS to publish content
+* Leverage AI tools for efficiency
+* Manage multiple content deadlines
+* Assist in content performance tracking
+
+## ATS Keywords
+* Copywriting
+* Content Editing
+* SEO
+* Storytelling
+* CMS
+* AI Tools
+* Digital Marketing
+* Creativity
+* Email Marketing
+* Social Media

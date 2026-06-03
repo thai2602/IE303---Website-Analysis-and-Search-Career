@@ -1,0 +1,15 @@
+## Experience Level
+Junior (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* Ruby basics
+* HTML/CSS basics
+* React basics
+* Prompt engineering fundamentals
+* AI-assisted code evaluation
+* Debugging AI outputs
+* Communication
+* Teamwork
+* Problem-solving

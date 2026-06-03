@@ -1,0 +1,19 @@
+## Responsibilities
+* Design and manage large-scale SRE infrastructure
+* Lead automation and CI/CD implementations
+* Monitor distributed systems performance
+* Ensure reliability, scalability, and security
+* Mentor junior and mid-level SREs
+* Coordinate with cross-functional teams
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

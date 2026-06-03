@@ -1,0 +1,52 @@
+---
+job_id: UIE013
+role: UI Designer
+level: Experienced
+years_of_experience: 4
+skills:
+* Figma
+* Sketch
+* Design Systems
+* Accessibility
+* User Flows
+* HTML
+* CSS
+* JS
+keywords:
+* Accessibility
+* Design Systems
+* Figma
+* Responsive Design
+* A/B Testing
+* User Flows
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (4 years)
+
+## Skills
+* Figma
+* Sketch
+* Design Systems
+* Accessibility
+* User Flows
+* HTML
+* CSS
+* JS
+
+## Responsibilities
+* Develop cross-platform responsive designs.
+* Ensure WCAG compliance in all UI elements.
+* Collaborate closely with front-end developers.
+* Drive A/B testing to validate design decisions.
+* Manage and scale design systems across projects.
+
+## ATS Keywords
+* Accessibility
+* Design Systems
+* Figma
+* Responsive Design
+* A/B Testing
+* User Flows

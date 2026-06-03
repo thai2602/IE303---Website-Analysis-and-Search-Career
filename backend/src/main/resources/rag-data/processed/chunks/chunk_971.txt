@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop batch and streaming solutions
+* Optimize SQL-based data retrieval
+* Automate pipelines with Airflow
+* Work with real-time analytics pipelines
+* Ensure cost-efficient solutions in cloud
+
+## ATS Keywords
+* Python
+* SQL
+* Kafka
+* Flink
+* Airflow
+* Azure Synapse

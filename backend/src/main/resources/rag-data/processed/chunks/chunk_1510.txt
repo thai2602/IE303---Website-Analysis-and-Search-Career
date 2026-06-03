@@ -1,0 +1,21 @@
+# Game Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C++ basics
+* C# basics
+* Java basics
+* Python basics
+* Unity basics
+* Unreal Engine basics
+* Physics and animation basics
+* DirectX/OpenGL basics
+* Git basics
+* Debugging basics
+* Mobile game awareness
+* Communication
+* Teamwork
+* Creativity
+* Adaptability

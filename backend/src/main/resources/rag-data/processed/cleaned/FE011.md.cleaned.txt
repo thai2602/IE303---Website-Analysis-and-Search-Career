@@ -1,0 +1,58 @@
+---
+job_id: FE011
+role: Frontend Developer - Experienced
+level: Mid-Senior Level
+years_of_experience: 3–6 years
+skills:
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* React/Redux
+* Angular
+* Vue.js
+* Performance optimization
+* Unit & E2E testing
+* Git
+* CI/CD
+keywords:
+* Frontend
+* Web Application Development
+* Mid-Senior
+* React
+* UI
+* SPA
+* PWA
+---
+
+# Frontend Developer - Experienced
+
+## Experience Level
+Mid-Senior Level (3–6 years years)
+
+## Skills
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* React/Redux
+* Angular
+* Vue.js
+* Performance optimization
+* Unit & E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Design and develop advanced frontend applications
+* Optimize performance and page speed
+* Implement testing automation
+* Ensure cross-browser compatibility
+* Mentor junior developers
+
+## ATS Keywords
+* Frontend
+* Web Application Development
+* Mid-Senior
+* React
+* UI
+* SPA
+* PWA

@@ -1,0 +1,11 @@
+## Responsibilities
+* Assist in firewall configuration
+* Support VPN user connectivity
+* Conduct packet analysis with Wireshark
+* Learn intrusion detection basics
+
+## ATS Keywords
+* Firewall
+* VPN
+* IDS/IPS
+* Wireshark

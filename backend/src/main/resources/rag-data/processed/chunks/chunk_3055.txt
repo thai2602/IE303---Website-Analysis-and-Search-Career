@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* TestNG
+* Cucumber
+* Jenkins
+* Docker
+* GitLab CI/CD
+* JMeter
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+
+## Responsibilities
+* Lead automation testing
+* Design frameworks
+* Ensure CI/CD pipeline integration
+* Drive performance and API testing initiatives
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Leadership
+* CI/CD
+* API Testing

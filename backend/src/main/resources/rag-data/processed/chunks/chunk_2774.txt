@@ -1,0 +1,27 @@
+## Skills
+* React
+* Redux
+* JavaScript
+* HTML
+* CSS
+* Git
+* Agile
+* Testing
+* REST APIs
+* Mentoring
+
+## Responsibilities
+* Develop front-end applications using React and Redux
+* Integrate APIs with backend services
+* Perform unit testing and code reviews
+* Participate in Agile workflows
+* Mentor junior frontend developers
+
+## ATS Keywords
+* Software Engineer
+* React
+* Front-End
+* JavaScript
+* REST APIs
+* Agile
+* Mentoring

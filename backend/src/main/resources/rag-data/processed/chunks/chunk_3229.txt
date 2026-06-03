@@ -1,0 +1,19 @@
+# Vibe Coder
+
+## Experience Level
+Junior (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* HTML basics
+* CSS basics
+* React basics
+* AI coding assistant usage (ChatGPT, Copilot)
+* Prompt crafting basics
+* Code review basics
+* Debugging AI outputs
+* Communication
+* Teamwork
+* Adaptability
+* Critical thinking

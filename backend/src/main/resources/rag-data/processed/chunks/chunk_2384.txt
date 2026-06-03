@@ -1,0 +1,29 @@
+---
+job_id: QA010
+role: QA Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* Manual Testing
+* Basic Automation: Selenium, Appium, Cucumber
+* Java
+* Python
+* JavaScript
+* JIRA
+* TestRail
+* Postman
+* SoapUI
+* Test Documentation
+keywords:
+* QA
+* Software Testing
+* Fresher
+* Remote
+* Manual Testing
+* Automation
+---
+
+# QA Engineer - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)

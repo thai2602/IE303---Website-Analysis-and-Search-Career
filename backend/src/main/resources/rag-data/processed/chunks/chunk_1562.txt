@@ -1,0 +1,21 @@
+## Skills
+* Advanced C programming
+* C++ advanced
+* Python advanced
+* Java advanced
+* Embedded firmware development
+* IoT architecture design
+* Sensor and actuator integration
+* MQTT, CoAP, LoRaWAN, NB-IoT
+* AWS IoT advanced
+* Azure IoT advanced
+* GCP IoT advanced
+* Real-time data analytics
+* Machine learning integration
+* Network security
+* TCP/IP, IPv6
+* Edge computing
+* CI/CD pipelines
+* Leadership
+* Project management
+* Team collaboration

@@ -1,0 +1,41 @@
+---
+job_id: NE008
+role: Entry-Level Network Analyst
+level: Fresher
+years_of_experience: 0-2
+skills:
+* TCP/IP
+* DNS
+* Wireshark
+* Nagios
+* Subnetting
+keywords:
+* Network Analysis
+* Wireshark
+* DNS
+* Nagios
+---
+
+# Entry-Level Network Analyst
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* TCP/IP
+* DNS
+* Wireshark
+* Nagios
+* Subnetting
+
+## Responsibilities
+* Analyze network logs
+* Assist in traffic monitoring
+* Identify basic issues
+* Report performance metrics
+
+## ATS Keywords
+* Network Analysis
+* Wireshark
+* DNS
+* Nagios

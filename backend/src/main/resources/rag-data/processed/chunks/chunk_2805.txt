@@ -1,0 +1,13 @@
+## Responsibilities
+* Learn system deployment processes
+* Support ticket resolution
+* Monitor server uptime
+* Assist in cloud setups
+* Participate in training sessions
+
+## ATS Keywords
+* Systems Engineering
+* Windows Server
+* Python
+* Monitoring
+* Azure

@@ -1,0 +1,28 @@
+---
+job_id: OM-102
+role: Operations Manager
+level: Mid-Level
+years_of_experience: 3-5
+skills:
+* Team Leadership
+* Scheduling
+* Resource Planning
+* Workflow Optimization
+* Process Improvement
+* Data Analysis
+* Budget Management
+* Cross-Functional Collaboration
+* ERP Systems
+* KPI Reporting
+keywords:
+* Operations Management
+* Resource Allocation
+* Process Optimization
+* Budgeting
+* KPI Reporting
+* ERP
+* Team Leadership
+* Workflow Improvement
+* Data Analysis
+* Cross-Functional Collaboration
+---

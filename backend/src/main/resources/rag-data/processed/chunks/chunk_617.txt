@@ -1,0 +1,13 @@
+## Responsibilities
+* Migrate on-premise applications to cloud
+* Implement database migration strategies
+* Ensure minimal downtime during migration
+
+## ATS Keywords
+* Cloud Migration
+* AWS
+* Azure
+* GCP
+* Terraform
+* Database Migration
+* Cloud Architecture

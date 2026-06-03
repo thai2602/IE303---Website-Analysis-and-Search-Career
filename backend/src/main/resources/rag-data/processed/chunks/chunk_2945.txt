@@ -1,0 +1,20 @@
+## Responsibilities
+* Maintain and optimize cloud infrastructure
+* Manage containerized and distributed systems
+* Implement and monitor CI/CD pipelines
+* Automate infrastructure and deployment processes
+* Ensure system reliability and performance
+* Collaborate with cross-functional teams
+* Monitor and resolve incidents proactively
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Distributed Systems

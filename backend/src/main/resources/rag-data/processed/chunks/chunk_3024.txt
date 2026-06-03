@@ -1,0 +1,19 @@
+# Site Reliability Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* Shell scripting
+* Linux basics
+* Windows OS fundamentals
+* Cloud fundamentals (AWS, GCP, Azure)
+* Docker basics
+* Kubernetes basics
+* Intro to monitoring (Prometheus/Grafana)
+* TCP/IP networking
+* Basic CI/CD
+* Analytical thinking
+* Time management
+* Communication

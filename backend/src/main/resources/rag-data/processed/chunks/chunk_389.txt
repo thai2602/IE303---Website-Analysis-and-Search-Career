@@ -1,0 +1,11 @@
+## Responsibilities
+* Lead BI and analytics projects
+* Develop and optimize dashboards for business insights
+* Manage requirement gathering and documentation
+* Facilitate Agile processes
+* Collaborate with cross-functional teams
+* Conduct scenario analysis and provide recommendations
+* Present actionable insights to leadership
+* Mentor junior analysts
+* Implement process improvements
+* Automate reporting workflows

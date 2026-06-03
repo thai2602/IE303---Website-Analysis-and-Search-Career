@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in setting up monitoring dashboards
+* Support CI/CD pipelines and automation scripts
+* Learn container orchestration with Kubernetes
+* Document incidents and processes
+* Work with senior SREs on troubleshooting tasks
+
+## ATS Keywords
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Monitoring
+* CI/CD
+* Networking
+* Automation

@@ -1,0 +1,15 @@
+## Responsibilities
+* Integrate DevOps practices into cloud deployments
+* Manage CI/CD pipelines
+* Automate provisioning
+* Support developers with infrastructure
+
+## ATS Keywords
+* DevOps
+* Cloud Architecture
+* AWS
+* Azure
+* Terraform
+* CI/CD
+* Automation
+* Kubernetes

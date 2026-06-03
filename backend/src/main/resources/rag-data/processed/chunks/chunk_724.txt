@@ -1,0 +1,12 @@
+## Responsibilities
+* Help detect malware
+* Participate in vulnerability scanning
+* Assist with incident triage
+* Maintain threat logs
+
+## ATS Keywords
+* Malware Analysis
+* Network Security
+* NIST
+* Incident Response
+* Firewall Configuration

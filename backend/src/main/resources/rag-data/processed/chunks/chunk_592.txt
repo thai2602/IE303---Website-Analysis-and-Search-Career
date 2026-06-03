@@ -1,0 +1,15 @@
+## Skills
+* AWS fundamentals
+* Azure basics
+* GCP basics
+* Docker introduction
+* Kubernetes basics
+* Python basics
+* Bash scripting
+* Cloud security fundamentals
+
+## Responsibilities
+* Assist in deploying basic cloud infrastructure
+* Support configuration of cloud storage and networking
+* Work with senior engineers on containerization projects
+* Document cloud setup and processes

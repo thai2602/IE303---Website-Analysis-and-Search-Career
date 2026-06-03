@@ -1,0 +1,11 @@
+## Responsibilities
+* Conduct market research studies and surveys
+* Analyze data to identify trends and insights
+* Develop dashboards and visual reports using Tableau
+* Perform predictive and regression analysis
+* Provide actionable insights for business strategies
+* Collaborate with product and marketing teams
+* Present findings to stakeholders
+* Maintain data quality and accuracy
+* Support AI-driven analytics initiatives
+* Document research methodology and results

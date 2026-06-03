@@ -1,0 +1,40 @@
+---
+job_id: DE-E-010
+role: Data Engineer
+level: Experienced
+years_of_experience: 5+
+skills:
+* Python
+* Java
+* SQL
+* Spark
+* AWS Glue
+* Snowflake
+* Data Modeling
+* Airflow
+* Kafka
+keywords:
+* Python
+* SQL
+* Spark
+* Snowflake
+* AWS
+* Kafka
+* Airflow
+---
+
+# Data Engineer
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* Python
+* Java
+* SQL
+* Spark
+* AWS Glue
+* Snowflake
+* Data Modeling
+* Airflow
+* Kafka

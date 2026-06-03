@@ -1,0 +1,30 @@
+---
+job_id: CSA-F-009
+role: Cybersecurity Trainee
+level: Fresher
+years_of_experience: 0
+skills:
+* C++ Basics
+* Wireshark
+* Metasploit
+* Linux Security
+* Encryption Fundamentals
+keywords:
+* Penetration Testing
+* Encryption
+* Incident Response
+* Network Security
+* Malware Analysis
+---
+
+# Cybersecurity Trainee
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* C++ Basics
+* Wireshark
+* Metasploit
+* Linux Security
+* Encryption Fundamentals

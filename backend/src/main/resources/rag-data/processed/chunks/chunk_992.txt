@@ -1,0 +1,13 @@
+## Responsibilities
+* Support data ingestion processes
+* Work on ETL fundamentals
+* Assist with cloud storage management
+* Help optimize queries under guidance
+* Participate in data testing
+
+## ATS Keywords
+* Python
+* SQL
+* PostgreSQL
+* Hadoop
+* AWS

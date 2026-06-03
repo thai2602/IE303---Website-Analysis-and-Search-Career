@@ -1,0 +1,11 @@
+## Responsibilities
+* Support basic data analysis tasks
+* Assist in dashboard creation
+* Document requirements and workflows
+* Participate in Agile meetings
+* Collaborate with team members
+* Perform basic scenario modeling
+* Support presentations to stakeholders
+* Learn BI tools
+* Assist in reporting automation
+* Contribute to process improvement initiatives

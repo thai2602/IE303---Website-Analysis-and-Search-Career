@@ -1,0 +1,28 @@
+---
+job_id: CW-114
+role: Copywriter
+level: Experienced
+years_of_experience: 6-10
+skills:
+* Content strategy
+* Advanced copywriting and editing
+* SEO optimization
+* Multi-format content creation
+* Digital marketing integration
+* Brand voice consistency
+* AI content tools
+* Team leadership
+* Project management
+* Analytics and KPI tracking
+keywords:
+* Copywriting
+* Content Strategy
+* SEO
+* Editing
+* Digital Marketing
+* Brand Voice
+* AI Tools
+* Leadership
+* Project Management
+* Analytics
+---

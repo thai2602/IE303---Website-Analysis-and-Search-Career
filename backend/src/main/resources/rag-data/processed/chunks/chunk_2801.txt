@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in system installation
+* Perform basic configuration tasks
+* Support monitoring activities
+* Troubleshoot hardware/software issues
+* Document system changes
+
+## ATS Keywords
+* Systems Engineering
+* Linux
+* VMware
+* TCP/IP
+* Cloud Computing

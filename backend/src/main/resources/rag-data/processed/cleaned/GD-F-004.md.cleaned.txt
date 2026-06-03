@@ -1,0 +1,75 @@
+---
+job_id: GD-F-004
+role: Game Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C++ basics
+* C# basics
+* Python basics
+* Java basics
+* Unity basics
+* Unreal Engine basics
+* Game mechanics fundamentals
+* Physics basics
+* Animation basics
+* DirectX/OpenGL basics
+* Git basics
+* Debugging basics
+* Communication
+* Teamwork
+* Creativity
+* Adaptability
+keywords:
+* C++
+* C#
+* Unity
+* Unreal Engine
+* Game Design
+* Game Mechanics
+* Graphics Programming
+* Git
+* Debugging
+---
+
+# Game Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C++ basics
+* C# basics
+* Python basics
+* Java basics
+* Unity basics
+* Unreal Engine basics
+* Game mechanics fundamentals
+* Physics basics
+* Animation basics
+* DirectX/OpenGL basics
+* Git basics
+* Debugging basics
+* Communication
+* Teamwork
+* Creativity
+* Adaptability
+
+## Responsibilities
+* Assist in game feature development
+* Collaborate with developers and designers
+* Implement basic gameplay and physics mechanics
+* Debug and maintain code
+* Support graphics rendering tasks
+* Participate in version control and documentation
+
+## ATS Keywords
+* C++
+* C#
+* Unity
+* Unreal Engine
+* Game Design
+* Game Mechanics
+* Graphics Programming
+* Git
+* Debugging

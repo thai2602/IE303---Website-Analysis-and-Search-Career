@@ -1,0 +1,14 @@
+## Responsibilities
+* Assist in Razor page development
+* Learn version control processes
+* Perform debugging under supervision
+* Support data access layer coding
+* Contribute to testing efforts
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET
+* Razor
+* SQL Server
+* Unit Testing

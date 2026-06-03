@@ -1,0 +1,44 @@
+---
+job_id: SE006
+role: System Engineer
+level: Experienced
+years_of_experience: 3-5
+skills:
+* Linux Administration
+* Active Directory
+* VMware
+* AWS
+* Python Scripting
+keywords:
+* System Architecture
+* Linux
+* VMware
+* AWS
+* Python
+---
+
+# System Engineer
+
+## Experience Level
+Experienced (3-5 years)
+
+## Skills
+* Linux Administration
+* Active Directory
+* VMware
+* AWS
+* Python Scripting
+
+## Responsibilities
+* Manage Linux/Windows servers
+* Handle virtualization with VMware
+* Automate tasks using Python
+* Implement cloud solutions
+* Ensure system security compliance
+
+## ATS Keywords
+* System Architecture
+* Linux
+* VMware
+* AWS
+* Python

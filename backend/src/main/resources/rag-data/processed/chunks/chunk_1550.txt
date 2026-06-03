@@ -1,0 +1,13 @@
+## Responsibilities
+* Train in Swift programming for mobile development.
+* Assist in connecting backend APIs with mobile frontend.
+* Debug small modules using Simulator.
+* Prepare basic documentation for code and features.
+* Shadow senior developers to understand workflows.
+
+## ATS Keywords
+* Swift
+* iOS SDK
+* JSON
+* REST APIs
+* Xcode

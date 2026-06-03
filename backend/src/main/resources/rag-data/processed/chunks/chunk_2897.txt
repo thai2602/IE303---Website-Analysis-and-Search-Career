@@ -1,0 +1,29 @@
+---
+job_id: SEO-013
+role: SEO Specialist
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Technical SEO
+* On-page optimization
+* Off-page optimization
+* Content marketing
+* Link building
+* Google Analytics GA4
+* Search Console
+* Looker Studio
+* Schema markup
+* Page speed optimization
+keywords:
+* Technical SEO
+* On-Page SEO
+* Off-Page SEO
+* Content Marketing
+* Link Building
+* GA4
+* Search Console
+* Schema Markup
+* Page Speed
+---
+
+# SEO Specialist

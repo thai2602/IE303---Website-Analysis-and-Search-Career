@@ -1,0 +1,18 @@
+# Android Solutions Architect
+
+## Experience Level
+Experienced (5+ years years)
+
+## Skills
+* Kotlin
+* Java
+* Android Studio
+* MVVM
+* Clean Architecture
+* Jetpack
+* Dagger
+* Firebase
+* Room
+* CI/CD
+* Unit Testing
+* Performance Optimization

@@ -1,0 +1,19 @@
+## Skills
+* Java
+* Python
+* C++
+* HTML
+* CSS
+* JavaScript
+* SQL
+* Git
+* Problem-solving
+* Collaboration
+
+## Responsibilities
+* Contribute to software development projects
+* Write clean code in Java, Python, or C++
+* Assist in developing web interfaces with HTML, CSS, JavaScript
+* Participate in debugging and testing
+* Collaborate in Agile sprints
+* Learn from senior engineers and adapt to new technologies

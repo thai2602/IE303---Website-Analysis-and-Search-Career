@@ -1,0 +1,94 @@
+---
+job_id: PY-E-019
+role: Python Developer
+level: Experienced
+years_of_experience: 6+
+skills:
+* Python advanced
+* Async programming
+* Decorators
+* Generators
+* Metaprogramming
+* Django
+* Flask
+* FastAPI
+* TensorFlow
+* Scikit-learn
+* PyTorch
+* REST APIs
+* GraphQL
+* PostgreSQL
+* MySQL
+* NoSQL
+* SQLAlchemy
+* Docker
+* Kubernetes
+* AWS
+* Leadership
+* Project management
+* Innovation management
+keywords:
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest
+---
+
+# Python Developer
+
+## Experience Level
+Experienced (6+ years)
+
+## Skills
+* Python advanced
+* Async programming
+* Decorators
+* Generators
+* Metaprogramming
+* Django
+* Flask
+* FastAPI
+* TensorFlow
+* Scikit-learn
+* PyTorch
+* REST APIs
+* GraphQL
+* PostgreSQL
+* MySQL
+* NoSQL
+* SQLAlchemy
+* Docker
+* Kubernetes
+* AWS
+* Leadership
+* Project management
+* Innovation management
+
+## Responsibilities
+* Lead architecture and development of Python applications
+* Build advanced REST and GraphQL APIs
+* Integrate ML frameworks
+* Optimize databases
+* Implement DevOps pipelines with Docker/Kubernetes/AWS
+* Mentor and manage teams
+* Conduct testing and code reviews
+* Collaborate with stakeholders
+* Drive innovation initiatives
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest

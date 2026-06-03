@@ -1,0 +1,12 @@
+## Responsibilities
+* Profile apps using Xcode Instruments for performance tuning.
+* Work with Core Data for complex local storage needs.
+* Integrate GraphQL APIs for data handling.
+* Ensure smooth multi-threading in app flows.
+* Reduce memory usage and optimize app speed.
+
+## ATS Keywords
+* Performance Tuning
+* GraphQL
+* Core Data
+* Multi-threading

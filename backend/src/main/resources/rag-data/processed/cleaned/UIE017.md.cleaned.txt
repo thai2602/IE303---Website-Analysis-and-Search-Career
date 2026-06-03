@@ -1,0 +1,48 @@
+---
+job_id: UIE017
+role: UI Designer
+level: Experienced
+years_of_experience: 5
+skills:
+* Figma
+* Adobe XD
+* Sketch
+* Design Systems
+* Accessibility
+* Team Leadership
+keywords:
+* Team Leadership
+* Design Systems
+* Accessibility
+* Figma
+* Branding
+* User Flows
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (5 years)
+
+## Skills
+* Figma
+* Adobe XD
+* Sketch
+* Design Systems
+* Accessibility
+* Team Leadership
+
+## Responsibilities
+* Lead design teams for enterprise projects.
+* Implement scalable design systems across platforms.
+* Ensure accessibility compliance across all designs.
+* Mentor junior designers and manage project timelines.
+* Deliver measurable results in conversion and engagement.
+
+## ATS Keywords
+* Team Leadership
+* Design Systems
+* Accessibility
+* Figma
+* Branding
+* User Flows

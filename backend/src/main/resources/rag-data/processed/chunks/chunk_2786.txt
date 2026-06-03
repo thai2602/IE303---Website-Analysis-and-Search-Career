@@ -1,0 +1,38 @@
+---
+job_id: SE-F3
+role: Software Engineer - Entry Level
+level: Fresher
+years_of_experience: 0-2
+skills:
+* JavaScript
+* Vue.js
+* HTML
+* CSS
+* APIs
+* Git
+* VS Code
+* Figma
+keywords:
+* Software Engineer
+* Vue.js
+* JavaScript
+* UI/UX
+* Responsive Design
+* Agile
+* API Integration
+---
+
+# Software Engineer - Entry Level
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* JavaScript
+* Vue.js
+* HTML
+* CSS
+* APIs
+* Git
+* VS Code
+* Figma

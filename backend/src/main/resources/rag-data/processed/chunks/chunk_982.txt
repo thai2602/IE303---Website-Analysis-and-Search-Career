@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in maintaining data warehouses
+* Perform SQL query optimization under guidance
+* Help in data ingestion tasks
+* Learn workflow orchestration basics
+* Support analytics team with clean data
+
+## ATS Keywords
+* Python
+* SQL
+* ETL
+* Data Warehousing
+* Hadoop Basics

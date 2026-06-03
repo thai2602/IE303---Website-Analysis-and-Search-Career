@@ -1,0 +1,16 @@
+## Responsibilities
+* Lead CI/CD setup in Azure DevOps
+* Deploy services with Docker/Kubernetes
+* Architect scalable .NET applications
+* Coordinate with cross-functional teams
+* Mentor juniors
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* CI/CD
+* Azure DevOps
+* Docker
+* Kubernetes
+* REST APIs

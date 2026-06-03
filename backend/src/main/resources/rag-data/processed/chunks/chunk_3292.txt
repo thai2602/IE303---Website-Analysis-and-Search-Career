@@ -1,0 +1,18 @@
+## Responsibilities
+* Lead AI-assisted coding initiatives
+* Mentor junior and mid-level Vibe Coders
+* Optimize prompts for efficient AI coding outputs
+* Review and debug AI-generated code
+* Ensure quality and timelines of deliverables
+* Document AI-assisted coding processes
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile

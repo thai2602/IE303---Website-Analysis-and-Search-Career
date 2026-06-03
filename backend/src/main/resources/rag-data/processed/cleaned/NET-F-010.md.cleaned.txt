@@ -1,0 +1,48 @@
+---
+job_id: NET-F-010
+role: .NET Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C#
+* ASP.NET MVC
+* .NET Core basics
+* Entity Framework basics
+* SQL Server
+* Git
+keywords:
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server
+* Git
+---
+
+# .NET Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C#
+* ASP.NET MVC
+* .NET Core basics
+* Entity Framework basics
+* SQL Server
+* Git
+
+## Responsibilities
+* Support new feature development
+* Assist with application configuration
+* Help in database schema setup
+* Perform small unit testing tasks
+* Follow agile methodology basics
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server
+* Git

@@ -1,0 +1,33 @@
+---
+job_id: CW-107
+role: Copywriter
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Grammar and punctuation
+* Persuasive writing
+* Storytelling
+* SEO basics
+* Research and fact-checking
+* CMS familiarity
+* AI writing tools
+* Creativity
+* Time management
+* Communication
+keywords:
+* Copywriting
+* SEO
+* Grammar
+* Proofreading
+* CMS
+* AI Tools
+* Storytelling
+* Creativity
+* Time Management
+* Communication
+---
+
+# Copywriter
+
+## Experience Level
+Fresher (0-1 years)

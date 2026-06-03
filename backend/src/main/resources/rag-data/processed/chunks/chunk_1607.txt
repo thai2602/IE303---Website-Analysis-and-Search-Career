@@ -1,0 +1,28 @@
+# IoT Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C basics
+* C++ basics
+* Python basics
+* Java basics
+* Embedded systems design
+* Sensor integration
+* Actuator integration
+* Bluetooth
+* Zigbee basics
+* LoRa basics
+* MQTT basics
+* CoAP basics
+* AWS IoT basics
+* Azure IoT basics
+* Google Cloud IoT basics
+* TCP/IP basics
+* IPv6 basics
+* Tableau basics
+* Power BI basics
+* Communication
+* Teamwork
+* Problem-solving

@@ -1,0 +1,14 @@
+## Responsibilities
+* Design multi-cloud strategies
+* Build cross-platform applications
+* Mentor engineers
+* Collaborate with stakeholders
+
+## ATS Keywords
+* Multi-Cloud
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Kubernetes
+* Terraform

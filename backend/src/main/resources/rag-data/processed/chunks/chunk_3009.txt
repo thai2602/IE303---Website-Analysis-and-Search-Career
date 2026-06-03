@@ -1,0 +1,17 @@
+## Skills
+* Python, Go, Java
+* Bash/Zsh scripting
+* Linux/Windows administration expert
+* Cloud platforms expert
+* Docker, Kubernetes expert
+* CI/CD pipelines expert
+* IaC (Terraform, Ansible, Puppet, Chef)
+* Monitoring & logging expert (Prometheus, Grafana, ELK, Nagios, Splunk)
+* Networking (TCP/IP, DNS, Load Balancing, CDN)
+* Automation
+* Distributed systems architecture
+* Security and compliance
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication

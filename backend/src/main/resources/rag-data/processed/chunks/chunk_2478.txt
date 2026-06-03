@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead robotics R&D and deployment projects
+* Implement advanced control, sensor, and AI integration
+* Simulate and test robotics systems
+* Mentor engineers and manage teams
+* Drive strategic innovations in robotics technology
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership
+* Innovation

@@ -1,0 +1,20 @@
+## Responsibilities
+* Design and manage scalable infrastructure
+* Automate CI/CD pipelines
+* Implement IaC and container orchestration
+* Monitor systems and optimize performance
+* Lead incident response
+* Collaborate across teams
+* Mentor junior SREs
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

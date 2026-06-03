@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and implement full-stack solutions for enterprise applications
+* Develop frontend components using React, Angular, or Vue.js
+* Build backend services with Node.js or Django
+* Manage SQL/NoSQL databases
+* Deploy applications on cloud platforms
+* Ensure web security
+* Mentor junior developers

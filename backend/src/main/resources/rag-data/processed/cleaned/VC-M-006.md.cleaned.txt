@@ -1,0 +1,67 @@
+---
+job_id: VC-M-006
+role: Vibe Coder
+level: Mid-level
+years_of_experience: 2-4
+skills:
+* Python advanced
+* JavaScript advanced
+* Ruby basics
+* React/Vue frameworks
+* AI coding assistant proficiency
+* Prompt engineering
+* Code evaluation and debugging
+* Agile project management
+* Communication
+* Collaboration
+* Problem-solving
+* Adaptability
+keywords:
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile
+---
+
+# Vibe Coder
+
+## Experience Level
+Mid-level (2-4 years)
+
+## Skills
+* Python advanced
+* JavaScript advanced
+* Ruby basics
+* React/Vue frameworks
+* AI coding assistant proficiency
+* Prompt engineering
+* Code evaluation and debugging
+* Agile project management
+* Communication
+* Collaboration
+* Problem-solving
+* Adaptability
+
+## Responsibilities
+* Independently create AI-assisted coding solutions
+* Craft and optimize prompts for AI code generation
+* Review and debug AI-generated code
+* Collaborate with cross-functional teams
+* Contribute to low-code/no-code development
+* Document AI workflows and best practices
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile

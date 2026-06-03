@@ -1,0 +1,26 @@
+## Skills
+* React/Redux
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance optimization
+* Unit & E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Lead frontend development for scalable applications
+* Implement advanced React/Redux patterns
+* Optimize page speed
+* Ensure high-quality testing and code standards
+* Mentor junior developers
+
+## ATS Keywords
+* Frontend
+* SPA Development
+* Senior
+* React
+* UI
+* Web Applications

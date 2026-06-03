@@ -1,0 +1,21 @@
+# AR/VR Developer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* C++ advanced
+* C# advanced
+* JavaScript advanced
+* Python basics
+* Unity advanced
+* Unreal Engine advanced
+* ARKit advanced
+* ARCore advanced
+* Vuforia
+* 3D modeling/animation advanced
+* UI/UX design advanced
+* Spatial computing
+* Performance optimization
+* Cross-platform development
+* Leadership

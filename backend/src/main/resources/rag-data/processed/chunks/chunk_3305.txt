@@ -1,0 +1,30 @@
+## Skills
+* JavaScript
+* TypeScript
+* Vue.js
+* Node.js
+* Express.js
+* SQL
+* Redis
+* AWS
+* Docker
+* Testing with Jest/Enzyme
+
+## Responsibilities
+* Develop and maintain Vue.js applications
+* Integrate Node.js backend services
+* Implement database caching with Redis
+* Deploy applications on AWS with Docker
+* Conduct unit and integration testing
+
+## ATS Keywords
+* TypeScript
+* Vue.js
+* Node.js
+* Express.js
+* SQL
+* Redis
+* AWS
+* Docker
+* Jest
+* Enzyme

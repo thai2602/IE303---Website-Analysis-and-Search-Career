@@ -1,0 +1,12 @@
+## Skills
+* Python basics
+* JavaScript basics
+* HTML/CSS basics
+* Vue basics
+* AI coding assistants
+* Prompt engineering basics
+* Code evaluation
+* Debugging AI outputs
+* Communication
+* Teamwork
+* Adaptability

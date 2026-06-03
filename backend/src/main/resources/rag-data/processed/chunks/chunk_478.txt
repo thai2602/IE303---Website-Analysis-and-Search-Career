@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in blockchain projects
+* Implement and test smart contracts
+* Collaborate on DApp development tasks
+* Document development processes
+* Follow security and cryptography guidelines
+* Learn and use blockchain tools
+
+## ATS Keywords
+* Blockchain
+* Ethereum
+* Solidity
+* Smart Contracts
+* Cryptography
+* DApps
+* Hyperledger
+* Corda

@@ -1,0 +1,65 @@
+---
+job_id: FE-F-007
+role: Fintech Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python basics
+* JavaScript basics
+* SQL basics
+* Blockchain basics
+* Introductory machine learning
+* Cybersecurity awareness
+* Financial knowledge basics
+* API integration fundamentals
+* AWS/Azure basics
+* Problem-solving
+* Teamwork
+* Communication
+keywords:
+* Python
+* SQL
+* Blockchain
+* Machine Learning
+* API Integration
+* Cybersecurity
+* AWS
+* Data Analysis
+---
+
+# Fintech Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* SQL basics
+* Blockchain basics
+* Introductory machine learning
+* Cybersecurity awareness
+* Financial knowledge basics
+* API integration fundamentals
+* AWS/Azure basics
+* Problem-solving
+* Teamwork
+* Communication
+
+## Responsibilities
+* Assist in developing fintech applications
+* Support blockchain and DLT workflows
+* Help with API integration and data analysis
+* Collaborate with team members
+* Follow basic cybersecurity and compliance guidelines
+* Document work and processes
+
+## ATS Keywords
+* Python
+* SQL
+* Blockchain
+* Machine Learning
+* API Integration
+* Cybersecurity
+* AWS
+* Data Analysis

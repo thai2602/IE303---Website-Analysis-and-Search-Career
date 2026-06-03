@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead fintech architecture and project delivery
+* Develop blockchain applications and smart contracts
+* Apply ML for financial analytics and predictive modeling
+* Design APIs and microservices architecture
+* Ensure cybersecurity and regulatory compliance
+* Manage cross-functional teams
+* Drive innovation and mentorship programs

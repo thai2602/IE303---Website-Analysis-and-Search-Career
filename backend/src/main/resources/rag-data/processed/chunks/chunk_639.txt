@@ -1,0 +1,24 @@
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform basics
+* CloudFormation basics
+* Docker basics
+* Kubernetes basics
+* Python
+* Bash
+* Jenkins
+* AWS CodePipeline
+* Monitoring: CloudWatch, Azure Monitor
+* Git/GitHub
+
+## Responsibilities
+* Support cloud deployments
+* Implement infrastructure automation
+* Containerize applications with guidance
+* Assist in CI/CD pipeline setups
+* Collaborate in academic/cloud lab projects

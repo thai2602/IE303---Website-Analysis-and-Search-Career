@@ -1,0 +1,48 @@
+---
+job_id: NET-E-019
+role: .NET Developer
+level: Experienced
+years_of_experience: 4+
+skills:
+* C#
+* .NET Core
+* ASP.NET MVC
+* Testing with xUnit
+* Moq
+* Azure
+keywords:
+* .NET Core
+* C#
+* ASP.NET MVC
+* xUnit
+* Moq
+* Azure
+---
+
+# .NET Developer
+
+## Experience Level
+Experienced (4+ years)
+
+## Skills
+* C#
+* .NET Core
+* ASP.NET MVC
+* Testing with xUnit
+* Moq
+* Azure
+
+## Responsibilities
+* Implement automated unit tests
+* Use Moq for dependency testing
+* Develop scalable apps in .NET Core
+* Lead code review sessions
+* Optimize app performance
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* xUnit
+* Moq
+* Azure

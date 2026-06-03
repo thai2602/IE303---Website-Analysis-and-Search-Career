@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop and test small Android app features.
+* Follow Material Design for responsive UI layouts.
+* Integrate basic REST APIs for data functionality.
+* Debug and document code with guidance.
+* Participate in learning sessions and code reviews.
+
+## ATS Keywords
+* Java
+* Kotlin
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

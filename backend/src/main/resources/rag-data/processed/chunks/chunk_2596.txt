@@ -1,0 +1,31 @@
+## Skills
+* Java
+* Python
+* C++
+* Angular
+* React
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Agile/Scrum
+* Microservices
+
+## Responsibilities
+* Architect and develop enterprise applications
+* Lead cloud migration projects
+* Manage microservices deployment
+* Ensure system reliability and performance
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Microservices
+* Leadership

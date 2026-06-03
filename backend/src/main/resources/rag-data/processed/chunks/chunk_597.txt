@@ -1,0 +1,15 @@
+## Responsibilities
+* Work on basic automation tasks
+* Assist in CI/CD pipeline setup
+* Support in monitoring cloud resources
+* Write simple scripts for automation
+
+## ATS Keywords
+* CI/CD
+* Cloud Computing
+* Docker
+* Kubernetes
+* Automation
+* Scripting
+* AWS
+* Azure

@@ -1,0 +1,16 @@
+## Responsibilities
+* Assist in front-end development
+* Develop interactive UI elements
+* Integrate APIs with web pages
+* Support database operations
+* Follow version control workflows
+* Debug and test components
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* Vue.js
+* Node.js
+* MySQL
+* REST APIs

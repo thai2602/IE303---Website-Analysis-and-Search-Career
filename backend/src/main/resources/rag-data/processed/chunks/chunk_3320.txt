@@ -1,0 +1,16 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript
+* React basics
+* Angular basics
+* Node.js basics
+* PHP basics
+* Git
+* GitHub basics
+* MySQL basics
+* MongoDB basics
+* RESTful APIs
+* AJAX
+* Responsive Design
+* UI/UX fundamentals

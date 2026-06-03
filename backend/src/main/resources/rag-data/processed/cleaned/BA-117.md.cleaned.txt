@@ -1,0 +1,69 @@
+---
+job_id: BA-117
+role: Business Analyst
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Data analysis basics
+* Excel
+* SQL basics
+* Power BI basics
+* Requirement documentation
+* Agile fundamentals
+* Communication
+* Problem-solving
+* Collaboration
+* Research
+keywords:
+* Business Analysis
+* Excel
+* SQL
+* Power BI
+* Requirement Gathering
+* Agile
+* Data Analysis
+* Documentation
+* Collaboration
+* Problem Solving
+---
+
+# Business Analyst
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Data analysis basics
+* Excel
+* SQL basics
+* Power BI basics
+* Requirement documentation
+* Agile fundamentals
+* Communication
+* Problem-solving
+* Collaboration
+* Research
+
+## Responsibilities
+* Support data collection and analysis tasks
+* Assist in dashboard and report creation
+* Document business requirements
+* Participate in Agile team activities
+* Collaborate with team members
+* Perform basic scenario modeling
+* Support stakeholder presentations
+* Learn BI and analytics tools
+* Assist in process improvement initiatives
+* Maintain documentation standards
+
+## ATS Keywords
+* Business Analysis
+* Excel
+* SQL
+* Power BI
+* Requirement Gathering
+* Agile
+* Data Analysis
+* Documentation
+* Collaboration
+* Problem Solving

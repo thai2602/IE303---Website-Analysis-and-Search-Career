@@ -1,0 +1,7 @@
+## ATS Keywords
+* Data Analytics
+* BI
+* Senior-Level
+* Dashboards
+* Data Engineering
+* Predictive Analytics

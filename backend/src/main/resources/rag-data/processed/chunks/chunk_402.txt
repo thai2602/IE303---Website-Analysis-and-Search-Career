@@ -1,0 +1,11 @@
+## ATS Keywords
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* Agile
+* Requirement Gathering
+* Stakeholder Management
+* Data Storytelling
+* Critical Thinking
+* Process Improvement

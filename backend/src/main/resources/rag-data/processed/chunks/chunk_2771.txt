@@ -1,0 +1,30 @@
+---
+job_id: SE-E17
+role: Software Engineer - Experienced
+level: Experienced
+years_of_experience: 6–8
+skills:
+* Node.js
+* Express
+* MongoDB
+* Git
+* Docker
+* Kubernetes
+* CI/CD
+* Agile
+* Testing
+* Mentoring
+keywords:
+* Software Engineer
+* Node.js
+* Backend
+* MongoDB
+* CI/CD
+* Agile
+* Mentoring
+---
+
+# Software Engineer - Experienced
+
+## Experience Level
+Experienced (6–8 years)

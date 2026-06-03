@@ -1,0 +1,18 @@
+## Skills
+* Core Java
+* OOP
+* Inheritance
+* Polymorphism
+* Encapsulation
+* Exception Handling
+* Collections Framework
+* Java I/O
+* Networking Basics
+* Git
+
+## Responsibilities
+* Assist in developing and testing Java applications
+* Work on basic modules under senior guidance
+* Understand and implement OOP principles in projects
+* Write clean and maintainable code
+* Participate in code reviews and team discussions

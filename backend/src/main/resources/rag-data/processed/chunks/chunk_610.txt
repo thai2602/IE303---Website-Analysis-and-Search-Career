@@ -1,0 +1,37 @@
+---
+job_id: CA010
+role: DevOps Cloud Architect
+level: Experienced
+years_of_experience: 5
+skills:
+* AWS
+* Azure DevOps
+* CI/CD pipelines
+* Terraform
+* Docker
+* Kubernetes
+* Python
+keywords:
+* DevOps
+* Cloud Architecture
+* AWS
+* Azure
+* Terraform
+* CI/CD
+* Automation
+* Kubernetes
+---
+
+# DevOps Cloud Architect
+
+## Experience Level
+Experienced (5 years)
+
+## Skills
+* AWS
+* Azure DevOps
+* CI/CD pipelines
+* Terraform
+* Docker
+* Kubernetes
+* Python

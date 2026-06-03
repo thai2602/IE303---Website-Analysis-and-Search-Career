@@ -1,0 +1,17 @@
+---
+job_id: SRE-E-018
+role: Site Reliability Engineer
+level: Experienced
+years_of_experience: 12+
+skills:
+* Python, Go, Java
+* Bash/Zsh scripting
+* Linux/Windows expert
+* Cloud platforms (AWS, Azure, GCP)
+* Docker, Kubernetes expert
+* CI/CD pipelines (Jenkins, GitHub Actions, Bamboo)
+* IaC (Terraform, Ansible, Puppet, Chef)
+* Monitoring & logging (Prometheus, Grafana, ELK, Nagios, Splunk)
+* Networking (TCP/IP, DNS, Load Balancing, CDN)
+* Automation
+* Distributed systems architecture

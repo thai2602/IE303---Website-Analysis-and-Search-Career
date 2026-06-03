@@ -1,0 +1,28 @@
+---
+job_id: CL011
+role: Cloud Engineer - Experienced
+level: Senior-Level
+years_of_experience: 5–9 years
+skills:
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform/CloudFormation/Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* CI/CD: Jenkins, GitLab CI, CircleCI
+* Cloud Security
+* Monitoring/Logging: CloudWatch, Prometheus, ELK
+* Networking
+* Python/Bash/PowerShell
+* SQL, NoSQL, S3, Azure Blob
+keywords:
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation

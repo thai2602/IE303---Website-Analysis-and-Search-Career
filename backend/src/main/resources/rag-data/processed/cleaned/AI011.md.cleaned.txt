@@ -1,0 +1,89 @@
+---
+job_id: AI011
+role: AI Engineer - Experienced
+level: Senior-Level
+years_of_experience: 4–7 years
+skills:
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* NLP
+* Computer Vision
+* Generative AI
+* LLMs
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face Transformers
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* MLOps
+* Spark
+* Hadoop
+* Docker
+* Kubernetes
+* Model Monitoring
+* SHAP
+* LIME
+keywords:
+* AI
+* ML
+* Senior-Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps
+---
+
+# AI Engineer - Experienced
+
+## Experience Level
+Senior-Level (4–7 years years)
+
+## Skills
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* NLP
+* Computer Vision
+* Generative AI
+* LLMs
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face Transformers
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* MLOps
+* Spark
+* Hadoop
+* Docker
+* Kubernetes
+* Model Monitoring
+* SHAP
+* LIME
+
+## Responsibilities
+* Design, implement, and deploy advanced AI solutions
+* Lead teams
+* Ensure cloud integration
+* Manage MLOps pipelines
+
+## ATS Keywords
+* AI
+* ML
+* Senior-Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps

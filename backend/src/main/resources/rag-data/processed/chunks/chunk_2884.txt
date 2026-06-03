@@ -1,0 +1,27 @@
+---
+job_id: SEO-010
+role: SEO Specialist
+level: Mid-Level
+years_of_experience: 3-5
+skills:
+* SEO strategy
+* On-page and off-page optimization
+* Technical SEO audits
+* Content strategy
+* Link building
+* AI-driven SEO insights
+* Analytics (GA4, Search Console, Looker Studio)
+* Multimodal search optimization
+* Privacy-compliant SEO
+keywords:
+* SEO Strategy
+* On-Page SEO
+* Off-Page SEO
+* Technical SEO
+* Content Strategy
+* Link Building
+* AI SEO Tools
+* GA4
+* Search Console
+* Privacy Compliance
+---

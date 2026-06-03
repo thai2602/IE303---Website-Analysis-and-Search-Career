@@ -1,0 +1,8 @@
+## Responsibilities
+* Design, develop, and integrate advanced robotic systems
+* Implement control algorithms and sensor fusion
+* Apply computer vision and ML solutions
+* Perform simulations and real-time testing
+* Lead robotics teams and mentor engineers
+* Collaborate with multidisciplinary teams
+* Innovate robotic solutions for industrial applications

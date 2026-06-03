@@ -1,0 +1,19 @@
+## Responsibilities
+* Strategic oversight of SRE operations
+* Lead automation, CI/CD, and IaC strategies
+* Ensure enterprise system reliability and scalability
+* Optimize performance and incident response
+* Mentor senior and junior SRE engineers
+* Collaborate with cross-functional teams across the organization
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

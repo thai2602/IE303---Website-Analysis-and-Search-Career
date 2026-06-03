@@ -1,0 +1,67 @@
+---
+job_id: CW-002
+role: Content Writer
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Content creation
+* Blog and article writing
+* Editing and proofreading
+* SEO basics
+* Keyword usage
+* Fact-checking
+* Research
+* CMS basics
+* Time management
+* Creativity
+keywords:
+* Content Writing
+* SEO Basics
+* Blogs
+* Articles
+* Keyword Usage
+* Proofreading
+* Research
+* CMS
+* Creativity
+* Time Management
+---
+
+# Content Writer
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* Content creation
+* Blog and article writing
+* Editing and proofreading
+* SEO basics
+* Keyword usage
+* Fact-checking
+* Research
+* CMS basics
+* Time management
+* Creativity
+
+## Responsibilities
+* Write and publish blogs and articles
+* Conduct topic research and fact-checking
+* Optimize content for basic SEO
+* Edit and proofread for clarity and grammar
+* Collaborate with marketing and design teams
+* Manage multiple content tasks and deadlines
+* Use CMS for content publishing
+* Learn AI-assisted content creation tools
+
+## ATS Keywords
+* Content Writing
+* SEO Basics
+* Blogs
+* Articles
+* Keyword Usage
+* Proofreading
+* Research
+* CMS
+* Creativity
+* Time Management

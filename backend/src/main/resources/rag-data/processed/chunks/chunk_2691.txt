@@ -1,0 +1,28 @@
+---
+job_id: SE-104
+role: Sales Executive
+level: Fresher
+years_of_experience: 0-1
+skills:
+* CRM Basics
+* Lead Generation
+* Communication
+* Active Listening
+* Product Knowledge
+* Relationship Building
+* Digital Sales Awareness
+* Time Management
+* Adaptability
+* Customer Engagement
+keywords:
+* Sales Executive
+* CRM
+* Lead Generation
+* Digital Sales
+* Product Demo
+* Communication
+* Relationship Building
+* Time Management
+* Adaptability
+* Customer Engagement
+---

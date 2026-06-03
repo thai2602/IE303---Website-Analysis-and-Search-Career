@@ -1,0 +1,20 @@
+## Responsibilities
+* Assist in developing Python applications
+* Implement basic functions and classes
+* Support web application development using Django or Flask
+* Perform data manipulation and visualization tasks
+* Collaborate with team members on coding projects
+* Document code and project processes
+* Follow version control practices with Git
+* Write basic unit tests
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* NumPy
+* Pandas
+* SQL
+* Git
+* REST APIs
+* OOP

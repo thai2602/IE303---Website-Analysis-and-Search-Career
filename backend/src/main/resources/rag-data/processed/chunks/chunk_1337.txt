@@ -1,0 +1,22 @@
+## Skills
+* HTML
+* CSS
+* JavaScript
+* React basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+
+## Responsibilities
+* Assist in implementing UI features for web apps
+* Learn modern frontend frameworks
+* Help in testing and code maintenance
+
+## ATS Keywords
+* Frontend
+* UI Development
+* Entry-Level
+* Fresher
+* Web Apps

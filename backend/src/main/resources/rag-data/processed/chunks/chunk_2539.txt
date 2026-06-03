@@ -1,0 +1,18 @@
+## Responsibilities
+* Support cloud architecture projects
+* Learn to design scalable solutions
+* Assist with DevOps setup
+* Participate in cloud security awareness tasks
+* Document basic solutions architecture
+* Collaborate with development and operations teams
+
+## ATS Keywords
+* Cloud Computing
+* AWS
+* Azure
+* GCP
+* Architecture Design
+* DevOps
+* Python
+* Java
+* Communication

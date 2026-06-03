@@ -1,0 +1,50 @@
+---
+job_id: CA016
+role: Cloud DevSecOps Architect
+level: Experienced
+years_of_experience: 6
+skills:
+* AWS
+* Azure
+* CI/CD pipelines
+* Security integration
+* Terraform
+* Python
+* Ansible
+keywords:
+* DevSecOps
+* CI/CD
+* Cloud Security
+* Terraform
+* AWS
+* Azure
+* Automation
+---
+
+# Cloud DevSecOps Architect
+
+## Experience Level
+Experienced (6 years)
+
+## Skills
+* AWS
+* Azure
+* CI/CD pipelines
+* Security integration
+* Terraform
+* Python
+* Ansible
+
+## Responsibilities
+* Integrate security into DevOps pipelines
+* Automate compliance checks
+* Build secure CI/CD pipelines
+
+## ATS Keywords
+* DevSecOps
+* CI/CD
+* Cloud Security
+* Terraform
+* AWS
+* Azure
+* Automation

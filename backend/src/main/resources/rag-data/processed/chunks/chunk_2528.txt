@@ -1,0 +1,35 @@
+---
+job_id: SA-E-019
+role: Solutions Architect
+level: Experienced
+years_of_experience: 4+
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD pipelines
+* Security compliance
+* Leadership
+* Stakeholder management
+* Problem-solving
+keywords:
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* CI/CD
+* Security Compliance
+---
+
+# Solutions Architect

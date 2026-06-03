@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead JS development projects
+* Implement automated testing and CI/CD workflows
+* Optimize application performance
+* Mentor developers and lead teams
+* Coordinate with cross-functional teams for delivery
+
+## ATS Keywords
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker

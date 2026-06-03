@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in building simple data pipelines
+* Support ETL processes
+* Perform data cleaning and preprocessing
+* Help in maintaining NoSQL and relational databases
+* Participate in data modeling exercises
+
+## ATS Keywords
+* ETL
+* Python
+* SQL
+* Airflow
+* Data Cleaning
+* MongoDB
+* Spark Basics

@@ -1,0 +1,25 @@
+---
+job_id: PM-F-005
+role: Product Manager
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Product lifecycle basics
+* Market research
+* Data analysis and metrics interpretation
+* UX principles awareness
+* Agile knowledge
+* Communication
+* Teamwork
+* Problem-solving
+* Adaptability
+* Tools: Figma, JIRA, Confluence
+keywords:
+* Product Management
+* Market Research
+* Data Analysis
+* Agile
+* User Experience
+* Customer Interviews
+* Stakeholder Communication
+---

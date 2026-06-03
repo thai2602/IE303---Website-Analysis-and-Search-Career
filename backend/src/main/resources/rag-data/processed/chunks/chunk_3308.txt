@@ -1,0 +1,33 @@
+---
+job_id: WEB-E-016
+role: Web Developer
+level: Experienced
+years_of_experience: 5+
+skills:
+* JavaScript
+* Angular
+* Node.js
+* Express.js
+* Django
+* SQL
+* Redis
+* AWS
+* Docker
+* CI/CD
+* Testing frameworks
+keywords:
+* Angular
+* Node.js
+* Express.js
+* Django
+* SQL
+* Redis
+* AWS
+* Docker
+* CI/CD
+---
+
+# Web Developer
+
+## Experience Level
+Experienced (5+ years)

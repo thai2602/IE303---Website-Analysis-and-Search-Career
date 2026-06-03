@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop intelligent applications using Python
+* Integrate REST APIs for ML models
+* Perform basic testing and debugging
+* Collaborate in agile workflows
+* Support cloud deployment on Azure
+
+## ATS Keywords
+* Software Engineer
+* Python
+* REST APIs
+* Machine Learning
+* Azure
+* Agile

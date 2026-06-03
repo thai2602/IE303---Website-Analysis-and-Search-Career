@@ -1,0 +1,39 @@
+---
+job_id: JD-JAVA-004
+role: Java Developer
+level: Fresher
+years_of_experience: 0
+skills:
+* Core Java
+* Basic REST API knowledge
+* Version Control (Git)
+* Problem Solving
+keywords:
+* Java
+* REST APIs
+* Git
+* Problem Solving
+---
+
+# Java Developer
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Core Java
+* Basic REST API knowledge
+* Version Control (Git)
+* Problem Solving
+
+## Responsibilities
+* Work on backend APIs with supervision
+* Commit and manage code using Git
+* Assist in writing basic REST endpoints
+* Collaborate with senior developers
+
+## ATS Keywords
+* Java
+* REST APIs
+* Git
+* Problem Solving

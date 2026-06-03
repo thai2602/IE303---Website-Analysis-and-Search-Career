@@ -1,0 +1,19 @@
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Microservices
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD
+* Security compliance
+* Project management
+* Leadership

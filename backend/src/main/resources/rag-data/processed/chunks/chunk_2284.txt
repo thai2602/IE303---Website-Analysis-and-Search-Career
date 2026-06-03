@@ -1,0 +1,6 @@
+* Resource Allocation
+* Microsoft Project
+* Jira
+* KPI Tracking
+* Team Collaboration
+---

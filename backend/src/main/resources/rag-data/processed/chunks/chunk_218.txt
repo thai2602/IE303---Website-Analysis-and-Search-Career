@@ -1,0 +1,6 @@
+## Responsibilities
+* Design Android app architecture for scalability and performance.
+* Guide development teams on MVVM, modularization, and clean architecture.
+* Monitor performance metrics and optimize memory usage.
+* Oversee Play Store releases and continuous integration pipelines.
+* Mentor senior engineers and ensure best practices are followed.

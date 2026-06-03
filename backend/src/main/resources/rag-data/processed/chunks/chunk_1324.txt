@@ -1,0 +1,19 @@
+## Skills
+* HTML
+* CSS
+* JavaScript
+* React basics
+* Angular basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+
+## Responsibilities
+* Build responsive and interactive web pages
+* Implement UI designs
+* Assist in basic testing and debugging
+* Integrate frontend with backend APIs
+* Participate in code reviews
+* Collaborate with team members

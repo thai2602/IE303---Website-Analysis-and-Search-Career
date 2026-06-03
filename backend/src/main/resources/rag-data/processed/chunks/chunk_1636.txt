@@ -1,0 +1,11 @@
+## Responsibilities
+* Assist in handling data persistence layers
+* Write and optimize SQL queries
+* Understand multithreading basics in Java
+
+## ATS Keywords
+* Java
+* Collections
+* SQL
+* Database
+* Multithreading

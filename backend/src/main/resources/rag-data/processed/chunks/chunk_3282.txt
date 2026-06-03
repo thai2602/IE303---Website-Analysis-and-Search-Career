@@ -1,0 +1,16 @@
+## Experience Level
+Mid-level (2-4 years)
+
+## Skills
+* Python advanced
+* JavaScript advanced
+* Ruby basics
+* React/Vue frameworks
+* AI coding assistant usage
+* Prompt engineering
+* Code evaluation
+* Debugging AI outputs
+* Agile project management
+* Communication
+* Collaboration
+* Critical thinking

@@ -1,0 +1,5 @@
+## Học vấn (Education)
+**Cử nhân Khoa học Máy tính (Bachelor of Computer Science)**
+Đại học Khoa học Tự nhiên, ĐHQG-HCM (2016 - 2020)
+- Xếp loại: Giỏi (GPA: 3.6/4.0)
+- Đồ án tốt nghiệp: "Xây dựng hệ thống gợi ý sản phẩm dựa trên Machine Learning"

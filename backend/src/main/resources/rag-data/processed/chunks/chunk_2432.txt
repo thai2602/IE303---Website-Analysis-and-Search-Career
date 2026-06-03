@@ -1,0 +1,21 @@
+## Responsibilities
+* Develop and integrate complex robotics systems
+* Design mechanical and electrical components
+* Implement advanced control algorithms and sensor fusion
+* Perform computer vision and machine learning applications
+* Simulate and test robotics systems
+* Lead multidisciplinary teams
+* Mentor junior engineers
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership

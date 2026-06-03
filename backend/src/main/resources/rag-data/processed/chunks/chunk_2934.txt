@@ -1,0 +1,19 @@
+* Networking (TCP/IP, DNS, Load Balancing)
+* Automation scripting
+* Distributed systems design
+* Security and compliance basics
+* Problem-solving
+* Collaboration
+* Communication
+keywords:
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Monitoring
+---

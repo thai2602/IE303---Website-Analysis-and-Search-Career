@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead development of AR/VR applications
+* Implement advanced 3D graphics and animations
+* Integrate ARKit, ARCore, Vuforia, and WebVR
+* Optimize performance and hardware integration
+* Guide cross-platform development
+* Mentor team members
+* Coordinate with project stakeholders
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing
+* Performance Optimization
+* Cross-Platform
+* Machine Learning

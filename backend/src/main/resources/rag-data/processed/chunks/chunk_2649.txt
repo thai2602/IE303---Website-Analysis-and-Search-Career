@@ -1,0 +1,24 @@
+* Regression Testing
+---
+
+# Software Tester (SDET)
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Java basics
+* Python basics
+* C# basics
+* Selenium WebDriver basics
+* Cypress basics
+* Functional testing
+* Regression testing
+* API testing basics
+* Postman basics
+* JMeter basics
+* Agile/Scrum understanding
+* Communication
+* Teamwork
+* Attention to detail
+* Problem-solving

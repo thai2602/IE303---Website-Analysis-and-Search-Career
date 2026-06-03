@@ -1,0 +1,31 @@
+## Skills
+* JavaScript
+* Vue.js
+* Node.js
+* Express.js
+* SQL
+* Redis
+* Docker
+* AWS
+* CI/CD
+* Testing with Jest/Enzyme
+
+## Responsibilities
+* Lead Vue.js front-end development
+* Integrate Node.js back-end services
+* Deploy applications on AWS using Docker
+* Implement caching strategies with Redis
+* Set up automated testing
+* Manage CI/CD pipelines
+
+## ATS Keywords
+* Vue.js
+* Node.js
+* Express.js
+* SQL
+* Redis
+* Docker
+* AWS
+* CI/CD
+* Jest
+* Enzyme

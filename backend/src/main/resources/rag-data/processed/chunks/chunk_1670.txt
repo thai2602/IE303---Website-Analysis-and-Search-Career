@@ -1,0 +1,36 @@
+---
+job_id: JS-E-007
+role: JavaScript Developer
+level: Experienced
+years_of_experience: 4+
+skills:
+* Advanced JavaScript
+* TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Express.js
+* REST APIs
+* GraphQL
+* Jest, Cypress, Mocha
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker
+* CI/CD
+* Leadership
+* Project management
+keywords:
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker
+---
+
+# JavaScript Developer

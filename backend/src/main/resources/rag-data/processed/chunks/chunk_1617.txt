@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in embedded firmware development
+* Integrate sensors and actuators for IoT projects
+* Configure basic wireless communication
+* Support IoT cloud platform integration
+* Conduct preliminary data analytics
+* Collaborate with team members
+* Document technical processes and findings
+
+## ATS Keywords
+* Embedded Systems
+* IoT Protocols
+* Python
+* MQTT
+* Bluetooth
+* Cloud IoT
+* Edge Computing

@@ -1,0 +1,23 @@
+## Skills
+* HTML
+* CSS
+* JavaScript
+* React basics
+* Angular basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+
+## Responsibilities
+* Develop interactive UI pages for internal dashboards
+* Ensure responsive design and cross-browser compatibility
+* Collaborate with team members
+
+## ATS Keywords
+* Frontend
+* Web Development
+* UI
+* Entry-Level
+* Fresher

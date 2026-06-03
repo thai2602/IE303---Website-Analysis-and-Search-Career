@@ -1,0 +1,14 @@
+## Responsibilities
+* Maintain high-volume data pipelines
+* Optimize data storage and retrieval
+* Collaborate with stakeholders to design data strategy
+* Ensure pipeline performance SLAs
+* Contribute to architecture decisions
+
+## ATS Keywords
+* SQL
+* Python
+* Spark
+* Kafka
+* AWS
+* Airflow

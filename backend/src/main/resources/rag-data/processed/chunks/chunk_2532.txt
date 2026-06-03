@@ -1,0 +1,22 @@
+# Solutions Architect
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Microservices
+* Docker
+* Kubernetes
+* CI/CD pipelines
+* Java
+* Python
+* Node.js
+* Security compliance
+* Project management
+* Leadership
+* Stakeholder engagement

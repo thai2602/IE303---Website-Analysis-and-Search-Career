@@ -1,0 +1,69 @@
+---
+job_id: CW-110
+role: Copywriter
+level: Experienced
+years_of_experience: 6-10
+skills:
+* Strategic content planning
+* Advanced copywriting and editing
+* SEO and analytics expertise
+* Multi-format content creation
+* Digital marketing integration
+* Brand voice consistency
+* AI-assisted writing tools
+* Team leadership
+* Project management
+* KPI analysis
+keywords:
+* Copywriting
+* Content Strategy
+* SEO
+* Editing
+* Digital Marketing
+* Brand Voice
+* AI Tools
+* Team Leadership
+* Project Management
+* Analytics
+---
+
+# Copywriter
+
+## Experience Level
+Experienced (6-10 years)
+
+## Skills
+* Strategic content planning
+* Advanced copywriting and editing
+* SEO and analytics expertise
+* Multi-format content creation
+* Digital marketing integration
+* Brand voice consistency
+* AI-assisted writing tools
+* Team leadership
+* Project management
+* KPI analysis
+
+## Responsibilities
+* Develop and execute content strategy
+* Produce high-quality copy optimized for SEO
+* Edit and proofread content maintaining brand voice
+* Integrate copy into multi-channel digital marketing campaigns
+* Leverage AI tools for content generation
+* Collaborate with cross-functional teams
+* Mentor junior copywriters
+* Track and analyze performance metrics
+* Manage content projects and deadlines
+* Support overall marketing strategy
+
+## ATS Keywords
+* Copywriting
+* Content Strategy
+* SEO
+* Editing
+* Digital Marketing
+* Brand Voice
+* AI Tools
+* Team Leadership
+* Project Management
+* Analytics

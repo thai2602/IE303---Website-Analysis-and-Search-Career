@@ -1,0 +1,16 @@
+## Responsibilities
+* Assist in building web applications
+* Implement front-end layouts
+* Integrate REST APIs
+* Participate in testing and debugging
+* Follow version control practices
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* Angular
+* Node.js
+* PHP
+* MySQL
+* REST APIs

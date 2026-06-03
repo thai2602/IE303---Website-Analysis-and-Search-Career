@@ -1,0 +1,18 @@
+## Responsibilities
+* Develop basic web pages and components
+* Assist with JS framework integration
+* Integrate REST APIs
+* Debug front-end code
+* Collaborate with developers and designers
+* Document development tasks
+
+## ATS Keywords
+* JavaScript
+* ES6+
+* React
+* Angular
+* Vue.js
+* HTML5
+* CSS3
+* REST API
+* Git

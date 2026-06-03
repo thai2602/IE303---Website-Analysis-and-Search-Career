@@ -1,0 +1,13 @@
+## Responsibilities
+* Work on app features with Core Data persistence.
+* Implement animations and optimize UI performance.
+* Integrate Firebase for crash analytics.
+* Automate builds using Jenkins pipelines.
+* Contribute to code reviews and best practices.
+
+## ATS Keywords
+* Core Data
+* Core Animation
+* Firebase
+* Jenkins
+* iOS Performance

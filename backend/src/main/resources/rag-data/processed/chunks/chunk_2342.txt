@@ -1,0 +1,25 @@
+# Python Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* Data types
+* Control flow
+* Functions
+* OOP
+* Exception handling
+* Django basics
+* Flask basics
+* FastAPI basics
+* Pandas basics
+* NumPy basics
+* Matplotlib basics
+* SQL basics
+* MongoDB basics
+* Git basics
+* unittest basics
+* Communication
+* Teamwork
+* Adaptability

@@ -1,0 +1,7 @@
+* Python
+* MQTT
+* Bluetooth
+* Sensor Integration
+* Cloud IoT
+* Edge Computing
+---

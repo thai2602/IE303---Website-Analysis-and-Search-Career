@@ -1,0 +1,16 @@
+# ML Engineer Trainee
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python
+* R
+* Java
+* ML fundamentals: supervised/unsupervised learning, classification, regression, clustering
+* Data preprocessing
+* Feature engineering
+* ML libraries: Scikit-learn, TensorFlow, PyTorch, Keras
+* Statistics and probability
+* Visualization: Matplotlib, Seaborn
+* Git/GitHub

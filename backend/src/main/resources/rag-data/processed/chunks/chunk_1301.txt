@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in fintech solution development
+* Support blockchain tasks
+* Perform basic data and analytics tasks
+* Help integrate APIs and cloud services
+* Collaborate with teams on development projects
+* Document project processes and outcomes
+
+## ATS Keywords
+* Python
+* SQL
+* Blockchain
+* Machine Learning
+* API Integration
+* Cybersecurity
+* AWS
+* Data Analysis

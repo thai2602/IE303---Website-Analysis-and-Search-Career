@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead AI-assisted coding projects across the organization
+* Define prompt engineering and workflow standards
+* Mentor Vibe Coders at all levels
+* Oversee code quality and performance
+* Drive innovation in AI-assisted software development
+* Coordinate cross-functional collaboration
+* Document best practices and strategic initiatives

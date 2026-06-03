@@ -1,0 +1,32 @@
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Agile
+* Team Leadership
+
+## Responsibilities
+* Drive full-stack software architecture
+* Lead cloud and microservices initiatives
+* Mentor teams across projects
+* Implement CI/CD and Agile best practices
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Microservices

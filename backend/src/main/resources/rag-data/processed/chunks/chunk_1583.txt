@@ -1,0 +1,9 @@
+## Responsibilities
+* Design and optimize IoT architectures
+* Develop and optimize embedded firmware for performance and security
+* Integrate sensors and actuators with advanced protocols
+* Deploy and manage cloud IoT services
+* Implement real-time analytics and machine learning workflows
+* Ensure network security and edge computing performance
+* Lead teams and mentor engineers
+* Drive IoT project strategy and execution

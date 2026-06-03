@@ -1,0 +1,30 @@
+---
+job_id: TW-103
+role: Technical Writer
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Technical Documentation
+* Advanced Editing
+* Proofreading
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML/HTML/CSS
+* CMS
+* AI-assisted Documentation
+keywords:
+* Technical Writing
+* API Documentation
+* Structured Authoring
+* Adobe FrameMaker
+* MadCap Flare
+* XML
+* HTML
+* CMS
+* AI Writing Tools
+* UX Documentation
+---
+
+# Technical Writer

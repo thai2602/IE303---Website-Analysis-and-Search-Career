@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in front-end development tasks
+* Support implementation of web interfaces using JS frameworks
+* Collaborate with team members for responsive design
+* Help integrate REST APIs
+* Document code and workflows
+* Participate in basic testing
+
+## ATS Keywords
+* JavaScript
+* ES6+
+* React
+* Angular
+* Vue.js
+* HTML5
+* CSS3
+* Git
+* REST API

@@ -1,0 +1,4 @@
+### Junior Java Developer - E-commerce Startup (06/2020 - 12/2021)
+- Tham gia phát triển tính năng quản lý giỏ hàng và thanh toán bằng Java và Spring MVC.
+- Phối hợp với team Frontend để tích hợp API, đảm bảo luồng dữ liệu mượt mà.
+- Viết Unit Test và Integration Test bằng JUnit và Mockito, đảm bảo độ bao phủ mã nguồn (code coverage) trên 80%.

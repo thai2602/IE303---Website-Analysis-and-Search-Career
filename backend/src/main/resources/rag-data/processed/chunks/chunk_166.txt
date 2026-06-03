@@ -1,0 +1,14 @@
+## Responsibilities
+* Lead AI engineering projects
+* Deploy scalable deep learning models
+* Manage cloud-based AI platforms
+* Mentor junior AI engineers
+
+## ATS Keywords
+* AI
+* ML
+* Senior-Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps

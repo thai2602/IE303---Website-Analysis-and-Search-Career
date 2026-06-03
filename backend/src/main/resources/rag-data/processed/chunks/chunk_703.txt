@@ -1,0 +1,20 @@
+## Skills
+* SOC Operations
+* Threat Hunting
+* SIEM Tools
+* Compliance Auditing
+* Firewall Management
+* Malware Analysis
+
+## Responsibilities
+* Monitor SOC
+* Hunt advanced persistent threats
+* Conduct malware reverse engineering
+* Ensure compliance with PCI-DSS
+
+## ATS Keywords
+* SOC
+* Threat Hunting
+* Malware Analysis
+* Compliance
+* Incident Response

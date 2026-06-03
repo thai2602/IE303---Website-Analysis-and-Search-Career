@@ -1,0 +1,10 @@
+## ATS Keywords
+* Wireframing
+* Prototyping
+* Responsive Design
+* Figma
+* Adobe XD
+* Sketch
+* User Research
+* Typography
+* UI Basics

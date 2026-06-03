@@ -1,0 +1,9 @@
+## Responsibilities
+* Develop scalable web applications
+* Build frontend interfaces using React, Angular, or Vue.js
+* Implement backend services with Node.js, Django, or Flask
+* Design RESTful APIs
+* Manage SQL/NoSQL databases
+* Perform testing
+* Mentor junior developers
+* Collaborate in Agile workflows

@@ -1,0 +1,11 @@
+## 5. Summary: CV Scorecard at a Glance
+
+| Criterion | Max Score | Primary Signal |
+|-----------|-----------|---------------|
+| Professional qualifications & education | 20 | Degree, certifications, relevant tools |
+| Work experience | 25 | Years, role similarity, industry match |
+| Notable achievements & projects | 20 | Quantified results, project scope |
+| Soft skills & work attitude | 15 | Real examples, not just listed traits |
+| Cultural fit | 10 | Values alignment, career goals |
+| CV presentation & reliability | 10 | Layout, accuracy, professionalism |
+| **Total** | **100** | |

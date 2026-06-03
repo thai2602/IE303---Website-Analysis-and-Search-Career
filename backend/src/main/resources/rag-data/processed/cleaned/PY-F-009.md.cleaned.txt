@@ -1,0 +1,78 @@
+---
+job_id: PY-F-009
+role: Python Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python basics
+* OOP basics
+* Functions
+* Exception handling
+* Django basics
+* Flask basics
+* FastAPI basics
+* Pandas basics
+* NumPy basics
+* Matplotlib basics
+* SQL basics
+* MongoDB basics
+* Git basics
+* PyTest basics
+* Communication
+* Teamwork
+* Problem-solving
+keywords:
+* Python
+* Django
+* Flask
+* NumPy
+* Pandas
+* SQL
+* Git
+* REST APIs
+* OOP
+---
+
+# Python Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* OOP basics
+* Functions
+* Exception handling
+* Django basics
+* Flask basics
+* FastAPI basics
+* Pandas basics
+* NumPy basics
+* Matplotlib basics
+* SQL basics
+* MongoDB basics
+* Git basics
+* PyTest basics
+* Communication
+* Teamwork
+* Problem-solving
+
+## Responsibilities
+* Assist in Python backend development
+* Support web application projects using frameworks
+* Perform data analysis and visualization tasks
+* Write unit tests using PyTest
+* Collaborate with team members
+* Document code and workflows
+* Follow version control practices with Git
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* NumPy
+* Pandas
+* SQL
+* Git
+* REST APIs
+* OOP

@@ -1,0 +1,18 @@
+# QA Engineer - Experienced
+
+## Experience Level
+Senior-Level (5–10 years years)
+
+## Skills
+* Test Automation: Selenium, Appium, Cucumber, TestNG
+* Performance & Security Testing: LoadRunner
+* CI/CD: Jenkins, GitLab CI/CD, Bamboo
+* Programming: Java, Python, C#, JavaScript
+* API Testing: Postman, SoapUI, Appium
+* Bug Tracking & Documentation: JIRA, TestRail, ALM
+
+## Responsibilities
+* Manage QA projects
+* Integrate testing into CI/CD
+* Perform advanced testing
+* Mentor QA engineers

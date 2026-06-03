@@ -1,0 +1,32 @@
+---
+job_id: CL003
+role: Cloud Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform basics
+* CloudFormation basics
+* Docker basics
+* Kubernetes basics
+* Python
+* Bash
+* Jenkins
+* AWS CodePipeline
+* Monitoring: CloudWatch, Azure Monitor
+* Git/GitHub
+keywords:
+* Cloud
+* Infrastructure
+* Entry-Level
+* Fresher
+* Remote
+* DevOps
+* AWS
+* Azure
+* GCP
+---
+
+# Cloud Engineer - Fresher

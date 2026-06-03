@@ -1,0 +1,30 @@
+---
+job_id: OM-119
+role: Operations Manager
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Strategic Planning
+* Lean Management
+* Six Sigma
+* Budgeting
+* Financial Reporting
+* Team Leadership
+* Resource Allocation
+* ERP/CRM Systems
+* KPI Monitoring
+* Process Improvement
+keywords:
+* Operations Management
+* Strategic Planning
+* Lean Management
+* Six Sigma
+* Budgeting
+* KPI Tracking
+* ERP
+* CRM
+* Team Leadership
+* Process Improvement
+---
+
+# Operations Manager

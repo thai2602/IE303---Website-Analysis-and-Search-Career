@@ -1,0 +1,13 @@
+## Responsibilities
+* Architect modular, scalable iOS applications.
+* Guide team on implementing MVVM/MVP patterns.
+* Collaborate with DevOps for CI/CD integrations.
+* Define coding standards and review architecture.
+* Mentor mid-level engineers and interns.
+
+## ATS Keywords
+* iOS Architecture
+* MVVM
+* MVP
+* CI/CD
+* Mentorship

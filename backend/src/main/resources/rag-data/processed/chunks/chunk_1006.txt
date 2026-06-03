@@ -1,0 +1,20 @@
+---
+job_id: DMS-E-008
+role: Digital Marketing Specialist
+level: Experienced
+years_of_experience: 5-7
+skills:
+* Advanced digital campaigns
+* SEO, SEM, PPC
+* Content and social media marketing
+* Email marketing automation
+* Marketing analytics (Google Analytics, Tableau, Mixpanel)
+* Lead generation
+* CRM and marketing automation tools
+* Brand strategy and UX design
+* Multi-channel campaign integration
+* Team leadership
+* Budget management
+* Data-driven decision making
+keywords:
+* Digital Marketing

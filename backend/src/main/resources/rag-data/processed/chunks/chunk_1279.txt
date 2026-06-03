@@ -1,0 +1,21 @@
+# Fintech Engineer
+
+## Experience Level
+Experienced (5-7 years)
+
+## Skills
+* Python advanced
+* JavaScript advanced
+* SQL advanced
+* Blockchain and DLT
+* Smart contracts development
+* Machine learning for analytics
+* Cybersecurity compliance
+* Financial analysis
+* API design
+* Microservices architecture
+* Cloud computing (AWS, Azure)
+* DevOps automation
+* Leadership
+* Project management
+* Innovation strategies

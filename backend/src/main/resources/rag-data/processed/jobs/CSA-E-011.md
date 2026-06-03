@@ -1,0 +1,52 @@
+---
+job_id: CSA-E-011
+role: Cybersecurity Analyst
+level: Experienced
+years_of_experience: 3-5
+skills:
+* Splunk
+* QRadar
+* Threat Hunting
+* Risk Management
+* Incident Response
+* Python
+* Bash
+* Cloud Security (AWS/Azure)
+keywords:
+* Threat Hunting
+* SIEM
+* SOC
+* Incident Response
+* Risk Management
+* Cloud Security
+---
+
+# Cybersecurity Analyst
+
+## Experience Level
+Experienced (3-5 years)
+
+## Skills
+* Splunk
+* QRadar
+* Threat Hunting
+* Risk Management
+* Incident Response
+* Python
+* Bash
+* Cloud Security (AWS/Azure)
+
+## Responsibilities
+* Lead SOC operations
+* Perform threat hunting
+* Oversee risk assessments
+* Ensure compliance with standards
+* Reduce incident response times
+
+## ATS Keywords
+* Threat Hunting
+* SIEM
+* SOC
+* Incident Response
+* Risk Management
+* Cloud Security

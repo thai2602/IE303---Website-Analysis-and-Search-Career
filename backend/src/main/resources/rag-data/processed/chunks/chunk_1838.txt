@@ -1,0 +1,17 @@
+## Responsibilities
+* Architect end-to-end ML solutions
+* Manage teams of ML engineers
+* Deploy models in cloud environments
+* Drive strategic AI initiatives
+* Mentor and guide team members
+
+## ATS Keywords
+* Lead ML Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Cloud Deployment
+* Leadership

@@ -1,0 +1,31 @@
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Team Leadership
+
+## Responsibilities
+* Oversee large-scale software projects
+* Lead cross-functional development teams
+* Ensure deployment and scalability of cloud solutions
+* Mentor junior and mid-level developers
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Microservices

@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in configuring servers
+* Troubleshoot network issues
+* Write simple automation scripts
+* Provide system documentation
+* Collaborate with senior engineers
+
+## ATS Keywords
+* Linux
+* Systems Engineering
+* VMware
+* Cloud Computing
+* Automation Basics

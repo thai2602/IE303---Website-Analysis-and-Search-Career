@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop and maintain microservices
+* Create CI/CD pipelines
+* Ensure testing coverage with NUnit
+* Deploy apps with Docker
+* Collaborate with QA team
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* REST APIs
+* Docker
+* Azure DevOps
+* NUnit

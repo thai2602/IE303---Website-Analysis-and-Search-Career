@@ -1,0 +1,6 @@
+### Examples by Role
+
+| Role | Key Skills / Certifications to Look For |
+|------|-----------------------------------------|
+| Data Analyst | Advanced Excel, SQL, Power BI, Python, data analytics or statistics certifications |
+| Accounting Specialist | Bachelor's in Accounting/Finance, ACCA/CPA certification, proficiency in MISA/SAP |

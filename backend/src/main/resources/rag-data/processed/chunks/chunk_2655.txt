@@ -1,0 +1,19 @@
+# Software Tester (SDET)
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Java basics
+* Python basics
+* C# basics
+* Selenium basics
+* Cypress basics
+* Functional and regression testing
+* API testing
+* Postman
+* JMeter basics
+* Agile understanding
+* Communication
+* Teamwork
+* Problem-solving

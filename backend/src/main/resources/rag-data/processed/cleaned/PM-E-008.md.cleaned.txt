@@ -1,0 +1,62 @@
+---
+job_id: PM-E-008
+role: Product Manager
+level: Experienced
+years_of_experience: 5-7
+skills:
+* Product vision
+* Roadmap execution
+* Advanced analytics and A/B testing
+* Cross-functional collaboration
+* Stakeholder communication
+* UX research integration
+* Agile leadership
+* Strategic planning
+* Resource allocation
+* Tools: Figma, Mixpanel, Tableau, GA
+keywords:
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership
+* Stakeholder Management
+* User-Centered Design
+* Growth Metrics
+* Cross-Functional Collaboration
+---
+
+# Product Manager
+
+## Experience Level
+Experienced (5-7 years)
+
+## Skills
+* Product vision
+* Roadmap execution
+* Advanced analytics and A/B testing
+* Cross-functional collaboration
+* Stakeholder communication
+* UX research integration
+* Agile leadership
+* Strategic planning
+* Resource allocation
+* Tools: Figma, Mixpanel, Tableau, GA
+
+## Responsibilities
+* Lead product vision and strategy
+* Oversee roadmap execution
+* Drive data-informed decisions
+* Coordinate with multiple teams
+* Conduct customer research
+* Optimize product KPIs
+* Ensure agile best practices
+
+## ATS Keywords
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership
+* Stakeholder Management
+* User-Centered Design
+* Growth Metrics
+* Cross-Functional Collaboration

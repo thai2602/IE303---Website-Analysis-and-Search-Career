@@ -1,0 +1,13 @@
+## Responsibilities
+* Implement system security measures
+* Monitor access controls
+* Collaborate with security teams
+* Maintain compliance standards
+* Conduct vulnerability assessments
+
+## ATS Keywords
+* System Security
+* IAM
+* Linux
+* Compliance
+* Troubleshooting

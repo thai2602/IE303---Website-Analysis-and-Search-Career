@@ -1,0 +1,23 @@
+# Blockchain Developer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* Java advanced
+* Python advanced
+* Solidity advanced
+* Rust basics
+* Ethereum
+* Hyperledger Fabric
+* Corda
+* Smart contract optimization
+* Cryptography advanced
+* Scalable DApps
+* Cross-chain development
+* Git advanced
+* Truffle advanced
+* Remix IDE advanced
+* Leadership
+* Collaboration
+* Problem-solving

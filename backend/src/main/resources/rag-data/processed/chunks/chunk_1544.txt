@@ -1,0 +1,14 @@
+## Responsibilities
+* Work on academic or internship-level iOS app projects.
+* Learn MVC and MVVM patterns for small modules.
+* Assist in debugging crashes using Xcode tools.
+* Collaborate with team members for app feature development.
+* Contribute to writing simple reusable code snippets.
+
+## ATS Keywords
+* Swift
+* iOS Development
+* MVC
+* Xcode
+* Debugging
+* UIKit

@@ -1,0 +1,11 @@
+## Responsibilities
+* Design and implement scalable Java applications
+* Develop RESTful APIs with Spring Boot
+* Integrate Hibernate ORM for persistence
+
+## ATS Keywords
+* Java Developer
+* Spring Boot
+* Hibernate
+* REST APIs
+* SQL

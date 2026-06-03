@@ -1,0 +1,65 @@
+---
+job_id: VC-F-002
+role: Vibe Coder
+level: Junior
+years_of_experience: 0-1
+skills:
+* Python basics
+* JavaScript basics
+* HTML/CSS basics
+* Vue basics
+* AI coding assistants
+* Prompt engineering basics
+* Code evaluation
+* Debugging AI outputs
+* Communication
+* Teamwork
+* Adaptability
+keywords:
+* AI-assisted coding
+* Python
+* JavaScript
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* HTML
+* CSS
+---
+
+# Vibe Coder
+
+## Experience Level
+Junior (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* HTML/CSS basics
+* Vue basics
+* AI coding assistants
+* Prompt engineering basics
+* Code evaluation
+* Debugging AI outputs
+* Communication
+* Teamwork
+* Adaptability
+
+## Responsibilities
+* Support AI-assisted coding workflows
+* Assist in prompt creation and refinement
+* Review AI-generated code for functionality
+* Collaborate with team on projects
+* Document AI-assisted development processes
+* Learn low-code/no-code development workflows
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* HTML
+* CSS

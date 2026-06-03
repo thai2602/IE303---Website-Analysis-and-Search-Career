@@ -1,0 +1,25 @@
+---
+job_id: SEO-007
+role: SEO Specialist
+level: Mid-Level
+years_of_experience: 3-6
+skills:
+* Technical SEO
+* Advanced content optimization
+* Link building and backlink analysis
+* Site speed optimization
+* Schema markup implementation
+* Multimodal search optimization
+* Privacy-compliant SEO (GDPR)
+* Google Analytics GA4
+* Search Console
+* Looker Studio
+keywords:
+* Technical SEO
+* Content Optimization
+* Link Building
+* Page Speed
+* Schema Markup
+* Multimodal Search
+* Privacy Compliance
+* GA4

@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop front-end features using Angular and JavaScript
+* Ensure responsive design
+* Assist in unit testing
+* Collaborate with backend teams
+* Learn and apply agile methodologies
+
+## ATS Keywords
+* Software Engineer
+* Angular
+* JavaScript
+* Front-End
+* Responsive Design
+* Agile

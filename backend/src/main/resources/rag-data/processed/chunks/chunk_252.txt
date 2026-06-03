@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and develop immersive AR/VR applications
+* Lead AR/VR projects using Unity and Unreal Engine
+* Integrate ARKit, ARCore, and Vuforia features
+* Optimize 3D models and graphics performance
+* Manage cross-platform deployment
+* Mentor junior developers and designers
+* Collaborate with multidisciplinary teams

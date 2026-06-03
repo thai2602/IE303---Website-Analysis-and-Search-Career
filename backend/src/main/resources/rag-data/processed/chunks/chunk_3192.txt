@@ -1,0 +1,13 @@
+## Responsibilities
+* Develop UX frameworks for scalable systems
+* Supervise UX research and testing
+* Establish accessibility standards
+* Collaborate with developers for design handoff
+* Ensure user-centered design consistency
+
+## ATS Keywords
+* Information Architecture
+* Accessibility
+* Design Systems
+* Agile
+* UX Research

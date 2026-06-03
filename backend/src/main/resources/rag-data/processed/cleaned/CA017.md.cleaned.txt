@@ -1,0 +1,46 @@
+---
+job_id: CA017
+role: Enterprise Cloud Architect
+level: Experienced
+years_of_experience: 12
+skills:
+* Cloud strategy
+* Multi-cloud architecture
+* Serverless computing
+* Kubernetes
+* Terraform
+* Leadership
+keywords:
+* Enterprise Cloud
+* Cloud Strategy
+* Serverless
+* Kubernetes
+* Terraform
+* Leadership
+---
+
+# Enterprise Cloud Architect
+
+## Experience Level
+Experienced (12 years)
+
+## Skills
+* Cloud strategy
+* Multi-cloud architecture
+* Serverless computing
+* Kubernetes
+* Terraform
+* Leadership
+
+## Responsibilities
+* Design enterprise-wide cloud strategy
+* Implement serverless and scalable architectures
+* Collaborate with C-level executives
+
+## ATS Keywords
+* Enterprise Cloud
+* Cloud Strategy
+* Serverless
+* Kubernetes
+* Terraform
+* Leadership

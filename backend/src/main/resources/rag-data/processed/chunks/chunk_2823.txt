@@ -1,0 +1,13 @@
+## Responsibilities
+* Implement monitoring solutions
+* Ensure system uptime
+* Generate system reports
+* Integrate monitoring with automation
+* Support incident response
+
+## ATS Keywords
+* Monitoring
+* Nagios
+* Grafana
+* System Reliability
+* Automation

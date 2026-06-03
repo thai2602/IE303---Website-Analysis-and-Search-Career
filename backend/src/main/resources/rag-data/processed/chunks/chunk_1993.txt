@@ -1,0 +1,16 @@
+## Skills
+* C#
+* VB.NET basics
+* .NET Framework
+* .NET Core fundamentals
+* ASP.NET
+* MVC
+* HTML
+* CSS
+* JavaScript basics
+* SQL Server
+* Entity Framework basics
+* LINQ
+* Visual Studio
+* Git
+* Unit Testing basics

@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* TestNG
+* Appium
+* Cucumber
+* JMeter
+* LoadRunner
+* Jenkins
+* GitLab CI/CD
+* Postman
+* RestAssured
+* JIRA
+* ALM
+
+## Responsibilities
+* Design automation frameworks
+* Perform advanced testing
+* Optimize CI/CD integration
+* Lead QA automation efforts
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Framework Design
+* CI/CD
+* Performance Testing

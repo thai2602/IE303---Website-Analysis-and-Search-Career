@@ -1,0 +1,13 @@
+## Responsibilities
+* Automate infrastructure provisioning
+* Maintain Infrastructure as Code
+* Support scaling workloads
+
+## ATS Keywords
+* Automation
+* Terraform
+* CloudFormation
+* Ansible
+* AWS
+* Python
+* IaC

@@ -12,15 +12,9 @@ frontend/dist/
 .claude/
 data/*
 
-# RAG Data Config
-backend/src/main/resources/rag-data/embeddings/*
-backend/src/main/resources/rag-data/processed/*
-backend/src/main/resources/rag-data/raw/resumes/*
-
 PROJECT_DESCRIPTION.md
 backend/dev/*
 evals/*
-
 
 DEPLOYMENT.md
 render.env

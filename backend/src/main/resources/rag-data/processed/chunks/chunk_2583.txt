@@ -1,0 +1,25 @@
+## Skills
+* Python
+* Java
+* Git
+* AWS basics
+* Azure basics
+* SQL
+* NoSQL
+* Teamwork
+* Problem-solving
+
+## Responsibilities
+* Write backend services in Python or Java
+* Deploy microservices on AWS or Azure
+* Maintain databases
+* Participate in testing
+* Collaborate in Agile teams
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Cloud Computing
+* Backend
+* Agile

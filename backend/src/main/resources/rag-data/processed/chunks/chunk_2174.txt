@@ -1,0 +1,22 @@
+---
+job_id: PM-E-015
+role: Product Manager
+level: Experienced
+years_of_experience: 12-15
+skills:
+* Product vision and roadmap planning
+* Data-driven decision making
+* Cross-functional leadership
+* Stakeholder management
+* UX research and integration
+* Agile methodologies
+* Performance optimization
+* Strategic planning
+* Resource allocation
+* Tools: JIRA, Figma, Mixpanel, Tableau
+keywords:
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership
+* Stakeholder Management

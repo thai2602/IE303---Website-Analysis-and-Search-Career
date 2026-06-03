@@ -1,0 +1,13 @@
+* Project management
+* Team collaboration
+keywords:
+* IoT Architecture
+* Embedded Firmware
+* Cloud Integration
+* Security
+* Edge Computing
+* Machine Learning
+* MQTT
+* LoRaWAN
+* Data Pipelines
+---

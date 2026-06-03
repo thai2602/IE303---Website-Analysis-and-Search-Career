@@ -1,0 +1,27 @@
+## Skills
+* SQL
+* MySQL basics
+* PostgreSQL basics
+* Tableau
+* Power BI
+* Excel charts and dashboards
+* Basic statistics
+* ETL awareness
+* Business acumen
+* Data analysis
+
+## Responsibilities
+* Assist in analyzing datasets
+* Create dashboards
+* Prepare reports
+* Support business decision-making processes
+
+## ATS Keywords
+* BI
+* Analytics
+* Fresher
+* Entry-Level
+* SQL
+* Tableau
+* Power BI
+* ETL

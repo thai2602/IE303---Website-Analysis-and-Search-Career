@@ -1,0 +1,16 @@
+## Responsibilities
+* Architect, deploy, and manage cloud environments
+* Enforce security best practices
+* Monitor systems
+* Lead cloud engineering teams across projects
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Security

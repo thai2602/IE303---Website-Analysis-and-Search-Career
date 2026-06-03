@@ -1,0 +1,26 @@
+## Skills
+* Manual Testing
+* Automation Tools Awareness: Selenium, Appium, Cucumber
+* Java
+* Python
+* JavaScript
+* JIRA
+* Bugzilla
+* Postman basics
+* SoapUI basics
+* Test Documentation
+
+## Responsibilities
+* Perform manual tests
+* Assist in test automation script preparation
+* Maintain test documentation
+* Support defect management
+
+## ATS Keywords
+* QA
+* Testing
+* Software
+* Fresher
+* Chennai
+* Manual Testing
+* Automation

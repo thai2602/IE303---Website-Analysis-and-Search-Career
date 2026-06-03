@@ -1,0 +1,65 @@
+---
+job_id: SEO-011
+role: SEO Specialist
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Keyword research
+* On-page SEO
+* Off-page SEO
+* Basic HTML/CSS
+* Content optimization
+* Google Analytics basics
+* Search Console basics
+* Social media SEO basics
+* Local SEO basics
+* Basic link building
+keywords:
+* SEO
+* Keyword Research
+* On-Page SEO
+* Off-Page SEO
+* Content Optimization
+* Google Analytics
+* Search Console
+* Local SEO
+* Link Building
+---
+
+# SEO Specialist
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* Keyword research
+* On-page SEO
+* Off-page SEO
+* Basic HTML/CSS
+* Content optimization
+* Google Analytics basics
+* Search Console basics
+* Social media SEO basics
+* Local SEO basics
+* Basic link building
+
+## Responsibilities
+* Support SEO campaigns through keyword research
+* Assist with on-page and off-page optimization
+* Collaborate with content team to optimize web pages
+* Track SEO metrics using analytics tools
+* Learn advanced SEO techniques
+* Support local and social media SEO initiatives
+* Assist in backlink analysis
+* Generate SEO reports for team review
+
+## ATS Keywords
+* SEO
+* Keyword Research
+* On-Page SEO
+* Off-Page SEO
+* Content Optimization
+* Google Analytics
+* Search Console
+* Local SEO
+* Link Building

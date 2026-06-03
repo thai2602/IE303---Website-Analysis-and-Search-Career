@@ -1,0 +1,7 @@
+## Responsibilities
+* Contribute to secure and responsive web applications
+* Assist in frontend coding with React or Angular
+* Develop backend APIs using Node.js or Flask
+* Manage databases
+* Perform testing
+* Collaborate with Agile teams

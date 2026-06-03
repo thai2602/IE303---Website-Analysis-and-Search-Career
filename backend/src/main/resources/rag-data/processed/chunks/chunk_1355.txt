@@ -1,0 +1,26 @@
+## Skills
+* React/Redux
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance optimization
+* Unit & E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Lead frontend development for SaaS products
+* Implement reusable components
+* Optimize performance
+* Conduct automated tests
+* Mentor junior developers
+
+## ATS Keywords
+* Frontend
+* SaaS Development
+* Senior
+* React
+* UI
+* SPA/PWA

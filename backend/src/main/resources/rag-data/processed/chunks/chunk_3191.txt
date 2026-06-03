@@ -1,0 +1,32 @@
+---
+job_id: UXE014
+role: UX Architect
+level: Experienced
+years_of_experience: 8-10
+skills:
+* Information Architecture
+* Figma
+* Design Systems
+* WCAG
+* Agile UX
+* Prototyping
+keywords:
+* Information Architecture
+* Accessibility
+* Design Systems
+* Agile
+* UX Research
+---
+
+# UX Architect
+
+## Experience Level
+Experienced (8-10 years)
+
+## Skills
+* Information Architecture
+* Figma
+* Design Systems
+* WCAG
+* Agile UX
+* Prototyping

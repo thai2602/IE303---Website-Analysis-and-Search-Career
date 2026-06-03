@@ -1,0 +1,9 @@
+## ATS Keywords
+* Software Engineer
+* Python
+* JavaScript
+* React
+* MySQL
+* Agile
+* Unit Testing
+* OOP

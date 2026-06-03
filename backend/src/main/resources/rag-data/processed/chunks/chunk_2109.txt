@@ -1,0 +1,33 @@
+---
+job_id: PD-E-018
+role: Product Designer
+level: Experienced
+years_of_experience: 4-6 Years
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* Agile
+* User Testing
+* A/B Testing
+keywords:
+* UX/UI Design
+* Agile
+* A/B Testing
+* Product Design
+* Mentoring
+* Prototyping
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (4-6 Years years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe XD
+* Agile
+* User Testing
+* A/B Testing

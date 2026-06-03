@@ -1,0 +1,25 @@
+## Skills
+* Advanced React
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript (ES6+)
+* Performance optimization
+* Lazy loading
+* Testing automation
+* Git
+* CI/CD
+
+## Responsibilities
+* Architect and implement frontend solutions
+* Lead performance optimization and cross-browser testing
+* Mentor junior developers
+
+## ATS Keywords
+* Frontend
+* Enterprise Web Applications
+* Senior
+* React
+* UI
+* SPA/PWA

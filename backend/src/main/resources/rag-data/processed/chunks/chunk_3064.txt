@@ -1,0 +1,33 @@
+---
+job_id: TW-101
+role: Technical Writer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Clear Writing
+* Technical Accuracy
+* Proofreading
+* Basic HTML/CSS
+* Research Skills
+* Interviewing SMEs
+* CMS Basics
+* Markdown
+* Time Management
+* Adaptability
+keywords:
+* Technical Writing
+* Documentation
+* Research
+* CMS
+* Markdown
+* HTML
+* CSS
+* Proofreading
+* SME Collaboration
+* Adaptability
+---
+
+# Technical Writer
+
+## Experience Level
+Fresher (0-1 years)

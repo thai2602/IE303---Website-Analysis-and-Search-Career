@@ -1,0 +1,15 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* AWS basics
+* Azure basics
+* GCP fundamentals
+* Java basics
+* Python basics
+* Introductory microservices knowledge
+* Basic security awareness
+* CI/CD fundamentals
+* Docker/Kubernetes basics
+* Problem-solving
+* Communication

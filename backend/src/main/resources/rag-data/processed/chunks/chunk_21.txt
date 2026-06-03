@@ -1,0 +1,12 @@
+**Content**
+- [ ] All roles include start and end dates (MM/YYYY)
+- [ ] Job titles reflect the language used in the JD
+- [ ] Achievements are quantified where possible
+- [ ] Employment gaps are briefly addressed
+
+**File**
+- [ ] File named cleanly: `FirstName_LastName_CV.pdf`
+- [ ] File is not password-protected
+- [ ] CV is not a scanned image
+
+---

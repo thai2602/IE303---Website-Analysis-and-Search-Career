@@ -1,0 +1,11 @@
+## Responsibilities
+* Develop automation scripts
+* Optimize routine configurations
+* Integrate automation in network ops
+* Collaborate with DevOps teams
+
+## ATS Keywords
+* Automation
+* Python
+* Ansible
+* Bash

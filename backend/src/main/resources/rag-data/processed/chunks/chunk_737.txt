@@ -1,0 +1,26 @@
+---
+job_id: CW-003
+role: Content Writer
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Advanced writing skills
+* SEO optimization
+* Content strategy support
+* Editing and proofreading
+* Research and fact-checking
+* Blog and article writing
+* Social media content
+* AI-assisted content tools
+* WordPress or CMS proficiency
+* Digital marketing awareness
+keywords:
+* Content Writing
+* SEO
+* Editing
+* Blog Writing
+* Social Media Content
+* AI Tools
+* WordPress
+* Proofreading
+* Research

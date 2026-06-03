@@ -1,0 +1,25 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* Intro NLP
+* Hugging Face basics
+* SpaCy basics
+* NLTK basics
+* Prompt writing
+* OpenAI GPT intro
+* TensorFlow basics
+* PyTorch basics
+* Communication
+* Teamwork
+* Problem-solving
+* Creativity
+
+## Responsibilities
+* Assist in prompt creation for AI models
+* Test prompt performance
+* Collaborate with AI/data teams
+* Document experiments
+* Support AI model integration and evaluation

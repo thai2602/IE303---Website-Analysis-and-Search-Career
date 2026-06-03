@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* Cucumber
+* JMeter
+* LoadRunner
+* Jenkins
+* GitLab
+* Docker
+* Postman
+* RestAssured
+* JIRA
+* ALM
+
+## Responsibilities
+* Develop advanced automation test suites
+* Lead QA teams
+* Perform security and performance testing
+* Integrate automation into pipelines
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Performance Testing
+* Security Testing
+* Leadership

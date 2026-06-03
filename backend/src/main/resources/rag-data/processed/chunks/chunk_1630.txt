@@ -1,0 +1,13 @@
+## Responsibilities
+* Support web application development using JSP/Servlets
+* Learn and implement JDBC for database connectivity
+* Work with frontend basics like HTML/CSS/JS
+* Debug and fix minor issues in development
+
+## ATS Keywords
+* Java
+* SQL
+* JDBC
+* Servlets
+* JSP
+* Web Development

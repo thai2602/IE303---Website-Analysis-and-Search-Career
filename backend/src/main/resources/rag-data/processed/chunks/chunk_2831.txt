@@ -1,0 +1,13 @@
+## Responsibilities
+* Support infrastructure setup
+* Assist in troubleshooting
+* Learn scripting for automation
+* Monitor basic performance
+* Document processes
+
+## ATS Keywords
+* System Engineer
+* Windows Server
+* Linux
+* VMware
+* Python

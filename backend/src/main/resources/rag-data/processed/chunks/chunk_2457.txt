@@ -1,0 +1,22 @@
+# Robotics Engineer
+
+## Experience Level
+Experienced (10+ years)
+
+## Skills
+* Python expert
+* C++ expert
+* MATLAB
+* ROS advanced
+* CAD/SolidWorks advanced
+* Robotics control algorithms
+* Embedded systems design
+* Sensor fusion
+* Computer vision
+* ML in robotics
+* Simulation (Gazebo, RViz)
+* Hardware interfacing
+* Team leadership
+* Project management
+* Innovation in robotics
+* Cross-functional collaboration

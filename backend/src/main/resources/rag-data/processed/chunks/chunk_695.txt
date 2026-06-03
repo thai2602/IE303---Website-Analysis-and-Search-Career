@@ -1,0 +1,12 @@
+## Responsibilities
+* Lead incident response efforts
+* Oversee compliance checks
+* Mentor junior analysts
+* Develop risk mitigation strategies
+
+## ATS Keywords
+* Leadership
+* Risk Management
+* Threat Hunting
+* Compliance
+* SIEM

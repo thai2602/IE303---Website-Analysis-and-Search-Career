@@ -1,0 +1,75 @@
+---
+job_id: JS-E-008
+role: JavaScript Developer
+level: Experienced
+years_of_experience: 5+
+skills:
+* JavaScript advanced
+* TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Express.js
+* REST API development
+* GraphQL
+* Jest, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux, Vuex
+* Docker, CI/CD
+* Leadership
+* Cross-team collaboration
+keywords:
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker
+---
+
+# JavaScript Developer
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* JavaScript advanced
+* TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Express.js
+* REST API development
+* GraphQL
+* Jest, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux, Vuex
+* Docker, CI/CD
+* Leadership
+* Cross-team collaboration
+
+## Responsibilities
+* Design, develop, and deploy JS applications
+* Lead front-end and full-stack projects
+* Implement automated tests and optimize workflows
+* Integrate APIs and state management
+* Collaborate with cross-functional teams
+* Mentor junior developers
+
+## ATS Keywords
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker

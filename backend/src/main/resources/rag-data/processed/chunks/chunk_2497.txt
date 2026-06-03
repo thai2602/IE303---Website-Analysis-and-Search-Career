@@ -1,0 +1,23 @@
+# Robotics Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* C++ basics
+* MATLAB basics
+* ROS basics
+* SolidWorks
+* AutoCAD
+* PID control basics
+* Motor control basics
+* Arduino basics
+* Raspberry Pi basics
+* LIDAR and infrared sensors basics
+* Kinematics
+* Linear algebra
+* Problem solving
+* Communication
+* Teamwork
+* Adaptability

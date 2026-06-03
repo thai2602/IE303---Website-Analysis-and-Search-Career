@@ -1,0 +1,14 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* AWS basics
+* Azure basics
+* Java fundamentals
+* Python fundamentals
+* Basic container orchestration knowledge
+* CI/CD introduction
+* Basic security and compliance awareness
+* Teamwork
+* Communication
+* Problem-solving

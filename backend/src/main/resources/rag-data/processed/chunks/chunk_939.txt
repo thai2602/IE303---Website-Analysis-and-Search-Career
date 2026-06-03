@@ -1,0 +1,28 @@
+## Experience Level
+Senior-Level (6–10 years years)
+
+## Skills
+* Predictive modeling
+* Machine learning
+* Advanced analytics
+* SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Looker
+* Google Data Studio
+* ETL pipelines
+* BigQuery
+* Snowflake
+* Redshift
+* Hadoop
+* Spark
+* Kafka
+
+## Responsibilities
+* Lead analytics and BI projects
+* Manage data pipelines
+* Develop predictive models
+* Mentor junior analysts

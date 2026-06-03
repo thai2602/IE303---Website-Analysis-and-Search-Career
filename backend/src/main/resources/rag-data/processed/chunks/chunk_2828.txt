@@ -1,0 +1,30 @@
+---
+job_id: SE015
+role: System Engineer
+level: Experienced
+years_of_experience: 8+
+skills:
+* Windows Server
+* Linux
+* AWS
+* Terraform
+* Security Compliance
+keywords:
+* Enterprise Systems
+* System Architecture
+* AWS
+* Terraform
+* Compliance
+---
+
+# System Engineer
+
+## Experience Level
+Experienced (8+ years)
+
+## Skills
+* Windows Server
+* Linux
+* AWS
+* Terraform
+* Security Compliance

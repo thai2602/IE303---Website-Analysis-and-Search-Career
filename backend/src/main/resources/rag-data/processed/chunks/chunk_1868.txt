@@ -1,0 +1,30 @@
+---
+job_id: MRA-105
+role: Market Research Analyst
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Statistical Analysis
+* Regression
+* Predictive Analytics
+* Python
+* SPSS
+* Excel
+* Market Segmentation
+* Tableau
+* Data Storytelling
+* Presentation Skills
+keywords:
+* Market Research
+* Statistical Analysis
+* Predictive Analytics
+* Python
+* SPSS
+* Excel
+* Market Segmentation
+* Data Visualization
+* Data Storytelling
+* Presentation Skills
+---
+
+# Market Research Analyst

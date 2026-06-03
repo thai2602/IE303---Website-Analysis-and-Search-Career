@@ -1,0 +1,15 @@
+## Responsibilities
+* Design and deploy production-grade AI solutions
+* Manage AI cloud platforms
+* Lead AI engineering teams
+* Implement MLOps practices
+* Ensure model explainability
+
+## ATS Keywords
+* AI
+* ML
+* Senior-Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps

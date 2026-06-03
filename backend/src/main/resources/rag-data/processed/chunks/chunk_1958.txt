@@ -1,0 +1,30 @@
+---
+job_id: NE014
+role: Cloud Network Engineer
+level: Experienced
+years_of_experience: 3-5
+skills:
+* AWS Networking
+* Azure Networking
+* VPC
+* Load Balancers
+* Automation with Ansible
+keywords:
+* Cloud Networking
+* AWS
+* Azure
+* VPC
+* Ansible
+---
+
+# Cloud Network Engineer
+
+## Experience Level
+Experienced (3-5 years)
+
+## Skills
+* AWS Networking
+* Azure Networking
+* VPC
+* Load Balancers
+* Automation with Ansible

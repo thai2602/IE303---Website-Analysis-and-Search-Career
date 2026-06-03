@@ -1,0 +1,14 @@
+## Responsibilities
+* Implement automated unit tests
+* Use Moq for dependency testing
+* Develop scalable apps in .NET Core
+* Lead code review sessions
+* Optimize app performance
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* xUnit
+* Moq
+* Azure

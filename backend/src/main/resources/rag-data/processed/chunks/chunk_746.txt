@@ -1,0 +1,21 @@
+---
+job_id: CW-005
+role: Content Writer
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Content strategy
+* SEO optimization and backlinking
+* Advanced writing and editing
+* Multi-format content creation
+* Fact-checking and research
+* Digital marketing tools (Google Analytics, SEMrush)
+* CMS and AI writing tools
+* Analytics and performance measurement
+* Collaboration with marketing and design teams
+* KPI tracking
+keywords:
+* Content Strategy
+* SEO
+* Backlinking
+* Multi-format Content

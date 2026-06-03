@@ -1,0 +1,69 @@
+---
+job_id: SD010
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 1–3 years
+skills:
+* Java
+* Python
+* C++
+* JavaScript/TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django
+* Spring Boot
+* SQL
+* NoSQL
+* Git
+* Agile/Scrum
+keywords:
+* Software Developer
+* Experienced
+* Mid-Level
+* Frontend
+* Backend
+* Cloud
+* Agile
+* Full-Stack
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (1–3 years years)
+
+## Skills
+* Java
+* Python
+* C++
+* JavaScript/TypeScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django
+* Spring Boot
+* SQL
+* NoSQL
+* Git
+* Agile/Scrum
+
+## Responsibilities
+* Develop robust software solutions
+* Build frontend applications using React, Angular, or Vue.js
+* Implement backend services and REST APIs
+* Optimize database queries
+* Participate in Agile sprints and code reviews
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Mid-Level
+* Frontend
+* Backend
+* Cloud
+* Agile
+* Full-Stack

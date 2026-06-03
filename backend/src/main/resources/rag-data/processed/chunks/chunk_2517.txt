@@ -1,0 +1,27 @@
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Microservices
+* Docker
+* Kubernetes
+* CI/CD pipelines
+* Java
+* Python
+* Node.js
+* Security compliance
+* Project management
+* Leadership
+
+## Responsibilities
+* Architect scalable multi-cloud solutions
+* Implement IaC using Terraform/CloudFormation
+* Deploy containerized applications
+* Ensure compliance and security
+* Lead cross-functional teams
+* Mentor junior architects

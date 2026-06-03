@@ -1,0 +1,22 @@
+## Responsibilities
+* Lead robotics R&D projects
+* Develop advanced robotic control systems
+* Integrate sensors, actuators, and AI models
+* Simulate complex robotics scenarios
+* Mentor and manage engineers
+* Drive cross-department collaboration
+* Innovate industrial robotic solutions
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership
+* Innovation

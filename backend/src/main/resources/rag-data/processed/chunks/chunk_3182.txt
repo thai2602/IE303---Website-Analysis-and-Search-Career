@@ -1,0 +1,13 @@
+## Responsibilities
+* Collaborate with senior designers on UI concepts.
+* Design responsive web layouts.
+* Contribute to usability research sessions.
+* Build basic prototypes with feedback loops.
+* Document design iterations for reviews.
+
+## ATS Keywords
+* Prototyping
+* Responsive Design
+* Figma
+* Typography
+* UI/UX Design

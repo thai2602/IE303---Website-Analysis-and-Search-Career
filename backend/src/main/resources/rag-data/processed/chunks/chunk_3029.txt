@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in infrastructure management
+* Support deployment automation and CI/CD pipelines
+* Monitor system health and report anomalies
+* Document procedures and troubleshooting steps
+* Collaborate with senior engineers for learning and task execution
+
+## ATS Keywords
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* CI/CD
+* Monitoring
+* Networking
+* Automation

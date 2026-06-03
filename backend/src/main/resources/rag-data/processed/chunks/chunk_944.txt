@@ -1,0 +1,34 @@
+---
+job_id: DA016
+role: Data Analyst - Experienced
+level: Senior-Level
+years_of_experience: 7+ years
+skills:
+* Advanced SQL
+* Python
+* R
+* Predictive modeling
+* Machine learning
+* Tableau
+* Power BI
+* Looker
+* ETL pipelines
+* BigQuery
+* Snowflake
+* Redshift
+* Hadoop
+* Spark
+* Kafka
+keywords:
+* Data Analytics
+* BI
+* Senior-Level
+* Leadership
+* Predictive Analytics
+* ETL
+---
+
+# Data Analyst - Experienced
+
+## Experience Level
+Senior-Level (7+ years years)

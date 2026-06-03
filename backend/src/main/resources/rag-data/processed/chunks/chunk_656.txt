@@ -1,0 +1,20 @@
+## Skills
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* Jenkins
+* GitLab CI
+* CircleCI
+* Cloud Security: IAM, RBAC, encryption, compliance
+* Monitoring & Logging: CloudWatch, Prometheus, ELK
+* Networking: VPC, load balancers, DNS, firewall rules
+* Python
+* Bash
+* PowerShell
+* Database & Storage: SQL, NoSQL, S3, Azure Blob Storage

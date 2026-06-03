@@ -1,0 +1,16 @@
+# Entry-Level ML Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python
+* R
+* Java
+* ML basics: classification, regression, clustering, decision trees
+* Data preprocessing
+* Feature engineering
+* ML libraries: Scikit-learn, TensorFlow, PyTorch
+* Statistics: probability, linear algebra
+* Visualization: Matplotlib, Seaborn
+* Git/GitHub

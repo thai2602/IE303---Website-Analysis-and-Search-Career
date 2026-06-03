@@ -1,0 +1,34 @@
+## Skills
+* Python
+* Java
+* C++
+* R
+* Classification
+* Regression
+* Clustering
+* TensorFlow
+* PyTorch
+* Keras
+* Scikit-learn
+* Neural Networks
+* OpenCV
+* NLTK
+* Pandas
+* NumPy
+* SQL
+* MongoDB
+
+## Responsibilities
+* Build and train basic AI models
+* Preprocess datasets
+* Implement feature engineering techniques
+* Collaborate in small teams
+
+## ATS Keywords
+* AI
+* ML
+* Fresher
+* Entry-Level
+* Python
+* TensorFlow
+* PyTorch

@@ -1,0 +1,39 @@
+---
+job_id: NET-E-020
+role: .NET Developer
+level: Experienced
+years_of_experience: 5+
+skills:
+* C#
+* .NET Core
+* ASP.NET MVC
+* CI/CD
+* Azure DevOps
+* Docker
+* Kubernetes
+* REST APIs
+keywords:
+* .NET Core
+* C#
+* ASP.NET MVC
+* CI/CD
+* Azure DevOps
+* Docker
+* Kubernetes
+* REST APIs
+---
+
+# .NET Developer
+
+## Experience Level
+Experienced (5+ years)
+
+## Skills
+* C#
+* .NET Core
+* ASP.NET MVC
+* CI/CD
+* Azure DevOps
+* Docker
+* Kubernetes
+* REST APIs

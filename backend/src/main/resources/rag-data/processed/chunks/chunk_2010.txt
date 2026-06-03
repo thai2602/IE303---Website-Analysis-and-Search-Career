@@ -1,0 +1,14 @@
+## Responsibilities
+* Assist in building backend modules
+* Learn and apply Entity Framework
+* Help in writing LINQ queries
+* Support bug fixing
+* Write basic documentation
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* LINQ
+* SQL Server

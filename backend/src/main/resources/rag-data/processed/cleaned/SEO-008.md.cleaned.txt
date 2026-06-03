@@ -1,0 +1,64 @@
+---
+job_id: SEO-008
+role: SEO Specialist
+level: Experienced
+years_of_experience: 6-9
+skills:
+* SEO strategy and planning
+* Advanced technical SEO
+* Crawlability and indexing optimization
+* Content strategy and SEO copywriting
+* Link building and outreach
+* Multimodal search optimization
+* AI-powered SEO tools
+* Analytics and reporting (GA4, Looker Studio)
+* Privacy-compliant SEO strategies
+keywords:
+* SEO Strategy
+* Technical SEO
+* Content Strategy
+* Link Building
+* Multimodal Search
+* AI SEO Tools
+* Analytics
+* Privacy Compliance
+* GA4
+---
+
+# SEO Specialist
+
+## Experience Level
+Experienced (6-9 years)
+
+## Skills
+* SEO strategy and planning
+* Advanced technical SEO
+* Crawlability and indexing optimization
+* Content strategy and SEO copywriting
+* Link building and outreach
+* Multimodal search optimization
+* AI-powered SEO tools
+* Analytics and reporting (GA4, Looker Studio)
+* Privacy-compliant SEO strategies
+
+## Responsibilities
+* Lead SEO strategy and planning
+* Perform technical SEO audits and optimizations
+* Optimize crawlability and site indexing
+* Develop content strategy and oversee SEO copywriting
+* Manage link building and outreach campaigns
+* Implement voice, image, and video search optimizations
+* Leverage AI tools for SEO insights
+* Monitor KPIs and generate reports
+* Ensure compliance with GDPR and privacy standards
+
+## ATS Keywords
+* SEO Strategy
+* Technical SEO
+* Content Strategy
+* Link Building
+* Multimodal Search
+* AI SEO Tools
+* Analytics
+* Privacy Compliance
+* GA4

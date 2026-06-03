@@ -1,0 +1,13 @@
+## Responsibilities
+* Design system architecture
+* Manage hybrid environments
+* Implement automation pipelines
+* Lead cross-team projects
+* Maintain documentation
+
+## ATS Keywords
+* System Architecture
+* AWS
+* Active Directory
+* Linux
+* Automation

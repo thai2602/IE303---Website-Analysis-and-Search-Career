@@ -1,0 +1,18 @@
+## Skills
+* AWS basics
+* Azure basics
+* Java basics
+* Python basics
+* Introductory microservices knowledge
+* Basic CI/CD
+* Docker/Kubernetes fundamentals
+* Communication
+* Teamwork
+
+## Responsibilities
+* Support cloud architecture projects
+* Assist in designing solutions
+* Participate in Docker/Kubernetes setup
+* Document architecture designs
+* Collaborate with stakeholders
+* Learn CI/CD pipeline setup

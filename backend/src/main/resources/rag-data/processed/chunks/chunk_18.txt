@@ -1,0 +1,9 @@
+### 4.2 Content Mistakes
+
+| Mistake | Why It's a Problem | Fix |
+|---------|-------------------|-----|
+| Generic job titles | Doesn't match JD role labels | Mirror the exact job title from the JD |
+| Vague skill descriptions | No keyword match | Use specific tool/skill names |
+| Missing dates | ATS can't calculate experience duration | Always include MM/YYYY for all roles |
+| Unexplained gaps | May trigger low scoring | Add a brief note (e.g. "Career break — professional development") |
+| Submitting one CV for all roles | Low keyword match per JD | Tailor each CV to the specific JD |

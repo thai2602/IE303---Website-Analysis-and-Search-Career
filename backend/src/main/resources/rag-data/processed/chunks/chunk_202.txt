@@ -1,0 +1,17 @@
+# Android Solutions Engineer
+
+## Experience Level
+Experienced (3-5 years years)
+
+## Skills
+* Java
+* Kotlin
+* Android Studio
+* MVVM
+* Clean Architecture
+* Jetpack
+* Room
+* REST APIs
+* Firebase
+* CI/CD
+* Unit Testing

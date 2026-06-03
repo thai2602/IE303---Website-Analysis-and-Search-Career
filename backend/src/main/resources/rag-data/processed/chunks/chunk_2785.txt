@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop secure applications using Java and SQL
+* Assist in debugging REST APIs
+* Collaborate in agile workflows
+* Contribute to integration testing
+* Document processes for clarity
+
+## ATS Keywords
+* Software Engineer
+* Java
+* SQL
+* REST API
+* Agile
+* Integration Testing
+* Debugging

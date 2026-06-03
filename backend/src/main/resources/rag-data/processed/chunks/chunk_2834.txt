@@ -1,0 +1,30 @@
+---
+job_id: SE018
+role: System Engineer - Cloud & Automation
+level: Experienced
+years_of_experience: 5-7
+skills:
+* AWS
+* Azure
+* Ansible
+* Python
+* Docker
+keywords:
+* Cloud
+* Automation
+* AWS
+* Azure
+* Python
+---
+
+# System Engineer - Cloud & Automation
+
+## Experience Level
+Experienced (5-7 years)
+
+## Skills
+* AWS
+* Azure
+* Ansible
+* Python
+* Docker

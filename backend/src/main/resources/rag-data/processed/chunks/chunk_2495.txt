@@ -1,0 +1,19 @@
+## Responsibilities
+* Assist in programming and testing robot applications
+* Support ROS and MATLAB projects
+* Design mechanical parts using CAD tools
+* Implement basic control and feedback systems
+* Work with embedded microcontrollers
+* Integrate basic sensors and actuators
+* Collaborate with teammates and document work
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Problem Solving

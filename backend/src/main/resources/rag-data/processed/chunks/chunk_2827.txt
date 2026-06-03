@@ -1,0 +1,13 @@
+## Responsibilities
+* Integrate systems with CI/CD pipelines
+* Deploy containers and clusters
+* Automate builds and deployments
+* Collaborate with DevOps teams
+* Ensure scalability
+
+## ATS Keywords
+* DevOps
+* CI/CD
+* Docker
+* Kubernetes
+* Automation

@@ -1,0 +1,29 @@
+---
+job_id: AI-E-013
+role: AI Prompt Engineer
+level: Experienced
+years_of_experience: 3+
+skills:
+* Python
+* Advanced NLP
+* Hugging Face Transformers
+* PyTorch
+* TensorFlow
+* Prompt chain-of-thought
+* Iterative prompt design
+* OpenAI API
+* Azure Cognitive Services
+* Data analytics
+* Collaboration
+* Leadership
+* Critical thinking
+* Communication
+* Creativity
+keywords:
+* Prompt Optimization
+* LLM
+* NLP
+* Python
+* AI Frameworks
+* Model Fine-tuning
+---

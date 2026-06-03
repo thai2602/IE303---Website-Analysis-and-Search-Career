@@ -1,0 +1,69 @@
+---
+job_id: CW-115
+role: Copywriter
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Grammar and punctuation
+* Persuasive writing
+* Basic SEO knowledge
+* Storytelling
+* Research and fact-checking
+* CMS usage
+* AI writing tools
+* Creativity
+* Time management
+* Team collaboration
+keywords:
+* Copywriting
+* SEO
+* Grammar
+* Storytelling
+* CMS
+* AI Tools
+* Research
+* Creativity
+* Collaboration
+* Time Management
+---
+
+# Copywriter
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Grammar and punctuation
+* Persuasive writing
+* Basic SEO knowledge
+* Storytelling
+* Research and fact-checking
+* CMS usage
+* AI writing tools
+* Creativity
+* Time management
+* Team collaboration
+
+## Responsibilities
+* Create engaging copy for websites and social media
+* Apply basic SEO practices
+* Research content topics for accuracy
+* Edit and proofread copy
+* Publish content using CMS tools
+* Adapt writing style to different audiences
+* Collaborate with marketing teams
+* Use AI writing tools to enhance productivity
+* Manage content deadlines
+* Support content performance tracking
+
+## ATS Keywords
+* Copywriting
+* SEO
+* Grammar
+* Storytelling
+* CMS
+* AI Tools
+* Research
+* Creativity
+* Collaboration
+* Time Management

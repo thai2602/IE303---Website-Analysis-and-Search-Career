@@ -1,0 +1,33 @@
+---
+job_id: TW-114
+role: Technical Writer
+level: Mid-Level
+years_of_experience: 3-6
+skills:
+* Technical Writing
+* Editing
+* Proofreading
+* Adobe FrameMaker
+* MadCap Flare
+* CMS
+* HTML/CSS/XML
+* AI Writing Tools
+* Version Control
+* Agile Documentation
+keywords:
+* Technical Writing
+* Adobe FrameMaker
+* MadCap Flare
+* CMS
+* HTML
+* XML
+* AI Tools
+* Agile Documentation
+* Editing
+* Version Control
+---
+
+# Technical Writer
+
+## Experience Level
+Mid-Level (3-6 years)

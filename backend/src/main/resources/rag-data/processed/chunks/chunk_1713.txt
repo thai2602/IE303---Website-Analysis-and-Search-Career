@@ -1,0 +1,19 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Core JavaScript ES6+
+* HTML5 basics
+* CSS3 basics
+* React basics
+* Angular basics
+* Vue.js basics
+* AJAX
+* JSON
+* Git basics
+* Responsive design
+* REST API basics
+* Problem-solving
+* Communication
+* Teamwork
+* Adaptability

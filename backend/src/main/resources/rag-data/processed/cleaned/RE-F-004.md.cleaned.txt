@@ -1,0 +1,78 @@
+---
+job_id: RE-F-004
+role: Robotics Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python basics
+* C++ basics
+* MATLAB basics
+* ROS basics
+* SolidWorks
+* AutoCAD
+* PID control basics
+* Motor control basics
+* Arduino basics
+* Raspberry Pi basics
+* LIDAR and infrared sensors basics
+* Kinematics
+* Linear algebra
+* Problem solving
+* Communication
+* Teamwork
+* Adaptability
+keywords:
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Problem Solving
+---
+
+# Robotics Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* C++ basics
+* MATLAB basics
+* ROS basics
+* SolidWorks
+* AutoCAD
+* PID control basics
+* Motor control basics
+* Arduino basics
+* Raspberry Pi basics
+* LIDAR and infrared sensors basics
+* Kinematics
+* Linear algebra
+* Problem solving
+* Communication
+* Teamwork
+* Adaptability
+
+## Responsibilities
+* Assist in robot programming and simulation
+* Support ROS and MATLAB-based projects
+* Design mechanical parts using CAD software
+* Implement basic control algorithms
+* Work on embedded systems and sensor integration
+* Collaborate with the team on small-scale projects
+* Document experimental results
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Problem Solving

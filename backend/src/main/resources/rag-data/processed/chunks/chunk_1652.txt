@@ -1,0 +1,11 @@
+## Responsibilities
+* Develop event-driven systems using Kafka
+* Implement microservices with Spring Boot
+* Manage persistence with JPA/Hibernate
+
+## ATS Keywords
+* Java
+* Spring Boot
+* Hibernate
+* Kafka
+* Microservices

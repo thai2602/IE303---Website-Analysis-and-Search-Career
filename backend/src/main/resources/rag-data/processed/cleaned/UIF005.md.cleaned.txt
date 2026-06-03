@@ -1,0 +1,46 @@
+---
+job_id: UIF005
+role: UI Designer
+level: Fresher
+years_of_experience: 0
+skills:
+* Sketch
+* Figma
+* Wireframing
+* Prototyping
+* Typography
+keywords:
+* Wireframing
+* Prototyping
+* Typography
+* UI Basics
+* Figma
+* Sketch
+---
+
+# UI Designer
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Sketch
+* Figma
+* Wireframing
+* Prototyping
+* Typography
+
+## Responsibilities
+* Support senior designers in project delivery.
+* Produce visual assets and prototypes for web pages.
+* Apply typography and branding to mockups.
+* Participate in user feedback collection.
+* Practice design iteration workflows.
+
+## ATS Keywords
+* Wireframing
+* Prototyping
+* Typography
+* UI Basics
+* Figma
+* Sketch

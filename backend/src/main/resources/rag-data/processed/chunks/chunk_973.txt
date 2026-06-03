@@ -1,0 +1,15 @@
+## Responsibilities
+* Lead end-to-end data engineering projects
+* Architect solutions for large data lakes
+* Collaborate across product and engineering
+* Ensure robust monitoring of pipelines
+* Mentor junior engineers
+
+## ATS Keywords
+* Python
+* SQL
+* Spark
+* Snowflake
+* AWS
+* Kafka
+* Airflow

@@ -1,0 +1,29 @@
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* Python
+* Java
+* C++
+* R
+* Supervised/Unsupervised Learning
+* Regression
+* Classification
+* Clustering
+* TensorFlow
+* PyTorch
+* Keras
+* Scikit-learn
+* Neural Networks
+* OpenCV
+* NLTK
+* Pandas
+* NumPy
+* SQL
+* MongoDB
+
+## Responsibilities
+* Support AI development
+* Create and test ML models
+* Perform data preprocessing and feature engineering
+* Collaborate with mentors

@@ -1,0 +1,21 @@
+# AI Prompt Engineer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* Python
+* Advanced NLP
+* Hugging Face Transformers
+* TensorFlow
+* PyTorch
+* Prompt optimization techniques
+* Chain-of-thought prompts
+* OpenAI API
+* Azure Cognitive Services
+* Data analytics
+* Leadership
+* Collaboration
+* Problem-solving
+* Creativity
+* Critical thinking

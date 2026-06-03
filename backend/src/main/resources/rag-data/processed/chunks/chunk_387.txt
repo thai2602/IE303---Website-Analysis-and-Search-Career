@@ -1,0 +1,30 @@
+---
+job_id: BA-115
+role: Business Analyst
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Business Intelligence
+* Advanced SQL
+* Tableau
+* Power BI
+* SAS
+* AI-driven analytics
+* Requirement elicitation
+* Agile methodology
+* Stakeholder management
+* Strategic planning
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* BI Tools
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Strategic Planning
+---
+
+# Business Analyst

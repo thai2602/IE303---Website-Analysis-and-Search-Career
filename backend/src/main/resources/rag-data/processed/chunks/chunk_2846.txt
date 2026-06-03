@@ -1,0 +1,9 @@
+## Responsibilities
+* Support technical SEO audits
+* Implement basic page speed and schema optimizations
+* Assist in crawlability and indexing improvements
+* Optimize content for SEO
+* Monitor analytics and generate reports
+* Collaborate with developers and content team
+* Assist in backlink analysis
+* Learn AI-driven SEO tools

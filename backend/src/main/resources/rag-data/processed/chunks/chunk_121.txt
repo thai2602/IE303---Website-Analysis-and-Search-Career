@@ -1,0 +1,16 @@
+## Responsibilities
+* Write and refine prompts for AI models
+* Support NLP and data analysis tasks
+* Collaborate with AI/data teams
+* Document prompt results and learnings
+* Assist in AI model evaluation and integration
+
+## ATS Keywords
+* Prompt Engineering
+* NLP
+* Python
+* TensorFlow
+* PyTorch
+* Hugging Face
+* GPT
+* AI Model Optimization

@@ -1,0 +1,13 @@
+## Responsibilities
+* Automate configuration management
+* Develop custom automation scripts
+* Improve deployment efficiency
+* Optimize infrastructure performance
+* Integrate monitoring tools
+
+## ATS Keywords
+* Automation
+* Linux
+* Python
+* System Optimization
+* Ansible

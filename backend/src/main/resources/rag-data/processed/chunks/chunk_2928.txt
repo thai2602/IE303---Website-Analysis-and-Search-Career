@@ -1,0 +1,25 @@
+---
+job_id: SEO-020
+role: SEO Specialist
+level: Experienced
+years_of_experience: 5-9
+skills:
+* SEO strategy
+* Technical SEO audits
+* Advanced content strategy
+* Link building
+* AI-powered SEO tools
+* Multimodal search optimization
+* Analytics and reporting
+* Privacy compliance (GDPR)
+* Local and mobile SEO optimization
+* Stakeholder communication
+keywords:
+* SEO Strategy
+* Technical SEO
+* Content Strategy
+* Link Building
+* AI SEO Tools
+* Multimodal Search
+* Analytics
+* Privacy Compliance

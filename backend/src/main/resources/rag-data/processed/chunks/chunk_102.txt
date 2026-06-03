@@ -1,0 +1,19 @@
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* Advanced Python
+* NLP frameworks
+* Hugging Face
+* PyTorch
+* TensorFlow
+* Prompt chain-of-thought
+* Iterative prompt optimization
+* OpenAI API
+* Azure Cognitive Services
+* Data analysis
+* Leadership
+* Collaboration
+* Problem-solving
+* Creativity
+* Critical thinking

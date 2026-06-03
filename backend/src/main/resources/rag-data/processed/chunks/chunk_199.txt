@@ -1,0 +1,6 @@
+## Responsibilities
+* Architect and lead Android app development projects.
+* Implement MVVM and modular design patterns.
+* Optimize app memory and multi-threading performance.
+* Integrate cloud services like Firebase for analytics and messaging.
+* Mentor team members and ensure high code quality.

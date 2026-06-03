@@ -1,0 +1,17 @@
+## Responsibilities
+* Design and implement automated test frameworks
+* Perform advanced functional, regression, and performance testing
+* Integrate automated tests into CI/CD pipelines
+* Review code quality and manage test data
+* Lead Agile QA team activities
+* Mentor junior SDETs
+
+## ATS Keywords
+* Automation Framework
+* CI/CD
+* Performance Testing
+* Selenium
+* Jenkins
+* Appium
+* Code Review
+* Test Data Management

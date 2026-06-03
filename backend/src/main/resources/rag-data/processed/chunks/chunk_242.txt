@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in coding Android app modules in Java/Kotlin.
+* Apply Material Design and UI/UX best practices.
+* Perform unit testing for small features.
+* Connect apps to REST APIs for demonstration projects.
+* Document code and workflows under supervision.
+
+## ATS Keywords
+* Kotlin
+* Java
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

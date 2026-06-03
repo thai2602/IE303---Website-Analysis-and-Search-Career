@@ -1,0 +1,13 @@
+## Responsibilities
+* Develop and maintain production-ready iOS apps.
+* Implement MVVM pattern for modular app design.
+* Consume REST APIs and integrate third-party libraries.
+* Deploy apps to the App Store and handle updates.
+* Participate in agile development and sprint planning.
+
+## ATS Keywords
+* Swift
+* MVVM
+* REST APIs
+* App Store Submission
+* Agile

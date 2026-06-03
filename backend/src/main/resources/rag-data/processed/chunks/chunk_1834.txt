@@ -1,0 +1,16 @@
+## Responsibilities
+* Lead development and deployment of ML models for enterprise-scale data
+* Optimize performance and implement MLOps pipelines
+* Mentor junior ML engineers
+* Ensure production-grade ML solutions
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Senior ML Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Cloud Deployment

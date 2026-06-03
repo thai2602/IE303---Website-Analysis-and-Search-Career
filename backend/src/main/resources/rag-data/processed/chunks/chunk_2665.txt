@@ -1,0 +1,16 @@
+## Responsibilities
+* Assist in manual and automated testing activities
+* Execute functional, regression, and API tests
+* Document test results and issues
+* Collaborate with QA and development teams
+* Learn Agile methodologies
+
+## ATS Keywords
+* Software Testing
+* Automation Testing
+* Selenium
+* API Testing
+* JUnit
+* TestNG
+* Agile/Scrum
+* Regression Testing

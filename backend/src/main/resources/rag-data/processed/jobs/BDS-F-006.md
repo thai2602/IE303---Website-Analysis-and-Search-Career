@@ -1,0 +1,71 @@
+---
+job_id: BDS-F-006
+role: Big Data Specialist
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Hadoop basics
+* Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL concepts
+* Talend basics
+* Linux/Unix basics
+* Problem-solving
+* Curiosity
+* Teamwork
+keywords:
+* Big Data
+* Hadoop
+* Spark
+* Java
+* Python
+* SQL
+* NoSQL
+* ETL
+* Data Mining
+* Linux
+---
+
+# Big Data Specialist
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Hadoop basics
+* Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL concepts
+* Talend basics
+* Linux/Unix basics
+* Problem-solving
+* Curiosity
+* Teamwork
+
+## Responsibilities
+* Assist in data processing workflows
+* Support basic ETL pipelines
+* Collaborate with team members
+* Learn Hadoop/Spark jobs
+* Document data workflows
+* Apply data analytics techniques
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark
+* Java
+* Python
+* SQL
+* NoSQL
+* ETL
+* Data Mining
+* Linux

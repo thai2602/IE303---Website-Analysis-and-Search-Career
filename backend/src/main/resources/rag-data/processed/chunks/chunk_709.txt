@@ -1,0 +1,17 @@
+## Skills
+* Python
+* C++
+* Linux Basics
+* Firewall Configuration
+* Wireshark
+* Nessus
+* Snort
+* Encryption Basics
+* Incident Response
+
+## Responsibilities
+* Assist in monitoring network traffic
+* Support in basic vulnerability scanning
+* Help configure firewalls and IDS tools
+* Document incidents and responses
+* Collaborate with team on risk assessments

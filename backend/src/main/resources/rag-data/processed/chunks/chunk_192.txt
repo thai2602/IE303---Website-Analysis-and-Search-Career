@@ -1,0 +1,21 @@
+## Experience Level
+Experienced (2-3 years years)
+
+## Skills
+* Java
+* Kotlin
+* Android Studio
+* Jetpack
+* MVVM
+* Room
+* REST APIs
+* Git
+* Firebase
+* Unit Testing
+
+## Responsibilities
+* Develop and maintain production Android apps.
+* Implement MVVM architecture and Jetpack components.
+* Integrate REST APIs and Firebase services.
+* Optimize performance with multi-threading and memory management.
+* Mentor junior developers and participate in agile sprints.

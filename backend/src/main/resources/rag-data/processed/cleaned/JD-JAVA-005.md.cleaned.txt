@@ -1,0 +1,40 @@
+---
+job_id: JD-JAVA-005
+role: Java Developer
+level: Fresher
+years_of_experience: 0
+skills:
+* Java Collections
+* Multithreading Basics
+* Database Management
+* SQL Queries
+keywords:
+* Java
+* Collections
+* SQL
+* Database
+* Multithreading
+---
+
+# Java Developer
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Java Collections
+* Multithreading Basics
+* Database Management
+* SQL Queries
+
+## Responsibilities
+* Assist in handling data persistence layers
+* Write and optimize SQL queries
+* Understand multithreading basics in Java
+
+## ATS Keywords
+* Java
+* Collections
+* SQL
+* Database
+* Multithreading

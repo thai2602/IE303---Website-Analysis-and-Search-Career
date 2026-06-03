@@ -1,0 +1,21 @@
+## Responsibilities
+* Oversee infrastructure reliability
+* Lead automation initiatives
+* Maintain CI/CD and IaC pipelines
+* Monitor distributed systems
+* Optimize system performance
+* Manage incident responses
+* Mentor team members
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Distributed Systems

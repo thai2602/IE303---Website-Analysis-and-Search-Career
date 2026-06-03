@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead AR/VR development projects
+* Architect immersive and interactive applications
+* Optimize graphics performance and hardware integration
+* Oversee cross-platform deployment
+* Mentor teams and review code/designs
+* Collaborate with design and engineering teams
+* Manage timelines and deliverables
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing
+* Performance Optimization
+* Cross-Platform
+* Machine Learning

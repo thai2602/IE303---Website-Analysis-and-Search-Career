@@ -1,0 +1,21 @@
+## Skills
+* Hadoop (HDFS, Hive, MapReduce)
+* Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL basics
+* Talend basics
+* Linux/Unix basics
+* Analytical thinking
+* Teamwork
+
+## Responsibilities
+* Support data ingestion and processing
+* Assist in ETL pipelines
+* Learn and implement Hadoop/Spark tasks
+* Document workflows
+* Collaborate with team
+* Apply basic analytics techniques

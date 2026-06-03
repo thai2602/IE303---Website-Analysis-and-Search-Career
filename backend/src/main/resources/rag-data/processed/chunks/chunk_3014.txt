@@ -1,0 +1,19 @@
+## Responsibilities
+* Assist in system and network administration tasks
+* Support CI/CD pipeline setup
+* Learn containerization with Docker and Kubernetes
+* Monitor system health and report issues
+* Document infrastructure and procedures
+* Collaborate with senior engineers
+
+## ATS Keywords
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* CI/CD
+* Prometheus
+* Monitoring
+* Networking

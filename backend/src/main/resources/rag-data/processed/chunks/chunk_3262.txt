@@ -1,0 +1,19 @@
+## Responsibilities
+* Lead AI-assisted coding strategy
+* Define and implement prompt engineering guidelines
+* Mentor and guide all Vibe Coders
+* Oversee AI code quality and performance
+* Ensure strategic project execution and timelines
+* Document workflows and innovation initiatives
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile
+* Leadership

@@ -1,0 +1,27 @@
+---
+job_id: FE004
+role: Frontend Developer - Entry Level
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* React basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+keywords:
+* Frontend
+* Web Development
+* UI
+* Entry-Level
+* Fresher
+---
+
+# Frontend Developer - Entry Level
+
+## Experience Level
+Entry-Level (0–1 year years)

@@ -1,0 +1,11 @@
+## Skills
+* HTML
+* CSS
+* JavaScript
+* React
+* Vue.js
+* Node.js
+* Django
+* SQL
+* NoSQL
+* Git

@@ -1,0 +1,46 @@
+---
+job_id: UIE016
+role: UI Designer
+level: Experienced
+years_of_experience: 4
+skills:
+* Figma
+* Adobe XD
+* Principle
+* After Effects
+* Animation
+* Prototyping
+keywords:
+* Interaction Design
+* Micro-Interactions
+* Figma
+* Prototyping
+* Branding
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (4 years)
+
+## Skills
+* Figma
+* Adobe XD
+* Principle
+* After Effects
+* Animation
+* Prototyping
+
+## Responsibilities
+* Produce advanced animations and motion design.
+* Build interactive prototypes with micro-interactions.
+* Work with developers for seamless front-end handoff.
+* Drive user engagement through visual enhancements.
+* Oversee visual branding alignment across channels.
+
+## ATS Keywords
+* Interaction Design
+* Micro-Interactions
+* Figma
+* Prototyping
+* Branding

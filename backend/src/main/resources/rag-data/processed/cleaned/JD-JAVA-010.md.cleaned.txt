@@ -1,0 +1,40 @@
+---
+job_id: JD-JAVA-010
+role: Java Developer
+level: Fresher
+years_of_experience: 0
+skills:
+* Core Java
+* OOP
+* Database Basics
+* Git
+* Team Collaboration
+keywords:
+* Java
+* Core Java
+* Git
+* Teamwork
+---
+
+# Java Developer
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Core Java
+* OOP
+* Database Basics
+* Git
+* Team Collaboration
+
+## Responsibilities
+* Collaborate with team members in Java projects
+* Implement OOP concepts in real modules
+* Handle version control tasks
+
+## ATS Keywords
+* Java
+* Core Java
+* Git
+* Teamwork

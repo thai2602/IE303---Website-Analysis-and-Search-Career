@@ -1,0 +1,14 @@
+## Responsibilities
+* Design and maintain automated test frameworks
+* Conduct performance and security testing
+* Integrate testing in CI/CD pipelines
+* Lead QA teams
+
+## ATS Keywords
+* QA
+* Automation
+* Software
+* Senior-Level
+* San Francisco
+* Leadership
+* Performance Testing

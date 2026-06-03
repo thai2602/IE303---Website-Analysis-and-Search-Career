@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead cloud infrastructure projects
+* Implement automated CI/CD pipelines
+* Optimize resource usage
+* Ensure cloud security and compliance
+* Mentor and guide team
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Security

@@ -1,0 +1,30 @@
+---
+job_id: UXE017
+role: UX Strategist
+level: Experienced
+years_of_experience: 7-9
+skills:
+* UX Research
+* Journey Mapping
+* Analytics
+* Figma
+* Design Systems
+keywords:
+* UX Research
+* Journey Mapping
+* Design Systems
+* Analytics
+* A/B Testing
+---
+
+# UX Strategist
+
+## Experience Level
+Experienced (7-9 years)
+
+## Skills
+* UX Research
+* Journey Mapping
+* Analytics
+* Figma
+* Design Systems

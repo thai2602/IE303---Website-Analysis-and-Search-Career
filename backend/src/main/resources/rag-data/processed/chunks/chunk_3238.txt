@@ -1,0 +1,20 @@
+## Skills
+* Python basics
+* JavaScript basics
+* HTML/CSS basics
+* Vue basics
+* AI coding assistant usage
+* Prompt creation
+* Debugging AI outputs
+* Code evaluation
+* Teamwork
+* Adaptability
+* Critical thinking
+
+## Responsibilities
+* Support AI-assisted coding projects
+* Create basic prompts for AI code generation
+* Review AI-generated code for errors
+* Collaborate with team members
+* Document workflows and outputs
+* Assist in low-code/no-code development tasks

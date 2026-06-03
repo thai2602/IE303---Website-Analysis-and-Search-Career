@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in AI-assisted coding projects
+* Learn prompt engineering techniques
+* Review AI-generated code for basic errors
+* Collaborate with team members
+* Document project work and AI interactions
+* Follow coding standards and best practices
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Prompt Engineering
+* Debugging
+* Collaboration
+* HTML
+* CSS

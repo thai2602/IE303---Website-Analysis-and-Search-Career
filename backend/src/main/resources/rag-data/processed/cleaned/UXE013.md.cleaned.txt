@@ -1,0 +1,48 @@
+---
+job_id: UXE013
+role: Principal UX Designer
+level: Experienced
+years_of_experience: 8-10
+skills:
+* Figma
+* Sketch
+* InVision
+* User Research
+* A/B Testing
+* Leadership
+* Interaction Design
+keywords:
+* Leadership
+* Design Systems
+* Figma
+* A/B Testing
+* Interaction Design
+---
+
+# Principal UX Designer
+
+## Experience Level
+Experienced (8-10 years)
+
+## Skills
+* Figma
+* Sketch
+* InVision
+* User Research
+* A/B Testing
+* Leadership
+* Interaction Design
+
+## Responsibilities
+* Lead UX strategy across platforms
+* Deliver high-fidelity prototypes
+* Develop design systems
+* Evaluate usability via metrics
+* Mentor team members
+
+## ATS Keywords
+* Leadership
+* Design Systems
+* Figma
+* A/B Testing
+* Interaction Design

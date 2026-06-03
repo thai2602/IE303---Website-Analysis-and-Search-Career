@@ -1,0 +1,11 @@
+## Responsibilities
+* Assist with switch and router setup
+* Write basic automation scripts
+* Document network configurations
+* Support end-user connectivity
+
+## ATS Keywords
+* Routing
+* Switching
+* Python Automation
+* LAN/WAN

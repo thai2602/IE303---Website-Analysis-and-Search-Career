@@ -1,0 +1,28 @@
+---
+job_id: CW-103
+role: Copywriter
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Advanced copywriting
+* SEO optimization
+* Content research
+* Brand voice consistency
+* Editing and proofreading
+* Digital marketing channel familiarity
+* CMS proficiency
+* AI-assisted writing tools
+* Storytelling and creativity
+* Collaboration with marketing teams
+keywords:
+* Copywriting
+* SEO
+* Content Research
+* Editing
+* Brand Voice
+* CMS
+* AI Tools
+* Digital Marketing
+* Storytelling
+* Collaboration
+---

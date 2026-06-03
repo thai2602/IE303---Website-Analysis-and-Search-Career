@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and implement blockchain architectures
+* Develop optimized and secure smart contracts
+* Lead scalable DApps development and cross-chain solutions
+* Integrate blockchain systems with cloud platforms
+* Mentor and manage teams
+* Coordinate with stakeholders
+* Drive innovation initiatives

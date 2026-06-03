@@ -1,0 +1,61 @@
+---
+job_id: BI014
+role: BI Analyst - Experienced
+level: Senior-Level
+years_of_experience: 6–10 years
+skills:
+* Tableau
+* Power BI
+* Looker
+* QlikView
+* SQL & Database management
+* Redshift
+* Snowflake
+* Predictive analytics
+* Data modeling
+* Forecasting
+* ETL pipelines
+* KPI development
+keywords:
+* BI
+* Analytics
+* Senior-Level
+* Predictive Analytics
+* ETL
+* Tableau
+* Power BI
+---
+
+# BI Analyst - Experienced
+
+## Experience Level
+Senior-Level (6–10 years years)
+
+## Skills
+* Tableau
+* Power BI
+* Looker
+* QlikView
+* SQL & Database management
+* Redshift
+* Snowflake
+* Predictive analytics
+* Data modeling
+* Forecasting
+* ETL pipelines
+* KPI development
+
+## Responsibilities
+* Lead business intelligence projects
+* Manage ETL and data pipelines
+* Develop predictive models
+* Mentor junior BI analysts
+
+## ATS Keywords
+* BI
+* Analytics
+* Senior-Level
+* Predictive Analytics
+* ETL
+* Tableau
+* Power BI

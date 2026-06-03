@@ -1,0 +1,21 @@
+## Experience Level
+Senior-Level (5–9 years years)
+
+## Skills
+* Predictive analytics
+* Advanced BI modeling
+* Forecasting
+* Tableau
+* Power BI
+* Looker
+* QlikView
+* SQL
+* Redshift
+* Snowflake
+* ETL pipeline design
+* KPI and performance metrics development
+
+## Responsibilities
+* Develop and optimize dashboards
+* Implement advanced analytics solutions
+* Oversee ETL and data warehousing projects

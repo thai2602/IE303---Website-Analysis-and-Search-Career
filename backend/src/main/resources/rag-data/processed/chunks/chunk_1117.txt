@@ -1,0 +1,8 @@
+## Responsibilities
+* Work on cloud-native full-stack applications
+* Lead frontend development using React or Vue.js
+* Develop backend services with Node.js or Django
+* Design and optimize SQL/NoSQL databases
+* Implement CI/CD pipelines
+* Ensure secure authentication and authorization
+* Mentor junior developers

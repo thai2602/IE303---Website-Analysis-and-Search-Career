@@ -1,0 +1,5 @@
+## Kỹ năng (Skills)
+- **Ngôn ngữ lập trình:** Java, Python, JavaScript/TypeScript.
+- **Frameworks & Libraries:** Spring Boot, Spring Data JPA, ReactJS, ExpressJS.
+- **Databases:** PostgreSQL, MySQL, MongoDB, Redis.
+- **Công cụ & Nền tảng:** Git, Docker, AWS (EC2, S3, RDS), Jenkins, Kafka.

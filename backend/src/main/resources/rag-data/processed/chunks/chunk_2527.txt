@@ -1,0 +1,19 @@
+## Responsibilities
+* Architect scalable cloud solutions
+* Implement IaC using Terraform/CloudFormation
+* Deploy containerized applications
+* Ensure compliance with security protocols
+* Lead teams and mentor architects
+* Collaborate with business and technical stakeholders
+
+## ATS Keywords
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Microservices
+* Docker
+* Kubernetes
+* CI/CD

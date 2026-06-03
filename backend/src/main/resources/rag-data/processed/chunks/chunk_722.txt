@@ -1,0 +1,12 @@
+## Responsibilities
+* Support in analyzing logs
+* Assist in firewall updates
+* Document cryptographic protocols
+* Provide support in compliance audits
+
+## ATS Keywords
+* Firewall Management
+* Cryptography
+* ISO 27001
+* Incident Response
+* SIEM

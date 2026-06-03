@@ -1,0 +1,28 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript
+* React basics
+* Node.js basics
+* Git
+* MySQL basics
+* REST APIs
+* AJAX
+* UI/UX fundamentals
+
+## Responsibilities
+* Support development of interactive web pages
+* Implement API calls
+* Work on responsive design
+* Test and debug applications
+* Collaborate with team members
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Node.js
+* MySQL
+* REST APIs
+* AJAX

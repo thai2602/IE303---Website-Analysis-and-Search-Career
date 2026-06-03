@@ -1,0 +1,23 @@
+---
+job_id: CW-019
+role: Content Writer
+level: Experienced
+years_of_experience: 5-8
+skills:
+* Content strategy leadership
+* Advanced SEO
+* Multi-format content creation
+* Editing and proofreading
+* Digital marketing tools (GA, SEMrush, HubSpot)
+* AI-assisted writing
+* Analytics and KPI tracking
+* Collaboration with cross-functional teams
+* Content calendar management
+* Project management
+keywords:
+* Content Strategy
+* SEO
+* Multi-format Content
+* Editing
+* Digital Marketing Tools
+* AI Tools

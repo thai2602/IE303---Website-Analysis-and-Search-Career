@@ -1,0 +1,27 @@
+## Skills
+* Java
+* Python
+* C++
+* HTML
+* CSS
+* JavaScript
+* SQL
+* Git
+* Problem-solving
+* Teamwork
+
+## Responsibilities
+* Assist in coding, debugging, and testing applications
+* Support front-end development using JavaScript frameworks
+* Maintain database scripts
+* Collaborate with senior developers
+* Learn best practices in software engineering
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Debugging
+* Testing

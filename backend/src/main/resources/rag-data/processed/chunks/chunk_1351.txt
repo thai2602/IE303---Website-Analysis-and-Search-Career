@@ -1,0 +1,25 @@
+## Skills
+* React/Redux
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance optimization
+* Unit & E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Lead frontend initiatives for e-commerce platforms
+* Implement advanced React/Redux features
+* Optimize page speed
+* Conduct code reviews and mentor juniors
+
+## ATS Keywords
+* Frontend
+* E-commerce
+* Senior
+* React
+* UI
+* SPA

@@ -1,0 +1,17 @@
+# Lead Android Engineer
+
+## Experience Level
+Experienced (4-5 years years)
+
+## Skills
+* Kotlin
+* Java
+* Android Studio
+* MVVM
+* Clean Architecture
+* Jetpack
+* Room
+* Firebase
+* Dagger
+* Performance Optimization
+* CI/CD

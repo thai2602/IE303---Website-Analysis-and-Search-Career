@@ -1,0 +1,19 @@
+## Skills
+* AWS fundamentals
+* Azure fundamentals
+* Java basics
+* Python basics
+* Node.js basics
+* Introductory Docker/Kubernetes knowledge
+* CI/CD fundamentals
+* Basic security awareness
+* Communication
+* Teamwork
+
+## Responsibilities
+* Support cloud solution implementation
+* Assist in designing scalable architectures
+* Participate in CI/CD setup tasks
+* Learn container orchestration basics
+* Document design solutions
+* Collaborate with development teams

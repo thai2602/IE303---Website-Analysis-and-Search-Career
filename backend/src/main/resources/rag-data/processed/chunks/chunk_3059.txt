@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* TestNG
+* Cucumber
+* Jenkins
+* GitLab
+* Docker
+* JMeter
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+
+## Responsibilities
+* Lead automation framework design
+* Optimize regression suites
+* Conduct performance/security testing
+* Mentor juniors
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Framework Design
+* Performance Testing
+* Mentoring

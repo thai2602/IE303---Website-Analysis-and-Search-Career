@@ -1,0 +1,69 @@
+---
+job_id: OM-103
+role: Operations Manager
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Basic Team Coordination
+* Workflow Awareness
+* Time Management
+* Communication
+* Problem-Solving
+* Adaptability
+* Data Reporting Basics
+* ERP/CRM Basics
+* Process Observation
+* Collaboration
+keywords:
+* Operations Management
+* Team Coordination
+* Process Observation
+* ERP
+* CRM
+* Time Management
+* Collaboration
+* Data Reporting
+* Problem Solving
+* Adaptability
+---
+
+# Operations Manager
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Basic Team Coordination
+* Workflow Awareness
+* Time Management
+* Communication
+* Problem-Solving
+* Adaptability
+* Data Reporting Basics
+* ERP/CRM Basics
+* Process Observation
+* Collaboration
+
+## Responsibilities
+* Assist in daily operations management
+* Support scheduling and resource allocation
+* Observe and document workflow processes
+* Prepare basic operational reports
+* Collaborate with team members
+* Learn ERP/CRM and operational tools
+* Identify minor process improvement opportunities
+* Participate in team meetings
+* Support senior managers
+* Develop communication and coordination skills
+
+## ATS Keywords
+* Operations Management
+* Team Coordination
+* Process Observation
+* ERP
+* CRM
+* Time Management
+* Collaboration
+* Data Reporting
+* Problem Solving
+* Adaptability

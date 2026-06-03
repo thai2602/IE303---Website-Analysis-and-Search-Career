@@ -1,0 +1,20 @@
+## Responsibilities
+* Manage distributed system operations
+* Automate deployment pipelines and infrastructure tasks
+* Implement monitoring and alerting systems
+* Ensure high availability and performance
+* Lead incident response
+* Collaborate with development and security teams
+* Mentor junior engineers
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

@@ -1,0 +1,21 @@
+* MLOps
+* Big Data
+* Cloud Deployment
+---
+
+# Senior Machine Learning Engineer
+
+## Experience Level
+Senior (5+ years)
+
+## Skills
+* Python
+* R
+* Java
+* SQL
+* Scala
+* Advanced ML/DL: deep learning, NLP, reinforcement learning, computer vision, transfer learning
+* Frameworks: TensorFlow, PyTorch, Keras, Scikit-learn (advanced)
+* MLOps: CI/CD pipelines, model monitoring, cloud deployment (AWS/GCP/Azure)
+* Big data: Spark, Hadoop
+* Feature engineering, ETL automation

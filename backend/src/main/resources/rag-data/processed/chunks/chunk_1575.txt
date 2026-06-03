@@ -1,0 +1,24 @@
+---
+job_id: IOT-E-009
+role: IoT Engineer
+level: Experienced
+years_of_experience: 6+
+skills:
+* C advanced
+* C++ advanced
+* Python advanced
+* Java advanced
+* Embedded firmware development
+* IoT architecture design
+* Sensor and actuator integration
+* MQTT, CoAP, LoRaWAN, NB-IoT
+* AWS, Azure, GCP IoT
+* Real-time analytics
+* Machine learning integration
+* Network security and optimization
+* CI/CD automation
+* Leadership
+* Project management
+* Team collaboration
+keywords:
+* IoT Architecture

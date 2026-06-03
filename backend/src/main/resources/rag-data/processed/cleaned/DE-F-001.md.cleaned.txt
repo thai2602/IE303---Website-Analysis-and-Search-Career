@@ -1,0 +1,60 @@
+---
+job_id: DE-F-001
+role: Data Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python
+* Java Basics
+* SQL
+* PostgreSQL
+* MongoDB
+* Hadoop Basics
+* Spark Basics
+* ETL Fundamentals
+* AWS Basics
+* Azure Fundamentals
+keywords:
+* Python
+* SQL
+* ETL
+* Big Data
+* AWS
+* Hadoop
+* MongoDB
+* Data Engineering Fundamentals
+---
+
+# Data Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python
+* Java Basics
+* SQL
+* PostgreSQL
+* MongoDB
+* Hadoop Basics
+* Spark Basics
+* ETL Fundamentals
+* AWS Basics
+* Azure Fundamentals
+
+## Responsibilities
+* Assist in developing basic ETL pipelines
+* Support database management tasks
+* Work on structured and unstructured data
+* Collaborate with senior engineers on big data tools
+* Learn and apply cloud platform fundamentals
+
+## ATS Keywords
+* Python
+* SQL
+* ETL
+* Big Data
+* AWS
+* Hadoop
+* MongoDB
+* Data Engineering Fundamentals

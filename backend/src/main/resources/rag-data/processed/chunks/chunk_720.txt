@@ -1,0 +1,12 @@
+## Responsibilities
+* Assist in vulnerability assessments
+* Support SOC monitoring
+* Prepare incident response drafts
+* Shadow senior analysts
+
+## ATS Keywords
+* Network Security
+* Vulnerability Assessment
+* Penetration Testing
+* GDPR
+* Malware Analysis

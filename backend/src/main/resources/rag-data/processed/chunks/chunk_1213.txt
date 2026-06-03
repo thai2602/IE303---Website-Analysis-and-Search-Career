@@ -1,0 +1,6 @@
+## Responsibilities
+* Develop frontend interfaces using HTML, CSS, JavaScript frameworks
+* Implement backend APIs using Node.js or Flask
+* Write SQL/NoSQL queries
+* Perform unit testing
+* Collaborate in Agile workflows

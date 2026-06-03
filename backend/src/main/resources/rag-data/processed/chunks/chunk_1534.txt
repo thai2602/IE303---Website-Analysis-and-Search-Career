@@ -1,0 +1,31 @@
+---
+job_id: IOS-E-09
+role: Principal iOS Developer
+level: Experienced
+years_of_experience: 5+ years
+skills:
+* Swift
+* Objective-C
+* MVVM
+* CI/CD
+* Core Animation
+* App Performance Optimization
+keywords:
+* Performance Optimization
+* MVVM
+* CI/CD
+* Swift
+---
+
+# Principal iOS Developer
+
+## Experience Level
+Experienced (5+ years years)
+
+## Skills
+* Swift
+* Objective-C
+* MVVM
+* CI/CD
+* Core Animation
+* App Performance Optimization

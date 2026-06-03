@@ -1,0 +1,33 @@
+---
+job_id: SD013
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 4–6 years
+skills:
+* Java
+* Python
+* React
+* Angular
+* Vue.js
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* Agile/Scrum
+keywords:
+* Software Developer
+* Experienced
+* Mid-Level
+* Full-Stack
+* Cloud
+* Mentoring
+* Agile
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (4–6 years years)

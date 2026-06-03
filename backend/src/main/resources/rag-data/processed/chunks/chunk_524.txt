@@ -1,0 +1,19 @@
+## Responsibilities
+* Support big data ingestion and processing tasks
+* Assist in building basic ETL pipelines
+* Collaborate with data engineers and analysts
+* Learn Hadoop ecosystem components
+* Apply data mining and analytics techniques
+* Document project work and processes
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark
+* Java
+* Python
+* SQL
+* NoSQL
+* ETL
+* Data Analytics
+* Linux

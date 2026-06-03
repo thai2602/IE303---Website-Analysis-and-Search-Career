@@ -1,0 +1,23 @@
+## Skills
+* HTML
+* CSS
+* JavaScript
+* React basics
+* Angular basics
+* Vue.js basics
+* Bootstrap
+* Tailwind CSS
+* Git
+* Browser Developer Tools
+
+## Responsibilities
+* Work on academic and personal projects
+* Develop interactive UI components
+* Learn frontend frameworks and responsive design
+
+## ATS Keywords
+* Frontend
+* Web Development
+* UI
+* Entry-Level
+* Fresher

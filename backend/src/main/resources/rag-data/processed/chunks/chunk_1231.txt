@@ -1,0 +1,7 @@
+## Responsibilities
+* Develop web applications with frontend and backend focus
+* Build responsive interfaces with Angular, React, or Vue.js
+* Develop backend APIs using Node.js or Flask
+* Maintain databases
+* Write unit tests
+* Participate in Agile sprints

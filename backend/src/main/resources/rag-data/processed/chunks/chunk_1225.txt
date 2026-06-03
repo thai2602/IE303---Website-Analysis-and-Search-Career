@@ -1,0 +1,7 @@
+## Responsibilities
+* Work on frontend and backend development
+* Use JavaScript frameworks like React or Vue.js
+* Build backend services using Django or Node.js
+* Manage databases
+* Participate in testing and Agile ceremonies
+* Learn best practices in deployment and security

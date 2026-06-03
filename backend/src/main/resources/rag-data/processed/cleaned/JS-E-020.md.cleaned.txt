@@ -1,0 +1,70 @@
+---
+job_id: JS-E-020
+role: JavaScript Developer
+level: Experienced
+years_of_experience: 18+
+skills:
+* JavaScript expert
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Jest, Mocha, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker, CI/CD
+* Web performance optimization
+* Leadership
+* Project management
+keywords:
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker
+---
+
+# JavaScript Developer
+
+## Experience Level
+Experienced (18+ years)
+
+## Skills
+* JavaScript expert
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Jest, Mocha, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker, CI/CD
+* Web performance optimization
+* Leadership
+* Project management
+
+## Responsibilities
+* Lead enterprise-level JS application projects
+* Implement CI/CD and testing pipelines
+* Optimize performance and scalability
+* Mentor and manage development teams
+* Coordinate cross-functional strategic initiatives
+
+## ATS Keywords
+* JavaScript
+* TypeScript
+* React
+* Node.js
+* Jest
+* Webpack
+* Redux
+* CI/CD
+* Docker

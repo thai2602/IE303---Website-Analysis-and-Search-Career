@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop and refine prompts for LLMs
+* Collaborate with AI/data teams
+* Lead prompt engineering projects
+* Mentor junior prompt engineers
+* Document prompt design patterns
+* Implement prompt evaluation metrics
+
+## ATS Keywords
+* Prompt Optimization
+* LLM
+* Python
+* AI Frameworks
+* Model Fine-tuning

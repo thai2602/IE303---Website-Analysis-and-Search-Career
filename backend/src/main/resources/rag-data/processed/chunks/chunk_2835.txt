@@ -1,0 +1,13 @@
+## Responsibilities
+* Automate cloud deployments
+* Manage hybrid systems
+* Integrate cloud with on-prem infrastructure
+* Support security compliance
+* Develop automation scripts
+
+## ATS Keywords
+* Cloud
+* Automation
+* AWS
+* Azure
+* Python

@@ -1,0 +1,18 @@
+## Skills
+* Python
+* Java Basics
+* SQL
+* PostgreSQL
+* MongoDB
+* Hadoop Basics
+* Spark Basics
+* ETL Fundamentals
+* AWS Basics
+* Azure Fundamentals
+
+## Responsibilities
+* Assist in developing basic ETL pipelines
+* Support database management tasks
+* Work on structured and unstructured data
+* Collaborate with senior engineers on big data tools
+* Learn and apply cloud platform fundamentals

@@ -1,0 +1,30 @@
+## Skills
+* SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Matplotlib
+* Seaborn
+* Pandas
+* Excel functions
+* MySQL
+* PostgreSQL
+* Hadoop
+* Spark basics
+* Regression
+* Hypothesis testing
+
+## Responsibilities
+* Assist with data cleaning and exploratory data analysis
+* Create reports
+* Perform visualizations for internship projects
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Entry-Level
+* Fresher
+* Reporting
+* Data Cleaning

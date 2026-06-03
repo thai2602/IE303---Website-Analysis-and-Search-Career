@@ -1,0 +1,25 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Hadoop basics
+* Apache Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL concepts
+* Talend basics
+* Linux/Unix basics
+* Analytical thinking
+* Teamwork
+* Problem-solving
+
+## Responsibilities
+* Assist in big data ingestion and processing
+* Support ETL workflows
+* Learn Spark and Hadoop tasks
+* Collaborate with team members
+* Document workflows
+* Apply basic data analytics

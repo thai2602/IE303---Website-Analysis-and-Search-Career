@@ -1,0 +1,17 @@
+## Responsibilities
+* Oversee ML/AI projects end-to-end
+* Deploy scalable ML systems
+* Mentor teams and implement explainable AI
+* Collaborate with cross-functional stakeholders
+* Drive enterprise AI initiatives
+
+## ATS Keywords
+* Lead ML/AI Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Cloud Deployment
+* Leadership

@@ -1,0 +1,69 @@
+---
+job_id: MRA-103
+role: Market Research Analyst
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Advanced Statistical Analysis
+* Predictive Modeling
+* Python
+* R
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Market Segmentation
+* Competitive Intelligence
+keywords:
+* Market Research
+* Predictive Analytics
+* R
+* Python
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Market Segmentation
+* Competitive Intelligence
+---
+
+# Market Research Analyst
+
+## Experience Level
+Experienced (5-10 years)
+
+## Skills
+* Advanced Statistical Analysis
+* Predictive Modeling
+* Python
+* R
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Market Segmentation
+* Competitive Intelligence
+
+## Responsibilities
+* Lead market research projects end-to-end
+* Design complex surveys and research methodologies
+* Analyze large datasets for actionable insights
+* Create dashboards and visualizations for executives
+* Perform predictive analytics and forecasting
+* Develop strategies based on market trends
+* Present findings and recommendations to senior management
+* Ensure compliance with data privacy regulations
+* Mentor junior analysts
+* Implement AI and ML tools for analytics
+
+## ATS Keywords
+* Market Research
+* Predictive Analytics
+* R
+* Python
+* SAS
+* SQL
+* Tableau
+* Power BI
+* Market Segmentation
+* Competitive Intelligence

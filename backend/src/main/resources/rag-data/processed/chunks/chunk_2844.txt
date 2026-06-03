@@ -1,0 +1,28 @@
+---
+job_id: SEO-002
+role: SEO Specialist
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Technical SEO basics
+* Page speed optimization
+* Schema markup basics
+* Crawlability checks
+* Site indexing basics
+* SEO copywriting
+* Content optimization
+* Google Analytics GA4
+* Looker Studio
+* Link building
+keywords:
+* Technical SEO
+* Page Speed
+* Schema Markup
+* Crawlability
+* Indexing
+* SEO Copywriting
+* Content Optimization
+* Analytics
+* Link Building
+* GA4
+---

@@ -1,0 +1,18 @@
+* Distributed systems architecture
+* Security and compliance basics
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication
+keywords:
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Distributed Systems
+---

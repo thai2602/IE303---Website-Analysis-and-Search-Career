@@ -1,0 +1,28 @@
+## Skills
+* Tableau
+* Power BI
+* Looker
+* QlikView
+* SQL & Database management
+* Redshift
+* Snowflake
+* Predictive analytics
+* Data modeling
+* Forecasting
+* ETL pipelines
+* KPI development
+
+## Responsibilities
+* Lead business intelligence projects
+* Manage ETL and data pipelines
+* Develop predictive models
+* Mentor junior BI analysts
+
+## ATS Keywords
+* BI
+* Analytics
+* Senior-Level
+* Predictive Analytics
+* ETL
+* Tableau
+* Power BI

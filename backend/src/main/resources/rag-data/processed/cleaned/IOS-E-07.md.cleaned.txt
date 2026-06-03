@@ -1,0 +1,48 @@
+---
+job_id: IOS-E-07
+role: iOS Architect
+level: Experienced
+years_of_experience: 5+ years
+skills:
+* Swift
+* Objective-C
+* MVVM
+* MVP
+* CI/CD
+* JIRA
+* Core Animation
+keywords:
+* iOS Architecture
+* MVVM
+* MVP
+* CI/CD
+* Mentorship
+---
+
+# iOS Architect
+
+## Experience Level
+Experienced (5+ years years)
+
+## Skills
+* Swift
+* Objective-C
+* MVVM
+* MVP
+* CI/CD
+* JIRA
+* Core Animation
+
+## Responsibilities
+* Architect modular, scalable iOS applications.
+* Guide team on implementing MVVM/MVP patterns.
+* Collaborate with DevOps for CI/CD integrations.
+* Define coding standards and review architecture.
+* Mentor mid-level engineers and interns.
+
+## ATS Keywords
+* iOS Architecture
+* MVVM
+* MVP
+* CI/CD
+* Mentorship

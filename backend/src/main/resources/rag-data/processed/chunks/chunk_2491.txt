@@ -1,0 +1,19 @@
+## Responsibilities
+* Support programming of robotic applications
+* Assist in ROS simulations and MATLAB projects
+* Design basic robotic components using CAD software
+* Implement control loops and motor interfacing
+* Integrate sensors and actuators
+* Collaborate with team for small projects
+* Document development processes
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Problem Solving

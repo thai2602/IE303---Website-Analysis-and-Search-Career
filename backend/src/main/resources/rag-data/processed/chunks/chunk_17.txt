@@ -1,0 +1,9 @@
+### 4.1 Formatting Mistakes
+
+| Mistake | Why It's a Problem | Fix |
+|---------|-------------------|-----|
+| Using tables for layout | ATS reads table cells out of order | Use plain bullet lists |
+| Text in headers/footers | Many ATS platforms skip this area | Move all key info into the body |
+| Embedded images or logos | Cannot be parsed as text | Remove all non-text elements |
+| Multi-column layout | Causes jumbled reading order | Switch to single-column |
+| Fancy fonts or icons | May not render correctly in ATS | Use standard system fonts only |

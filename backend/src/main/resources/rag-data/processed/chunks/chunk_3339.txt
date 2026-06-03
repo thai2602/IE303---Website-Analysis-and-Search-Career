@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in front-end component development
+* Integrate APIs and data services
+* Work with version control
+* Participate in testing and debugging
+* Support responsive UI development
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* Vue.js
+* Node.js
+* MongoDB
+* REST APIs

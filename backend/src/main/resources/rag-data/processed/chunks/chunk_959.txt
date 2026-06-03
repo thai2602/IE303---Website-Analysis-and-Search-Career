@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop streaming pipelines with Kafka and Flink
+* Implement data warehousing solutions
+* Model data with partitioning and indexing
+* Optimize pipeline performance
+* Collaborate with product teams on data requirements
+
+## ATS Keywords
+* Scala
+* Python
+* SQL
+* Kafka
+* Flink
+* BigQuery
+* Databricks

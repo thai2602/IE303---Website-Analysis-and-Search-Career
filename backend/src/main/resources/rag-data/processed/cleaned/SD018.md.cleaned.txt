@@ -1,0 +1,69 @@
+---
+job_id: SD018
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 9–12 years
+skills:
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Agile
+* Team Leadership
+keywords:
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Agile
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (9–12 years years)
+
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Agile
+* Team Leadership
+
+## Responsibilities
+* Lead enterprise software development
+* Drive cloud adoption strategies
+* Oversee CI/CD pipelines
+* Mentor technical teams and set best practices
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Agile

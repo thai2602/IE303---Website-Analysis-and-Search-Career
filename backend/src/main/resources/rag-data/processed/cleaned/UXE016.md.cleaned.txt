@@ -1,0 +1,44 @@
+---
+job_id: UXE016
+role: Senior Interaction Designer
+level: Experienced
+years_of_experience: 6-8
+skills:
+* Figma
+* Principle
+* After Effects
+* Micro-Interactions
+* Prototyping
+keywords:
+* Micro-Interactions
+* Interaction Design
+* Usability Testing
+* Prototyping
+* Figma
+---
+
+# Senior Interaction Designer
+
+## Experience Level
+Experienced (6-8 years)
+
+## Skills
+* Figma
+* Principle
+* After Effects
+* Micro-Interactions
+* Prototyping
+
+## Responsibilities
+* Design advanced interactions and animations
+* Collaborate with developers on motion guidelines
+* Enhance engagement with micro-interactions
+* Perform iterative usability testing
+* Support cross-platform product design
+
+## ATS Keywords
+* Micro-Interactions
+* Interaction Design
+* Usability Testing
+* Prototyping
+* Figma

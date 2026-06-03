@@ -1,0 +1,19 @@
+# Fintech Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* SQL fundamentals
+* Blockchain basics
+* Introductory ML
+* Data analysis basics
+* Cybersecurity basics
+* Financial products knowledge
+* API integration basics
+* AWS/Azure basics
+* Problem-solving
+* Teamwork
+* Communication

@@ -1,0 +1,15 @@
+## Responsibilities
+* Lead prompt optimization projects
+* Evaluate prompt performance
+* Collaborate with cross-functional teams
+* Mentor junior engineers
+* Document prompt design patterns
+* Implement prompt evaluation metrics
+
+## ATS Keywords
+* Prompt Optimization
+* LLM
+* NLP
+* Python
+* AI Frameworks
+* Model Fine-tuning

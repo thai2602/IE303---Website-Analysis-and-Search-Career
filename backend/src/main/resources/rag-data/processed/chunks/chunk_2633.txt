@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead QA and automation strategy
+* Design and implement test frameworks
+* Integrate automated tests into CI/CD pipelines
+* Perform advanced performance testing
+* Mentor SDET team
+* Track and improve QA metrics
+
+## ATS Keywords
+* Automation Framework
+* CI/CD
+* Performance Testing
+* Selenium
+* Jenkins
+* Appium
+* Code Review
+* Test Data Management

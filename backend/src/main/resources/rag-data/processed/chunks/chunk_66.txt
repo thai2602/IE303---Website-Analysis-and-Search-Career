@@ -1,0 +1,10 @@
+## 4. Best Practices for Applying the CV Scorecard
+
+When rolling out a CV scoring system, HR should follow these key principles to ensure accuracy and effectiveness:
+
+- **Customize per role**: Avoid using a single fixed template across all JDs — adjust criteria weighting based on role priorities
+- **Maintain consistency across reviewers**: Especially when multiple HR members are evaluating the same batch of CVs
+- **Integrate with ATS or AI tools**: Automate keyword filtering and preliminary scoring where possible
+- **Add qualitative notes alongside scores**: Written comments provide deeper context during internal review discussions
+
+---

@@ -1,0 +1,19 @@
+## Responsibilities
+* Support Python project development
+* Assist in web application coding using frameworks
+* Perform data analysis and visualization
+* Write basic unit tests
+* Collaborate with team on coding tasks
+* Document project workflows
+* Follow version control best practices
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* NumPy
+* Pandas
+* SQL
+* Git
+* REST APIs
+* OOP

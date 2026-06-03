@@ -1,0 +1,30 @@
+---
+job_id: NE015
+role: Lead Network Engineer
+level: Experienced
+years_of_experience: 8-10
+skills:
+* Cisco Nexus
+* Palo Alto Firewalls
+* F5 Load Balancer
+* MPLS
+* Team Leadership
+keywords:
+* Lead Engineer
+* Cisco Nexus
+* F5
+* MPLS
+* Leadership
+---
+
+# Lead Network Engineer
+
+## Experience Level
+Experienced (8-10 years)
+
+## Skills
+* Cisco Nexus
+* Palo Alto Firewalls
+* F5 Load Balancer
+* MPLS
+* Team Leadership

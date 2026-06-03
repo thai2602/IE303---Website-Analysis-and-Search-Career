@@ -1,0 +1,29 @@
+---
+job_id: AR-E-007
+role: AR/VR Developer
+level: Experienced
+years_of_experience: 4+
+skills:
+* C++ advanced
+* C# advanced
+* JavaScript advanced
+* Python basics
+* Unity advanced
+* Unreal Engine advanced
+* ARKit advanced
+* ARCore advanced
+* Vuforia
+* 3D modeling/animation advanced
+* UI/UX design advanced
+* Spatial computing
+* Hardware integration
+* Performance optimization
+* Leadership
+keywords:
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing

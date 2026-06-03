@@ -1,0 +1,76 @@
+---
+job_id: AR-E-013
+role: AR/VR Developer
+level: Experienced
+years_of_experience: 10+
+skills:
+* C++, C# expert
+* JavaScript advanced
+* Python basics
+* Unity, Unreal Engine expert
+* ARKit, ARCore, Vuforia
+* Advanced 3D modeling and animation
+* UI/UX expert
+* Spatial computing
+* Gesture/motion tracking
+* Performance optimization
+* Cross-platform development
+* Machine learning basics
+* Leadership
+* Project coordination
+* Team collaboration
+keywords:
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing
+* Performance Optimization
+* Cross-Platform
+* Machine Learning
+---
+
+# AR/VR Developer
+
+## Experience Level
+Experienced (10+ years)
+
+## Skills
+* C++, C# expert
+* JavaScript advanced
+* Python basics
+* Unity, Unreal Engine expert
+* ARKit, ARCore, Vuforia
+* Advanced 3D modeling and animation
+* UI/UX expert
+* Spatial computing
+* Gesture/motion tracking
+* Performance optimization
+* Cross-platform development
+* Machine learning basics
+* Leadership
+* Project coordination
+* Team collaboration
+
+## Responsibilities
+* Architect and lead development of AR/VR applications
+* Create interactive and immersive experiences
+* Optimize graphics performance and cross-platform deployment
+* Integrate AR/VR frameworks and hardware
+* Mentor development teams
+* Collaborate across design, product, and engineering teams
+* Manage project timelines and quality
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing
+* Performance Optimization
+* Cross-Platform
+* Machine Learning

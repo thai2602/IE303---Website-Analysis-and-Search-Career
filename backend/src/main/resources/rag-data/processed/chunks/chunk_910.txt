@@ -1,0 +1,31 @@
+## Skills
+* SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Matplotlib
+* Seaborn
+* Excel charts
+* Pandas
+* MySQL
+* PostgreSQL
+* Hadoop
+* Spark basics
+* Hypothesis testing
+* Regression
+
+## Responsibilities
+* Assist in analyzing datasets
+* Create dashboards
+* Perform data cleaning
+* Support reporting tasks
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Entry-Level
+* Fresher
+* Reporting
+* Dashboard

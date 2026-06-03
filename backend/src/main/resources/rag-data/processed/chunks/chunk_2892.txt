@@ -1,0 +1,21 @@
+---
+job_id: SEO-012
+role: SEO Specialist
+level: Experienced
+years_of_experience: 5-10
+skills:
+* SEO strategy development
+* Advanced technical SEO
+* AI-powered SEO tools
+* Content strategy and optimization
+* Link building campaigns
+* Analytics and reporting (GA4, Looker Studio, Search Console)
+* Multimodal search optimization
+* Privacy compliance (GDPR)
+* Voice and visual search optimization
+* Local SEO strategy
+keywords:
+* SEO Strategy
+* Technical SEO
+* Content Optimization
+* Link Building

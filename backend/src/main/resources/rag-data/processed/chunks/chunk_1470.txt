@@ -1,0 +1,28 @@
+---
+job_id: GD-E-013
+role: Game Developer
+level: Experienced
+years_of_experience: 10+
+skills:
+* C++ expert
+* C# expert
+* Python advanced
+* Java advanced
+* Unity expert
+* Unreal Engine expert
+* Advanced AI and gameplay
+* Multiplayer networking
+* Physics simulation
+* Shader programming HLSL/GLSL
+* Graphics optimization
+* Performance profiling
+* Cross-platform deployment
+* Testing frameworks
+* Leadership
+* Project management
+* Team collaboration
+keywords:
+* C++
+* C#
+* Unity
+* Unreal Engine

@@ -1,0 +1,31 @@
+---
+job_id: QA001
+role: QA Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* Manual Testing: Functional, Regression, Black-box
+* Selenium basics
+* Appium basics
+* Cucumber awareness
+* Java
+* Python
+* JavaScript basics
+* JIRA
+* Bugzilla
+* TestRail
+* Postman basics
+* SoapUI basics
+* Test Documentation
+keywords:
+* QA
+* Software Testing
+* Automation
+* Fresher
+* Entry-Level
+* Manual Testing
+* Selenium
+* Appium
+---
+
+# QA Engineer - Fresher

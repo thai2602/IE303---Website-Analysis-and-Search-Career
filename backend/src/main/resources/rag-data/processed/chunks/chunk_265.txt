@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead AR/VR application architecture and development
+* Design and implement advanced interactive experiences
+* Optimize 3D assets and performance
+* Integrate cross-platform AR/VR features
+* Mentor and train junior developers
+* Collaborate with multidisciplinary teams
+* Ensure project delivery on time and quality standards

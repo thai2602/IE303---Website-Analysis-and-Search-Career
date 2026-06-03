@@ -1,0 +1,7 @@
+### 1.3 Why Candidates Fail ATS Screening
+- CV is submitted as an image-based PDF (text cannot be extracted)
+- Keywords don't match the JD language
+- Non-standard section headers confuse the parser
+- Formatting elements (tables, columns, graphics) break text extraction
+
+---

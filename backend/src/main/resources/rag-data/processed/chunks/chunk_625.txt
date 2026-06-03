@@ -1,0 +1,20 @@
+## Skills
+* Cloud strategy
+* Multi-cloud architecture
+* Serverless computing
+* Kubernetes
+* Terraform
+* Leadership
+
+## Responsibilities
+* Design enterprise-wide cloud strategy
+* Implement serverless and scalable architectures
+* Collaborate with C-level executives
+
+## ATS Keywords
+* Enterprise Cloud
+* Cloud Strategy
+* Serverless
+* Kubernetes
+* Terraform
+* Leadership

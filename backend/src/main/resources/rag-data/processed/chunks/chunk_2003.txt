@@ -1,0 +1,36 @@
+---
+job_id: NET-F-005
+role: .NET Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C#
+* ASP.NET
+* MVC
+* Entity Framework basics
+* SQL Server
+* HTML
+* CSS
+* JavaScript basics
+keywords:
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server
+---
+
+# .NET Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C#
+* ASP.NET
+* MVC
+* Entity Framework basics
+* SQL Server
+* HTML
+* CSS
+* JavaScript basics

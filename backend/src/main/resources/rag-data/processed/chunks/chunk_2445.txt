@@ -1,0 +1,8 @@
+## Responsibilities
+* Lead development of complex robotic systems
+* Implement advanced control algorithms
+* Integrate sensors and actuators with embedded systems
+* Apply machine learning and computer vision solutions
+* Simulate and test systems using Gazebo and RViz
+* Mentor and manage robotics engineering teams
+* Drive innovation and new robotic solutions

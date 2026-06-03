@@ -1,0 +1,23 @@
+## Skills
+* Java
+* JavaScript basics
+* Selenium WebDriver
+* Appium
+* Functional testing
+* Regression testing
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Write basic test cases
+* Execute manual and automation tests
+* Document findings
+* Collaborate with developers
+
+## ATS Keywords
+* QA
+* Test Automation
+* Fresher
+* Entry-Level
+* Manual Testing
+* Automation

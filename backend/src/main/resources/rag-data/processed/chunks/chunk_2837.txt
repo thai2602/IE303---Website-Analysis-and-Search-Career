@@ -1,0 +1,13 @@
+## Responsibilities
+* Design enterprise system architecture
+* Implement Kubernetes clusters
+* Optimize automation workflows
+* Oversee monitoring tools
+* Collaborate with security teams
+
+## ATS Keywords
+* System Engineering
+* Kubernetes
+* Terraform
+* Linux
+* Monitoring

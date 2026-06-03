@@ -1,0 +1,16 @@
+## Responsibilities
+* Design, implement, and deploy scalable ML models
+* Lead ML projects and optimize algorithms
+* Mentor junior engineers
+* Deploy models using cloud platforms
+* Ensure production-grade ML solutions
+
+## ATS Keywords
+* Machine Learning Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Cloud Deployment

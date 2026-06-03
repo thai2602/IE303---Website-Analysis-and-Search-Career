@@ -1,0 +1,21 @@
+# IoT Engineer
+
+## Experience Level
+Experienced (7+ years)
+
+## Skills
+* C, C++ advanced
+* Python advanced
+* Java advanced
+* Embedded firmware optimization
+* IoT architecture
+* Sensor fusion and actuator integration
+* MQTT, CoAP, LoRaWAN, NB-IoT
+* AWS, Azure, GCP IoT
+* Data pipelines and analytics
+* Machine learning
+* Network security
+* Edge computing
+* CI/CD automation
+* Leadership
+* Cross-functional collaboration

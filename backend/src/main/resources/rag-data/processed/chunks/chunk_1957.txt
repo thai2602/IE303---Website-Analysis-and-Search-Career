@@ -1,0 +1,11 @@
+## Responsibilities
+* Deploy and manage firewalls
+* Secure VPN connections
+* Conduct penetration tests
+* Monitor IDS/IPS alerts
+
+## ATS Keywords
+* Network Security
+* IDS/IPS
+* Firewall
+* Cryptography

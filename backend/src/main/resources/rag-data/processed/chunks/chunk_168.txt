@@ -1,0 +1,34 @@
+## Experience Level
+Senior-Level (6+ years years)
+
+## Skills
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* NLP
+* Computer Vision
+* LLMs
+* Reinforcement Learning
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* Docker
+* Kubernetes
+* Spark
+* Hadoop
+* SHAP
+* LIME
+
+## Responsibilities
+* Architect AI/ML pipelines
+* Integrate models with cloud platforms
+* Optimize NLP and computer vision solutions
+* Lead cross-functional AI teams

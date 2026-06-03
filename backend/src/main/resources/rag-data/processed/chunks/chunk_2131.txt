@@ -1,0 +1,33 @@
+---
+job_id: PD-F-008
+role: Product Designer
+level: Fresher
+years_of_experience: 0-1 Years
+skills:
+* Figma
+* Adobe Photoshop
+* Sketch
+* Prototyping Basics
+* Creativity
+* User Flows
+keywords:
+* Prototyping
+* UI/UX Design
+* User Research
+* Figma
+* Sketch
+* Product Design
+---
+
+# Product Designer
+
+## Experience Level
+Fresher (0-1 Years years)
+
+## Skills
+* Figma
+* Adobe Photoshop
+* Sketch
+* Prototyping Basics
+* Creativity
+* User Flows

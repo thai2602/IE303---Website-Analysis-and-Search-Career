@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist senior engineers in data pipeline workflows
+* Support monitoring of ETL processes
+* Participate in pipeline testing
+* Collaborate in cross-functional teams
+* Perform debugging of queries
+
+## ATS Keywords
+* SQL
+* Python
+* ETL
+* Airflow
+* AWS

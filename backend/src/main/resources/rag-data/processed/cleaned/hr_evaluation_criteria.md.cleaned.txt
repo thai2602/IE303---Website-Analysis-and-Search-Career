@@ -1,0 +1,150 @@
+# CV Evaluation Criteria for Recruiters
+
+## Metadata
+- **Topic**: Candidate CV / Resume Evaluation
+- **Audience**: HR Professionals, Recruiters
+- **Language**: English
+
+---
+
+## 1. Professional Qualifications, Education & Relevant Skills
+
+**Description**: The foundational criterion that determines whether a candidate meets the basic requirements of the role.
+
+### What to Evaluate
+- Degree or field of study relevant to the applied position
+- Hard skills and tools directly mentioned in the Job Description (JD)
+- Supporting certifications or courses demonstrating up-to-date knowledge
+
+### Examples by Role
+
+| Role | Key Skills / Certifications to Look For |
+|------|-----------------------------------------|
+| Data Analyst | Advanced Excel, SQL, Power BI, Python, data analytics or statistics certifications |
+| Accounting Specialist | Bachelor's in Accounting/Finance, ACCA/CPA certification, proficiency in MISA/SAP |
+
+### HR Tip
+> Don't just read the degree on paper. Assess how closely the candidate's skills align with the JD — that reflects real-world applicability, not just theoretical knowledge.
+
+---
+
+## 2. Work Experience Aligned with the JD
+
+**Description**: The "backbone" of CV evaluation. Helps HR quickly gauge how well a candidate's actual capabilities match the role's requirements.
+
+### What to Evaluate
+
+#### 2.1 Tenure and Stability
+- Frequent job-hopping (under 6 months per company) may indicate lack of commitment
+- Consider industry context — agencies and startups naturally have higher turnover
+
+#### 2.2 Relevance to the Open Role
+- Check for similar responsibilities, tools, workflows, and KPIs to the current role
+
+#### 2.3 Concrete Achievements (with numbers)
+- "Grew revenue by 25%"
+- "Reduced advertising costs by 15%"
+- "Led a team of 10 to complete Project A within 3 months"
+
+### Examples by Role
+
+| Role | Key Experience Signals |
+|------|------------------------|
+| Digital Marketing Executive | Multi-channel campaign execution, customer insight analysis, improved conversion rate, reduced CPC |
+| B2B Sales | Sales results, client portfolio size, industry segments handled |
+
+### HR Tip
+> Look for keywords in the experience section that match the JD — these are strong indicators of fit. Also verify the timeline logic to catch unexplained employment gaps or inflated experience claims.
+
+---
+
+## 3. Notable Achievements & Projects
+
+**Description**: This section separates candidates who "did the work" from those who "did it well" — proving real impact, not just listing responsibilities.
+
+### What to Evaluate
+
+#### 3.1 Quantifiable Results
+- "Grew sales by 30% in Q2 2024"
+- "Reduced operational costs by 20% through process optimization"
+- "Launched a marketing campaign reaching 5 million impressions"
+
+#### 3.2 Relevance to the Applied Role
+- Focus on projects that demonstrate skills and thinking aligned with the target position
+- Example: For a Project Manager role → look for achievements in timeline management, cross-team coordination, and on-budget delivery
+
+#### 3.3 Candidate's Actual Role in the Project
+- Distinguish between lead contributor vs. support role
+- A strong CV should clarify: "Directly developed content, managed a $8,700 budget, and reported results to the department head"
+
+### HR Tip
+> Prioritize data-driven CVs. Metrics such as KPI, ROI, conversion rate, revenue, and traffic are stronger evidence than any descriptive statement. Compare the scale of the project to the scope of the open role to assess real compatibility.
+
+---
+
+## 4. Cultural Fit & Career Development Alignment
+
+**Description**: A key factor in long-term retention. A high-performing candidate who clashes with company culture can reduce team morale and overall performance.
+
+### What to Evaluate
+
+#### 4.1 Tone and Presentation Style of the CV
+
+| CV Style | Best Fit Environment |
+|----------|----------------------|
+| Professional, concise, structured thinking | Corporate environments with defined processes and discipline |
+| Creative, open, flexible language | Dynamic environments like agencies or startups |
+
+#### 4.2 Extracurricular Activities, Interests & Personal Projects
+- Volunteering, mentoring, leading clubs → outgoing personality, leadership mindset, high sense of responsibility
+
+#### 4.3 Career Direction (Objective / Summary Section)
+- Check whether the candidate's stated goals align with the company's growth path
+- Example: A candidate aiming to "become a Team Leader within 2 years" is a strong match if the company plans to develop managerial talent
+
+### HR Tip
+> Read the CV asking: **"Can this person thrive and grow here?"** — not just "Can they do the job?" Cultural fit reduces early attrition and drives long-term engagement.
+
+---
+
+## 5. Consistency, Clarity & Professional Presentation
+
+**Description**: How a CV is presented reflects the candidate's professionalism, logical thinking, and seriousness about the role.
+
+### What to Evaluate
+
+#### 5.1 Content Consistency
+- No overlapping employment dates
+- Job descriptions match job titles
+- Content aligns with public profiles (e.g., LinkedIn)
+
+#### 5.2 Clarity and Information Structure
+A well-structured CV should include:
+1. Personal information
+2. Career objective
+3. Work experience
+4. Skills
+5. Achievements
+6. Education
+
+Formatting requirements: logical layout, bullet points, consistent formatting, appropriate spacing.
+
+#### 5.3 Professional Presentation
+- Free of spelling and grammar errors
+- Consistent font, color scheme, and layout
+- Professional contact email address
+
+### HR Tip
+> A candidate who is meticulous about their CV is often meticulous in their work. A messy or careless resume is an early warning sign worth noting.
+
+---
+
+## Summary: CV Evaluation Criteria Overview
+
+| # | Criterion | Priority Level |
+|---|-----------|----------------|
+| 1 | Professional qualifications, education & skills | Foundational |
+| 2 | Work experience aligned with the JD | High |
+| 3 | Notable achievements & projects | High |
+| 4 | Cultural fit & career development alignment | Medium – High |
+| 5 | Consistency, clarity & professional presentation | Medium |

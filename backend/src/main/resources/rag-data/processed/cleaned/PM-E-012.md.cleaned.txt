@@ -1,0 +1,62 @@
+---
+job_id: PM-E-012
+role: Product Manager
+level: Experienced
+years_of_experience: 8-12
+skills:
+* Product vision and strategy
+* Roadmap execution
+* Advanced analytics and A/B testing
+* Cross-functional collaboration
+* Stakeholder engagement
+* UX research integration
+* Agile leadership
+* Backlog grooming
+* Metrics-driven growth
+* Tools: JIRA, Confluence, Figma, Mixpanel, Tableau
+keywords:
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership
+* Stakeholder Management
+* User-Centered Design
+* Growth Metrics
+* Cross-Functional Collaboration
+---
+
+# Product Manager
+
+## Experience Level
+Experienced (8-12 years)
+
+## Skills
+* Product vision and strategy
+* Roadmap execution
+* Advanced analytics and A/B testing
+* Cross-functional collaboration
+* Stakeholder engagement
+* UX research integration
+* Agile leadership
+* Backlog grooming
+* Metrics-driven growth
+* Tools: JIRA, Confluence, Figma, Mixpanel, Tableau
+
+## Responsibilities
+* Lead product vision and strategy
+* Oversee roadmap execution
+* Drive data-informed decisions
+* Collaborate across teams
+* Conduct user research
+* Ensure agile best practices
+* Track and optimize growth metrics
+
+## ATS Keywords
+* Product Strategy
+* Data-Driven Decisions
+* Roadmapping
+* Agile Leadership
+* Stakeholder Management
+* User-Centered Design
+* Growth Metrics
+* Cross-Functional Collaboration

@@ -1,0 +1,24 @@
+---
+job_id: SEO-006
+role: SEO Specialist
+level: Experienced
+years_of_experience: 5-7
+skills:
+* Advanced on-page and off-page SEO
+* Technical SEO audits
+* Page speed and mobile optimization
+* Schema markup and structured data
+* AI-driven SEO insights
+* Content marketing optimization
+* Link building strategy
+* Local SEO and voice search optimization
+* Google Analytics GA4
+* Search Console
+* Looker Studio
+keywords:
+* SEO
+* Technical SEO
+* On-Page SEO
+* Off-Page SEO
+* Page Speed
+* Schema Markup

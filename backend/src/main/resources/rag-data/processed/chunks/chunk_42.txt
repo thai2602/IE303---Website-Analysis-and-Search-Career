@@ -1,0 +1,9 @@
+## Summary: CV Evaluation Criteria Overview
+
+| # | Criterion | Priority Level |
+|---|-----------|----------------|
+| 1 | Professional qualifications, education & skills | Foundational |
+| 2 | Work experience aligned with the JD | High |
+| 3 | Notable achievements & projects | High |
+| 4 | Cultural fit & career development alignment | Medium – High |
+| 5 | Consistency, clarity & professional presentation | Medium |

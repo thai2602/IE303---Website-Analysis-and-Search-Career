@@ -1,0 +1,11 @@
+## Responsibilities
+* Analyze business performance data to provide insights
+* Create and maintain dashboards and reports
+* Gather and validate requirements from business units
+* Participate in Agile development cycles
+* Collaborate with technical and business teams
+* Perform risk analysis and scenario planning
+* Communicate findings to stakeholders
+* Support BI tool adoption and reporting automation
+* Monitor KPIs and metrics
+* Recommend process improvements

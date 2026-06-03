@@ -1,0 +1,26 @@
+* Code Review
+* Test Data Management
+---
+
+# Software Tester (SDET)
+
+## Experience Level
+Experienced (6+ years)
+
+## Skills
+* Advanced Java
+* Advanced Python
+* C# advanced
+* Selenium WebDriver
+* Cypress
+* TestNG
+* JMeter
+* Appium
+* API Testing advanced
+* CI/CD (Jenkins, Bamboo, Azure DevOps)
+* Performance and load testing
+* Agile leadership
+* Cross-team collaboration
+* Code review
+* Test data management
+* Metrics-driven QA

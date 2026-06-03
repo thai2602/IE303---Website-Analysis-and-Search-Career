@@ -1,0 +1,30 @@
+---
+job_id: NET-F-002
+role: .NET Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C#
+* .NET Framework basics
+* ASP.NET
+* Razor
+* HTML
+* CSS
+* JavaScript basics
+* SQL Server
+* Entity Framework basics
+* NUnit basics
+keywords:
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server
+* Razor
+* Unit Testing
+---
+
+# .NET Developer
+
+## Experience Level
+Fresher (0-1 years)

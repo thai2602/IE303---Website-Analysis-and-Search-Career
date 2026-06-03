@@ -1,0 +1,13 @@
+## Responsibilities
+* Produce wireframes and basic prototypes for projects.
+* Assist in responsive layout implementation.
+* Learn design system basics and contribute components.
+* Work collaboratively with developers for integration.
+* Communicate design choices with clarity.
+
+## ATS Keywords
+* Wireframing
+* Prototyping
+* Responsive Design
+* Figma
+* HTML/CSS

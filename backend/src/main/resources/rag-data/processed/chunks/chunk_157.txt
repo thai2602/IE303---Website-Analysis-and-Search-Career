@@ -1,0 +1,41 @@
+---
+job_id: AI010
+role: AI Engineer - Experienced
+level: Mid-Senior Level
+years_of_experience: 3–6 years
+skills:
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* Reinforcement Learning
+* NLP
+* Computer Vision
+* Generative AI
+* LLMs
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face Transformers
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* MLOps
+* Apache Spark
+* Hadoop
+* Docker
+* Kubernetes
+* Model Monitoring
+* SHAP
+* LIME
+keywords:
+* AI
+* ML
+* Mid-Senior Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps

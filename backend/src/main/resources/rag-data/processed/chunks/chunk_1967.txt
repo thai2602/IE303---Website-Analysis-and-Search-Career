@@ -1,0 +1,12 @@
+## Responsibilities
+* Maintain enterprise backbone
+* Optimize EIGRP/MPLS routing
+* Secure networks with firewalls
+* Support high availability systems
+
+## ATS Keywords
+* Enterprise Networking
+* MPLS
+* EIGRP
+* QoS
+* Cisco ASA

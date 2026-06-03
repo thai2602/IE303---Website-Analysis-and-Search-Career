@@ -1,0 +1,6 @@
+## Responsibilities
+* Define technical direction for Android apps across teams.
+* Implement advanced MVVM architecture with modularization.
+* Optimize performance and reduce crash rates.
+* Mentor senior and junior engineers.
+* Oversee Play Store releases and CI/CD processes.

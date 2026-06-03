@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in daily system operations
+* Conduct log analysis
+* Configure basic network settings
+* Perform user account setup
+* Support backup operations
+
+## ATS Keywords
+* Systems Engineer
+* Windows
+* Networking
+* Python
+* Troubleshooting

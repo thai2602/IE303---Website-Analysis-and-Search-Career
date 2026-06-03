@@ -1,0 +1,12 @@
+## Skills
+* JavaScript
+* HTML5
+* CSS3
+* Angular
+* React
+* Vue.js
+* Node.js
+* Flask
+* MySQL
+* MongoDB
+* Git

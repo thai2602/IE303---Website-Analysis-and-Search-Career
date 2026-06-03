@@ -1,0 +1,35 @@
+---
+job_id: PD-F-007
+role: Product Designer
+level: Fresher
+years_of_experience: 0-1 Years
+skills:
+* Figma
+* Adobe XD
+* Sketch
+* Information Architecture Basics
+* Wireframing
+* HTML
+* CSS
+keywords:
+* Information Architecture
+* Wireframing
+* UI/UX Design
+* Product Design
+* Adobe XD
+* Sketch
+---
+
+# Product Designer
+
+## Experience Level
+Fresher (0-1 Years years)
+
+## Skills
+* Figma
+* Adobe XD
+* Sketch
+* Information Architecture Basics
+* Wireframing
+* HTML
+* CSS

@@ -1,0 +1,11 @@
+## ATS Keywords
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Business Process
+* Data Visualization

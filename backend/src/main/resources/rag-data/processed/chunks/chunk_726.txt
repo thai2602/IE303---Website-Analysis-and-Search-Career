@@ -1,0 +1,12 @@
+## Responsibilities
+* Support penetration testing activities
+* Learn and apply encryption methods
+* Help configure intrusion detection systems
+* Work with mentors on incident response
+
+## ATS Keywords
+* Penetration Testing
+* Encryption
+* Incident Response
+* Network Security
+* Malware Analysis

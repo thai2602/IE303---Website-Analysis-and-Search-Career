@@ -1,0 +1,12 @@
+## Responsibilities
+* Support team in MVC project development
+* Help in resolving minor bugs
+* Write basic SQL queries
+* Collaborate with developers for tasks
+* Participate in project discussions
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* SQL Server

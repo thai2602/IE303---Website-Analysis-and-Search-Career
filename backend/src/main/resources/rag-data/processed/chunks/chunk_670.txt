@@ -1,0 +1,18 @@
+## Responsibilities
+* Design and manage enterprise-scale cloud deployments
+* Automate infrastructure
+* Enforce security compliance
+* Mentor junior cloud engineers
+* Collaborate cross-team
+
+## ATS Keywords
+* Cloud
+* DevOps
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Security

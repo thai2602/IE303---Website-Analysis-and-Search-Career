@@ -1,0 +1,15 @@
+## Responsibilities
+* Lead development of data architecture
+* Manage large-scale Spark jobs
+* Implement governance and compliance controls
+* Mentor junior engineers
+* Deploy scalable pipelines on cloud
+
+## ATS Keywords
+* Python
+* SQL
+* Spark
+* Hadoop
+* AWS
+* Snowflake
+* Airflow

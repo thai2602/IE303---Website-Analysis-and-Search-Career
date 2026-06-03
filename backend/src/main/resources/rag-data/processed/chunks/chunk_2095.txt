@@ -1,0 +1,37 @@
+---
+job_id: PD-E-011
+role: Product Designer
+level: Experienced
+years_of_experience: 2-4 Years
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* Design Systems
+* A/B Testing
+* HTML
+* CSS
+* JavaScript
+keywords:
+* Design Systems
+* UI/UX Design
+* A/B Testing
+* Product Design Strategy
+* Agile
+* Figma
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (2-4 Years years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe XD
+* Design Systems
+* A/B Testing
+* HTML
+* CSS
+* JavaScript

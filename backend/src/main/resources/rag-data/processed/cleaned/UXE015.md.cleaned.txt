@@ -1,0 +1,46 @@
+---
+job_id: UXE015
+role: UX Manager
+level: Experienced
+years_of_experience: 10+
+skills:
+* Team Leadership
+* Design Thinking
+* Journey Mapping
+* Figma
+* Accessibility
+* User Research
+keywords:
+* Leadership
+* Design Thinking
+* User-Centered Design
+* Accessibility
+* Usability Testing
+---
+
+# UX Manager
+
+## Experience Level
+Experienced (10+ years)
+
+## Skills
+* Team Leadership
+* Design Thinking
+* Journey Mapping
+* Figma
+* Accessibility
+* User Research
+
+## Responsibilities
+* Manage a team of UX designers
+* Define project timelines
+* Implement advanced usability practices
+* Ensure business KPIs are met
+* Foster innovation in design practices
+
+## ATS Keywords
+* Leadership
+* Design Thinking
+* User-Centered Design
+* Accessibility
+* Usability Testing

@@ -1,0 +1,20 @@
+## Responsibilities
+* Design enterprise big data solutions
+* Build and optimize data pipelines
+* Implement real-time streaming with Spark/Kafka
+* Leverage cloud big data services
+* Provide analytics and visualization dashboards
+* Ensure compliance and governance
+* Lead and mentor team members
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala
+* SQL

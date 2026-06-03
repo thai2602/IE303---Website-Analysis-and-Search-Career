@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop RESTful APIs and real-time apps
+* Implement SignalR for live communication
+* Work with SQL Server and NoSQL databases
+* Lead module development
+* Ensure application scalability
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* WebAPI
+* SignalR
+* Entity Framework

@@ -1,0 +1,29 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* Cucumber
+* Jenkins
+* GitLab CI/CD
+* Docker
+* JMeter
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+
+## Responsibilities
+* Develop automation frameworks
+* Integrate test scripts into CI/CD pipelines
+* Perform performance testing
+* Mentor juniors
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* CI/CD
+* Performance Testing
+* Mentoring

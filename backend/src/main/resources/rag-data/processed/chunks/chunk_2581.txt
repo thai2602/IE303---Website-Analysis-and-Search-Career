@@ -1,0 +1,21 @@
+## Skills
+* Python
+* SQL
+* Git
+* ML libraries (scikit-learn, pandas)
+* Problem-solving
+* Collaboration
+
+## Responsibilities
+* Write Python scripts for data preprocessing
+* Assist in building machine learning models
+* Integrate REST APIs
+* Perform testing in collaboration with data scientists
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* AI
+* Data Analytics
+* Machine Learning

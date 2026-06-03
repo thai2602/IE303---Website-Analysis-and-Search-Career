@@ -1,0 +1,13 @@
+## Responsibilities
+* Learn to design and build ASP.NET applications
+* Assist in connecting apps to SQL Server
+* Work on UI development
+* Participate in daily standups
+* Write small unit test cases
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* Entity Framework
+* SQL Server

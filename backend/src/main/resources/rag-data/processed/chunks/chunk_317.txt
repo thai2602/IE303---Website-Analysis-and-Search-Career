@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in developing AR/VR applications
+* Create basic 3D models and animations
+* Support Unity and Unreal Engine projects
+* Collaborate with design teams on UI/UX
+* Test and debug AR/VR interactions
+* Document development processes
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Modeling
+* Spatial Computing
+* Motion Tracking
+* JavaScript

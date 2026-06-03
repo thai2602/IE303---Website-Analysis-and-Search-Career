@@ -1,0 +1,12 @@
+## 6. Inconsistency with External Profiles (LinkedIn, Portfolio)
+
+**Description**: Information in the CV does not match the candidate's LinkedIn profile, portfolio, or other public records — such as differing job titles, dates, or educational background.
+
+**Why it matters**: Discrepancies may indicate dishonesty, deliberate omission of unfavorable information, or simple carelessness.
+
+**How to handle**:
+- Cross-check CV against LinkedIn, portfolio sites, and any publicly available information
+- Flag any significant inconsistencies and request clarification during the interview
+- Pay particular attention to mismatched employment dates or role titles
+
+---

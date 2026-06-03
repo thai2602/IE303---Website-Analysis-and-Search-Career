@@ -1,0 +1,11 @@
+## Responsibilities
+* Analyze business data to identify trends and insights
+* Develop and maintain dashboards and reports
+* Gather, document, and validate business requirements
+* Participate in Agile projects and sprint planning
+* Collaborate with cross-functional teams
+* Perform scenario modeling and risk analysis
+* Present data-driven recommendations to stakeholders
+* Support BI tool adoption and automation initiatives
+* Track KPIs and business metrics
+* Drive continuous process improvement

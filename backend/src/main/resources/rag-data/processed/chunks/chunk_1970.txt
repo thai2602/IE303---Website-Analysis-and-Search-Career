@@ -1,0 +1,36 @@
+---
+job_id: NE020
+role: Telecom & Network Engineer
+level: Experienced
+years_of_experience: 5-7
+skills:
+* VoIP
+* SIP
+* BGP
+* QoS
+* Cisco Routers
+keywords:
+* Telecom
+* VoIP
+* SIP
+* QoS
+* BGP
+---
+
+# Telecom & Network Engineer
+
+## Experience Level
+Experienced (5-7 years)
+
+## Skills
+* VoIP
+* SIP
+* BGP
+* QoS
+* Cisco Routers
+
+## Responsibilities
+* Manage telecom networks
+* Optimize VoIP/SIP infrastructure
+* Ensure QoS for voice
+* Integrate with enterprise LAN/WAN

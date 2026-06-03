@@ -1,0 +1,37 @@
+---
+job_id: 19
+role: Full Stack Developer - Experienced
+level: Experienced
+years_of_experience: 3–5 years
+skills:
+* HTML
+* CSS
+* JavaScript (ES6+)
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django
+* Flask
+* SQL
+* NoSQL
+* Git
+* RESTful APIs
+* Docker
+* Kubernetes
+* CI/CD
+* Cloud Platforms
+* TypeScript
+* Redux
+* Serverless
+* Microservices
+keywords:
+* Full Stack Developer
+* Experienced
+* Mid-Level
+* Frontend
+* Backend
+* Cloud
+* Enterprise Applications
+* Agile
+---

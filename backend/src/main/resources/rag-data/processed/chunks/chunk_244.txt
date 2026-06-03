@@ -1,0 +1,15 @@
+## Responsibilities
+* Build simple Android app screens with proper layout.
+* Implement basic app features using Java/Kotlin.
+* Follow MVC pattern under guidance.
+* Test functionality using unit tests.
+* Document code and participate in team reviews.
+
+## ATS Keywords
+* Java
+* Kotlin
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

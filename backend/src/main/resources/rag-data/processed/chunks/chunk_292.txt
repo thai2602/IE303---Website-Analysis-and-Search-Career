@@ -1,0 +1,20 @@
+## Responsibilities
+* Oversee AR/VR development projects
+* Design and implement immersive experiences
+* Optimize 3D assets and performance
+* Integrate AR/VR frameworks across platforms
+* Mentor and manage development teams
+* Collaborate with cross-functional teams
+* Ensure high-quality project delivery
+
+## ATS Keywords
+* Unity
+* Unreal Engine
+* C#
+* ARKit
+* ARCore
+* 3D Graphics
+* Spatial Computing
+* Performance Optimization
+* Cross-Platform
+* Machine Learning

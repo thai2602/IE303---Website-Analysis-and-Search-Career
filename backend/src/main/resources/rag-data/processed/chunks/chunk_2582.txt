@@ -1,0 +1,28 @@
+---
+job_id: SD009
+role: Software Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* Python
+* Java
+* Git
+* AWS basics
+* Azure basics
+* SQL
+* NoSQL
+* Teamwork
+* Problem-solving
+keywords:
+* Software Developer
+* Entry-Level
+* Fresher
+* Cloud Computing
+* Backend
+* Agile
+---
+
+# Software Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)

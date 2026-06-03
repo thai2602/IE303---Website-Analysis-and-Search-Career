@@ -1,0 +1,13 @@
+## Responsibilities
+* Lead system deployments
+* Manage virtualization platforms
+* Enhance monitoring solutions
+* Implement security controls
+* Mentor junior engineers
+
+## ATS Keywords
+* System Engineering
+* Active Directory
+* Docker
+* PowerShell
+* Monitoring

@@ -1,0 +1,14 @@
+## Responsibilities
+* Design responsive web and mobile experiences
+* Collaborate closely with front-end developers
+* Maintain and update shared design systems
+* Ensure accessibility compliance across designs
+* Present design concepts to stakeholders
+
+## ATS Keywords
+* Product Design
+* UX/UI
+* Accessibility
+* Design Systems
+* Collaboration
+* Figma

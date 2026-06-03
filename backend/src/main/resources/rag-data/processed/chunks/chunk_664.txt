@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead cloud architecture design
+* Implement scalable CI/CD pipelines
+* Ensure DevSecOps compliance
+* Monitor cloud infrastructure
+* Mentor team members
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* CI/CD
+* Security

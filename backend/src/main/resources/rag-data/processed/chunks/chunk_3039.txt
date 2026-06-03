@@ -1,0 +1,22 @@
+## Skills
+* Java
+* Python basics
+* Selenium
+* Cypress basics
+* Manual testing concepts
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Support QA automation team
+* Create test documentation
+* Run basic automation tests
+* Track defects
+
+## ATS Keywords
+* QA
+* Software QA
+* Fresher
+* Entry-Level
+* Automation
+* Testing

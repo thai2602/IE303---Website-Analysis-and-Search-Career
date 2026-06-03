@@ -1,0 +1,29 @@
+---
+job_id: NE012
+role: Senior Network Engineer
+level: Experienced
+years_of_experience: 5-8
+skills:
+* SD-WAN
+* Zero Trust Security
+* Cisco ASA
+* Palo Alto
+* Nagios
+keywords:
+* SD-WAN
+* Zero Trust
+* Cisco ASA
+* Palo Alto
+---
+
+# Senior Network Engineer
+
+## Experience Level
+Experienced (5-8 years)
+
+## Skills
+* SD-WAN
+* Zero Trust Security
+* Cisco ASA
+* Palo Alto
+* Nagios

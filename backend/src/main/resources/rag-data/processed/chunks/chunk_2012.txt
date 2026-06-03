@@ -1,0 +1,12 @@
+## Responsibilities
+* Write simple ASP.NET pages
+* Collaborate with design team
+* Assist in database operations
+* Perform code reviews with seniors
+* Learn about MVC patterns
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET
+* SQL Server

@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in AI-generated code projects
+* Learn prompt engineering techniques
+* Review AI outputs for functionality
+* Collaborate with senior Vibe Coders
+* Document coding processes and AI interactions
+* Follow basic coding standards
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* Ruby
+* React
+* Prompt Engineering
+* Debugging
+* Collaboration

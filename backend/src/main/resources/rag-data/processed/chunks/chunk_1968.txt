@@ -1,0 +1,29 @@
+---
+job_id: NE019
+role: Principal Network Engineer
+level: Experienced
+years_of_experience: 10+
+skills:
+* Architecture Design
+* Project Management
+* Cisco Nexus
+* Palo Alto
+* Team Leadership
+keywords:
+* Principal Engineer
+* Architecture
+* Cisco Nexus
+* Leadership
+---
+
+# Principal Network Engineer
+
+## Experience Level
+Experienced (10+ years)
+
+## Skills
+* Architecture Design
+* Project Management
+* Cisco Nexus
+* Palo Alto
+* Team Leadership

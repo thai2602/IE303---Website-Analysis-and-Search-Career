@@ -1,0 +1,13 @@
+## Responsibilities
+* Manage Linux/Windows servers
+* Handle virtualization with VMware
+* Automate tasks using Python
+* Implement cloud solutions
+* Ensure system security compliance
+
+## ATS Keywords
+* System Architecture
+* Linux
+* VMware
+* AWS
+* Python

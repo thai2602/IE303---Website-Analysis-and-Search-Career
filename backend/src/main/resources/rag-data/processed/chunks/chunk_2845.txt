@@ -1,0 +1,16 @@
+# SEO Specialist
+
+## Experience Level
+Fresher (0-2 years)
+
+## Skills
+* Technical SEO basics
+* Page speed optimization
+* Schema markup basics
+* Crawlability checks
+* Site indexing basics
+* SEO copywriting
+* Content optimization
+* Google Analytics GA4
+* Looker Studio
+* Link building

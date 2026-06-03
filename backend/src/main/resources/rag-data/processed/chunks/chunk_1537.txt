@@ -1,0 +1,13 @@
+## Responsibilities
+* Develop enterprise-grade iOS applications with advanced frameworks.
+* Manage app releases and bug fixes post-App Store submission.
+* Automate CI/CD pipelines using Jenkins.
+* Use Crashlytics for proactive crash resolution.
+* Enhance user engagement by optimizing UX flows.
+
+## ATS Keywords
+* Core Data
+* Crashlytics
+* Jenkins
+* User Engagement
+* App Store Submission

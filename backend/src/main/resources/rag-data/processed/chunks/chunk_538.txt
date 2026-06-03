@@ -1,0 +1,21 @@
+## Skills
+* Hadoop ecosystem basics
+* Apache Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* Talend basics
+* Linux/Unix basics
+* Analytical thinking
+* Teamwork
+* Problem-solving
+
+## Responsibilities
+* Support ETL pipeline development
+* Assist in Hadoop/Spark tasks
+* Document workflows and processes
+* Collaborate with team members
+* Learn big data analytics methods
+* Apply basic data mining concepts

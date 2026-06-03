@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in system monitoring and uptime tracking
+* Support CI/CD pipeline implementation
+* Learn container orchestration
+* Document processes and assist in incident reporting
+* Collaborate with development and operations teams
+
+## ATS Keywords
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* CI/CD
+* Prometheus
+* Networking
+* Automation

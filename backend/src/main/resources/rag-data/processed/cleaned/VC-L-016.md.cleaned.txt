@@ -1,0 +1,73 @@
+---
+job_id: VC-L-016
+role: Vibe Coder
+level: Lead
+years_of_experience: 8+
+skills:
+* Python expert
+* JavaScript expert
+* Ruby advanced
+* React/Vue expert
+* AI coding assistant mastery
+* Prompt engineering expert
+* Debugging AI outputs
+* Project leadership
+* Mentoring
+* Team management
+* Agile workflow oversight
+* Strategic planning
+* Problem-solving
+* Creativity
+keywords:
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile
+* Leadership
+---
+
+# Vibe Coder
+
+## Experience Level
+Lead (8+ years)
+
+## Skills
+* Python expert
+* JavaScript expert
+* Ruby advanced
+* React/Vue expert
+* AI coding assistant mastery
+* Prompt engineering expert
+* Debugging AI outputs
+* Project leadership
+* Mentoring
+* Team management
+* Agile workflow oversight
+* Strategic planning
+* Problem-solving
+* Creativity
+
+## Responsibilities
+* Lead AI-assisted coding initiatives across departments
+* Define and standardize prompt engineering practices
+* Mentor all levels of Vibe Coders
+* Ensure high-quality, secure AI-generated code
+* Oversee strategic project management
+* Document AI-assisted development best practices
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile
+* Leadership

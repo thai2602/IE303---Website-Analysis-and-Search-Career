@@ -1,0 +1,14 @@
+## Responsibilities
+* Implement IAM policies
+* Ensure compliance with GDPR and HIPAA
+* Secure cloud workloads
+* Lead security audits
+
+## ATS Keywords
+* Cloud Security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Python

@@ -1,0 +1,11 @@
+## Responsibilities
+* Architect global-scale networks
+* Manage multi-site deployments
+* Oversee security frameworks
+* Lead network engineering teams
+
+## ATS Keywords
+* Principal Engineer
+* Architecture
+* Cisco Nexus
+* Leadership

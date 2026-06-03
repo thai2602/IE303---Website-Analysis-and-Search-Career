@@ -1,0 +1,21 @@
+## Skills
+* Leadership
+* Risk Management
+* SIEM Tools
+* Cloud Security
+* Compliance
+* Advanced Threat Detection
+
+## Responsibilities
+* Manage enterprise security strategy
+* Lead large-scale security operations
+* Oversee compliance with multiple frameworks
+* Mentor junior analysts
+
+## ATS Keywords
+* Leadership
+* Risk Management
+* Cloud Security
+* SIEM
+* Threat Hunting
+* Compliance

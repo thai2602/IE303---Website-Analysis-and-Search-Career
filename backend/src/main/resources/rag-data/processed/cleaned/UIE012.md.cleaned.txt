@@ -1,0 +1,48 @@
+---
+job_id: UIE012
+role: UI Designer
+level: Experienced
+years_of_experience: 3
+skills:
+* Figma
+* Adobe XD
+* InVision
+* Principle
+* Prototyping
+* Usability Testing
+keywords:
+* Prototyping
+* Usability Testing
+* Figma
+* Interaction Design
+* Design Systems
+* Branding
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (3 years)
+
+## Skills
+* Figma
+* Adobe XD
+* InVision
+* Principle
+* Prototyping
+* Usability Testing
+
+## Responsibilities
+* Lead creation of interactive prototypes with animation.
+* Conduct usability testing and integrate feedback.
+* Collaborate with developers for design handoff.
+* Ensure branding consistency across platforms.
+* Train juniors on design tools and practices.
+
+## ATS Keywords
+* Prototyping
+* Usability Testing
+* Figma
+* Interaction Design
+* Design Systems
+* Branding

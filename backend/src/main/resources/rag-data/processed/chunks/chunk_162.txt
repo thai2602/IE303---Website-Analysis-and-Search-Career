@@ -1,0 +1,32 @@
+# AI Engineer - Experienced
+
+## Experience Level
+Senior-Level (4–7 years years)
+
+## Skills
+* Python
+* Java
+* C++
+* R
+* Deep Learning
+* NLP
+* Computer Vision
+* Generative AI
+* LLMs
+* TensorFlow
+* PyTorch
+* Scikit-learn
+* Hugging Face Transformers
+* ONNX
+* AWS
+* GCP
+* Azure
+* CI/CD
+* MLOps
+* Spark
+* Hadoop
+* Docker
+* Kubernetes
+* Model Monitoring
+* SHAP
+* LIME

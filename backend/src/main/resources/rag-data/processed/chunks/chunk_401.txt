@@ -1,0 +1,11 @@
+## Responsibilities
+* Analyze business performance data
+* Develop and maintain dashboards
+* Gather and validate business requirements
+* Participate in Agile projects
+* Collaborate with technical and business teams
+* Perform scenario and risk analysis
+* Present findings to stakeholders
+* Support BI tool adoption
+* Monitor KPIs and metrics
+* Recommend process improvements

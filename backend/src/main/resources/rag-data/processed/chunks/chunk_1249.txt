@@ -1,0 +1,7 @@
+## Responsibilities
+* Develop web applications across frontend and backend
+* Assist in coding using React, Angular, or Vue.js
+* Build backend APIs with Node.js or Django
+* Manage SQL/NoSQL databases
+* Test applications
+* Collaborate with Agile teams

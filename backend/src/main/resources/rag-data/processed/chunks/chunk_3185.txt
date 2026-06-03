@@ -1,0 +1,29 @@
+---
+job_id: UXE011
+role: Senior UX Designer
+level: Experienced
+years_of_experience: 5-7
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* Axure
+* Principle
+* User Research
+* Design Systems
+* Journey Mapping
+* Accessibility Standards
+* A/B Testing
+keywords:
+* UX Research
+* Design Systems
+* Accessibility
+* Figma
+* Journey Mapping
+* A/B Testing
+---
+
+# Senior UX Designer
+
+## Experience Level
+Experienced (5-7 years)

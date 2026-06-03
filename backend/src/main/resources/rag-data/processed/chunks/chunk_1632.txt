@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in building applications using Spring and Hibernate
+* Understand ORM basics
+* Set up Maven/Gradle build environments
+* Perform basic unit testing using JUnit/TestNG
+
+## ATS Keywords
+* Java
+* Spring
+* Hibernate
+* Maven
+* JUnit
+* TestNG

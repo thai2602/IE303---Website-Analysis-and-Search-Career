@@ -1,0 +1,32 @@
+---
+job_id: DA007
+role: Data Analyst - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* SQL
+* Python
+* R
+* Tableau
+* Power BI
+* Excel charts
+* Pandas
+* MySQL
+* PostgreSQL
+* Hadoop basics
+* Spark basics
+* Regression
+* Hypothesis testing
+keywords:
+* Data Analytics
+* BI
+* Entry-Level
+* Fresher
+* ETL
+* Dashboard
+---
+
+# Data Analyst - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)

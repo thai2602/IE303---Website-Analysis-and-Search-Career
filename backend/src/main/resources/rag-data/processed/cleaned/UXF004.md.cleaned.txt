@@ -1,0 +1,50 @@
+---
+job_id: UXF004
+role: Trainee UX Designer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Figma
+* Wireframing
+* Prototyping
+* HTML Basics
+* CSS Basics
+* Adobe XD
+* InVision
+keywords:
+* Wireframing
+* Figma
+* Prototyping
+* HTML
+* CSS
+* Adobe XD
+---
+
+# Trainee UX Designer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Figma
+* Wireframing
+* Prototyping
+* HTML Basics
+* CSS Basics
+* Adobe XD
+* InVision
+
+## Responsibilities
+* Create simple wireframes for internal projects
+* Document usability findings from academic assignments
+* Collaborate with front-end developers during practice projects
+* Practice low-fidelity prototypes in Figma
+* Learn usability evaluation techniques
+
+## ATS Keywords
+* Wireframing
+* Figma
+* Prototyping
+* HTML
+* CSS
+* Adobe XD

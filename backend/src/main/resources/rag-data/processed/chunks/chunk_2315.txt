@@ -1,0 +1,10 @@
+## Responsibilities
+* Lead Python development projects
+* Design and implement advanced APIs
+* Integrate Python applications with ML frameworks
+* Optimize databases and queries
+* Implement DevOps pipelines with Docker, Kubernetes, AWS
+* Mentor junior developers
+* Conduct testing, reviews, and quality assurance
+* Collaborate with cross-functional teams
+* Drive innovation initiatives

@@ -1,0 +1,30 @@
+---
+job_id: UXE019
+role: Staff UX Designer
+level: Experienced
+years_of_experience: 6-9
+skills:
+* Figma
+* InVision
+* Design Systems
+* User Research
+* A/B Testing
+keywords:
+* Design Systems
+* A/B Testing
+* Figma
+* User Research
+* Leadership
+---
+
+# Staff UX Designer
+
+## Experience Level
+Experienced (6-9 years)
+
+## Skills
+* Figma
+* InVision
+* Design Systems
+* User Research
+* A/B Testing

@@ -1,0 +1,16 @@
+# Product Manager
+
+## Experience Level
+Experienced (4-6 years)
+
+## Skills
+* Product vision and strategy
+* Roadmap development
+* Data-driven decision making
+* Cross-functional team leadership
+* Stakeholder management
+* User research and UX integration
+* Agile facilitation
+* Sprint planning
+* Backlog grooming
+* Tools: JIRA, Confluence, Tableau, Mixpanel

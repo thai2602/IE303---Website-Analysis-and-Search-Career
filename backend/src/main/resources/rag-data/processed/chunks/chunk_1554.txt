@@ -1,0 +1,12 @@
+## Responsibilities
+* Work on sample apps to learn coding standards.
+* Learn crash debugging with Xcode tools.
+* Write simple UI modules with basic animations.
+* Assist in preparing release notes for testing.
+* Attend training on mobile application security basics.
+
+## ATS Keywords
+* Swift
+* UIKit
+* Xcode
+* Crash Debugging

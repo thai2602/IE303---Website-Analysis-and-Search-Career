@@ -1,0 +1,9 @@
+## Responsibilities
+* Lead end-to-end web application development
+* Architect frontend using React or Vue.js
+* Develop backend services with Node.js or Django
+* Manage SQL/NoSQL databases
+* Optimize performance
+* Implement CI/CD pipelines
+* Mentor junior developers
+* Ensure security best practices

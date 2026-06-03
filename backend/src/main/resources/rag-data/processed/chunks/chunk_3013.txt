@@ -1,0 +1,23 @@
+* Monitoring
+* Networking
+---
+
+# Site Reliability Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* Bash scripting basics
+* Linux fundamentals
+* Windows OS basics
+* Cloud fundamentals (AWS/Azure/GCP)
+* Docker basics
+* Kubernetes introduction
+* Monitoring basics (Prometheus/Grafana/Nagios)
+* TCP/IP networking basics
+* Basic CI/CD concepts
+* Problem-solving
+* Collaboration
+* Communication

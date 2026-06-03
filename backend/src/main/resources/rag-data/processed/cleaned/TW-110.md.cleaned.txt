@@ -1,0 +1,69 @@
+---
+job_id: TW-110
+role: Technical Writer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Clear Writing
+* Proofreading
+* Basic HTML/CSS
+* Research Skills
+* CMS Basics
+* Markdown
+* Collaboration
+* Time Management
+* Attention to Detail
+* Adaptability
+keywords:
+* Technical Writing
+* Documentation
+* CMS
+* Markdown
+* HTML
+* Proofreading
+* Research
+* SME Collaboration
+* Clarity
+* Adaptability
+---
+
+# Technical Writer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Clear Writing
+* Proofreading
+* Basic HTML/CSS
+* Research Skills
+* CMS Basics
+* Markdown
+* Collaboration
+* Time Management
+* Attention to Detail
+* Adaptability
+
+## Responsibilities
+* Assist in drafting technical content and manuals
+* Conduct basic technical research
+* Collaborate with SMEs and engineers
+* Learn CMS and Markdown tools
+* Proofread and edit documents
+* Prepare diagrams and visuals
+* Follow documentation standards
+* Support updates and revisions
+* Develop writing and research skills
+* Maintain accuracy and clarity
+
+## ATS Keywords
+* Technical Writing
+* Documentation
+* CMS
+* Markdown
+* HTML
+* Proofreading
+* Research
+* SME Collaboration
+* Clarity
+* Adaptability

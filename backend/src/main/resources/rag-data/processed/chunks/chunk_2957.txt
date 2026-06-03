@@ -1,0 +1,11 @@
+* Collaboration
+* Communication
+
+## Responsibilities
+* Manage and optimize site reliability infrastructure
+* Automate deployment and monitoring processes
+* Handle container orchestration and distributed systems
+* Implement IaC solutions and CI/CD pipelines
+* Monitor service uptime and performance
+* Mentor junior SREs
+* Collaborate with cross-functional teams

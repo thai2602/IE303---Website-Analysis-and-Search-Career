@@ -1,0 +1,20 @@
+## Responsibilities
+* Oversee AI-assisted coding projects
+* Define prompt engineering best practices
+* Mentor all team levels
+* Ensure code quality and performance
+* Coordinate cross-team collaboration
+* Drive AI development innovation
+* Document workflows and processes
+
+## ATS Keywords
+* AI-assisted coding
+* Python
+* JavaScript
+* React
+* Vue
+* Prompt Engineering
+* Debugging
+* Collaboration
+* Agile
+* Leadership

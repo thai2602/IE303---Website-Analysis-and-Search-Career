@@ -1,0 +1,25 @@
+---
+job_id: PD-E-020
+role: Product Designer
+level: Experienced
+years_of_experience: 4-7 Years
+skills:
+* Figma
+* Adobe Creative Suite
+* Design Systems
+* Prototyping
+* Stakeholder Management
+* Accessibility
+keywords:
+* Product Design Strategy
+* Accessibility
+* Stakeholder Management
+* Leadership
+* Figma
+* Design Systems
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (4-7 Years years)

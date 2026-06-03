@@ -1,0 +1,82 @@
+---
+job_id: CL010
+role: Cloud Engineer - Experienced
+level: Senior-Level
+years_of_experience: 4–8 years
+skills:
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* Jenkins
+* GitLab CI
+* CircleCI
+* Cloud Security: IAM, RBAC, encryption, compliance
+* Monitoring & Logging: CloudWatch, Prometheus, ELK
+* Networking: VPC, load balancers, DNS, firewall rules
+* Python
+* Bash
+* PowerShell
+* Database & Storage: SQL, NoSQL, S3, Azure Blob Storage
+keywords:
+* Cloud
+* Infrastructure
+* DevOps
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Containerization
+---
+
+# Cloud Engineer - Experienced
+
+## Experience Level
+Senior-Level (4–8 years years)
+
+## Skills
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* Jenkins
+* GitLab CI
+* CircleCI
+* Cloud Security: IAM, RBAC, encryption, compliance
+* Monitoring & Logging: CloudWatch, Prometheus, ELK
+* Networking: VPC, load balancers, DNS, firewall rules
+* Python
+* Bash
+* PowerShell
+* Database & Storage: SQL, NoSQL, S3, Azure Blob Storage
+
+## Responsibilities
+* Architect, deploy, and manage scalable cloud infrastructure
+* Lead automation and CI/CD pipelines
+* Implement advanced cloud security practices
+* Mentor junior engineers
+* Collaborate cross-team
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* DevOps
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Containerization

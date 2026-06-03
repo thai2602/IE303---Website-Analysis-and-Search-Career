@@ -1,0 +1,12 @@
+## Responsibilities
+* Provide first-level support for network issues
+* Assist in VPN configurations
+* Monitor and log network incidents
+* Escalate complex issues to senior engineers
+
+## ATS Keywords
+* Network Support
+* VPN
+* OSPF
+* SolarWinds
+* Troubleshooting

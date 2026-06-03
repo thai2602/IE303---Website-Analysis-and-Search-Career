@@ -1,0 +1,18 @@
+## Skills
+* AWS basics
+* Azure basics
+* GCP fundamentals
+* Java basics
+* Python basics
+* Node.js basics
+* CI/CD fundamentals
+* Docker/Kubernetes basics
+* Problem-solving
+* Communication
+
+## Responsibilities
+* Assist in designing cloud solutions
+* Support DevOps tasks
+* Learn CI/CD and container orchestration
+* Document solution architecture
+* Collaborate with cross-functional teams

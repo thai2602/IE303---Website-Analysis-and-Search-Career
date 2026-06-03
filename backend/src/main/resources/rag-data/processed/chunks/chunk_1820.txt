@@ -1,0 +1,16 @@
+# ML Engineer Intern
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python
+* R
+* Java
+* ML fundamentals: classification, regression, clustering, supervised/unsupervised learning
+* Data preprocessing
+* Feature engineering
+* ML libraries: Scikit-learn, TensorFlow, PyTorch
+* Statistics: probability, linear algebra
+* Data visualization: Matplotlib, Seaborn
+* Git/GitHub

@@ -1,0 +1,23 @@
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* Manual Testing: Functional, Regression, Black-box
+* Selenium basics
+* Appium basics
+* Cucumber awareness
+* Java
+* Python
+* JavaScript basics
+* JIRA
+* Bugzilla
+* TestRail
+* Postman basics
+* SoapUI basics
+* Test Documentation
+
+## Responsibilities
+* Assist in executing manual test cases
+* Document defects
+* Support test planning
+* Collaborate with development team to ensure software quality

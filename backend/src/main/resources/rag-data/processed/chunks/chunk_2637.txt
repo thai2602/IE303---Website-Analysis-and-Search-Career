@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead enterprise-wide test automation initiatives
+* Design and maintain scalable test frameworks
+* Integrate automated testing into CI/CD pipelines
+* Conduct performance and load testing
+* Mentor SDET teams
+* Optimize QA metrics and defect detection
+
+## ATS Keywords
+* Automation Framework
+* CI/CD
+* Performance Testing
+* Selenium
+* Jenkins
+* Appium
+* Code Review
+* Test Data Management

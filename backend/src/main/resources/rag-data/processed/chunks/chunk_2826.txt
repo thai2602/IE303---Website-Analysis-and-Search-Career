@@ -1,0 +1,30 @@
+---
+job_id: SE014
+role: System Engineer - DevOps Integration
+level: Experienced
+years_of_experience: 4-7
+skills:
+* CI/CD
+* Docker
+* Kubernetes
+* Linux
+* Ansible
+keywords:
+* DevOps
+* CI/CD
+* Docker
+* Kubernetes
+* Automation
+---
+
+# System Engineer - DevOps Integration
+
+## Experience Level
+Experienced (4-7 years)
+
+## Skills
+* CI/CD
+* Docker
+* Kubernetes
+* Linux
+* Ansible

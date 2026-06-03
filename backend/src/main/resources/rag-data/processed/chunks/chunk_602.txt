@@ -1,0 +1,29 @@
+---
+job_id: CA006
+role: Cloud Engineer
+level: Experienced
+years_of_experience: 3
+skills:
+* AWS
+* Azure
+* Kubernetes
+* Terraform
+* Python scripting
+* CI/CD pipelines
+* Cloud security compliance
+keywords:
+* Cloud Architecture
+* AWS
+* Azure
+* Terraform
+* Kubernetes
+* CI/CD
+* Automation
+* Python
+* Cloud Security
+---
+
+# Cloud Engineer
+
+## Experience Level
+Experienced (3 years)

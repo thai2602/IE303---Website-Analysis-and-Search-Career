@@ -1,0 +1,46 @@
+---
+job_id: PD-E-016
+role: Product Designer
+level: Experienced
+years_of_experience: 2-5 Years
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* Front-End Collaboration
+* Design Systems
+keywords:
+* Product Design
+* UX/UI
+* Accessibility
+* Design Systems
+* Collaboration
+* Figma
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (2-5 Years years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe XD
+* Front-End Collaboration
+* Design Systems
+
+## Responsibilities
+* Design responsive web and mobile experiences
+* Collaborate closely with front-end developers
+* Maintain and update shared design systems
+* Ensure accessibility compliance across designs
+* Present design concepts to stakeholders
+
+## ATS Keywords
+* Product Design
+* UX/UI
+* Accessibility
+* Design Systems
+* Collaboration
+* Figma

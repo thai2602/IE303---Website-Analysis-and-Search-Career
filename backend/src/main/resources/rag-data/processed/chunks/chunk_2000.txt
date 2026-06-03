@@ -1,0 +1,16 @@
+## Responsibilities
+* Contribute to development of small modules
+* Assist in bug fixing and debugging
+* Learn and implement MVC patterns
+* Support database integration tasks
+* Understand version control basics
+* Work on minor testing scripts
+* Follow coding standards
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET MVC
+* SQL Server
+* Entity Framework
+* Git

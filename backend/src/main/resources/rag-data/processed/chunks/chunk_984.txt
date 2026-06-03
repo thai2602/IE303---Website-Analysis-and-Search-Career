@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in building simple pipelines
+* Support cloud migration projects
+* Perform basic ETL workflows
+* Work with structured and unstructured data formats
+* Support data validation tasks
+
+## ATS Keywords
+* SQL
+* ETL
+* Python
+* MongoDB
+* Airflow
+* AWS
+* Spark Basics

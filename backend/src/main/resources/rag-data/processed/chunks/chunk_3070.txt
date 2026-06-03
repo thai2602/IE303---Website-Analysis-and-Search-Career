@@ -1,0 +1,11 @@
+## Responsibilities
+* Create and maintain technical documents and manuals
+* Collaborate with engineering and product teams
+* Use authoring tools to format and publish documents
+* Apply version control for document tracking
+* Implement Agile documentation practices
+* Leverage AI-assisted writing tools
+* Ensure technical accuracy and clarity
+* Conduct SME interviews for content accuracy
+* Produce visual diagrams and infographics
+* Update and revise content continuously

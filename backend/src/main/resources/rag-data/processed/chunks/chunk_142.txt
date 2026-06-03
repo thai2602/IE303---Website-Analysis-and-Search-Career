@@ -1,0 +1,38 @@
+---
+job_id: AI004
+role: AI Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* Python
+* Java
+* C++
+* R
+* Classification
+* Regression
+* Clustering
+* TensorFlow
+* PyTorch
+* Keras
+* Scikit-learn
+* Neural Networks
+* OpenCV
+* NLTK
+* Pandas
+* NumPy
+* SQL
+* MongoDB
+keywords:
+* AI
+* ML
+* Fresher
+* Entry-Level
+* Python
+* TensorFlow
+* PyTorch
+---
+
+# AI Engineer - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)

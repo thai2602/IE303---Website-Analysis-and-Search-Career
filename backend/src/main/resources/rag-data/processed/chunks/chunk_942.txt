@@ -1,0 +1,24 @@
+## Experience Level
+Senior-Level (5–9 years years)
+
+## Skills
+* Advanced SQL
+* Python
+* R
+* Predictive modeling
+* Machine learning
+* Tableau
+* Power BI
+* Looker
+* Google Data Studio
+* ETL pipelines
+* BigQuery
+* Snowflake
+* Hadoop
+* Spark
+* Kafka
+
+## Responsibilities
+* Design and implement analytics dashboards
+* Optimize data workflows
+* Lead data initiatives across teams

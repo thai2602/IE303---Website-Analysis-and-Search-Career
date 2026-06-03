@@ -1,0 +1,58 @@
+---
+job_id: SD007
+role: Software Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* Java
+* Kotlin
+* Swift
+* Android Studio
+* Xcode
+* SQL
+* NoSQL
+* Git
+* Teamwork
+* Analytical thinking
+keywords:
+* Software Developer
+* Entry-Level
+* Fresher
+* Mobile Development
+* Android
+* iOS
+* Agile
+---
+
+# Software Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)
+
+## Skills
+* Java
+* Kotlin
+* Swift
+* Android Studio
+* Xcode
+* SQL
+* NoSQL
+* Git
+* Teamwork
+* Analytical thinking
+
+## Responsibilities
+* Assist in developing Android/iOS applications
+* Write frontend components
+* Maintain backend services
+* Perform testing
+* Collaborate with UX/UI designers
+
+## ATS Keywords
+* Software Developer
+* Entry-Level
+* Fresher
+* Mobile Development
+* Android
+* iOS
+* Agile

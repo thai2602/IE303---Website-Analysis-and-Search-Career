@@ -1,0 +1,24 @@
+# Software Tester (SDET)
+
+## Experience Level
+Experienced (9+ years)
+
+## Skills
+* Advanced Java
+* Python advanced
+* C# advanced
+* Selenium WebDriver
+* Cypress
+* TestNG
+* JMeter
+* Appium
+* API Testing advanced
+* CI/CD integration
+* Performance testing
+* Agile leadership
+* Team mentoring
+* Cross-team collaboration
+* Code review
+* Test data management
+* Metrics-driven QA
+* Strategic QA planning

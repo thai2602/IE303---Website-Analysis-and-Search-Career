@@ -1,0 +1,11 @@
+## ATS Keywords
+* Business Analysis
+* BI Tools
+* SQL
+* Tableau
+* Power BI
+* SAS
+* AI Analytics
+* Stakeholder Management
+* Agile
+* Strategic Planning

@@ -1,0 +1,21 @@
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform basics
+* CloudFormation basics
+* Docker/Kubernetes fundamentals
+* Python
+* Bash
+* Jenkins
+* GitHub Actions
+* CloudWatch
+* Prometheus
+* Git
+
+## Responsibilities
+* Deploy cloud resources under guidance
+* Assist in containerization with Docker
+* Implement CI/CD pipelines for learning projects
+* Support cloud infrastructure deployments
+* Collaborate on academic or personal projects

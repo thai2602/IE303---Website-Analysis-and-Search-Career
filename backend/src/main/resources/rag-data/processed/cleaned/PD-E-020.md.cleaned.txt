@@ -1,0 +1,48 @@
+---
+job_id: PD-E-020
+role: Product Designer
+level: Experienced
+years_of_experience: 4-7 Years
+skills:
+* Figma
+* Adobe Creative Suite
+* Design Systems
+* Prototyping
+* Stakeholder Management
+* Accessibility
+keywords:
+* Product Design Strategy
+* Accessibility
+* Stakeholder Management
+* Leadership
+* Figma
+* Design Systems
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (4-7 Years years)
+
+## Skills
+* Figma
+* Adobe Creative Suite
+* Design Systems
+* Prototyping
+* Stakeholder Management
+* Accessibility
+
+## Responsibilities
+* Own design vision and execution for cross-platform products
+* Ensure WCAG-compliant designs
+* Lead user-centered design practices
+* Mentor team members on best practices
+* Optimize workflows for speed and quality
+
+## ATS Keywords
+* Product Design Strategy
+* Accessibility
+* Stakeholder Management
+* Leadership
+* Figma
+* Design Systems

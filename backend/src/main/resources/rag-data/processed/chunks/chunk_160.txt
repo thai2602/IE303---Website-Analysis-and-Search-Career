@@ -1,0 +1,16 @@
+## Responsibilities
+* Architect and deploy scalable AI models
+* Optimize deep learning and NLP pipelines
+* Integrate AI solutions with cloud platforms
+* Lead AI projects
+
+## ATS Keywords
+* AI
+* ML
+* Mid-Senior Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps
+* TensorFlow
+* PyTorch

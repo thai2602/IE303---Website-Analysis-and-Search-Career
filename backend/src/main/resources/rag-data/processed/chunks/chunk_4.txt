@@ -1,0 +1,6 @@
+### 1.1 The Parsing Process
+When a candidate submits a CV, the ATS:
+1. **Extracts** text from the document (name, contact info, work history, skills, education)
+2. **Parses** the content into structured fields
+3. **Scores** the CV based on keyword matches against the Job Description (JD)
+4. **Ranks** candidates and surfaces the highest-scoring profiles to the recruiter

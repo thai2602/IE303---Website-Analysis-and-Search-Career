@@ -1,0 +1,14 @@
+## Responsibilities
+* Lead creation of interactive prototypes with animation.
+* Conduct usability testing and integrate feedback.
+* Collaborate with developers for design handoff.
+* Ensure branding consistency across platforms.
+* Train juniors on design tools and practices.
+
+## ATS Keywords
+* Prototyping
+* Usability Testing
+* Figma
+* Interaction Design
+* Design Systems
+* Branding

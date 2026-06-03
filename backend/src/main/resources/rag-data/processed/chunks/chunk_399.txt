@@ -1,0 +1,28 @@
+---
+job_id: BA-118
+role: Business Analyst
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Data analysis
+* SQL
+* Tableau
+* Power BI
+* Business process modeling
+* Requirement gathering
+* Agile methodology
+* Stakeholder communication
+* Critical thinking
+* Data storytelling
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* Agile
+* Requirement Gathering
+* Stakeholder Management
+* Data Storytelling
+* Critical Thinking
+* Process Improvement
+---

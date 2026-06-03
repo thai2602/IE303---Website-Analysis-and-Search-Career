@@ -1,0 +1,19 @@
+## Skills
+* Java
+* Python
+* C++
+* HTML
+* CSS
+* JavaScript
+* SQL
+* Git
+* Teamwork
+* Problem-solving
+
+## Responsibilities
+* Assist in building and maintaining software applications
+* Develop front-end components using HTML, CSS, JavaScript
+* Support backend development in Java or Python
+* Write SQL queries
+* Participate in testing and debugging
+* Collaborate with the team in Agile workflows

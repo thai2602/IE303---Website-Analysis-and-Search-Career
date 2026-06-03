@@ -1,0 +1,10 @@
+### 3.3 Keyword Placement Strategy
+
+| CV Section | Keyword Usage |
+|------------|--------------|
+| Professional Summary | Include 3–5 high-priority keywords naturally |
+| Core Skills section | List exact-match keywords from the JD |
+| Work Experience bullets | Embed keywords in context with measurable results |
+| Certifications | Use full official names as they appear in the JD |
+
+> **Important for HR**: Remind candidates that keyword stuffing (listing terms without context) can pass ATS but will fail human review. Keywords must appear naturally within genuine experience descriptions.

@@ -1,0 +1,19 @@
+* Automation scripting
+* Distributed systems design and management
+* Security and compliance knowledge
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication
+keywords:
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Monitoring
+---

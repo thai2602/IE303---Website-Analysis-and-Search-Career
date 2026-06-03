@@ -1,0 +1,50 @@
+---
+job_id: UIE011
+role: UI Designer
+level: Experienced
+years_of_experience: 2
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Accessibility
+keywords:
+* Design Systems
+* Figma
+* Micro-Interactions
+* Accessibility
+* User Flows
+* Responsive Design
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (2 years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Accessibility
+
+## Responsibilities
+* Develop and manage design systems for projects.
+* Create advanced prototypes with interactions.
+* Implement accessibility standards (WCAG 2.1).
+* Collaborate with UX teams on journey mapping.
+* Improve engagement metrics through UI enhancements.
+
+## ATS Keywords
+* Design Systems
+* Figma
+* Micro-Interactions
+* Accessibility
+* User Flows
+* Responsive Design

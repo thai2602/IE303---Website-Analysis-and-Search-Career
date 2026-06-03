@@ -1,0 +1,22 @@
+## Experience Level
+Experienced (4-6 years years)
+
+## Skills
+* Java
+* Kotlin
+* Android Studio
+* MVVM
+* Jetpack
+* Clean Architecture
+* Firebase
+* Dagger
+* Room
+* CI/CD
+* Unit Testing
+
+## Responsibilities
+* Develop and maintain large-scale Android apps.
+* Implement modular MVVM architecture with Jetpack libraries.
+* Optimize app performance and reduce crash rates.
+* Integrate REST APIs and cloud services.
+* Mentor team members and review code quality.

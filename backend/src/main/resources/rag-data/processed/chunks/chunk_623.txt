@@ -1,0 +1,13 @@
+## Responsibilities
+* Integrate security into DevOps pipelines
+* Automate compliance checks
+* Build secure CI/CD pipelines
+
+## ATS Keywords
+* DevSecOps
+* CI/CD
+* Cloud Security
+* Terraform
+* AWS
+* Azure
+* Automation

@@ -1,0 +1,26 @@
+---
+job_id: CW-014
+role: Content Writer
+level: Mid-Level
+years_of_experience: 3-5
+skills:
+* Content strategy planning
+* SEO keyword research
+* Advanced writing and editing
+* Content optimization
+* Research and fact-checking
+* Multi-format content creation
+* Digital marketing tools (GA, SEMrush)
+* CMS and AI tools
+* Collaboration and teamwork
+* Time management
+keywords:
+* Content Strategy
+* SEO
+* Multi-format Content
+* Editing
+* Research
+* CMS
+* AI Tools
+* Collaboration
+* Digital Marketing Tools

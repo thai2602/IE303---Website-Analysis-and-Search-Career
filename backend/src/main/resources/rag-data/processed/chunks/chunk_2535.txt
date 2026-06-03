@@ -1,0 +1,19 @@
+# Solutions Architect
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* AWS basics
+* Azure basics
+* Google Cloud fundamentals
+* Java basics
+* Python basics
+* JavaScript fundamentals
+* Basic architecture design
+* CI/CD basics
+* Docker fundamentals
+* Kubernetes fundamentals
+* Problem-solving
+* Team collaboration
+* Communication

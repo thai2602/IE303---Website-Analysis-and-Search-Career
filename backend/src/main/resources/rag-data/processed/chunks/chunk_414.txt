@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and develop blockchain solutions
+* Implement advanced smart contracts with gas optimization
+* Ensure cryptographic security in applications
+* Build scalable DApps with cross-chain interoperability
+* Lead projects and mentor junior developers
+* Collaborate with cross-functional teams
+* Manage blockchain infrastructure

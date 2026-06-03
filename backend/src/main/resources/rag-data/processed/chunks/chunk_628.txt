@@ -1,0 +1,31 @@
+---
+job_id: CA019
+role: Cloud Cost Optimization Architect
+level: Experienced
+years_of_experience: 7
+skills:
+* AWS
+* Azure
+* Cloud cost management
+* Terraform
+* Python
+keywords:
+* Cloud Cost Optimization
+* AWS
+* Azure
+* Cloud Monitoring
+* Terraform
+* Python
+---
+
+# Cloud Cost Optimization Architect
+
+## Experience Level
+Experienced (7 years)
+
+## Skills
+* AWS
+* Azure
+* Cloud cost management
+* Terraform
+* Python

@@ -1,0 +1,20 @@
+## Responsibilities
+* Architect scalable big data solutions
+* Develop and manage ETL pipelines
+* Implement real-time and batch processing
+* Leverage cloud big data tools
+* Provide visualization and analytics insights
+* Ensure security and data governance
+* Lead team efforts and mentor engineers
+
+## ATS Keywords
+* Big Data
+* Hadoop
+* Spark Streaming
+* Kafka
+* Data Warehousing
+* AWS
+* Data Visualization
+* Machine Learning
+* Scala
+* SQL

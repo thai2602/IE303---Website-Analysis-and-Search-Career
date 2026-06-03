@@ -1,0 +1,20 @@
+# Cloud Engineer - Experienced
+
+## Experience Level
+Senior-Level (6+ years years)
+
+## Skills
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Docker/Kubernetes
+* Helm
+* CI/CD: Jenkins, GitLab CI, CircleCI
+* Cloud Security
+* Monitoring: CloudWatch, Prometheus, ELK
+* Networking
+* Storage
+* Python/Bash/PowerShell

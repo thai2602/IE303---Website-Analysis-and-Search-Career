@@ -1,0 +1,14 @@
+## Responsibilities
+* Set design standards for enterprise applications.
+* Drive UI improvements with measurable KPIs.
+* Mentor senior and junior designers in design best practices.
+* Collaborate cross-functionally with product and engineering.
+* Ensure UI scalability across web, mobile, and cross-platform.
+
+## ATS Keywords
+* Design Systems
+* Interaction Design
+* Team Leadership
+* Micro-Interactions
+* Figma
+* Responsive Design

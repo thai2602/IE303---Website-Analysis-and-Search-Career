@@ -1,0 +1,19 @@
+## Responsibilities
+* Lead blockchain architecture and solution design
+* Optimize and audit smart contracts
+* Develop scalable and secure DApps
+* Implement cross-chain interoperability
+* Integrate with cloud infrastructure
+* Mentor teams
+* Drive innovation strategies
+
+## ATS Keywords
+* Blockchain Architecture
+* Smart Contract Optimization
+* Multi-chain
+* Cross-chain
+* Cryptography
+* Consensus Algorithms
+* Ethereum
+* Hyperledger
+* Security Audits

@@ -1,0 +1,36 @@
+---
+job_id: NE001
+role: Junior Network Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* TCP/IP
+* LAN/WAN
+* DHCP
+* DNS
+* Subnetting
+* Cisco Routers
+* Cisco Switches
+* Wireshark
+keywords:
+* Network Engineer
+* LAN/WAN
+* TCP/IP
+* Cisco IOS
+* Wireshark
+---
+
+# Junior Network Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* TCP/IP
+* LAN/WAN
+* DHCP
+* DNS
+* Subnetting
+* Cisco Routers
+* Cisco Switches
+* Wireshark

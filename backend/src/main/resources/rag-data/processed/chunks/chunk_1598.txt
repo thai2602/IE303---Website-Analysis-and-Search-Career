@@ -1,0 +1,9 @@
+## Responsibilities
+* Lead design and deployment of enterprise IoT solutions
+* Develop and optimize embedded firmware and connected devices
+* Integrate complex sensors and actuators with protocols
+* Oversee cloud and edge computing infrastructure
+* Implement real-time analytics and ML workflows
+* Ensure robust network security
+* Lead and mentor engineering teams
+* Drive strategic IoT initiatives

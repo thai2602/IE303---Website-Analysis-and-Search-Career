@@ -1,0 +1,18 @@
+## Experience Level
+Experienced (13+ years)
+
+## Skills
+* Advanced JavaScript
+* TypeScript
+* React, Angular, Vue.js
+* Node.js
+* Express.js
+* REST API/GraphQL
+* Jest, Mocha, Cypress
+* Webpack, Babel
+* npm, Yarn
+* Redux/Vuex
+* Docker, CI/CD
+* Leadership
+* Project management
+* Performance tuning

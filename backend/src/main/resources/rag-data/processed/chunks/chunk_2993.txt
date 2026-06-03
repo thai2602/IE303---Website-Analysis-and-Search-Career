@@ -1,0 +1,28 @@
+---
+job_id: SRE-E-017
+role: Site Reliability Engineer
+level: Experienced
+years_of_experience: 11+
+skills:
+* Python, Go, Java
+* Bash/Zsh scripting
+* Linux/Windows administration
+* Cloud platforms expert
+* Docker, Kubernetes
+* CI/CD pipelines
+* IaC (Terraform, Ansible, Puppet, Chef)
+* Monitoring & logging
+* Networking
+* Automation
+* Distributed systems
+* Security and compliance
+* Problem-solving
+* Leadership
+* Collaboration
+* Communication
+keywords:
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes

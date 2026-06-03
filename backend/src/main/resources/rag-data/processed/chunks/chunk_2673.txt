@@ -1,0 +1,24 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Java basics
+* Python basics
+* C# basics
+* Selenium basics
+* Cypress basics
+* Functional testing
+* Regression testing
+* API testing
+* Postman basics
+* Jenkins basics
+* Communication
+* Teamwork
+* Attention to detail
+
+## Responsibilities
+* Support automated and manual testing efforts
+* Perform API and functional testing
+* Report and document defects
+* Collaborate with QA and developers
+* Learn Agile methodology

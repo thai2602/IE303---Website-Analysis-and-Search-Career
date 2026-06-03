@@ -1,0 +1,57 @@
+---
+job_id: CL005
+role: Cloud Engineer - Fresher
+level: Entry-Level
+years_of_experience: 0–1 year
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform/CloudFormation basics
+* Docker/Kubernetes
+* Python/Bash scripting
+* Jenkins
+* AWS CodePipeline
+* Monitoring: CloudWatch, Prometheus
+* Git
+keywords:
+* Cloud
+* Infrastructure
+* Entry-Level
+* Fresher
+* Pune
+* Remote
+* DevOps
+---
+
+# Cloud Engineer - Fresher
+
+## Experience Level
+Entry-Level (0–1 year years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform/CloudFormation basics
+* Docker/Kubernetes
+* Python/Bash scripting
+* Jenkins
+* AWS CodePipeline
+* Monitoring: CloudWatch, Prometheus
+* Git
+
+## Responsibilities
+* Implement basic cloud deployments
+* Manage infrastructure scripts
+* Containerize applications for training or academic projects
+* Collaborate in teamwork projects
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Entry-Level
+* Fresher
+* Pune
+* Remote
+* DevOps

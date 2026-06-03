@@ -1,0 +1,11 @@
+### 3.2 How to Extract Keywords from a JD
+
+Advise candidates to scan the JD for:
+
+| Category | Examples |
+|----------|---------|
+| **Hard skills / tools** | Python, Salesforce, Google Analytics, SQL |
+| **Soft skills** | Project management, cross-functional collaboration |
+| **Certifications** | PMP, ACCA, AWS Certified, Google Ads |
+| **Job title variants** | "Marketing Manager" vs. "Marketing Lead" |
+| **Industry terms** | KPI, SLA, B2B, SaaS, CAC, ROAS |

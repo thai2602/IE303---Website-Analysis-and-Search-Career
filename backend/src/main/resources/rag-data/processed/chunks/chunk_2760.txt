@@ -1,0 +1,27 @@
+## Skills
+* Python
+* JavaScript
+* React
+* Node.js
+* Git
+* SQL
+* REST APIs
+* Docker
+* Agile
+* Unit Testing
+
+## Responsibilities
+* Develop scalable web applications using React and Node.js
+* Integrate REST APIs and database systems
+* Participate in code reviews
+* Optimize application performance
+* Mentor junior engineers
+
+## ATS Keywords
+* Software Engineer
+* React
+* Node.js
+* Python
+* Agile
+* REST APIs
+* Unit Testing

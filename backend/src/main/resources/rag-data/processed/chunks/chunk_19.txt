@@ -1,0 +1,6 @@
+### 4.3 File Submission Mistakes
+- Sending a scanned PDF or photo of a CV
+- Submitting a password-protected file
+- Using a file name with special characters (e.g. `CV_2024@final!!.pdf`) — use clean names like `FirstName_LastName_CV.pdf`
+
+---

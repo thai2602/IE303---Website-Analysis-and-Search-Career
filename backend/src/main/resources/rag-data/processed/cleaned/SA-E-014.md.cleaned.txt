@@ -1,0 +1,75 @@
+---
+job_id: SA-E-014
+role: Solutions Architect
+level: Experienced
+years_of_experience: 4+
+skills:
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD pipelines
+* Security compliance
+* Stakeholder engagement
+* Project leadership
+* Problem-solving
+keywords:
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* CI/CD
+* Security Compliance
+---
+
+# Solutions Architect
+
+## Experience Level
+Experienced (4+ years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD pipelines
+* Security compliance
+* Stakeholder engagement
+* Project leadership
+* Problem-solving
+
+## Responsibilities
+* Design and deliver cloud-based solutions
+* Implement Infrastructure as Code
+* Oversee containerized deployments
+* Ensure compliance and security
+* Collaborate with stakeholders
+* Lead and mentor technical teams
+
+## ATS Keywords
+* Solutions Architecture
+* Cloud Architecture
+* AWS
+* Azure
+* GCP
+* Terraform
+* Docker
+* Kubernetes
+* CI/CD
+* Security Compliance

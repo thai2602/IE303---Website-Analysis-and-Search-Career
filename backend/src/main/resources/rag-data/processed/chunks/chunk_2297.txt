@@ -1,0 +1,9 @@
+## Responsibilities
+* Develop and maintain advanced Python applications
+* Build RESTful APIs and GraphQL endpoints
+* Integrate Python with data science frameworks
+* Implement database optimizations
+* Follow DevOps practices with Docker and AWS
+* Mentor junior developers
+* Perform unit and integration testing with PyTest
+* Collaborate with cross-functional teams

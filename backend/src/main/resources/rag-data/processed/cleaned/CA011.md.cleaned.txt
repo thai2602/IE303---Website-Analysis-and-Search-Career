@@ -1,0 +1,51 @@
+---
+job_id: CA011
+role: Cloud Infrastructure Architect
+level: Experienced
+years_of_experience: 8
+skills:
+* AWS
+* Azure
+* Hybrid cloud
+* SDN
+* Cloud networking
+* Terraform
+* Python
+keywords:
+* Cloud Infrastructure
+* Hybrid Cloud
+* AWS
+* Azure
+* Terraform
+* Networking
+* Python
+---
+
+# Cloud Infrastructure Architect
+
+## Experience Level
+Experienced (8 years)
+
+## Skills
+* AWS
+* Azure
+* Hybrid cloud
+* SDN
+* Cloud networking
+* Terraform
+* Python
+
+## Responsibilities
+* Design resilient infrastructure
+* Architect hybrid environments
+* Manage large-scale cloud networking
+* Collaborate with IT security
+
+## ATS Keywords
+* Cloud Infrastructure
+* Hybrid Cloud
+* AWS
+* Azure
+* Terraform
+* Networking
+* Python

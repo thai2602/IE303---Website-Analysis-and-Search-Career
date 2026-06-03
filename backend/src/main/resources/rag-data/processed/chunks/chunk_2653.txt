@@ -1,0 +1,17 @@
+## Responsibilities
+* Support test automation efforts
+* Assist in executing automated and manual tests
+* Validate API endpoints using Postman
+* Report and document defects
+* Collaborate with developers on issue resolution
+* Participate in Agile ceremonies
+
+## ATS Keywords
+* Software Testing
+* Automation Testing
+* Selenium
+* API Testing
+* JUnit
+* TestNG
+* Agile/Scrum
+* Regression Testing

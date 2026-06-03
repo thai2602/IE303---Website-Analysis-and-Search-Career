@@ -1,0 +1,19 @@
+## Skills
+* AWS basics
+* Azure basics
+* Java basics
+* Python basics
+* Basic microservices understanding
+* Introductory security awareness
+* CI/CD basics
+* Docker/Kubernetes fundamentals
+* Communication
+* Team collaboration
+
+## Responsibilities
+* Assist in cloud solution designs
+* Support DevOps tasks
+* Participate in microservices architecture discussions
+* Learn cloud security best practices
+* Document solution designs
+* Collaborate with teams

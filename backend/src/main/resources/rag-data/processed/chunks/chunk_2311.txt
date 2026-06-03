@@ -1,0 +1,21 @@
+## Responsibilities
+* Architect Python applications
+* Build advanced APIs and integrate with ML frameworks
+* Manage database optimizations
+* Implement DevOps practices using Docker, Kubernetes, AWS
+* Lead development teams
+* Mentor junior developers
+* Conduct testing and code review
+* Collaborate with stakeholders
+
+## ATS Keywords
+* Python
+* Django
+* Flask
+* REST APIs
+* Data Science
+* TensorFlow
+* Async Programming
+* Docker
+* AWS
+* PyTest

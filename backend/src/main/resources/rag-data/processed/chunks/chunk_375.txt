@@ -1,0 +1,30 @@
+---
+job_id: BA-112
+role: Business Analyst
+level: Experienced
+years_of_experience: 6-10
+skills:
+* Data analysis
+* SQL
+* Excel
+* Tableau
+* Power BI
+* AI-enhanced analytics
+* Requirement management
+* Agile leadership
+* Stakeholder engagement
+* Business process optimization
+keywords:
+* Business Analysis
+* SQL
+* Tableau
+* Power BI
+* AI Analytics
+* Requirement Gathering
+* Agile
+* Stakeholder Management
+* Business Process
+* Data Visualization
+---
+
+# Business Analyst

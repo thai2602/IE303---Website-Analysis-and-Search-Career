@@ -1,0 +1,15 @@
+## Responsibilities
+* Build scalable data pipelines
+* Implement data quality frameworks
+* Work on Snowflake and Redshift
+* Collaborate with analysts to deliver insights
+* Automate ETL processes using Airflow
+
+## ATS Keywords
+* Python
+* SQL
+* ETL
+* Snowflake
+* Kafka
+* Airflow
+* AWS

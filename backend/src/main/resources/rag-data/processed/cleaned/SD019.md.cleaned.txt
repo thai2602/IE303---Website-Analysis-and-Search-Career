@@ -1,0 +1,69 @@
+---
+job_id: SD019
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 10+ years
+skills:
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Azure
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Team Leadership
+keywords:
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Architecture
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (10+ years years)
+
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Azure
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Microservices
+* Team Leadership
+
+## Responsibilities
+* Lead technical strategy for software projects
+* Architect scalable cloud solutions
+* Oversee development and CI/CD processes
+* Mentor multiple development teams
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Architecture

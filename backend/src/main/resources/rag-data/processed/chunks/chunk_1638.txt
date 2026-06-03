@@ -1,0 +1,10 @@
+## Responsibilities
+* Implement file handling operations in Java
+* Ensure proper exception handling in applications
+* Perform unit testing on assigned modules
+
+## ATS Keywords
+* Java
+* File Handling
+* JUnit
+* Testing

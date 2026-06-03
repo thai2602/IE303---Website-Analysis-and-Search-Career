@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop front-end with Blazor/Angular
+* Implement repository pattern with Dapper
+* Optimize SQL Server queries
+* Enhance UI/UX for applications
+* Mentor junior team members
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* Blazor
+* Angular
+* SQL Server
+* Dapper

@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in developing ML models and preprocessing data
+* Build basic predictive algorithms under supervision
+* Participate in hands-on projects and Kaggle competitions
+* Collaborate with senior engineers
+* Learn ML best practices and workflows
+
+## ATS Keywords
+* Machine Learning Engineer
+* Python
+* R
+* Java
+* Scikit-learn
+* TensorFlow
+* PyTorch
+* Keras
+* Data Preprocessing
+* Visualization

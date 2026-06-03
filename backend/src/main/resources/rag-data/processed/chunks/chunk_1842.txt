@@ -1,0 +1,17 @@
+## Responsibilities
+* Drive ML strategy and design large-scale ML systems
+* Mentor and manage teams
+* Deploy models using best practices in MLOps and cloud infrastructure
+* Ensure enterprise AI solutions
+* Lead production-grade ML initiatives
+
+## ATS Keywords
+* Principal ML Engineer
+* Python
+* R
+* Java
+* ML/DL
+* MLOps
+* Big Data
+* Leadership
+* Cloud Deployment

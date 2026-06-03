@@ -1,0 +1,11 @@
+## Responsibilities
+* Design and implement LAN/WAN
+* Manage QoS policies
+* Automate network monitoring
+* Support enterprise infrastructure
+
+## ATS Keywords
+* LAN/WAN
+* QoS
+* Cisco Prime
+* Python

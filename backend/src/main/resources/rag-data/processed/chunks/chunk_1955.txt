@@ -1,0 +1,11 @@
+## Responsibilities
+* Design network architecture
+* Lead SD-WAN implementation
+* Enforce Zero Trust frameworks
+* Mentor junior engineers
+
+## ATS Keywords
+* SD-WAN
+* Zero Trust
+* Cisco ASA
+* Palo Alto

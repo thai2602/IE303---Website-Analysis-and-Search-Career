@@ -1,0 +1,20 @@
+## Responsibilities
+* Lead SRE initiatives for large-scale systems
+* Implement and manage CI/CD pipelines and IaC
+* Ensure reliability and performance of distributed systems
+* Automate deployment, monitoring, and incident responses
+* Mentor junior SRE engineers
+* Collaborate with cross-functional teams
+* Develop and optimize monitoring dashboards and alerts
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Prometheus
+* Monitoring

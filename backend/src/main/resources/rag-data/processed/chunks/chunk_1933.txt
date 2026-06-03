@@ -1,0 +1,12 @@
+## Responsibilities
+* Assist in configuring routers and switches
+* Troubleshoot basic network issues
+* Support LAN/WAN operations
+* Monitor network traffic using tools
+
+## ATS Keywords
+* Network Engineer
+* LAN/WAN
+* TCP/IP
+* Cisco IOS
+* Wireshark

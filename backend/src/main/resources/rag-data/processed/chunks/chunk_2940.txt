@@ -1,0 +1,18 @@
+---
+job_id: SRE-E-007
+role: Site Reliability Engineer
+level: Experienced
+years_of_experience: 4+
+skills:
+* Python advanced
+* Go programming
+* Java scripting
+* Bash scripting
+* Linux administration
+* Windows administration
+* Cloud platforms (AWS, Azure, GCP)
+* Docker, Kubernetes advanced
+* CI/CD pipelines (Jenkins, Bamboo, GitHub Actions)
+* Infrastructure as Code (Terraform, Ansible)
+* Monitoring and logging tools (Prometheus, Grafana, ELK Stack)
+* Networking (TCP/IP, DNS, Load Balancing, CDN)

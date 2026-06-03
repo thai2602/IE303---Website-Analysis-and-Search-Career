@@ -1,0 +1,33 @@
+---
+job_id: PD-E-019
+role: Product Designer
+level: Experienced
+years_of_experience: 5+ Years
+skills:
+* Figma
+* InVision
+* Design Systems
+* Agile Methods
+* Leadership
+* Data Analytics
+keywords:
+* Product Design Strategy
+* Leadership
+* Agile
+* Data Analytics
+* Design Systems
+* Innovation
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (5+ Years years)
+
+## Skills
+* Figma
+* InVision
+* Design Systems
+* Agile Methods
+* Leadership
+* Data Analytics

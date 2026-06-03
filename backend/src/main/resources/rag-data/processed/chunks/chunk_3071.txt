@@ -1,0 +1,11 @@
+## ATS Keywords
+* Technical Writing
+* Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* HTML
+* CSS
+* XML
+* CMS
+* AI Tools
+* Agile Documentation

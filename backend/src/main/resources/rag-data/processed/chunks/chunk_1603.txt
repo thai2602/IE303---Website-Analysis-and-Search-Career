@@ -1,0 +1,9 @@
+## Responsibilities
+* Architect and implement enterprise-scale IoT systems
+* Develop and optimize embedded firmware and devices
+* Integrate sensors and actuators with IoT protocols
+* Manage cloud and edge infrastructure
+* Develop real-time analytics and ML workflows
+* Ensure network and system security
+* Lead teams and mentor engineers
+* Drive IoT strategy and execution

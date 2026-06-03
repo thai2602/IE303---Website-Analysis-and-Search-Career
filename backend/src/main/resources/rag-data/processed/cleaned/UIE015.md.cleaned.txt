@@ -1,0 +1,46 @@
+---
+job_id: UIE015
+role: UI Designer
+level: Experienced
+years_of_experience: 3
+skills:
+* Figma
+* Adobe XD
+* InVision
+* Branding
+* A/B Testing
+* UI/UX Collaboration
+keywords:
+* A/B Testing
+* Design Systems
+* Figma
+* User Flows
+* Branding
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (3 years)
+
+## Skills
+* Figma
+* Adobe XD
+* InVision
+* Branding
+* A/B Testing
+* UI/UX Collaboration
+
+## Responsibilities
+* Conduct A/B testing for UI enhancements.
+* Deliver cross-device UI with consistent design systems.
+* Collaborate with UX team on journey mapping.
+* Manage deliverables with developers in sprints.
+* Maintain performance-focused design updates.
+
+## ATS Keywords
+* A/B Testing
+* Design Systems
+* Figma
+* User Flows
+* Branding

@@ -1,0 +1,13 @@
+## Responsibilities
+* Shadow senior architects in migration projects
+* Support setup of IAM roles
+* Assist with troubleshooting
+
+## ATS Keywords
+* Cloud Security
+* IAM
+* Python
+* AWS
+* Azure
+* GCP
+* Cloud Computing

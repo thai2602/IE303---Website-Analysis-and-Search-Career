@@ -1,0 +1,35 @@
+---
+job_id: UIE011
+role: UI Designer
+level: Experienced
+years_of_experience: 2
+skills:
+* Figma
+* Sketch
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Accessibility
+keywords:
+* Design Systems
+* Figma
+* Micro-Interactions
+* Accessibility
+* User Flows
+* Responsive Design
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (2 years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Accessibility

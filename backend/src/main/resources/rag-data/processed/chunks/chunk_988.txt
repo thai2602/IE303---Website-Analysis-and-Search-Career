@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in developing basic data models
+* Work with ETL testing processes
+* Collaborate on building pipelines
+* Learn cloud tools
+* Support troubleshooting
+
+## ATS Keywords
+* ETL
+* Python
+* SQL
+* Azure
+* Hadoop Basics

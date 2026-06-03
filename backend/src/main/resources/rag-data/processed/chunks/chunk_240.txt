@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop academic or POC Android app features.
+* Ensure proper UI/UX implementation using Material Design.
+* Connect apps to REST APIs and handle JSON data.
+* Debug minor issues and maintain local storage.
+* Follow version control practices using Git.
+
+## ATS Keywords
+* Java
+* Kotlin
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

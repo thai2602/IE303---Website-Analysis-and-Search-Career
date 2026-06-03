@@ -1,0 +1,9 @@
+## Responsibilities
+* Assist in coding and debugging applications
+* Learn and apply .NET Framework and Core fundamentals
+* Support team in building ASP.NET MVC web applications
+* Write basic SQL queries and work with Entity Framework
+* Collaborate with peers to solve issues
+* Participate in code reviews for learning
+* Follow best practices in coding
+* Work with version control (Git)

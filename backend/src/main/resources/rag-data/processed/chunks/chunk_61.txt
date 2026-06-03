@@ -1,0 +1,5 @@
+### Scoring Criteria
+| # | Criterion | Description | Max Score | Scoring Guide |
+|---|-----------|-------------|-----------|---------------|
+| 1 | **Professional Qualifications & Education** | Evaluate degree, certifications, and skills directly relevant to the role | 20 | **20 pts**: Correct field of study, relevant certifications. **10 pts**: Related background but requires additional training. |
+| 2 | **Work Experience** | Assess years of experience, industry, and similarity to the JD | 25 | **25 pts**: 2+ years in an equivalent role. **15 pts**: Similar experience but at a lower level. |

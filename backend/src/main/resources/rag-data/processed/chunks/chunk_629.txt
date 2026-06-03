@@ -1,0 +1,12 @@
+## Responsibilities
+* Analyze and optimize cloud costs
+* Implement cost monitoring tools
+* Work with finance teams
+
+## ATS Keywords
+* Cloud Cost Optimization
+* AWS
+* Azure
+* Cloud Monitoring
+* Terraform
+* Python

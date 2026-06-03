@@ -1,0 +1,28 @@
+---
+job_id: SDET-E-020
+role: Software Tester (SDET)
+level: Experienced
+years_of_experience: 10+
+skills:
+* Advanced Java
+* Python advanced
+* C# advanced
+* Selenium WebDriver
+* Cypress
+* TestNG
+* JMeter
+* Appium
+* API Testing advanced
+* CI/CD integration
+* Performance and load testing
+* Agile leadership
+* Mentoring
+* Cross-team collaboration
+* Code review
+* Test data management
+* Metrics-driven QA
+* Strategic QA planning
+* Automation strategy
+keywords:
+* Automation Framework
+* CI/CD

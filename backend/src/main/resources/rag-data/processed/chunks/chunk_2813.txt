@@ -1,0 +1,13 @@
+## Responsibilities
+* Design and manage cloud systems
+* Monitor system performance
+* Automate infrastructure
+* Collaborate on hybrid cloud projects
+* Ensure compliance with standards
+
+## ATS Keywords
+* Cloud Computing
+* System Architecture
+* Automation
+* Linux
+* Terraform

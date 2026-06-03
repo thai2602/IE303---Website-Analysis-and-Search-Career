@@ -1,0 +1,23 @@
+## Skills
+* JavaScript ES6+
+* HTML5 basics
+* CSS3 basics
+* React basics
+* Vue.js basics
+* Angular basics
+* AJAX
+* JSON
+* Git basics
+* Responsive design
+* REST API knowledge
+* Team collaboration
+* Communication
+* Problem-solving
+
+## Responsibilities
+* Assist in developing front-end applications
+* Implement basic UI with React, Vue, Angular
+* Integrate APIs
+* Debug and test front-end code
+* Document code and tasks
+* Collaborate with team members

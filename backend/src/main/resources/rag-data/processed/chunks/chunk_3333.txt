@@ -1,0 +1,26 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript
+* React basics
+* Node.js basics
+* Git
+* MongoDB basics
+* REST APIs
+* Responsive Design
+
+## Responsibilities
+* Build UI components under supervision
+* Support backend API integration
+* Assist in database connection tasks
+* Participate in code reviews
+* Test front-end and back-end modules
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Node.js
+* MongoDB
+* REST APIs

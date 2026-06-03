@@ -1,0 +1,17 @@
+## Responsibilities
+* Execute automated and manual tests
+* Perform API validation
+* Support defect tracking and documentation
+* Collaborate with development team
+* Participate in Agile workflows
+* Document testing activities
+
+## ATS Keywords
+* Software Testing
+* Automation Testing
+* Selenium
+* API Testing
+* JUnit
+* TestNG
+* Agile/Scrum
+* Regression Testing

@@ -1,0 +1,16 @@
+# SEO Specialist
+
+## Experience Level
+Experienced (5-8 years)
+
+## Skills
+* SEO strategy development
+* Advanced technical SEO
+* Crawlability, indexing, and site structure optimization
+* Schema markup and structured data implementation
+* AI and machine learning in SEO
+* Multimodal search optimization
+* Content strategy and SEO copywriting
+* Link building strategy
+* Analytics and reporting (GA4, Looker Studio, Search Console)
+* Privacy-compliant SEO strategies

@@ -1,0 +1,197 @@
+# ATS CV Optimization Guide for HR & Recruiters
+
+## Metadata
+- **Topic**: Applicant Tracking System (ATS) — CV Optimization
+- **Audience**: HR Professionals, Recruiters (to guide candidates)
+- **Language**: English
+
+---
+
+## Overview
+
+An Applicant Tracking System (ATS) is software used by companies to automatically collect, parse, and rank CVs before a human recruiter ever sees them. A candidate may be highly qualified but still get filtered out if their CV isn't structured for ATS compatibility.
+
+This guide helps HR professionals understand how ATS works — and how to advise candidates to optimize their CVs accordingly.
+
+---
+
+## 1. How ATS Works
+
+### 1.1 The Parsing Process
+When a candidate submits a CV, the ATS:
+1. **Extracts** text from the document (name, contact info, work history, skills, education)
+2. **Parses** the content into structured fields
+3. **Scores** the CV based on keyword matches against the Job Description (JD)
+4. **Ranks** candidates and surfaces the highest-scoring profiles to the recruiter
+
+### 1.2 What ATS Evaluates
+| ATS Signal | What It Looks For |
+|------------|-------------------|
+| Keywords | Exact or near-exact matches with JD terms |
+| Job titles | Alignment with the role being advertised |
+| Section headers | Standard labels (e.g. "Work Experience", "Education") |
+| Date formats | Consistent, machine-readable formats (e.g. MM/YYYY) |
+| File format | Clean text extraction — typically prefers `.docx` or plain `.pdf` |
+
+### 1.3 Why Candidates Fail ATS Screening
+- CV is submitted as an image-based PDF (text cannot be extracted)
+- Keywords don't match the JD language
+- Non-standard section headers confuse the parser
+- Formatting elements (tables, columns, graphics) break text extraction
+
+---
+
+## 2. ATS-Compliant CV Formatting
+
+### 2.1 Recommended File Format
+| Format | ATS Compatibility | Notes |
+|--------|------------------|-------|
+| `.docx` (Word) | ✅ Best | Most universally parsed |
+| Text-based `.pdf` | ✅ Good | Must be text-selectable, not scanned |
+| Image-based `.pdf` | ❌ Avoid | Text cannot be extracted |
+| `.pages`, `.odt` | ⚠️ Risky | May not be supported by all ATS platforms |
+
+### 2.2 Layout & Structure Rules
+
+**Use standard section headers** — ATS parsers recognize common labels:
+- `Work Experience` / `Professional Experience`
+- `Education`
+- `Skills`
+- `Certifications`
+- `Summary` / `Professional Summary`
+
+**Avoid** creative or ambiguous headers like:
+- "My Journey", "What I've Done", "Where I've Been"
+
+**Use a single-column layout**:
+- Multi-column layouts cause ATS to misread the reading order
+- Avoid tables for structuring key content — use plain bullet points instead
+
+**Font and spacing**:
+- Use standard fonts: Arial, Calibri, Times New Roman, or Georgia
+- Font size: 10–12pt for body text, 14–16pt for name/headers
+- Avoid text boxes, headers/footers (ATS often skips these), and icons
+
+### 2.3 Recommended CV Structure for ATS
+
+```
+1. Full Name & Contact Information
+2. Professional Summary (3–5 lines)
+3. Core Skills / Key Competencies
+4. Work Experience (reverse chronological)
+5. Education
+6. Certifications & Professional Development
+7. Optional: Projects, Volunteer Work, Publications
+```
+
+---
+
+## 3. Keyword Optimization by JD
+
+### 3.1 Why Keywords Matter
+ATS ranks CVs based on how closely the language matches the JD. A candidate who uses different terminology for the same skill may be filtered out despite being fully qualified.
+
+**Example**:
+- JD says: `"Search Engine Optimization (SEO)"`
+- Candidate writes: `"Organic traffic growth"` → May not match
+- Better: `"Search Engine Optimization (SEO) — grew organic traffic by 45%"`
+
+### 3.2 How to Extract Keywords from a JD
+
+Advise candidates to scan the JD for:
+
+| Category | Examples |
+|----------|---------|
+| **Hard skills / tools** | Python, Salesforce, Google Analytics, SQL |
+| **Soft skills** | Project management, cross-functional collaboration |
+| **Certifications** | PMP, ACCA, AWS Certified, Google Ads |
+| **Job title variants** | "Marketing Manager" vs. "Marketing Lead" |
+| **Industry terms** | KPI, SLA, B2B, SaaS, CAC, ROAS |
+
+### 3.3 Keyword Placement Strategy
+
+| CV Section | Keyword Usage |
+|------------|--------------|
+| Professional Summary | Include 3–5 high-priority keywords naturally |
+| Core Skills section | List exact-match keywords from the JD |
+| Work Experience bullets | Embed keywords in context with measurable results |
+| Certifications | Use full official names as they appear in the JD |
+
+> **Important for HR**: Remind candidates that keyword stuffing (listing terms without context) can pass ATS but will fail human review. Keywords must appear naturally within genuine experience descriptions.
+
+### 3.4 Use Both Acronyms and Full Forms
+ATS may search for one or the other. Candidates should include both:
+- `Search Engine Optimization (SEO)`
+- `Key Performance Indicators (KPIs)`
+- `Customer Acquisition Cost (CAC)`
+
+---
+
+## 4. Common ATS Mistakes to Avoid
+
+### 4.1 Formatting Mistakes
+
+| Mistake | Why It's a Problem | Fix |
+|---------|-------------------|-----|
+| Using tables for layout | ATS reads table cells out of order | Use plain bullet lists |
+| Text in headers/footers | Many ATS platforms skip this area | Move all key info into the body |
+| Embedded images or logos | Cannot be parsed as text | Remove all non-text elements |
+| Multi-column layout | Causes jumbled reading order | Switch to single-column |
+| Fancy fonts or icons | May not render correctly in ATS | Use standard system fonts only |
+
+### 4.2 Content Mistakes
+
+| Mistake | Why It's a Problem | Fix |
+|---------|-------------------|-----|
+| Generic job titles | Doesn't match JD role labels | Mirror the exact job title from the JD |
+| Vague skill descriptions | No keyword match | Use specific tool/skill names |
+| Missing dates | ATS can't calculate experience duration | Always include MM/YYYY for all roles |
+| Unexplained gaps | May trigger low scoring | Add a brief note (e.g. "Career break — professional development") |
+| Submitting one CV for all roles | Low keyword match per JD | Tailor each CV to the specific JD |
+
+### 4.3 File Submission Mistakes
+- Sending a scanned PDF or photo of a CV
+- Submitting a password-protected file
+- Using a file name with special characters (e.g. `CV_2024@final!!.pdf`) — use clean names like `FirstName_LastName_CV.pdf`
+
+---
+
+## 5. HR Checklist: Advising Candidates on ATS Optimization
+
+Use this checklist when coaching candidates or reviewing submissions:
+
+**Format**
+- [ ] CV submitted as `.docx` or text-based `.pdf`
+- [ ] Single-column layout with no tables or text boxes
+- [ ] Standard section headers used throughout
+- [ ] Standard font, 10–12pt, no icons or images
+
+**Keywords**
+- [ ] JD reviewed and key terms identified
+- [ ] High-priority keywords included in Summary and Skills sections
+- [ ] Both acronyms and full forms used where relevant
+- [ ] Keywords embedded naturally within experience descriptions
+
+**Content**
+- [ ] All roles include start and end dates (MM/YYYY)
+- [ ] Job titles reflect the language used in the JD
+- [ ] Achievements are quantified where possible
+- [ ] Employment gaps are briefly addressed
+
+**File**
+- [ ] File named cleanly: `FirstName_LastName_CV.pdf`
+- [ ] File is not password-protected
+- [ ] CV is not a scanned image
+
+---
+
+## Summary: ATS Optimization at a Glance
+
+| Area | Key Action |
+|------|-----------|
+| How ATS works | Parses, scores, and ranks CVs by keyword match before human review |
+| File format | Use `.docx` or text-based `.pdf`; avoid image PDFs |
+| Layout | Single column, standard headers, no tables or graphics |
+| Keywords | Mirror JD language; include both acronyms and full forms |
+| Placement | Summary, Skills section, and Work Experience bullets |
+| Common mistakes | Multi-column layout, missing dates, generic descriptions, one-size CV |

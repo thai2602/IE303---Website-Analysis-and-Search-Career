@@ -1,0 +1,11 @@
+## Responsibilities
+* Develop and maintain complex technical manuals and guides
+* Collaborate with cross-functional teams for content accuracy
+* Implement structured document standards
+* Manage content in CMS
+* Integrate AI tools to improve efficiency
+* Conduct technical research and SME interviews
+* Ensure UX-focused documentation design
+* Maintain version control and updates
+* Prepare visual diagrams and screenshots
+* Measure documentation impact and quality metrics

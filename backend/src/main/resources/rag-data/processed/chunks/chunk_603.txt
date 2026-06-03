@@ -1,0 +1,25 @@
+## Skills
+* AWS
+* Azure
+* Kubernetes
+* Terraform
+* Python scripting
+* CI/CD pipelines
+* Cloud security compliance
+
+## Responsibilities
+* Design scalable cloud infrastructure
+* Automate deployments using Terraform
+* Implement CI/CD pipelines
+* Collaborate on security compliance projects
+
+## ATS Keywords
+* Cloud Architecture
+* AWS
+* Azure
+* Terraform
+* Kubernetes
+* CI/CD
+* Automation
+* Python
+* Cloud Security

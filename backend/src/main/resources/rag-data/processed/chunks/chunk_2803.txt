@@ -1,0 +1,13 @@
+## Responsibilities
+* Support system configuration
+* Perform routine server checks
+* Assist in virtualization setup
+* Create basic scripts
+* Collaborate with IT team
+
+## ATS Keywords
+* System Support
+* Linux
+* VMware
+* Cloud Basics
+* Troubleshooting

@@ -1,0 +1,23 @@
+## Skills
+* Cloud storage basics
+* Networking fundamentals
+* Docker
+* Terraform basics
+* Linux administration
+* Java basics
+
+## Responsibilities
+* Assist in provisioning virtual machines
+* Support deployment of test environments
+* Help with Infrastructure as Code basics
+* Perform troubleshooting under supervision
+
+## ATS Keywords
+* AWS
+* Terraform
+* Cloud Basics
+* Infrastructure as Code
+* Docker
+* Virtualization
+* Python
+* Cloud Security

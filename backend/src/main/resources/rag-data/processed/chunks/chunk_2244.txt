@@ -1,0 +1,8 @@
+* Team Leadership
+* Agile
+* Scrum
+* Waterfall
+* Microsoft Project
+* Jira
+* Reporting
+---

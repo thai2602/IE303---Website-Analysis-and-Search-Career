@@ -1,0 +1,28 @@
+---
+job_id: CW-108
+role: Copywriter
+level: Mid-Level
+years_of_experience: 2-5
+skills:
+* Strategic copywriting
+* SEO optimization
+* Editing and proofreading
+* Research and fact-checking
+* Content adaptation for brand voice
+* Digital marketing familiarity
+* CMS proficiency
+* AI-assisted content tools
+* Storytelling and creativity
+* Team collaboration
+keywords:
+* Copywriting
+* SEO
+* Editing
+* Brand Voice
+* CMS
+* AI Tools
+* Storytelling
+* Research
+* Collaboration
+* Content Strategy
+---

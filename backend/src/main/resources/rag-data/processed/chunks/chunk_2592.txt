@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* React
+* Angular
+* Vue.js
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Docker
+* Kubernetes
+* Git
+* Agile/Scrum
+
+## Responsibilities
+* Design full-stack applications
+* Deploy microservices in cloud
+* Maintain database systems
+* Lead code reviews
+* Mentor junior developers
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Mid-Level
+* Full-Stack
+* Cloud
+* Mentoring
+* Agile

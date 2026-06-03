@@ -1,0 +1,14 @@
+## Responsibilities
+* Design, implement, and deploy advanced AI solutions
+* Lead teams
+* Ensure cloud integration
+* Manage MLOps pipelines
+
+## ATS Keywords
+* AI
+* ML
+* Senior-Level
+* Deep Learning
+* NLP
+* Cloud
+* MLOps

@@ -1,0 +1,8 @@
+## Responsibilities
+* Define product vision and strategy
+* Lead roadmap planning and prioritization
+* Drive cross-functional collaboration
+* Oversee data analysis and experimentation
+* Conduct user research and journey mapping
+* Facilitate agile ceremonies
+* Measure and optimize product performance

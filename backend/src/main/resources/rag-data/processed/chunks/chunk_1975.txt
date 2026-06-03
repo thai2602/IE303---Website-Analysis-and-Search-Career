@@ -1,0 +1,14 @@
+## Responsibilities
+* Architect scalable .NET Core solutions
+* Implement design patterns in projects
+* Lead database optimization efforts
+* Manage CI/CD pipelines with Azure DevOps
+* Collaborate with cross-functional teams
+
+## ATS Keywords
+* .NET Core
+* C#
+* ASP.NET MVC
+* SOLID
+* Azure DevOps
+* Entity Framework

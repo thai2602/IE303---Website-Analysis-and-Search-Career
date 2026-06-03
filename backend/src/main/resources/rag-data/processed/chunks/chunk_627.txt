@@ -1,0 +1,12 @@
+## Responsibilities
+* Design hybrid cloud solutions
+* Integrate on-prem with cloud
+* Manage secure connections
+
+## ATS Keywords
+* Hybrid Cloud
+* AWS
+* Azure
+* Networking
+* Cloud Architecture
+* Terraform

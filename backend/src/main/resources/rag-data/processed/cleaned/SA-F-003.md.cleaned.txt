@@ -1,0 +1,61 @@
+---
+job_id: SA-F-003
+role: Solutions Architect
+level: Fresher
+years_of_experience: 0-1
+skills:
+* AWS basics
+* Azure basics
+* Java fundamentals
+* Python fundamentals
+* Basic container orchestration knowledge
+* CI/CD introduction
+* Basic security and compliance awareness
+* Teamwork
+* Communication
+* Problem-solving
+keywords:
+* Cloud Computing
+* Architecture Design
+* AWS
+* Azure
+* DevOps
+* CI/CD
+* Java
+* Python
+---
+
+# Solutions Architect
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* AWS basics
+* Azure basics
+* Java fundamentals
+* Python fundamentals
+* Basic container orchestration knowledge
+* CI/CD introduction
+* Basic security and compliance awareness
+* Teamwork
+* Communication
+* Problem-solving
+
+## Responsibilities
+* Assist in designing cloud architectures
+* Support DevOps automation tasks
+* Learn microservices basics
+* Participate in Docker/Kubernetes tasks
+* Collaborate with stakeholders
+* Document architecture processes
+
+## ATS Keywords
+* Cloud Computing
+* Architecture Design
+* AWS
+* Azure
+* DevOps
+* CI/CD
+* Java
+* Python

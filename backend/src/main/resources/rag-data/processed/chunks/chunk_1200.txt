@@ -1,0 +1,20 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Angular
+* Vue.js
+* Node.js
+* Django
+* Flask
+* MySQL
+* PostgreSQL
+* MongoDB
+* Git
+* RESTful API design
+* Agile
+* Docker
+* Kubernetes
+* CI/CD
+* Cloud Platforms

@@ -1,0 +1,20 @@
+## Skills
+* C#
+* .NET Framework basics
+* ASP.NET
+* Razor
+* HTML
+* CSS
+* JavaScript basics
+* SQL Server
+* Entity Framework basics
+* NUnit basics
+
+## Responsibilities
+* Write simple C# programs under guidance
+* Support development of ASP.NET MVC applications
+* Implement Razor views and front-end logic
+* Assist in database query writing
+* Participate in unit testing tasks
+* Learn and apply LINQ for data operations
+* Work with mentors for code corrections

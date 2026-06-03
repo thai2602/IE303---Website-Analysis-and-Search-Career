@@ -1,0 +1,6 @@
+## Responsibilities
+* Lead Android development teams for enterprise apps.
+* Oversee architecture, modularization, and app performance.
+* Integrate Firebase services for analytics and messaging.
+* Ensure CI/CD pipelines and automated tests run smoothly.
+* Guide and mentor engineers on best coding practices.

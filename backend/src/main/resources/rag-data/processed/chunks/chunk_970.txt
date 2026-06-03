@@ -1,0 +1,37 @@
+---
+job_id: DE-E-009
+role: Data Engineer
+level: Experienced
+years_of_experience: 3-4
+skills:
+* Python
+* Scala
+* SQL
+* Kafka
+* Flink
+* Azure Synapse
+* MongoDB
+* Airflow
+keywords:
+* Python
+* SQL
+* Kafka
+* Flink
+* Airflow
+* Azure Synapse
+---
+
+# Data Engineer
+
+## Experience Level
+Experienced (3-4 years)
+
+## Skills
+* Python
+* Scala
+* SQL
+* Kafka
+* Flink
+* Azure Synapse
+* MongoDB
+* Airflow

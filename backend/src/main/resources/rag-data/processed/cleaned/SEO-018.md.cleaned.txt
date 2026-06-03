@@ -1,0 +1,71 @@
+---
+job_id: SEO-018
+role: SEO Specialist
+level: Experienced
+years_of_experience: 7-10
+skills:
+* SEO strategy and roadmap
+* Technical SEO audits
+* Advanced content strategy
+* Link building strategy
+* AI-powered SEO tools
+* Multimodal search optimization
+* Analytics and reporting (GA4, Looker Studio, Search Console)
+* Privacy-compliant SEO strategies
+* Local and mobile SEO optimization
+* Voice and visual search optimization
+keywords:
+* SEO Strategy
+* Technical SEO
+* Content Strategy
+* Link Building
+* AI SEO Tools
+* Multimodal Search
+* Analytics
+* Privacy Compliance
+* Local SEO
+* Mobile SEO
+* Voice Search
+---
+
+# SEO Specialist
+
+## Experience Level
+Experienced (7-10 years)
+
+## Skills
+* SEO strategy and roadmap
+* Technical SEO audits
+* Advanced content strategy
+* Link building strategy
+* AI-powered SEO tools
+* Multimodal search optimization
+* Analytics and reporting (GA4, Looker Studio, Search Console)
+* Privacy-compliant SEO strategies
+* Local and mobile SEO optimization
+* Voice and visual search optimization
+
+## Responsibilities
+* Define and lead SEO strategy
+* Conduct technical SEO audits and optimizations
+* Develop and implement advanced content strategy
+* Plan and execute link building campaigns
+* Leverage AI SEO tools for insights
+* Optimize for voice, image, and video search
+* Monitor performance metrics and report to stakeholders
+* Ensure GDPR and privacy compliance
+* Optimize local and mobile SEO
+* Collaborate with cross-functional teams for SEO execution
+
+## ATS Keywords
+* SEO Strategy
+* Technical SEO
+* Content Strategy
+* Link Building
+* AI SEO Tools
+* Multimodal Search
+* Analytics
+* Privacy Compliance
+* Local SEO
+* Mobile SEO
+* Voice Search

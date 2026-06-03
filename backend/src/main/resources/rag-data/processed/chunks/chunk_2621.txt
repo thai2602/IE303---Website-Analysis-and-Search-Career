@@ -1,0 +1,17 @@
+## Responsibilities
+* Lead test automation and QA strategy
+* Design automated testing frameworks
+* Perform advanced functional, API, and performance tests
+* Integrate automated tests with CI/CD pipelines
+* Mentor junior testers
+* Ensure Agile QA processes and best practices
+
+## ATS Keywords
+* Automation Framework
+* CI/CD
+* Performance Testing
+* Selenium
+* Jenkins
+* Appium
+* Code Review
+* Test Data Management

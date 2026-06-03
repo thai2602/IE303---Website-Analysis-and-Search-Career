@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in creating test scripts for software applications
+* Perform functional, regression, and API testing
+* Collaborate with development teams on test planning
+* Execute basic automated test cases using Selenium or Cypress
+* Document test results and defects
+* Learn Agile/Scrum processes
+
+## ATS Keywords
+* Software Testing
+* Automation Testing
+* Selenium
+* API Testing
+* JUnit
+* TestNG
+* Agile/Scrum
+* Regression Testing

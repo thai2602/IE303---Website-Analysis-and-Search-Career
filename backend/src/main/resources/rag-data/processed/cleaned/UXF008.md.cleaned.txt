@@ -1,0 +1,44 @@
+---
+job_id: UXF008
+role: UX Apprentice
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Figma
+* Sketch
+* Prototyping
+* Information Architecture Basics
+* Adobe XD
+keywords:
+* Figma
+* Wireframing
+* Prototyping
+* User Flows
+* Information Architecture
+---
+
+# UX Apprentice
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Figma
+* Sketch
+* Prototyping
+* Information Architecture Basics
+* Adobe XD
+
+## Responsibilities
+* Learn UX workflow by assisting in design phases
+* Create draft user journeys
+* Design low-fidelity clickable prototypes
+* Observe usability testing sessions
+* Help document user requirements
+
+## ATS Keywords
+* Figma
+* Wireframing
+* Prototyping
+* User Flows
+* Information Architecture

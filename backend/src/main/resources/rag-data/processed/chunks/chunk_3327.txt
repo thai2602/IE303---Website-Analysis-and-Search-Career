@@ -1,0 +1,28 @@
+## Skills
+* HTML5
+* CSS3
+* JavaScript
+* React basics
+* PHP basics
+* Node.js basics
+* Git
+* MongoDB basics
+* AJAX
+* UI/UX fundamentals
+
+## Responsibilities
+* Develop and maintain web pages
+* Support front-end and back-end integration
+* Work with version control systems
+* Test and debug simple web components
+* Participate in team discussions
+
+## ATS Keywords
+* HTML5
+* CSS3
+* JavaScript
+* React
+* Node.js
+* PHP
+* MongoDB
+* AJAX

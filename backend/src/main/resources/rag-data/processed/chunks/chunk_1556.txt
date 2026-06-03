@@ -1,0 +1,13 @@
+## Responsibilities
+* Contribute to small-scale features in ongoing apps.
+* Connect APIs and test data flow.
+* Implement responsive UI layouts.
+* Assist with regression testing after updates.
+* Learn code review practices with peers.
+
+## ATS Keywords
+* Swift
+* Objective-C
+* JSON
+* REST APIs
+* Mobile Testing

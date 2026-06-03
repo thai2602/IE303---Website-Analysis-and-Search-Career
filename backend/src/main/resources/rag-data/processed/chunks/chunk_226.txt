@@ -1,0 +1,6 @@
+## Responsibilities
+* Set technical standards for Android apps across teams.
+* Oversee advanced app development, CI/CD, and testing processes.
+* Optimize app performance and maintain crash-free releases.
+* Mentor senior and junior engineers on architecture and coding standards.
+* Drive Android project delivery with measurable KPIs.

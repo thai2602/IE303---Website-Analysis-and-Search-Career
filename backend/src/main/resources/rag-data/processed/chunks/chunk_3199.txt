@@ -1,0 +1,30 @@
+---
+job_id: UXE018
+role: UX Consultant
+level: Experienced
+years_of_experience: 8+
+skills:
+* Figma
+* Sketch
+* Design Thinking
+* User Research
+* Agile UX
+keywords:
+* Design Thinking
+* User Research
+* Agile
+* Usability Testing
+* Figma
+---
+
+# UX Consultant
+
+## Experience Level
+Experienced (8+ years)
+
+## Skills
+* Figma
+* Sketch
+* Design Thinking
+* User Research
+* Agile UX

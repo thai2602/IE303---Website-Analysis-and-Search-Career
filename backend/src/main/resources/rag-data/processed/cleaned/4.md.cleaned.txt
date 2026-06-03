@@ -1,0 +1,61 @@
+---
+job_id: 4
+role: Full Stack Developer - Entry Level
+level: Fresher
+years_of_experience: 0–1 year
+skills:
+* JavaScript
+* HTML5
+* CSS3
+* Angular
+* React
+* Vue.js
+* Node.js
+* Flask
+* MySQL
+* MongoDB
+* Git
+keywords:
+* Full Stack Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Agile
+* Web Development
+---
+
+# Full Stack Developer - Entry Level
+
+## Experience Level
+Fresher (0–1 year years)
+
+## Skills
+* JavaScript
+* HTML5
+* CSS3
+* Angular
+* React
+* Vue.js
+* Node.js
+* Flask
+* MySQL
+* MongoDB
+* Git
+
+## Responsibilities
+* Develop web applications with frontend and backend focus
+* Build responsive interfaces with Angular, React, or Vue.js
+* Develop backend APIs using Node.js or Flask
+* Maintain databases
+* Write unit tests
+* Participate in Agile sprints
+
+## ATS Keywords
+* Full Stack Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Agile
+* Web Development

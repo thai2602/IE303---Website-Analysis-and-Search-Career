@@ -1,0 +1,28 @@
+## Skills
+* Java
+* Python
+* C#
+* Angular
+* React
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Git
+* CI/CD
+* Agile/Scrum
+
+## Responsibilities
+* Lead backend and frontend development
+* Integrate cloud services
+* Deploy and maintain CI/CD pipelines
+* Ensure application performance and scalability
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Mid-Level
+* Cloud
+* Full-Stack
+* Agile
+* CI/CD

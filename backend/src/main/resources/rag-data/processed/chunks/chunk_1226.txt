@@ -1,0 +1,8 @@
+## ATS Keywords
+* Full Stack Developer
+* Entry-Level
+* Fresher
+* Frontend
+* Backend
+* Web Security
+* Agile

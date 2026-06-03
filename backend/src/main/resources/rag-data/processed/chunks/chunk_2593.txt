@@ -1,0 +1,35 @@
+---
+job_id: SD014
+role: Software Developer - Experienced
+level: Experienced
+years_of_experience: 5–7 years
+skills:
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Azure
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Agile/Scrum
+keywords:
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* CI/CD
+---
+
+# Software Developer - Experienced
+
+## Experience Level
+Experienced (5–7 years years)

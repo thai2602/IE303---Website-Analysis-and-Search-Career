@@ -1,0 +1,26 @@
+## Skills
+* SQL
+* Python
+* R
+* Tableau
+* Power BI
+* Excel charts
+* Pandas
+* MySQL
+* PostgreSQL
+* Hadoop
+* Spark basics
+* Basic statistics
+
+## Responsibilities
+* Perform data extraction and cleaning
+* Create visualizations
+* Assist in generating business insights
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Entry-Level
+* Fresher
+* Visualization
+* Reporting

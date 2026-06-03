@@ -1,0 +1,20 @@
+## Responsibilities
+* Oversee SRE operations
+* Design scalable, fault-tolerant systems
+* Lead automation, CI/CD, and IaC implementations
+* Manage monitoring and logging frameworks
+* Ensure high availability
+* Mentor SRE teams
+* Coordinate with DevOps, development, and security teams
+
+## ATS Keywords
+* Python
+* Go
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* Terraform
+* CI/CD
+* Monitoring
+* Distributed Systems

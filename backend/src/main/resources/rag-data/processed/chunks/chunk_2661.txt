@@ -1,0 +1,17 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Java basics
+* Python basics
+* C# basics
+* Selenium basics
+* Cypress basics
+* API testing
+* Functional testing
+* Regression testing
+* Postman
+* Jenkins basics
+* Teamwork
+* Communication
+* Problem-solving

@@ -1,0 +1,10 @@
+## Responsibilities
+* Collaborate with team members in Java projects
+* Implement OOP concepts in real modules
+* Handle version control tasks
+
+## ATS Keywords
+* Java
+* Core Java
+* Git
+* Teamwork

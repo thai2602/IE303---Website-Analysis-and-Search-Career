@@ -1,0 +1,9 @@
+## Responsibilities
+* Assist in IoT device programming
+* Integrate sensors and actuators into embedded systems
+* Support wireless communication implementation
+* Work with cloud IoT platforms for basic data handling
+* Participate in network configuration and testing
+* Document project progress
+* Collaborate with team members on IoT projects
+* Assist in basic data analytics tasks

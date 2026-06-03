@@ -1,0 +1,16 @@
+## ATS Keywords
+* Kotlin
+* Jetpack
+* MVVM
+* Room
+* Material Design
+* Dependency Injection
+* Performance Optimization
+* CI/CD
+* Firebase
+* REST API
+* Play Store
+* Debugging
+* Agile
+* Unit Testing
+* Android NDK

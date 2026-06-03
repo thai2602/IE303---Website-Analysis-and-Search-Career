@@ -1,0 +1,48 @@
+---
+job_id: CA014
+role: Cloud Automation Engineer
+level: Experienced
+years_of_experience: 5
+skills:
+* Terraform
+* CloudFormation
+* Ansible
+* AWS
+* Python
+* Kubernetes
+keywords:
+* Automation
+* Terraform
+* CloudFormation
+* Ansible
+* AWS
+* Python
+* IaC
+---
+
+# Cloud Automation Engineer
+
+## Experience Level
+Experienced (5 years)
+
+## Skills
+* Terraform
+* CloudFormation
+* Ansible
+* AWS
+* Python
+* Kubernetes
+
+## Responsibilities
+* Automate infrastructure provisioning
+* Maintain Infrastructure as Code
+* Support scaling workloads
+
+## ATS Keywords
+* Automation
+* Terraform
+* CloudFormation
+* Ansible
+* AWS
+* Python
+* IaC

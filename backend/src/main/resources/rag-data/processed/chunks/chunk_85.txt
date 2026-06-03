@@ -1,0 +1,14 @@
+## Responsibilities
+* Design advanced prompts for AI models
+* Perform prompt evaluation and tuning
+* Collaborate with AI teams for integration
+* Implement metrics for prompt effectiveness
+* Lead knowledge sharing sessions on prompt engineering
+
+## ATS Keywords
+* Prompt Optimization
+* LLM
+* Python
+* AI Frameworks
+* API Integration
+* Model Fine-tuning

@@ -1,0 +1,13 @@
+## Responsibilities
+* Assist in managing databases
+* Support ETL and pipeline processes
+* Help with data quality checks
+* Collaborate on cloud-based data solutions
+* Work under mentorship on Hadoop/Spark tasks
+
+## ATS Keywords
+* Python
+* SQL
+* ETL
+* AWS
+* Data Engineering Fundamentals

@@ -1,0 +1,8 @@
+## Responsibilities
+* Design and implement scalable fintech systems
+* Develop blockchain-based applications and smart contracts
+* Apply AI/ML for financial predictions
+* Lead API and microservices architecture
+* Ensure compliance, security, and privacy
+* Mentor teams and manage projects
+* Drive innovation and strategic fintech initiatives

@@ -1,0 +1,14 @@
+## Responsibilities
+* Support in software design documentation
+* Assist senior developers in testing
+* Create small UI components
+* Debug and test applications
+* Implement basic LINQ queries
+* Participate in code maintenance
+
+## ATS Keywords
+* .NET
+* C#
+* SQL Server
+* Entity Framework
+* ASP.NET

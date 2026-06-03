@@ -1,0 +1,33 @@
+---
+job_id: PD-E-014
+role: Product Designer
+level: Experienced
+years_of_experience: 5+ Years
+skills:
+* Figma
+* Sketch
+* InVision
+* Design Systems
+* Leadership
+* Agile Methods
+keywords:
+* Leadership
+* Design Systems
+* UX/UI Design
+* Agile
+* Stakeholder Alignment
+* Product Design Strategy
+---
+
+# Product Designer
+
+## Experience Level
+Experienced (5+ Years years)
+
+## Skills
+* Figma
+* Sketch
+* InVision
+* Design Systems
+* Leadership
+* Agile Methods

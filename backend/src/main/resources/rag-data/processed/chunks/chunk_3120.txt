@@ -1,0 +1,30 @@
+---
+job_id: TW-115
+role: Technical Writer
+level: Experienced
+years_of_experience: 5-10
+skills:
+* Advanced Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML/HTML/CSS
+* CMS
+* AI-assisted Documentation
+* Version Control
+* UX Documentation
+keywords:
+* Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML
+* HTML
+* CMS
+* AI Tools
+* UX Documentation
+---
+
+# Technical Writer

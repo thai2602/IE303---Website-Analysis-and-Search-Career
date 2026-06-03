@@ -1,0 +1,20 @@
+## Responsibilities
+* Manage development of advanced robotic systems
+* Integrate sensors, AI, and control algorithms
+* Simulate and test robotics applications
+* Lead and mentor engineering teams
+* Drive cross-functional innovation projects
+
+## ATS Keywords
+* Python
+* C++
+* MATLAB
+* ROS
+* Control Systems
+* CAD
+* Embedded Systems
+* Sensors
+* Machine Learning
+* Simulation
+* Leadership
+* Innovation

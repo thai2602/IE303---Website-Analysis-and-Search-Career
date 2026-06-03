@@ -1,0 +1,29 @@
+---
+job_id: CA020
+role: Cloud Infrastructure Security Architect
+level: Experienced
+years_of_experience: 9
+skills:
+* Cloud security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Terraform
+* Kubernetes
+keywords:
+* Cloud Security
+* IAM
+* Encryption
+* Compliance
+* AWS
+* Azure
+* Terraform
+* Kubernetes
+---
+
+# Cloud Infrastructure Security Architect
+
+## Experience Level
+Experienced (9 years)

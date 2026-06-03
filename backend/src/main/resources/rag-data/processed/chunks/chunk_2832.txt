@@ -1,0 +1,30 @@
+---
+job_id: SE017
+role: System Engineer Intern
+level: Fresher
+years_of_experience: 0
+skills:
+* Linux Basics
+* Networking
+* Scripting Fundamentals
+* Cloud Basics
+* Monitoring Tools
+keywords:
+* Internship
+* Systems Engineering
+* Linux
+* Networking
+* Cloud Basics
+---
+
+# System Engineer Intern
+
+## Experience Level
+Fresher (0 years)
+
+## Skills
+* Linux Basics
+* Networking
+* Scripting Fundamentals
+* Cloud Basics
+* Monitoring Tools

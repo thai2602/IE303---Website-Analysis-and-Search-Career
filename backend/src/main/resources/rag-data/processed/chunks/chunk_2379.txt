@@ -1,0 +1,26 @@
+## Skills
+* Manual Testing
+* Basic Automation: Selenium, Appium, Cucumber
+* Java
+* Python
+* JavaScript
+* JIRA
+* Bugzilla
+* Postman basics
+* SoapUI basics
+* Test Documentation
+
+## Responsibilities
+* Support testing efforts for software applications
+* Log defects
+* Assist in writing test scripts
+* Prepare reports
+
+## ATS Keywords
+* QA
+* Automation
+* Software
+* Fresher
+* Remote
+* Manual Testing
+* Selenium

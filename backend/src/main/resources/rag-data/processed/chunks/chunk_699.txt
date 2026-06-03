@@ -1,0 +1,20 @@
+## Skills
+* AWS Security
+* Azure Security
+* GCP Security
+* SIEM Tools
+* Firewall Management
+* Incident Response
+
+## Responsibilities
+* Secure multi-cloud environments
+* Perform cloud-specific penetration testing
+* Collaborate with DevOps teams
+* Monitor compliance with cloud policies
+
+## ATS Keywords
+* Cloud Security
+* Penetration Testing
+* Compliance
+* SIEM
+* Risk Management

@@ -1,0 +1,48 @@
+---
+job_id: PD-F-009
+role: Product Designer
+level: Fresher
+years_of_experience: 0-1 Years
+skills:
+* Figma
+* Sketch
+* Adobe Illustrator
+* Typography
+* Color Theory
+* Wireframing
+keywords:
+* Typography
+* Color Theory
+* Wireframing
+* Product Design
+* Adobe Illustrator
+* UI/UX
+---
+
+# Product Designer
+
+## Experience Level
+Fresher (0-1 Years years)
+
+## Skills
+* Figma
+* Sketch
+* Adobe Illustrator
+* Typography
+* Color Theory
+* Wireframing
+
+## Responsibilities
+* Design visual layouts for internal projects
+* Assist in preparing clickable prototypes
+* Participate in user flow design discussions
+* Apply color theory to UI screens
+* Contribute to accessibility-focused design experiments
+
+## ATS Keywords
+* Typography
+* Color Theory
+* Wireframing
+* Product Design
+* Adobe Illustrator
+* UI/UX

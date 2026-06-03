@@ -1,0 +1,29 @@
+* Bluetooth
+* Cloud IoT
+* Edge Computing
+---
+
+# IoT Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C basics
+* C++ basics
+* Python basics
+* Embedded firmware understanding
+* Sensor and actuator integration
+* Bluetooth and Zigbee protocols
+* LoRa basics
+* MQTT basics
+* AWS IoT basics
+* Azure IoT basics
+* TCP/IP basics
+* IPv6 basics
+* Tableau basics
+* Power BI basics
+* Agile methodology awareness
+* Communication
+* Teamwork
+* Problem-solving

@@ -1,0 +1,54 @@
+---
+job_id: DE-E-003
+role: Data Engineer
+level: Experienced
+years_of_experience: 4-5
+skills:
+* Scala
+* Python
+* SQL
+* Kafka
+* Flink
+* Databricks
+* GCP BigQuery
+* Data Modeling
+keywords:
+* Scala
+* Python
+* SQL
+* Kafka
+* Flink
+* BigQuery
+* Databricks
+---
+
+# Data Engineer
+
+## Experience Level
+Experienced (4-5 years)
+
+## Skills
+* Scala
+* Python
+* SQL
+* Kafka
+* Flink
+* Databricks
+* GCP BigQuery
+* Data Modeling
+
+## Responsibilities
+* Develop streaming pipelines with Kafka and Flink
+* Implement data warehousing solutions
+* Model data with partitioning and indexing
+* Optimize pipeline performance
+* Collaborate with product teams on data requirements
+
+## ATS Keywords
+* Scala
+* Python
+* SQL
+* Kafka
+* Flink
+* BigQuery
+* Databricks

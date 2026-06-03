@@ -1,0 +1,48 @@
+---
+job_id: UIE020
+role: UI Designer
+level: Experienced
+years_of_experience: 5
+skills:
+* Figma
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Leadership
+keywords:
+* Design Systems
+* Interaction Design
+* Team Leadership
+* Micro-Interactions
+* Figma
+* Responsive Design
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (5 years)
+
+## Skills
+* Figma
+* Adobe XD
+* InVision
+* Interaction Design
+* Micro-Interactions
+* Leadership
+
+## Responsibilities
+* Set design standards for enterprise applications.
+* Drive UI improvements with measurable KPIs.
+* Mentor senior and junior designers in design best practices.
+* Collaborate cross-functionally with product and engineering.
+* Ensure UI scalability across web, mobile, and cross-platform.
+
+## ATS Keywords
+* Design Systems
+* Interaction Design
+* Team Leadership
+* Micro-Interactions
+* Figma
+* Responsive Design

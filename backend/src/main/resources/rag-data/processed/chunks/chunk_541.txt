@@ -1,0 +1,22 @@
+## Skills
+* Hadoop basics
+* Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL basics
+* Talend basics
+* Linux/Unix basics
+* Curiosity
+* Teamwork
+* Analytical thinking
+
+## Responsibilities
+* Assist in big data processing
+* Support ETL workflows
+* Collaborate with data engineering team
+* Document tasks and workflows
+* Learn Hadoop/Spark tools
+* Apply basic data analytics

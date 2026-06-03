@@ -1,0 +1,25 @@
+---
+job_id: PM-F-004
+role: Product Manager
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Basic product management concepts
+* Market research and competitor analysis
+* Data analysis (Excel, SQL basics)
+* UX awareness
+* Agile (Scrum, Kanban basics)
+* Communication
+* Teamwork
+* Problem-solving
+* Adaptability
+* Tools: JIRA, Confluence
+keywords:
+* Product Management
+* Market Research
+* Data Analysis
+* Agile
+* User Experience
+* Customer Interviews
+* Stakeholder Communication
+---

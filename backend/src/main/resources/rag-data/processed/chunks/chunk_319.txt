@@ -1,0 +1,21 @@
+# AR/VR Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C++ basics
+* C# basics
+* JavaScript basics
+* Unity basics
+* Unreal Engine basics
+* ARKit basics
+* ARCore basics
+* 3D modeling fundamentals
+* Blender basics
+* UI/UX fundamentals
+* Spatial computing basics
+* Motion tracking basics
+* Teamwork
+* Problem-solving
+* Communication

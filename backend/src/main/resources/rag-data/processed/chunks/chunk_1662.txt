@@ -1,0 +1,11 @@
+## Responsibilities
+* Deploy microservices with Docker and Kubernetes
+* Develop scalable REST APIs
+* Work with cloud-native architectures
+
+## ATS Keywords
+* Java
+* Spring Boot
+* Docker
+* Kubernetes
+* Microservices

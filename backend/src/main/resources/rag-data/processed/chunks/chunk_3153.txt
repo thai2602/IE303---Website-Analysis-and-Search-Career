@@ -1,0 +1,13 @@
+## Responsibilities
+* Conduct A/B testing for UI enhancements.
+* Deliver cross-device UI with consistent design systems.
+* Collaborate with UX team on journey mapping.
+* Manage deliverables with developers in sprints.
+* Maintain performance-focused design updates.
+
+## ATS Keywords
+* A/B Testing
+* Design Systems
+* Figma
+* User Flows
+* Branding

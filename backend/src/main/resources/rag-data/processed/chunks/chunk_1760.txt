@@ -1,0 +1,28 @@
+---
+job_id: MKT-E-014
+role: Marketing Specialist
+level: Experienced
+years_of_experience: 12-15
+skills:
+* Marketing strategy
+* Digital marketing campaigns
+* SEO/SEM
+* PPC management
+* Content marketing
+* Social media strategy
+* Email marketing
+* Analytics and reporting
+* Budget optimization
+* Leadership and team management
+keywords:
+* Digital Marketing
+* SEO
+* SEM
+* PPC
+* Content Marketing
+* Email Marketing
+* Analytics
+* Social Media
+* Budget Management
+* Leadership
+---

@@ -1,0 +1,20 @@
+# AI Prompt Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* Intro to NLP
+* Hugging Face Transformers basics
+* SpaCy basics
+* NLTK basics
+* Prompt writing fundamentals
+* OpenAI GPT models intro
+* TensorFlow basics
+* PyTorch basics
+* Critical thinking
+* Communication
+* Collaboration
+* Creativity

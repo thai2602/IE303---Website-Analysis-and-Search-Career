@@ -1,0 +1,69 @@
+---
+job_id: TW-118
+role: Technical Writer
+level: Experienced
+years_of_experience: 6-12
+skills:
+* Advanced Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML/HTML/CSS
+* CMS
+* AI-assisted Documentation
+* Version Control
+* UX Documentation
+keywords:
+* Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML
+* HTML
+* CMS
+* AI Tools
+* UX Documentation
+---
+
+# Technical Writer
+
+## Experience Level
+Experienced (6-12 years)
+
+## Skills
+* Advanced Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML/HTML/CSS
+* CMS
+* AI-assisted Documentation
+* Version Control
+* UX Documentation
+
+## Responsibilities
+* Develop comprehensive technical documentation
+* Collaborate with cross-functional teams and SMEs
+* Implement structured document standards
+* Manage content in CMS
+* Integrate AI-assisted writing tools
+* Prepare visuals and diagrams
+* Maintain version control
+* Ensure UX-focused documentation
+* Continuously update and revise content
+* Measure content quality and impact
+
+## ATS Keywords
+* Technical Writing
+* Structured Authoring
+* API Documentation
+* Adobe FrameMaker
+* MadCap Flare
+* XML
+* HTML
+* CMS
+* AI Tools
+* UX Documentation

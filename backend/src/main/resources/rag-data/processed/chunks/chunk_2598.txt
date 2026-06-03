@@ -1,0 +1,33 @@
+## Skills
+* Java
+* Python
+* C#
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* AWS
+* Azure
+* Docker
+* Kubernetes
+* Git
+* CI/CD
+* Agile/Scrum
+* Microservices
+
+## Responsibilities
+* Lead design of scalable software systems
+* Mentor development teams
+* Ensure CI/CD best practices
+* Implement cloud solutions
+* Drive full-stack architecture decisions
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Senior-Level
+* Full-Stack
+* Cloud
+* Leadership
+* Architecture

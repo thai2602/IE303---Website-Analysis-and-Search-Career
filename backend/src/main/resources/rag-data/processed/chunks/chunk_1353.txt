@@ -1,0 +1,26 @@
+## Skills
+* Advanced React (Hooks, Redux)
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance tuning
+* Lazy loading
+* Unit/Integration/E2E testing
+* Git
+* CI/CD
+
+## Responsibilities
+* Architect scalable web dashboards and SPAs
+* Optimize frontend performance
+* Implement automated testing
+* Manage cross-browser compatibility
+
+## ATS Keywords
+* Frontend
+* Dashboard Development
+* Senior
+* React
+* UI
+* SPA/PWA

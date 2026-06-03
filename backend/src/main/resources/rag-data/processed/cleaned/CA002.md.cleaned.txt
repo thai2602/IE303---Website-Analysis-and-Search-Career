@@ -1,0 +1,51 @@
+---
+job_id: CA002
+role: Cloud Solutions Associate
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Cloud storage basics
+* Networking fundamentals
+* Docker
+* Terraform basics
+* Linux administration
+* Java basics
+keywords:
+* AWS
+* Terraform
+* Cloud Basics
+* Infrastructure as Code
+* Docker
+* Virtualization
+* Python
+* Cloud Security
+---
+
+# Cloud Solutions Associate
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Cloud storage basics
+* Networking fundamentals
+* Docker
+* Terraform basics
+* Linux administration
+* Java basics
+
+## Responsibilities
+* Assist in provisioning virtual machines
+* Support deployment of test environments
+* Help with Infrastructure as Code basics
+* Perform troubleshooting under supervision
+
+## ATS Keywords
+* AWS
+* Terraform
+* Cloud Basics
+* Infrastructure as Code
+* Docker
+* Virtualization
+* Python
+* Cloud Security

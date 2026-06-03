@@ -1,0 +1,6 @@
+## Responsibilities
+* Design and implement efficient Android apps.
+* Integrate REST APIs, Jetpack components, and Room database.
+* Ensure smooth app performance and memory optimization.
+* Lead CI/CD pipeline implementation and automated testing.
+* Collaborate with cross-functional teams for product delivery.

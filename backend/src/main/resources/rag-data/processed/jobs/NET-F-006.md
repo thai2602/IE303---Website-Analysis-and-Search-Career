@@ -1,0 +1,50 @@
+---
+job_id: NET-F-006
+role: .NET Developer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* C#
+* .NET Framework
+* ASP.NET
+* Razor
+* SQL Server
+* Git
+* NUnit basics
+keywords:
+* .NET
+* C#
+* ASP.NET
+* Razor
+* SQL Server
+* Unit Testing
+---
+
+# .NET Developer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* C#
+* .NET Framework
+* ASP.NET
+* Razor
+* SQL Server
+* Git
+* NUnit basics
+
+## Responsibilities
+* Assist in Razor page development
+* Learn version control processes
+* Perform debugging under supervision
+* Support data access layer coding
+* Contribute to testing efforts
+
+## ATS Keywords
+* .NET
+* C#
+* ASP.NET
+* Razor
+* SQL Server
+* Unit Testing

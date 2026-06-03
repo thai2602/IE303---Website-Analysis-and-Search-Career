@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* TestNG
+* Cucumber
+* Jenkins
+* GitLab
+* Docker
+* JMeter
+* Postman
+* RestAssured
+* JIRA
+* ALM
+
+## Responsibilities
+* Drive automation strategy
+* Implement advanced frameworks
+* Conduct performance and API testing
+* Lead cross-functional QA initiatives
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Leadership
+* API Testing
+* Performance Testing

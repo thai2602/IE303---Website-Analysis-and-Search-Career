@@ -1,0 +1,30 @@
+---
+job_id: FE018
+role: Frontend Developer - Experienced
+level: Senior-Level
+years_of_experience: 4–6 years
+skills:
+* React/Redux
+* Angular
+* Vue.js
+* HTML
+* CSS
+* JavaScript
+* Performance optimization
+* Lazy loading
+* Unit & E2E testing
+* Git
+* CI/CD
+keywords:
+* Frontend
+* AI Dashboards
+* Senior
+* React
+* UI
+* SPA/PWA
+---
+
+# Frontend Developer - Experienced
+
+## Experience Level
+Senior-Level (4–6 years years)

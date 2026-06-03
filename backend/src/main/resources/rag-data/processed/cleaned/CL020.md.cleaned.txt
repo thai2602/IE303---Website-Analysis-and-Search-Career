@@ -1,0 +1,71 @@
+---
+job_id: CL020
+role: Cloud Engineer - Experienced
+level: Senior-Level
+years_of_experience: 7+ years
+skills:
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* CI/CD
+* Cloud Security
+* Monitoring
+* Networking
+* Storage
+* Python/Bash/PowerShell
+keywords:
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Leadership
+* Automation
+---
+
+# Cloud Engineer - Experienced
+
+## Experience Level
+Senior-Level (7+ years years)
+
+## Skills
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* CI/CD
+* Cloud Security
+* Monitoring
+* Networking
+* Storage
+* Python/Bash/PowerShell
+
+## Responsibilities
+* Architect and manage cloud environments
+* Lead engineering teams
+* Enforce security best practices
+* Monitor cloud systems
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Leadership
+* Automation

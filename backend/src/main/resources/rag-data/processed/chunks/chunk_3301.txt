@@ -1,0 +1,11 @@
+## ATS Keywords
+* TypeScript
+* Angular
+* Node.js
+* Django
+* SQL
+* Redis
+* Docker
+* AWS
+* CI/CD
+* Jest

@@ -1,0 +1,21 @@
+* Big Data
+* Cloud Deployment
+* Leadership
+---
+
+# Lead Machine Learning Engineer
+
+## Experience Level
+Senior (6+ years)
+
+## Skills
+* Python
+* R
+* Java
+* SQL
+* Scala
+* Advanced ML/DL: deep learning, reinforcement learning, NLP, computer vision, transfer learning
+* Frameworks: TensorFlow, PyTorch, Keras, Scikit-learn (advanced), ONNX
+* MLOps: CI/CD, monitoring, cloud deployment (AWS/GCP/Azure)
+* Big data: Hadoop, Spark
+* Feature engineering, ETL pipelines

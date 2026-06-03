@@ -1,0 +1,17 @@
+## Skills
+* Java
+* Kotlin
+* Android Studio
+* XML
+* REST APIs
+* SQLite
+* UI/UX Basics
+* Git
+* MVC
+
+## Responsibilities
+* Assist in building small Android app modules.
+* Write clean code in Java and Kotlin under supervision.
+* Follow Material Design guidelines for UI development.
+* Integrate simple REST APIs and store data locally.
+* Participate in basic unit testing and debugging.

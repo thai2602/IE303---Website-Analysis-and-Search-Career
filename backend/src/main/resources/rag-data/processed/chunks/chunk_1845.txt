@@ -1,0 +1,21 @@
+* MLOps
+* Big Data
+* Cloud Deployment
+---
+
+# Senior ML Infrastructure Engineer
+
+## Experience Level
+Senior (5-7 years)
+
+## Skills
+* Python
+* R
+* Java
+* SQL
+* Scala
+* ML/DL: deep learning, reinforcement learning, NLP, computer vision, transfer learning
+* Frameworks: TensorFlow, PyTorch, Keras, Scikit-learn (advanced)
+* MLOps: CI/CD, model monitoring, cloud deployment (AWS/GCP/Azure)
+* Big data: Spark, Hadoop
+* Feature engineering, ETL automation

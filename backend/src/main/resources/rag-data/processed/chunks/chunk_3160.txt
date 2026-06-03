@@ -1,0 +1,32 @@
+---
+job_id: UIE019
+role: UI Designer
+level: Experienced
+years_of_experience: 3
+skills:
+* Figma
+* Adobe XD
+* HTML
+* CSS
+* JS
+* Responsive Design
+keywords:
+* Responsive Design
+* A/B Testing
+* Figma
+* Design Systems
+* User Flows
+---
+
+# UI Designer
+
+## Experience Level
+Experienced (3 years)
+
+## Skills
+* Figma
+* Adobe XD
+* HTML
+* CSS
+* JS
+* Responsive Design

@@ -1,0 +1,17 @@
+## Responsibilities
+* Assist in designing basic cloud solutions
+* Support development teams with architecture guidance
+* Learn and implement CI/CD pipelines
+* Participate in Docker/Kubernetes setup tasks
+* Collaborate with cross-functional teams
+* Assist in documenting architecture designs
+
+## ATS Keywords
+* Cloud Computing
+* Architecture Design
+* AWS
+* Azure
+* DevOps
+* Java
+* Python
+* Team Collaboration

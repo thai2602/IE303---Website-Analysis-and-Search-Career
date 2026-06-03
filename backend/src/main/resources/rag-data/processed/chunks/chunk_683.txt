@@ -1,0 +1,25 @@
+## Experience Level
+Senior-Level (6+ years years)
+
+## Skills
+* AWS advanced
+* Azure advanced
+* GCP advanced
+* Terraform
+* CloudFormation
+* Ansible
+* Kubernetes
+* Helm
+* Docker Swarm
+* CI/CD
+* Cloud Security
+* Monitoring
+* Networking
+* Storage
+* Python/Bash/PowerShell
+
+## Responsibilities
+* Lead cloud infrastructure and automation projects
+* Implement CI/CD pipelines
+* Optimize cloud resources and enforce security
+* Mentor junior engineers

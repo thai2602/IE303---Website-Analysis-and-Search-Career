@@ -1,0 +1,69 @@
+---
+job_id: GD-107
+role: Graphic Designer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Photoshop
+* Illustrator
+* InDesign
+* Basic Figma
+* Typography
+* Color Theory
+* Creativity
+* Communication
+* Time Management
+* Adaptability
+keywords:
+* Graphic Design
+* Adobe Photoshop
+* Illustrator
+* InDesign
+* Figma
+* UI/UX Design
+* Typography
+* Color Theory
+* Creativity
+* Digital Assets
+---
+
+# Graphic Designer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Photoshop
+* Illustrator
+* InDesign
+* Basic Figma
+* Typography
+* Color Theory
+* Creativity
+* Communication
+* Time Management
+* Adaptability
+
+## Responsibilities
+* Assist in creating graphics for digital and print media
+* Learn and support senior designers
+* Develop basic UI/UX designs
+* Apply typography and color theory in designs
+* Organize digital assets
+* Collaborate with team members
+* Meet project deadlines
+* Proofread and refine designs
+* Gain experience with emerging tools
+* Develop foundational design skills
+
+## ATS Keywords
+* Graphic Design
+* Adobe Photoshop
+* Illustrator
+* InDesign
+* Figma
+* UI/UX Design
+* Typography
+* Color Theory
+* Creativity
+* Digital Assets

@@ -1,0 +1,19 @@
+## Experience Level
+Experienced (4+ years)
+
+## Skills
+* AWS
+* Azure
+* GCP
+* Terraform
+* CloudFormation
+* Docker
+* Kubernetes
+* Java
+* Python
+* Node.js
+* CI/CD pipelines
+* Security compliance
+* Leadership
+* Stakeholder management
+* Problem-solving

@@ -1,0 +1,70 @@
+---
+job_id: SEO-015
+role: SEO Specialist
+level: Mid-Level
+years_of_experience: 3-6
+skills:
+* Technical SEO audits
+* On-page and off-page optimization
+* Content optimization
+* Link building
+* Analytics (GA4, Looker Studio)
+* Schema markup
+* Page speed optimization
+* Voice search optimization
+* Visual search optimization
+* Local SEO
+keywords:
+* Technical SEO
+* On-Page SEO
+* Off-Page SEO
+* Content Optimization
+* Link Building
+* Analytics
+* Schema Markup
+* Page Speed
+* Voice Search
+* Visual Search
+* Local SEO
+---
+
+# SEO Specialist
+
+## Experience Level
+Mid-Level (3-6 years)
+
+## Skills
+* Technical SEO audits
+* On-page and off-page optimization
+* Content optimization
+* Link building
+* Analytics (GA4, Looker Studio)
+* Schema markup
+* Page speed optimization
+* Voice search optimization
+* Visual search optimization
+* Local SEO
+
+## Responsibilities
+* Conduct technical SEO audits
+* Optimize on-page and off-page SEO
+* Lead content optimization initiatives
+* Manage link building campaigns
+* Monitor SEO performance using analytics tools
+* Implement schema markup
+* Optimize page speed and mobile performance
+* Optimize for voice and visual search
+* Manage local SEO initiatives
+
+## ATS Keywords
+* Technical SEO
+* On-Page SEO
+* Off-Page SEO
+* Content Optimization
+* Link Building
+* Analytics
+* Schema Markup
+* Page Speed
+* Voice Search
+* Visual Search
+* Local SEO

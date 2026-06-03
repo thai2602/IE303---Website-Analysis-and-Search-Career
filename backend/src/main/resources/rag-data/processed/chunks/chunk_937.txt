@@ -1,0 +1,29 @@
+## Skills
+* Advanced SQL
+* Python
+* R
+* Predictive modeling
+* Machine learning
+* Tableau
+* Power BI
+* Looker
+* Google Data Studio
+* ETL workflows
+* Data engineering
+* Hadoop
+* Spark
+* Kafka
+
+## Responsibilities
+* Develop advanced dashboards
+* Optimize SQL queries
+* Implement ETL workflows
+* Provide data-driven recommendations to business leaders
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Senior-Level
+* Dashboards
+* ETL
+* Reporting

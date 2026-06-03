@@ -1,0 +1,30 @@
+---
+job_id: CW-120
+role: Copywriter
+level: Mid-Level
+years_of_experience: 3-5
+skills:
+* Advanced copywriting
+* SEO optimization
+* Content research
+* Editing and proofreading
+* Brand voice consistency
+* CMS and AI tools proficiency
+* Digital marketing knowledge
+* Storytelling
+* Collaboration
+* Creativity
+keywords:
+* Copywriting
+* SEO
+* Editing
+* Brand Voice
+* CMS
+* AI Tools
+* Content Research
+* Storytelling
+* Collaboration
+* Creativity
+---
+
+# Copywriter

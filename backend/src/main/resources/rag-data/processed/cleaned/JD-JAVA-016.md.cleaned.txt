@@ -1,0 +1,42 @@
+---
+job_id: JD-JAVA-016
+role: Java Developer
+level: Experienced
+years_of_experience: 4
+skills:
+* JUnit
+* Mockito
+* Selenium
+* Debugging
+* Agile
+keywords:
+* Java
+* JUnit
+* Mockito
+* Selenium
+* Agile
+---
+
+# Java Developer
+
+## Experience Level
+Experienced (4 years)
+
+## Skills
+* JUnit
+* Mockito
+* Selenium
+* Debugging
+* Agile
+
+## Responsibilities
+* Write unit and integration tests
+* Automate tests using Selenium
+* Participate in Agile ceremonies
+
+## ATS Keywords
+* Java
+* JUnit
+* Mockito
+* Selenium
+* Agile

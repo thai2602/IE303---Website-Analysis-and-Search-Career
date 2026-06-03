@@ -1,0 +1,14 @@
+## Responsibilities
+* Develop and maintain automated test scripts
+* Integrate testing into CI/CD pipelines
+* Perform advanced testing
+* Manage QA projects
+
+## ATS Keywords
+* QA
+* Automation
+* Software
+* Senior-Level
+* New York
+* CI/CD
+* Performance Testing

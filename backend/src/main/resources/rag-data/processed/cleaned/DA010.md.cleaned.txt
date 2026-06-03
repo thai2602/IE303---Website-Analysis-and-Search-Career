@@ -1,0 +1,73 @@
+---
+job_id: DA010
+role: Data Analyst - Experienced
+level: Senior-Level
+years_of_experience: 4–8 years
+skills:
+* Predictive modeling
+* Machine learning algorithms
+* A/B testing
+* Time-series analysis
+* Advanced SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Looker
+* Google Data Studio
+* ETL
+* BigQuery
+* Snowflake
+* Redshift
+* Hadoop
+* Spark
+* Kafka
+keywords:
+* Data Analytics
+* BI
+* Senior-Level
+* Predictive Modeling
+* Reporting
+* ETL
+---
+
+# Data Analyst - Experienced
+
+## Experience Level
+Senior-Level (4–8 years years)
+
+## Skills
+* Predictive modeling
+* Machine learning algorithms
+* A/B testing
+* Time-series analysis
+* Advanced SQL
+* Python
+* R
+* SAS
+* Tableau
+* Power BI
+* Looker
+* Google Data Studio
+* ETL
+* BigQuery
+* Snowflake
+* Redshift
+* Hadoop
+* Spark
+* Kafka
+
+## Responsibilities
+* Lead analytics projects
+* Develop predictive models
+* Optimize ETL pipelines
+* Create advanced dashboards for stakeholders
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Senior-Level
+* Predictive Modeling
+* Reporting
+* ETL

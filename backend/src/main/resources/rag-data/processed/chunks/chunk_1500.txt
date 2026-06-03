@@ -1,0 +1,23 @@
+# Game Developer
+
+## Experience Level
+Experienced (17+ years)
+
+## Skills
+* C++ expert
+* C# expert
+* Python advanced
+* Java advanced
+* Unity expert
+* Unreal Engine expert
+* Godot basics
+* Advanced AI/gameplay systems
+* Multiplayer networking
+* Physics and collision systems
+* Shader programming HLSL/GLSL
+* Graphics optimization
+* Cross-platform development
+* Testing/debugging
+* Leadership
+* Team collaboration
+* Project management

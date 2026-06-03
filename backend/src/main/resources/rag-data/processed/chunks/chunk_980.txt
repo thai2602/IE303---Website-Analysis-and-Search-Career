@@ -1,0 +1,14 @@
+## Responsibilities
+* Work with structured query languages
+* Support pipeline development
+* Assist in cloud data storage integration
+* Collaborate with developers on data validation
+* Apply problem-solving to debug issues
+
+## ATS Keywords
+* Python
+* SQL
+* PostgreSQL
+* AWS
+* Hadoop
+* ETL Fundamentals

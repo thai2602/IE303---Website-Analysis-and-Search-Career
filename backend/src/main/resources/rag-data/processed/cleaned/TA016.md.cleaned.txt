@@ -1,0 +1,65 @@
+---
+job_id: TA016
+role: Test Automation Engineer - Experienced
+level: Senior-Level
+years_of_experience: 5–8 years
+skills:
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* Cucumber
+* JMeter
+* LoadRunner
+* Jenkins
+* GitLab
+* Docker
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+keywords:
+* QA
+* Automation
+* Experienced
+* Leadership
+* CI/CD
+* Training
+---
+
+# Test Automation Engineer - Experienced
+
+## Experience Level
+Senior-Level (5–8 years years)
+
+## Skills
+* Java
+* Python
+* C#
+* Selenium
+* Appium
+* Cucumber
+* JMeter
+* LoadRunner
+* Jenkins
+* GitLab
+* Docker
+* Postman
+* RestAssured
+* JIRA
+* TestRail
+
+## Responsibilities
+* Manage QA automation
+* Design frameworks
+* Oversee performance testing
+* Integrate with CI/CD and train QA teams
+
+## ATS Keywords
+* QA
+* Automation
+* Experienced
+* Leadership
+* CI/CD
+* Training

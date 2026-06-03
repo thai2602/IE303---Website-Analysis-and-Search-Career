@@ -1,0 +1,33 @@
+* Async Programming
+* Docker
+* AWS
+* PyTest
+---
+
+# Python Developer
+
+## Experience Level
+Experienced (3+ years)
+
+## Skills
+* Python advanced
+* Async programming
+* Decorators
+* Generators
+* Django advanced
+* Flask advanced
+* FastAPI
+* TensorFlow basics
+* Scikit-learn
+* PyTorch basics
+* REST APIs
+* GraphQL basics
+* PostgreSQL
+* MySQL
+* NoSQL basics
+* SQLAlchemy
+* Docker basics
+* AWS basics
+* PyTest advanced
+* Leadership
+* Team collaboration

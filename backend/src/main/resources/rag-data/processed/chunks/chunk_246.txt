@@ -1,0 +1,15 @@
+## Responsibilities
+* Assist in small-scale Android app development projects.
+* Follow Material Design and UI/UX principles.
+* Integrate basic REST APIs and handle data locally.
+* Debug minor issues using Android Studio tools.
+* Learn and apply Git version control.
+
+## ATS Keywords
+* Kotlin
+* Java
+* Android Studio
+* Material Design
+* UI/UX Design
+* REST API
+* SQLite

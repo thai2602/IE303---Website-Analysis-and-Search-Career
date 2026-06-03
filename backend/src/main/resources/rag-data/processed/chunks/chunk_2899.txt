@@ -1,0 +1,20 @@
+## Responsibilities
+* Conduct technical SEO audits
+* Optimize website pages for on-page SEO
+* Support off-page SEO strategies
+* Coordinate content marketing efforts
+* Lead link building initiatives
+* Track performance using analytics tools
+* Optimize page speed and implement schema markup
+* Report SEO insights to team
+
+## ATS Keywords
+* Technical SEO
+* On-Page SEO
+* Off-Page SEO
+* Content Marketing
+* Link Building
+* GA4
+* Search Console
+* Schema Markup
+* Page Speed

@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in maintaining infrastructure uptime
+* Support containerized application deployments
+* Monitor system performance
+* Document workflows
+* Collaborate with DevOps and development teams
+
+## ATS Keywords
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS
+* CI/CD
+* Prometheus
+* Networking
+* Monitoring

@@ -1,0 +1,7 @@
+## Responsibilities
+* Develop end-to-end web applications
+* Write clean code in JavaScript and Python
+* Work with frontend frameworks like React or Angular
+* Assist in building backend services using Node.js or Django
+* Participate in testing, debugging, and Agile sprints
+* Learn modern deployment and cloud practices

@@ -1,0 +1,26 @@
+## Skills
+* SQL
+* Python
+* R
+* Tableau
+* Power BI
+* Excel
+* Pandas
+* MySQL
+* PostgreSQL
+* Hadoop basics
+* Spark basics
+* Regression
+* Hypothesis testing
+
+## Responsibilities
+* Support data extraction and cleaning
+* Generate dashboards and insights for small projects
+
+## ATS Keywords
+* Data Analytics
+* BI
+* Entry-Level
+* Fresher
+* Visualization
+* Dashboard

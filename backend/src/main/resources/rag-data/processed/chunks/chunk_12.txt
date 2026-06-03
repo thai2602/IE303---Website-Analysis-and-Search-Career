@@ -1,0 +1,7 @@
+### 3.1 Why Keywords Matter
+ATS ranks CVs based on how closely the language matches the JD. A candidate who uses different terminology for the same skill may be filtered out despite being fully qualified.
+
+**Example**:
+- JD says: `"Search Engine Optimization (SEO)"`
+- Candidate writes: `"Organic traffic growth"` → May not match
+- Better: `"Search Engine Optimization (SEO) — grew organic traffic by 45%"`

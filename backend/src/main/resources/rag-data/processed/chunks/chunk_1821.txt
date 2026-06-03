@@ -1,0 +1,16 @@
+## Responsibilities
+* Assist in building and training ML models
+* Perform data preprocessing and visualization
+* Learn MLOps basics
+* Collaborate with senior engineers
+* Participate in small-scale projects
+
+## ATS Keywords
+* ML Intern
+* Python
+* R
+* Java
+* ML Models
+* Data Preprocessing
+* Visualization
+* MLOps

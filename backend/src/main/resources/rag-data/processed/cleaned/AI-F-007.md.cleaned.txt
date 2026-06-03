@@ -1,0 +1,68 @@
+---
+job_id: AI-F-007
+role: AI Prompt Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python basics
+* JavaScript basics
+* Intro NLP
+* Hugging Face basics
+* SpaCy basics
+* NLTK basics
+* Prompt writing
+* OpenAI GPT intro
+* TensorFlow basics
+* PyTorch basics
+* Communication
+* Teamwork
+* Problem-solving
+* Creativity
+keywords:
+* Prompt Engineering
+* NLP
+* Python
+* TensorFlow
+* PyTorch
+* Hugging Face
+* GPT
+* Data Analysis
+---
+
+# AI Prompt Engineer
+
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Python basics
+* JavaScript basics
+* Intro NLP
+* Hugging Face basics
+* SpaCy basics
+* NLTK basics
+* Prompt writing
+* OpenAI GPT intro
+* TensorFlow basics
+* PyTorch basics
+* Communication
+* Teamwork
+* Problem-solving
+* Creativity
+
+## Responsibilities
+* Assist in prompt creation for AI models
+* Test prompt performance
+* Collaborate with AI/data teams
+* Document experiments
+* Support AI model integration and evaluation
+
+## ATS Keywords
+* Prompt Engineering
+* NLP
+* Python
+* TensorFlow
+* PyTorch
+* Hugging Face
+* GPT
+* Data Analysis

@@ -1,0 +1,23 @@
+## Skills
+* Java
+* Python basics
+* Selenium
+* Appium basics
+* Functional testing
+* Regression testing
+* JIRA
+* Postman basics
+
+## Responsibilities
+* Support automation test creation
+* Assist in CI/CD testing workflows
+* Execute regression testing
+* Log defects
+
+## ATS Keywords
+* QA
+* Automation
+* Fresher
+* Entry-Level
+* CI/CD
+* Regression Testing

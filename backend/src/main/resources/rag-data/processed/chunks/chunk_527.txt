@@ -1,0 +1,18 @@
+## Responsibilities
+* Assist in big data processing workflows
+* Learn and support Spark tasks
+* Collaborate with teams on ETL processes
+* Support Hadoop cluster management
+* Document workflows and analysis
+* Apply basic data mining methods
+
+## ATS Keywords
+* Apache Spark
+* Hadoop
+* Java
+* Python
+* SQL
+* NoSQL
+* ETL
+* Data Mining
+* Linux

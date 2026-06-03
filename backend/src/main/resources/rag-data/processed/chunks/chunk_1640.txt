@@ -1,0 +1,10 @@
+## Responsibilities
+* Support in building small frontend + backend integrated modules
+* Learn and apply Java API functionalities
+* Debug minor code issues
+
+## ATS Keywords
+* Java
+* APIs
+* Collections
+* Web Development

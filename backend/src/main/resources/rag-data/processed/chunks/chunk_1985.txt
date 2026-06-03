@@ -1,0 +1,14 @@
+## Responsibilities
+* Build RESTful and gRPC APIs
+* Integrate services with Azure
+* Design database schemas
+* Monitor system performance
+* Provide technical leadership
+
+## ATS Keywords
+* .NET Core
+* C#
+* WebAPI
+* gRPC
+* SQL Server
+* Azure

@@ -1,0 +1,6 @@
+## Responsibilities
+* Assist in frontend development with React or Vue.js
+* Develop backend services using Node.js or Flask
+* Manage SQL/NoSQL databases
+* Perform testing
+* Collaborate with Agile teams

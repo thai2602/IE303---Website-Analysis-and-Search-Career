@@ -1,0 +1,27 @@
+## Skills
+* Java
+* Spring Boot
+* Microservices
+* SQL
+* Git
+* Docker
+* Kubernetes
+* AWS
+* Agile
+* Mentoring
+
+## Responsibilities
+* Lead backend development using Spring Boot
+* Design microservices architecture
+* Deploy services on AWS using Docker/Kubernetes
+* Participate in code reviews
+* Mentor team members
+
+## ATS Keywords
+* Software Engineer
+* Java
+* Spring Boot
+* Microservices
+* AWS
+* Backend
+* Mentoring

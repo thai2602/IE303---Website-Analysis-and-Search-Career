@@ -1,0 +1,18 @@
+## Responsibilities
+* Architect, deploy, and manage scalable cloud infrastructure
+* Lead automation and CI/CD pipelines
+* Implement advanced cloud security practices
+* Mentor junior engineers
+* Collaborate cross-team
+
+## ATS Keywords
+* Cloud
+* Infrastructure
+* DevOps
+* Senior-Level
+* Remote
+* AWS
+* Azure
+* GCP
+* Automation
+* Containerization

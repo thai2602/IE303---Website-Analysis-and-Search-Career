@@ -1,0 +1,16 @@
+## Experience Level
+Fresher (0-1 years)
+
+## Skills
+* Hadoop (HDFS, MapReduce, Hive)
+* Apache Spark basics
+* Java basics
+* Python basics
+* Scala basics
+* SQL basics
+* NoSQL basics
+* ETL basics
+* Talend basics
+* Linux/Unix basics
+* Analytical thinking
+* Teamwork

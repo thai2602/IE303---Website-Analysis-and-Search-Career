@@ -1,0 +1,17 @@
+## Skills
+* Python
+* JavaScript
+* Git
+* React
+* MySQL
+* Data Structures
+* Algorithms
+* VS Code
+* Jira
+
+## Responsibilities
+* Write clean and maintainable code in Python and JavaScript
+* Collaborate with senior engineers to implement features
+* Debug issues and participate in agile sprints
+* Contribute to unit testing and code documentation
+* Learn and apply modern development practices

@@ -1,0 +1,28 @@
+---
+job_id: SEO-017
+role: SEO Specialist
+level: Fresher
+years_of_experience: 0-2
+skills:
+* Keyword research
+* On-page SEO basics
+* Off-page SEO basics
+* Content optimization basics
+* HTML/CSS basics
+* Google Analytics basics
+* Search Console basics
+* Local SEO basics
+* Mobile SEO basics
+* Link building basics
+keywords:
+* SEO
+* Keyword Research
+* On-Page SEO
+* Off-Page SEO
+* Content Optimization
+* GA4
+* Search Console
+* Local SEO
+* Mobile SEO
+* Link Building
+---

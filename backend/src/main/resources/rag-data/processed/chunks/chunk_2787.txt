@@ -1,0 +1,15 @@
+## Responsibilities
+* Develop front-end features using Vue.js and JavaScript
+* Ensure responsive UI design
+* Integrate APIs with senior developers’ guidance
+* Perform unit testing and follow agile methodologies
+* Collaborate to deliver user-focused applications
+
+## ATS Keywords
+* Software Engineer
+* Vue.js
+* JavaScript
+* UI/UX
+* Responsive Design
+* Agile
+* API Integration

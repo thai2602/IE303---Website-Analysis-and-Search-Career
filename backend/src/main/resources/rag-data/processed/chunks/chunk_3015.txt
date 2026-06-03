@@ -1,0 +1,26 @@
+---
+job_id: SRE-F-002
+role: Site Reliability Engineer
+level: Fresher
+years_of_experience: 0-1
+skills:
+* Python basics
+* Shell scripting (Bash/Zsh)
+* Linux OS basics
+* Windows OS fundamentals
+* Cloud platforms basics (AWS/Azure/GCP)
+* Docker fundamentals
+* Kubernetes basics
+* Monitoring tools intro (Prometheus, Grafana)
+* Networking basics (TCP/IP, DNS)
+* Basic automation scripts
+* Analytical thinking
+* Time management
+* Communication
+keywords:
+* Python
+* Bash
+* Linux
+* Docker
+* Kubernetes
+* AWS

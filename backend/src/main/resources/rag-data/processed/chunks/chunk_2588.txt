@@ -1,0 +1,30 @@
+## Skills
+* Java
+* Python
+* C++
+* React
+* Angular
+* Node.js
+* SQL
+* NoSQL
+* Git
+* Docker
+* Kubernetes
+* CI/CD
+* Agile/Scrum
+
+## Responsibilities
+* Design and implement scalable applications
+* Maintain backend and frontend systems
+* Deploy applications with Docker/Kubernetes
+* Optimize database queries
+* Participate in code reviews and Agile ceremonies
+
+## ATS Keywords
+* Software Developer
+* Experienced
+* Mid-Level
+* Full-Stack
+* Cloud
+* Agile
+* CI/CD
