@@ -129,207 +129,207 @@ export default function JobsPage() {
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
 
-    // --- API jobs state & Pagination ---
-    const [apiJobs, setApiJobs] = useState<Job[]>([]);
-    const [offset, setOffset] = useState(0);
-    const [loadingMore, setLoadingMore] = useState(false);
-    const [hasMore, setHasMore] = useState(true);
-    const [isUsingFallback, setIsUsingFallback] = useState(false);
+   // --- API jobs state & Pagination ---
+   const [apiJobs, setApiJobs] = useState<Job[]>([]);
+   const [offset, setOffset] = useState(0);
+   const [loadingMore, setLoadingMore] = useState(false);
+   const [hasMore, setHasMore] = useState(true);
+   const [isUsingFallback, setIsUsingFallback] = useState(false);
 
-    // --- Filters State ---
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-    const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
-    const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
-    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+   // --- Filters State ---
+   const [searchTerm, setSearchTerm] = useState("");
+   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+   const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
+   const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
-    const mapApiJobs = (apiData: any[]): Job[] => {
-       return apiData.map((apiItem) => ({
-          title: apiItem.title,
-          company: apiItem.company?.name || "",
-          companyColor: apiItem.company?.color || "#0ea5e9",
-          companyDescription: apiItem.company?.description || "",
-          description: apiItem.description || "",
-          requirements: apiItem.requirements,
-          benefits: apiItem.benefits,
-          place: apiItem.locationCity || "Việt Nam",
-          locationAddress: apiItem.locationAddress,
-          field: toVietnameseField(apiItem.title),
-          type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
-          salary: `${Math.round((apiItem.salaryMin ?? 0) / 1_000_000)}–${Math.round((apiItem.salaryMax ?? 0) / 1_000_000)} triệu`,
-          tags: [
-             apiItem.jobLevel ? (levelMap[apiItem.jobLevel] ?? apiItem.jobLevel) : null,
-             apiItem.experienceYears ? `${apiItem.experienceYears} năm KN` : null,
-             apiItem.locationCity || null,
-          ].filter((t): t is string => Boolean(t)),
-          hot: false,
-          posted: "Vừa cập nhật",
-          image: apiItem.company?.logoUrl || fallbackImages[0],
-          companyUrl: `/cong-ty/${apiItem.company?.slug ?? ""}`,
-          slug: apiItem.slug,
-          jobLevel: apiItem.jobLevel,
-          experienceYears: apiItem.experienceYears,
-          expiredAt: apiItem.expiredAt,
-       }));
-    };
+   const mapApiJobs = (apiData: any[]): Job[] => {
+      return apiData.map((apiItem) => ({
+         title: apiItem.title,
+         company: apiItem.company?.name || "",
+         companyColor: apiItem.company?.color || "#0ea5e9",
+         companyDescription: apiItem.company?.description || "",
+         description: apiItem.description || "",
+         requirements: apiItem.requirements,
+         benefits: apiItem.benefits,
+         place: apiItem.locationCity || "Việt Nam",
+         locationAddress: apiItem.locationAddress,
+         field: toVietnameseField(apiItem.title),
+         type: apiItem.jobType === "FULL_TIME" ? "Full-time" : apiItem.jobType === "REMOTE" ? "Remote" : "Hybrid",
+         salary: `${Math.round((apiItem.salaryMin ?? 0) / 1_000_000)}–${Math.round((apiItem.salaryMax ?? 0) / 1_000_000)} triệu`,
+         tags: [
+            apiItem.jobLevel ? (levelMap[apiItem.jobLevel] ?? apiItem.jobLevel) : null,
+            apiItem.experienceYears ? `${apiItem.experienceYears} năm KN` : null,
+            apiItem.locationCity || null,
+         ].filter((t): t is string => Boolean(t)),
+         hot: false,
+         posted: "Vừa cập nhật",
+         image: apiItem.company?.logoUrl || fallbackImages[0],
+         companyUrl: `/cong-ty/${apiItem.company?.slug ?? ""}`,
+         slug: apiItem.slug,
+         jobLevel: apiItem.jobLevel,
+         experienceYears: apiItem.experienceYears,
+         expiredAt: apiItem.expiredAt,
+      }));
+   };
 
-    // Debounce search term change
-    useEffect(() => {
-       const timer = setTimeout(() => {
-          setDebouncedSearchTerm(searchTerm);
-       }, 300);
-       return () => clearTimeout(timer);
-    }, [searchTerm]);
+   // Debounce search term change
+   useEffect(() => {
+      const timer = setTimeout(() => {
+         setDebouncedSearchTerm(searchTerm);
+      }, 300);
+      return () => clearTimeout(timer);
+   }, [searchTerm]);
 
-    // Fetch jobs when filters change
-    useEffect(() => {
-       if (isUsingFallback) return;
+   // Fetch jobs when filters change
+   useEffect(() => {
+      if (isUsingFallback) return;
 
-       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
-       setLoadingMore(true);
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      setLoadingMore(true);
 
-       const queryParams = new URLSearchParams();
-       queryParams.set("offset", "0");
-       queryParams.set("limit", "20");
-       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
-       if (selectedLocation) queryParams.set("location", selectedLocation);
-       if (selectedJobType) {
-          const mappedType = selectedJobType.toUpperCase().replace("-", "_");
-          queryParams.set("jobType", mappedType);
-       }
-       if (selectedLevel) {
-          queryParams.set("jobLevel", selectedLevel);
-       }
+      const queryParams = new URLSearchParams();
+      queryParams.set("offset", "0");
+      queryParams.set("limit", "20");
+      if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
+      if (selectedLocation) queryParams.set("location", selectedLocation);
+      if (selectedJobType) {
+         const mappedType = selectedJobType.toUpperCase().replace("-", "_");
+         queryParams.set("jobType", mappedType);
+      }
+      if (selectedLevel) {
+         queryParams.set("jobLevel", selectedLevel);
+      }
 
-       fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
-          .then((res) => {
-             if (!res.ok) throw new Error("API error");
-             return res.json() as Promise<Array<any>>;
-          })
-          .then((apiData) => {
-             const mapped = mapApiJobs(apiData);
-             setApiJobs(mapped);
-             setHasMore(apiData.length === 20);
-             setOffset(20);
-             setIsUsingFallback(false);
-          })
-          .catch((err) => {
-             console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
-             // When entering fallback, populate apiJobs with the full local list so client-side filter can work on it
-             setApiJobs(companyJobs);
-             setHasMore(companyJobs.length > 20);
-             setOffset(20);
-             setIsUsingFallback(true);
-          })
-          .finally(() => {
-             setLoadingMore(false);
-          });
-    }, [debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
+      fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json() as Promise<Array<any>>;
+         })
+         .then((apiData) => {
+            const mapped = mapApiJobs(apiData);
+            setApiJobs(mapped);
+            setHasMore(apiData.length === 20);
+            setOffset(20);
+            setIsUsingFallback(false);
+         })
+         .catch((err) => {
+            console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
+            // When entering fallback, populate apiJobs with the full local list so client-side filter can work on it
+            setApiJobs(companyJobs);
+            setHasMore(companyJobs.length > 20);
+            setOffset(20);
+            setIsUsingFallback(true);
+         })
+         .finally(() => {
+            setLoadingMore(false);
+         });
+   }, [debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
 
-    // Load more jobs
-    const loadMoreJobs = () => {
-       if (loadingMore || !hasMore) return;
-       setLoadingMore(true);
+   // Load more jobs
+   const loadMoreJobs = () => {
+      if (loadingMore || !hasMore) return;
+      setLoadingMore(true);
 
-       if (isUsingFallback) {
-          setTimeout(() => {
-             const nextBatch = companyJobs.slice(offset, offset + 10);
-             if (nextBatch.length > 0) {
-                setApiJobs((prev) => [...prev, ...nextBatch]);
-                setOffset((prev) => prev + 10);
-                setHasMore(companyJobs.length > offset + 10);
-             } else {
-                setHasMore(false);
-             }
-             setLoadingMore(false);
-          }, 400);
-          return;
-       }
+      if (isUsingFallback) {
+         setTimeout(() => {
+            const nextBatch = companyJobs.slice(offset, offset + 10);
+            if (nextBatch.length > 0) {
+               setApiJobs((prev) => [...prev, ...nextBatch]);
+               setOffset((prev) => prev + 10);
+               setHasMore(companyJobs.length > offset + 10);
+            } else {
+               setHasMore(false);
+            }
+            setLoadingMore(false);
+         }, 400);
+         return;
+      }
 
-       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
-       const queryParams = new URLSearchParams();
-       queryParams.set("offset", offset.toString());
-       queryParams.set("limit", "10");
-       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
-       if (selectedLocation) queryParams.set("location", selectedLocation);
-       if (selectedJobType) {
-          const mappedType = selectedJobType.toUpperCase().replace("-", "_");
-          queryParams.set("jobType", mappedType);
-       }
-       if (selectedLevel) {
-          queryParams.set("jobLevel", selectedLevel);
-       }
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      const queryParams = new URLSearchParams();
+      queryParams.set("offset", offset.toString());
+      queryParams.set("limit", "10");
+      if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
+      if (selectedLocation) queryParams.set("location", selectedLocation);
+      if (selectedJobType) {
+         const mappedType = selectedJobType.toUpperCase().replace("-", "_");
+         queryParams.set("jobType", mappedType);
+      }
+      if (selectedLevel) {
+         queryParams.set("jobLevel", selectedLevel);
+      }
 
-       fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
-          .then((res) => {
-             if (!res.ok) throw new Error("API error");
-             return res.json() as Promise<Array<any>>;
-          })
-          .then((apiData) => {
-             if (!apiData || apiData.length === 0) {
-                setHasMore(false);
-                return;
-             }
-             const mapped = mapApiJobs(apiData);
-             setApiJobs((prev) => [...prev, ...mapped]);
-             setOffset((prev) => prev + 10);
-             setHasMore(apiData.length === 10);
-          })
-          .catch((err) => {
-             console.error("Lỗi tải thêm công việc từ API, chuyển sang dữ liệu dự phòng:", err);
-             const nextBatch = companyJobs.slice(offset, offset + 10);
-             if (nextBatch.length > 0) {
-                setApiJobs((prev) => [...prev, ...nextBatch]);
-                setOffset((prev) => prev + 10);
-                setHasMore(companyJobs.length > offset + 10);
-             } else {
-                setHasMore(false);
-             }
-          })
-          .finally(() => {
-             setLoadingMore(false);
-          });
-    };
+      fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
+         .then((res) => {
+            if (!res.ok) throw new Error("API error");
+            return res.json() as Promise<Array<any>>;
+         })
+         .then((apiData) => {
+            if (!apiData || apiData.length === 0) {
+               setHasMore(false);
+               return;
+            }
+            const mapped = mapApiJobs(apiData);
+            setApiJobs((prev) => [...prev, ...mapped]);
+            setOffset((prev) => prev + 10);
+            setHasMore(apiData.length === 10);
+         })
+         .catch((err) => {
+            console.error("Lỗi tải thêm công việc từ API, chuyển sang dữ liệu dự phòng:", err);
+            const nextBatch = companyJobs.slice(offset, offset + 10);
+            if (nextBatch.length > 0) {
+               setApiJobs((prev) => [...prev, ...nextBatch]);
+               setOffset((prev) => prev + 10);
+               setHasMore(companyJobs.length > offset + 10);
+            } else {
+               setHasMore(false);
+            }
+         })
+         .finally(() => {
+            setLoadingMore(false);
+         });
+   };
 
-    // Scroll listener
-    useEffect(() => {
-       const handleScroll = () => {
-          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
-             loadMoreJobs();
-          }
-       };
-       window.addEventListener("scroll", handleScroll);
-       return () => window.removeEventListener("scroll", handleScroll);
-    }, [offset, loadingMore, hasMore, isUsingFallback, debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
+   // Scroll listener
+   useEffect(() => {
+      const handleScroll = () => {
+         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
+            loadMoreJobs();
+         }
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+   }, [offset, loadingMore, hasMore, isUsingFallback, debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
 
-    const rawJobsList = apiJobs;
+   const rawJobsList = apiJobs;
 
-    // --- Instant Filter Logic ---
-    const filteredJobs = isUsingFallback
-       ? rawJobsList.filter(job => {
-          // 1. Search term match (title, company, description, tags)
-          const matchesSearch = searchTerm.trim() === "" ||
-             job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+   // --- Instant Filter Logic ---
+   const filteredJobs = isUsingFallback
+      ? rawJobsList.filter(job => {
+         // 1. Search term match (title, company, description, tags)
+         const matchesSearch = searchTerm.trim() === "" ||
+            job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
-          // 2. Location match
-          const matchesLocation = !selectedLocation ||
-             job.place.toLowerCase().includes(selectedLocation.toLowerCase());
+         // 2. Location match
+         const matchesLocation = !selectedLocation ||
+            job.place.toLowerCase().includes(selectedLocation.toLowerCase());
 
-          // 3. Job Type match
-          const matchesJobType = !selectedJobType ||
-             job.type.toLowerCase() === selectedJobType.toLowerCase();
+         // 3. Job Type match
+         const matchesJobType = !selectedJobType ||
+            job.type.toLowerCase() === selectedJobType.toLowerCase();
 
-          // 4. Job Level match
-          const matchesLevel = !selectedLevel ||
-             job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
-             (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
+         // 4. Job Level match
+         const matchesLevel = !selectedLevel ||
+            job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
+            (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
 
-          return matchesSearch && matchesLocation && matchesJobType && matchesLevel;
-       })
-       : rawJobsList; // Already filtered by server!
+         return matchesSearch && matchesLocation && matchesJobType && matchesLevel;
+      })
+      : rawJobsList; // Already filtered by server!
 
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
