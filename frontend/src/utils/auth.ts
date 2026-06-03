@@ -54,6 +54,7 @@ export function updateAuthUser(fields: Partial<AuthUser>) {
 
 export function clearAuthUser() {
    localStorage.removeItem(AUTH_USER_STORAGE_KEY);
+   localStorage.removeItem("jobpilot.my-cvs");
    emitAuthUserChanged();
 }
 

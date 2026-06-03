@@ -36,8 +36,22 @@ export default function CompaniesPage() {
    const [selectedCompany, setSelectedCompany] = useState<CompanyItem | null>(null);
    const [selectedPosition, setSelectedPosition] = useState<any>(null);
    const [bannerIndex, setBannerIndex] = useState(0);
-   const [applications, setApplications] = useState<any[]>([]);
-   const [savedJobs, setSavedJobs] = useState<any[]>([]);
+    const [applications, setApplications] = useState<any[]>(() => {
+       const saved = localStorage.getItem("jobpilot_applications");
+       try {
+          return saved ? JSON.parse(saved) || [] : [];
+       } catch {
+          return [];
+       }
+    });
+    const [savedJobs, setSavedJobs] = useState<any[]>(() => {
+       const saved = localStorage.getItem("jobpilot_saved_jobs");
+       try {
+          return saved ? JSON.parse(saved) || [] : [];
+       } catch {
+          return [];
+       }
+    });
 
     // --- API companies state & Pagination ---
     const [apiCompanies, setApiCompanies] = useState<CompanyItem[]>([]);
@@ -92,34 +106,34 @@ export default function CompaniesPage() {
        });
     };
 
-    // Fetch công ty từ API (lần đầu 10)
+    // Fetch công ty từ API (lần đầu 6)
     useEffect(() => {
        const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
        setLoadingMore(true);
-       fetch(`${apiBase}/api/companies?offset=0&limit=10`)
+       fetch(`${apiBase}/api/companies?offset=0&limit=6`)
           .then((res) => {
              if (!res.ok) throw new Error("API error");
              return res.json() as Promise<Array<any>>;
           })
           .then((apiData) => {
              if (!apiData || apiData.length === 0) {
-                setApiCompanies(companies.slice(0, 10));
-                setHasMore(companies.length > 10);
-                setOffset(10);
+                setApiCompanies(companies.slice(0, 6));
+                setHasMore(companies.length > 6);
+                setOffset(6);
                 setIsUsingFallback(true);
                 return;
              }
              const mapped = mapApiCompanies(apiData);
              setApiCompanies(mapped);
-             setHasMore(apiData.length === 10);
-             setOffset(10);
+             setHasMore(apiData.length === 6);
+             setOffset(6);
              setIsUsingFallback(false);
           })
           .catch((err) => {
              console.error("Lỗi tải API công ty, chuyển sang dữ liệu dự phòng:", err);
-             setApiCompanies(companies.slice(0, 10));
-             setHasMore(companies.length > 10);
-             setOffset(10);
+             setApiCompanies(companies.slice(0, 6));
+             setHasMore(companies.length > 6);
+             setOffset(6);
              setIsUsingFallback(true);
           })
           .finally(() => {
@@ -127,18 +141,18 @@ export default function CompaniesPage() {
           });
     }, []);
 
-    // Load thêm 10 công ty khi cuộn
+    // Load thêm 6 công ty khi cuộn
     const loadMoreCompanies = () => {
        if (loadingMore || !hasMore) return;
        setLoadingMore(true);
 
        if (isUsingFallback) {
           setTimeout(() => {
-             const nextBatch = companies.slice(offset, offset + 10);
+             const nextBatch = companies.slice(offset, offset + 6);
              if (nextBatch.length > 0) {
                 setApiCompanies((prev) => [...prev, ...nextBatch]);
-                setOffset((prev) => prev + 10);
-                setHasMore(companies.length > offset + 10);
+                setOffset((prev) => prev + 6);
+                setHasMore(companies.length > offset + 6);
              } else {
                 setHasMore(false);
              }
@@ -148,7 +162,7 @@ export default function CompaniesPage() {
        }
 
        const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
-       fetch(`${apiBase}/api/companies?offset=${offset}&limit=10`)
+       fetch(`${apiBase}/api/companies?offset=${offset}&limit=6`)
           .then((res) => {
              if (!res.ok) throw new Error("API error");
              return res.json() as Promise<Array<any>>;
@@ -160,16 +174,16 @@ export default function CompaniesPage() {
              }
              const mapped = mapApiCompanies(apiData);
              setApiCompanies((prev) => [...prev, ...mapped]);
-             setOffset((prev) => prev + 10);
-             setHasMore(apiData.length === 10);
+             setOffset((prev) => prev + 6);
+             setHasMore(apiData.length === 6);
           })
           .catch((err) => {
              console.error("Lỗi tải thêm công ty từ API, chuyển sang dữ liệu dự phòng:", err);
-             const nextBatch = companies.slice(offset, offset + 10);
+             const nextBatch = companies.slice(offset, offset + 6);
              if (nextBatch.length > 0) {
                 setApiCompanies((prev) => [...prev, ...nextBatch]);
-                setOffset((prev) => prev + 10);
-                setHasMore(companies.length > offset + 10);
+                setOffset((prev) => prev + 6);
+                setHasMore(companies.length > offset + 6);
              } else {
                 setHasMore(false);
              }
@@ -178,18 +192,6 @@ export default function CompaniesPage() {
              setLoadingMore(false);
           });
     };
-
-    // Scroll listener
-    useEffect(() => {
-       const handleScroll = () => {
-          if (loadingMore || !hasMore) return;
-          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
-             loadMoreCompanies();
-          }
-       };
-       window.addEventListener("scroll", handleScroll);
-       return () => window.removeEventListener("scroll", handleScroll);
-    }, [offset, loadingMore, hasMore, isUsingFallback]);
 
    const [showTray, setShowTray] = useState(false);
    const [selectedFilter, setSelectedFilter] = useState<string>("Tất cả");
@@ -266,18 +268,7 @@ export default function CompaniesPage() {
       return () => clearInterval(interval);
    }, []);
 
-   useEffect(() => {
-      const savedApplications = localStorage.getItem("jobpilot_applications");
-      const savedSavedJobs = localStorage.getItem("jobpilot_saved_jobs");
-      if (savedApplications) {
-         const parsed = JSON.parse(savedApplications);
-         setApplications(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
-      }
-      if (savedSavedJobs) {
-         const parsed = JSON.parse(savedSavedJobs);
-         setSavedJobs(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
-      }
-   }, []);
+
 
    useEffect(() => {
       const params = new URLSearchParams(location.search);
@@ -376,7 +367,7 @@ export default function CompaniesPage() {
 
       if (job.id) {
          try {
-            const token = localStorage.getItem("token");
+            const token = localStorage.getItem("accessToken");
             const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
             const res = await fetch(`${apiBase}/api/applications`, {
                method: "POST",
@@ -413,7 +404,7 @@ export default function CompaniesPage() {
 
       if (job.id && readAuthUser()) {
          try {
-            const token = localStorage.getItem("token");
+            const token = localStorage.getItem("accessToken");
             const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
             const res = await fetch(`${apiBase}/api/saved-jobs`, {
                method: "POST",
@@ -706,7 +697,7 @@ export default function CompaniesPage() {
             {filters.map((f) => {
                const isSelected = f === selectedFilter;
                return (
-                  <button key={f} onClick={() => setSelectedFilter(f)} className={`${styles.filterButton} ${isSelected ? styles.active : ""} ${f === "Tất cả" ? styles.filterButtonAll : ""}`} title={`Filter by ${f}`}>
+                  <button key={f} onClick={() => { setSelectedFilter(f); }} className={`${styles.filterButton} ${isSelected ? styles.active : ""} ${f === "Tất cả" ? styles.filterButtonAll : ""}`} title={`Filter by ${f}`}>
                      {f}
                   </button>
                );
@@ -763,6 +754,31 @@ export default function CompaniesPage() {
                   </Link>
                );
             })}
+            {!loadingMore && hasMore && (
+               <div style={{ textAlign: "center", padding: "20px" }}>
+                  <button
+                     onClick={() => {
+                        loadMoreCompanies();
+                     }}
+                     style={{
+                        padding: "12px 28px",
+                        background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                        color: "#fff",
+                        border: "none",
+                        borderRadius: "12px",
+                        fontSize: "14px",
+                        fontWeight: 800,
+                        cursor: "pointer",
+                        boxShadow: "0 10px 25px rgba(16,185,129,0.15)",
+                        transition: "all 0.2s ease"
+                     }}
+                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 30px rgba(16,185,129,0.25)"; }}
+                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 25px rgba(16,185,129,0.15)"; }}
+                  >
+                     Xem thêm công ty
+                  </button>
+               </div>
+            )}
             {loadingMore && (
                <div style={{ textAlign: "center", padding: "20px", color: "#059669", fontWeight: 800, fontSize: "14px" }} className="animate-pulse">
                   Đang tải thêm công ty...

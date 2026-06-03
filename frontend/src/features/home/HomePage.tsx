@@ -34,6 +34,7 @@ import companyLogo7 from "../../assets/company_logo/image_7.png";
 import companyLogo8 from "../../assets/company_logo/image_8.png";
 import { readAuthUser } from "../../utils/auth";
 import { hasCreatedCv } from "../../utils/cv";
+import ApplyCvModal from "../../components/ApplyCvModal";
 
 const quickLinks = [
    {
@@ -382,6 +383,7 @@ export default function HomePage() {
       }
    });
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
+   const [applyingJob, setApplyingJob] = useState<{ industryName: string; job: any } | null>(null);
 
    useEffect(() => {
       if (!toast) {
@@ -413,6 +415,20 @@ export default function HomePage() {
          return;
       }
 
+      setApplyingJob({ industryName, job });
+   };
+
+   const handleConfirmApply = (cvId: number) => {
+      if (!applyingJob) return;
+      const { industryName, job } = applyingJob;
+      setApplyingJob(null);
+
+      const id = `${industryName}-${job.company}-${job.title}`;
+      if (appliedJobIds.has(id)) {
+         showToast("Bạn đã ứng tuyển vị trí này rồi.", "error");
+         return;
+      }
+
       const application = {
          id,
          company: job.company,
@@ -423,6 +439,7 @@ export default function HomePage() {
          appliedAt: new Date().toLocaleString("vi-VN"),
          status: "Đang chờ xác nhận",
          trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi.",
+         cvId,
       };
 
       try {
@@ -753,6 +770,12 @@ export default function HomePage() {
                </div>
             </div>
          )}
+
+         <ApplyCvModal
+            isOpen={applyingJob !== null}
+            onClose={() => setApplyingJob(null)}
+            onConfirm={handleConfirmApply}
+         />
       </div>
    );
 }

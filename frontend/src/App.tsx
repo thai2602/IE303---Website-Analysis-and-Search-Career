@@ -1,5 +1,6 @@
 import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import useKeepAlive from "./hooks/useKeepAlive";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import HomePage from "./features/home/HomePage";
@@ -31,6 +32,9 @@ function ScrollToTop() {
 }
 
 function SiteLayout() {
+   // Giữ Render backend luôn hoạt động bằng cách ping mỗi 60 giây
+   useKeepAlive();
+
    return (
       <div className="min-h-screen bg-white text-gray-900 flex flex-col">
          <div className="pointer-events-none fixed inset-0 -z-10 opacity-40" />

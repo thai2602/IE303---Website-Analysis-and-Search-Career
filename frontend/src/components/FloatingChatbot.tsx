@@ -59,8 +59,6 @@ export default function FloatingChatbot() {
     location.pathname.startsWith("/tim-viec/") ||
     location.pathname.startsWith("/cong-ty/");
 
-  // Giữ chatbot tách khỏi nút trái tim ở mọi trang
-  const rightOffset = "100px";
 
   // Tự động scroll xuống dưới
   useEffect(() => {
@@ -206,13 +204,7 @@ export default function FloatingChatbot() {
       {/* ── Chatbot Bubble Toggle Button ── */}
       {!isOpen && (
         <div
-          className="fixed z-[1000] flex items-center justify-center transition-all duration-300"
-          style={{
-            right: rightOffset,
-            bottom: "24px",
-            width: "60px",
-            height: "60px",
-          }}
+          className="chatbot-toggle flex items-center justify-center transition-all duration-300"
         >
           {/* Pulsing ring backdrop */}
           <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-pulse-ring pointer-events-none" />
@@ -237,13 +229,7 @@ export default function FloatingChatbot() {
       {/* ── Chatbot Dialog Panel ── */}
       {isOpen && (
         <div
-          className="fixed z-[1100] bg-white rounded-[28px] border border-slate-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden transition-all duration-500"
-          style={{
-            right: rightOffset,
-            bottom: "94px",
-            width: "min(390px, calc(100vw - 32px))",
-            height: "min(590px, calc(80vh - 120px))",
-          }}
+          className="chatbot-panel bg-white rounded-[28px] border border-slate-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden transition-all duration-500"
         >
           {/* Header */}
           <div className="border-b border-slate-100 bg-white px-5 py-4 flex items-center justify-between text-slate-800 relative">

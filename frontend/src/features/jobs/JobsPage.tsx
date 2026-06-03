@@ -603,6 +603,7 @@ export default function JobsPage() {
                      filteredJobs.map((job) => {
                         const jobSlug = job.slug ?? generateSlug(`${job.title} ${job.company}`);
                         const isSaved = savedJobs.some((item) => item.company === job.company && item.title === job.title);
+                         const isApplied = applications.some((item) => item.company === job.company && item.title === job.title);
 
                         return (
                            <article
@@ -667,12 +668,22 @@ export default function JobsPage() {
                                     >
                                        <Bookmark className={`w-4 h-4 ${isSaved ? "fill-current" : ""}`} />
                                     </button>
-                                    <button
-                                       onClick={(e) => addApplication(job, e)}
-                                       className="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[13.5px] rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
-                                    >
-                                       Ứng tuyển
-                                    </button>
+                                    {isApplied ? (
+                                       <button
+                                          disabled
+                                          onClick={(e) => e.stopPropagation()}
+                                          className="px-5 py-3 bg-slate-100 text-slate-500 font-extrabold text-[13.5px] rounded-xl border border-slate-200 cursor-default inline-flex items-center gap-1.5"
+                                       >
+                                          <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Đã ứng tuyển
+                                       </button>
+                                    ) : (
+                                       <button
+                                          onClick={(e) => addApplication(job, e)}
+                                          className="px-5 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-[13.5px] rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
+                                       >
+                                          Ứng tuyển
+                                       </button>
+                                    )}
                                  </div>
                               </div>
                            </article>

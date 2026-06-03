@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import "./cv-builder.css";
 import { CvProvider, useCvContext, CvData, Skill, Experience, Education, Project, Attachment, Social } from "./CvContext";
 import { readAuthUser } from "../../utils/auth";
+import { saveCvsToLocalStorage } from "../../utils/cv";
 import { streamChat } from "../../services/chatbotApi";
 import { Plus, Trash2, Upload, FileText, Bot, Eye, EyeOff, User, Briefcase, GraduationCap, Code, FolderGit2, Save, Palette, Mail, Phone, MapPin, ChevronDown, Sparkles, Search, Home, Wand2, RefreshCw, Linkedin, Github, Globe, ExternalLink } from "lucide-react";
 import logoImg from "../../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
@@ -96,7 +97,9 @@ function CvEditorContent() {
       const cvRes = await fetch(import.meta.env.VITE_API_URL + `/api/cvs/user/${userId}`, { headers });
       if (cvRes.ok) {
         const cvs = await cvRes.json();
-        setSavedCvs(cvs.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+        const sorted = cvs.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        setSavedCvs(sorted);
+        saveCvsToLocalStorage(sorted);
       }
     } catch (err) {
       console.error("Failed to fetch CVs", err);

@@ -1,6 +1,7 @@
 import { companyAvatars } from "../companies/companyAssets";
 
 export type Job = {
+   id?: number;
    title: string;
    company: string;
    companyColor: string;

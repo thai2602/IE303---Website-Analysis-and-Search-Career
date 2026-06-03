@@ -7,8 +7,8 @@ import {
    subscribeAuthUserChange,
    type AuthUser,
 } from "../utils/auth";
+import { saveCvsToLocalStorage } from "../utils/cv";
 import logoImg from "../assets/logo/Screenshot_2026-05-07_133557-removebg-preview.png";
-import mascotImage from "../assets/linh_vật_web_xóa nền.png";
 
 const navLinks = [
    { label: "Tìm việc", href: "/tim-viec" },
@@ -28,6 +28,40 @@ export default function Header() {
    useEffect(() => {
       return subscribeAuthUserChange(setCurrentUser);
    }, []);
+
+   useEffect(() => {
+      if (!currentUser?.email) {
+         localStorage.removeItem("jobpilot.my-cvs");
+         return;
+      }
+
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      const token = localStorage.getItem("accessToken");
+      const headers: Record<string, string> = token ? { 'Authorization': `Bearer ${token}` } : {};
+
+      fetch(`${apiBase}/api/users/by-email?email=${encodeURIComponent(currentUser.email)}`, { headers })
+         .then((res) => {
+            if (!res.ok) throw new Error("User request failed");
+            return res.json() as Promise<{ userId: number }>;
+         })
+         .then(({ userId }) => {
+            if (!userId) return;
+            return fetch(`${apiBase}/api/cvs/user/${userId}`, { headers });
+         })
+         .then((res) => {
+            if (res && res.ok) {
+               return res.json() as Promise<any[]>;
+            }
+         })
+         .then((cvList) => {
+            if (cvList) {
+               saveCvsToLocalStorage(cvList);
+            }
+         })
+         .catch((err) => {
+            console.error("Failed to sync CVs in Header:", err);
+         });
+   }, [currentUser]);
 
    useEffect(() => {
       if (!profileMenuOpen) {
@@ -66,12 +100,6 @@ export default function Header() {
 
    return (
       <header className="sticky top-3 z-50 w-full px-3">
-         {/* Fixed colored mascot at top-left (non-interactive) */}
-         <div className="fixed top-4 left-4 z-[60] pointer-events-none">
-            <div className="ai-mascot-wrap inline-flex h-20 w-20 md:h-28 md:w-28">
-               <img src={mascotImage} alt="Linh vật JobPilot" className="h-full w-full object-contain" />
-            </div>
-         </div>
          <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-[76px] flex items-center justify-between gap-4">
             <div className="flex h-[76px] w-full items-center justify-between gap-4 rounded-[24px] border border-white/35 bg-white/70 px-4 shadow-[0_18px_45px_-24px_rgba(15,23,42,0.45)] backdrop-blur-xl md:px-6">
                {/* Logo */}

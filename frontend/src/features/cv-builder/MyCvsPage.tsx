@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { readAuthUser } from "../../utils/auth";
+import { saveCvsToLocalStorage } from "../../utils/cv";
 
 // --- Types matching backend UserCv entity ---
 interface UserCvSkill     { id: number; skillName: string; level?: string }
@@ -80,7 +81,10 @@ export default function MyCvsPage() {
         if (!userId) throw new Error("Không tìm thấy tài khoản. Vui lòng đăng nhập lại.");
         return fetchUserCvs(userId);
       })
-      .then((data) => setCvs(data))
+      .then((data) => {
+        setCvs(data);
+        saveCvsToLocalStorage(data);
+      })
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : "Có lỗi xảy ra khi tải CV.");
       })
@@ -92,7 +96,9 @@ export default function MyCvsPage() {
     setDeletingId(id);
     try {
       await deleteCvById(id);
-      setCvs((prev) => prev.filter((cv) => cv.id !== id));
+      const updated = cvs.filter((cv) => cv.id !== id);
+      setCvs(updated);
+      saveCvsToLocalStorage(updated);
       if (previewCv?.id === id) setPreviewCv(null);
     } catch (err: unknown) {
       alert(err instanceof Error ? err.message : "Xóa thất bại.");

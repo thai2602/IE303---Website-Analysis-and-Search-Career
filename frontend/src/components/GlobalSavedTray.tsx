@@ -100,12 +100,27 @@ export default function GlobalSavedTray() {
             .saved-tray-pulse-ring {
                animation: saved-tray-pulse-ring 2.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
             }
+            .saved-tray-toggle {
+               position: fixed;
+               z-index: 1000;
+               right: 24px;
+               bottom: 24px;
+               width: 60px;
+               height: 60px;
+            }
+            .saved-tray-panel {
+               position: fixed;
+               right: 24px;
+               bottom: 94px;
+               width: min(420px, calc(100vw - 32px));
+               max-height: 72vh;
+               z-index: 1101;
+            }
          `}</style>
 
          {!showTray && (
             <div
-               className="fixed z-[1000] flex items-center justify-center transition-all duration-300"
-               style={{ right: "24px", bottom: "24px", width: "60px", height: "60px" }}
+               className="saved-tray-toggle flex items-center justify-center transition-all duration-300"
             >
                <div className="absolute inset-0 rounded-full bg-rose-500/20 saved-tray-pulse-ring pointer-events-none" />
                <button
@@ -126,18 +141,12 @@ export default function GlobalSavedTray() {
                   style={{ position: "fixed", inset: 0, background: "rgba(15,23,42,0.5)", backdropFilter: "blur(4px)", zIndex: 1100 }}
                />
                <div
-                  className="border border-slate-200/80"
+                  className="saved-tray-panel border border-slate-200/80"
                   style={{
-                     position: "fixed",
-                     right: "24px",
-                     bottom: "94px",
-                     width: "min(420px, calc(100vw - 32px))",
-                     maxHeight: "72vh",
                      overflowY: "auto",
                      background: "#fff",
                      borderRadius: "28px",
                      boxShadow: "0 20px 50px rgba(0,0,0,0.12)",
-                     zIndex: 1101,
                      padding: "20px",
                   }}
                >

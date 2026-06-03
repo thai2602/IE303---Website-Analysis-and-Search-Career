@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Building2, CalendarClock, MapPin } from "lucide-react";
 import { readAuthUser } from "../../utils/auth";
@@ -55,6 +55,36 @@ const statusToneStyles: Record<string, { badge: string; border: string; accent: 
    },
 };
 
+const statusMap: Record<string, string> = {
+   PENDING: "Đang chờ xác nhận",
+   REVIEWING: "Hồ sơ đã tiếp nhận",
+   ACCEPTED: "Trúng tuyển",
+   REJECTED: "Không phù hợp",
+};
+
+const mapApiApplication = (apiApp: any): StoredApplication => {
+   const job = apiApp.job || {};
+   const company = job.company || {};
+
+   const salaryStr = job.salaryMin && job.salaryMax 
+      ? `${Math.round(job.salaryMin / 1_000_000)}–${Math.round(job.salaryMax / 1_000_000)} triệu`
+      : "Thỏa thuận";
+
+   const jobTypeStr = job.jobType === "FULL_TIME" ? "Full-time" : job.jobType === "REMOTE" ? "Remote" : "Hybrid";
+
+   return {
+      id: `api-${apiApp.id}`,
+      title: job.title || "Vị trí chưa xác định",
+      company: company.name || "Chưa có công ty",
+      place: job.locationCity || "Việt Nam",
+      salary: salaryStr,
+      type: jobTypeStr,
+      appliedAt: apiApp.appliedAt ? new Date(apiApp.appliedAt).toLocaleString("vi-VN") : "",
+      status: statusMap[apiApp.status] || apiApp.status || "Đang chờ xác nhận",
+      trackingNote: apiApp.trackingNote || "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi.",
+   };
+};
+
 const loadApplications = () => {
    try {
       const raw = localStorage.getItem("jobpilot_applications");
@@ -71,7 +101,108 @@ const loadApplications = () => {
 
 export default function AppliedJobsPage() {
    const currentUser = readAuthUser();
-   const applications = useMemo(loadApplications, []);
+   const [applications, setApplications] = useState<StoredApplication[]>(() => loadApplications());
+   const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
+
+   useEffect(() => {
+      if (!toast) return;
+      const timeoutId = window.setTimeout(() => setToast(null), 2600);
+      return () => window.clearTimeout(timeoutId);
+   }, [toast]);
+
+   const showToast = (message: string, kind: "success" | "error" = "success") => {
+      setToast({ message, kind });
+   };
+
+   const handleCancelApplication = async (id?: string) => {
+      if (!id) return;
+      
+      const isConfirmed = window.confirm("Bạn có chắc chắn muốn hủy ứng tuyển công việc này không? Hành động này không thể hoàn tác.");
+      if (!isConfirmed) return;
+
+      try {
+         if (id.startsWith("api-")) {
+            const backendId = id.replace("api-", "");
+            const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+            const token = localStorage.getItem("accessToken");
+            if (!token) {
+               showToast("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.", "error");
+               return;
+            }
+
+            const res = await fetch(`${apiBase}/api/applications/${backendId}`, {
+               method: "DELETE",
+               headers: {
+                  "Authorization": `Bearer ${token}`,
+               },
+            });
+
+            if (!res.ok) {
+               const errText = await res.text();
+               showToast(`Không thể hủy ứng tuyển: ${errText || "Lỗi máy chủ"}`, "error");
+               return;
+            }
+         }
+
+         // Update local state
+         const updatedApps = applications.filter((app) => app.id !== id);
+         setApplications(updatedApps);
+
+         // Update localStorage
+         const rawLocal = localStorage.getItem("jobpilot_applications");
+         if (rawLocal) {
+            const parsed = JSON.parse(rawLocal) as StoredApplication[];
+            if (Array.isArray(parsed)) {
+               const updatedLocal = parsed.filter((app) => app && app.id !== id);
+               localStorage.setItem("jobpilot_applications", JSON.stringify(updatedLocal));
+            }
+         }
+         
+         window.dispatchEvent(new Event("jobpilot-data-updated"));
+         showToast("Hủy ứng tuyển thành công!");
+      } catch (err) {
+         console.error("Cancel application failed:", err);
+         showToast("Lỗi kết nối khi hủy ứng tuyển. Vui lòng thử lại sau.", "error");
+      }
+   };
+
+   useEffect(() => {
+      if (!currentUser) return;
+
+      const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+      const token = localStorage.getItem("accessToken");
+      if (!token) return;
+
+      fetch(`${apiBase}/api/applications`, {
+         headers: {
+            "Authorization": `Bearer ${token}`
+         }
+      })
+         .then((res) => {
+            if (res.ok) return res.json() as Promise<any[]>;
+            throw new Error();
+         })
+         .then((apiData) => {
+            const mapped = apiData.map(mapApiApplication);
+            setApplications((prevLocal) => {
+               const merged = [...mapped];
+               prevLocal.forEach((localItem) => {
+                  const alreadyExists = merged.some(
+                     (mergedItem) => 
+                        mergedItem.title?.toLowerCase() === localItem.title?.toLowerCase() &&
+                        mergedItem.company?.toLowerCase() === localItem.company?.toLowerCase()
+                  );
+                  if (!alreadyExists) {
+                     merged.push(localItem);
+                  }
+               });
+               return merged;
+            });
+         })
+         .catch((err) => {
+            console.error("Failed to fetch applications from server:", err);
+         });
+   }, [currentUser]);
 
    const renderTag = (label: string) => (
       <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-[11px] font-semibold text-gray-600">
@@ -203,9 +334,18 @@ export default function AppliedJobsPage() {
                                        <p className="mt-1 text-sm leading-6 text-slate-700">Nếu hồ sơ đã được xử lý, trạng thái sẽ được phản ánh ngay tại đây.</p>
                                     </div>
                                  </div>
-                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
-                                    <CalendarClock className="h-4 w-4" />
-                                    Cập nhật theo thời gian nộp
+                                 <div className="flex flex-wrap items-center gap-3">
+                                    <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                                       <CalendarClock className="h-4 w-4" />
+                                       Cập nhật theo thời gian nộp
+                                    </div>
+                                    <button
+                                       type="button"
+                                       onClick={() => handleCancelApplication(job.id)}
+                                       className="inline-flex items-center gap-1.5 rounded-xl border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-bold text-rose-700 transition-colors hover:bg-rose-100 cursor-pointer"
+                                    >
+                                       Hủy ứng tuyển
+                                    </button>
                                  </div>
                               </div>
                            </article>
@@ -240,6 +380,18 @@ export default function AppliedJobsPage() {
                </div>
             </aside>
          </div>
+
+         {toast && (
+            <div style={{ position: "fixed", left: "50%", top: 24, transform: "translateX(-50%)", zIndex: 1300, minWidth: "min(520px, calc(100vw - 24px))" }}>
+               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "14px 16px", borderRadius: 14, border: `1px solid ${toast.kind === "success" ? "#86efac" : "#fca5a5"}`, background: toast.kind === "success" ? "linear-gradient(135deg, #f0fdf4, #ffffff)" : "linear-gradient(135deg, #fff1f2, #ffffff)", boxShadow: "0 18px 50px rgba(15,23,42,0.16)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                     <div style={{ width: 10, height: 10, borderRadius: 999, background: toast.kind === "success" ? "#16a34a" : "#dc2626", flexShrink: 0 }} />
+                     <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{toast.message}</p>
+                  </div>
+                  <button onClick={() => setToast(null)} style={{ border: "none", background: "transparent", color: "#64748b", cursor: "pointer", fontWeight: 700 }}>×</button>
+               </div>
+            </div>
+         )}
       </section>
    );
 }

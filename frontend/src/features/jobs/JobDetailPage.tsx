@@ -9,12 +9,14 @@ import { toVietnameseJobTitle } from "../../utils/jobTitle";
 import { generateSlug } from "../../utils/slug";
 import { readAuthUser } from "../../utils/auth";
 import { hasCreatedCv } from "../../utils/cv";
+import ApplyCvModal from "../../components/ApplyCvModal";
 import { companyJobs } from "./JobsPage";
 import image1 from "../../assets/company_logo/image_1.png";
 import image2 from "../../assets/company_logo/image_2.png";
 import image3 from "../../assets/company_logo/image_3.png";
 
 type JobDetail = {
+   id?: number;
    title: string;
    company: string;
    companyColor: string;
@@ -65,6 +67,7 @@ export default function JobDetailPage() {
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
    const [isSaved, setIsSaved] = useState(false);
    const [isApplied, setIsApplied] = useState(false);
+   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
 
    useEffect(() => {
       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
@@ -88,6 +91,7 @@ export default function JobDetailPage() {
                   return;
                }
                setJob({
+                  id: data.id,
                   title: data.title,
                   company: data.company?.name ?? "",
                   companyColor: data.company?.color ?? "#0ea5e9",
@@ -181,11 +185,45 @@ export default function JobDetailPage() {
       if (!readAuthUser()) { showToast("Bạn cần đăng nhập trước khi ứng tuyển.", "error"); return; }
       if (!hasCreatedCv()) { showToast("Bạn chưa có CV. Vui lòng tạo CV trước.", "error"); return; }
       if (isApplied) { showToast("Bạn đã ứng tuyển vị trí này rồi.", "error"); return; }
+      setIsApplyModalOpen(true);
+   };
+
+   const handleConfirmApply = async (cvId: number) => {
+      setIsApplyModalOpen(false);
+      let finalId = `${job!.company}-${job!.title}-${Date.now()}`;
+      if (job!.id) {
+         try {
+            const token = localStorage.getItem("accessToken");
+            const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+            const res = await fetch(`${apiBase}/api/applications`, {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": token ? `Bearer ${token}` : "",
+               },
+               body: JSON.stringify({ jobId: job!.id, cvId }),
+            });
+            if (res.ok) {
+               const savedApp = await res.json();
+               if (savedApp && savedApp.id) {
+                  finalId = `api-${savedApp.id}`;
+               }
+            } else {
+               const errText = await res.text();
+               showToast(`Lỗi ứng tuyển: ${errText}`, "error");
+               return;
+            }
+         } catch (err) {
+            console.error("Backend apply failed:", err);
+            showToast("Lỗi kết nối máy chủ khi ứng tuyển. Vui lòng thử lại sau.", "error");
+            return;
+         }
+      }
+
       const savedRaw = localStorage.getItem("jobpilot_applications");
       const applications: any[] = savedRaw ? (JSON.parse(savedRaw) ?? []).filter(Boolean) : [];
-      const id = `${job!.company}-${job!.title}-${Date.now()}`;
       localStorage.setItem("jobpilot_applications", JSON.stringify([
-         { ...job, id, appliedAt: new Date().toLocaleString("vi-VN"), status: "Đang chờ xác nhận", trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi." },
+         { ...job, id: finalId, appliedAt: new Date().toLocaleString("vi-VN"), status: "Đang chờ xác nhận", trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi." },
          ...applications,
       ]));
       setIsApplied(true);
@@ -238,7 +276,7 @@ export default function JobDetailPage() {
          </button>
 
          {/* Company banner */}
-         <div style={{
+         <div className="res-job-detail-banner" style={{
             borderRadius: "20px",
             background: `linear-gradient(135deg, ${job.companyColor}18 0%, ${job.companyColor}08 100%)`,
             border: `1px solid ${job.companyColor}28`,
@@ -250,7 +288,7 @@ export default function JobDetailPage() {
          }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "4px", background: job.companyColor, borderRadius: "20px 20px 0 0" }} />
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "20px", alignItems: "flex-start" }}>
+            <div className="res-job-detail-inner" style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "20px", alignItems: "flex-start" }}>
                <div style={{ display: "flex", gap: "20px", alignItems: "flex-start", minWidth: 0 }}>
                   <div style={{ width: "84px", height: "84px", borderRadius: "18px", overflow: "hidden", background: "#fff", boxShadow: `0 8px 24px ${job.companyColor}20`, flexShrink: 0, border: `2px solid ${job.companyColor}30` }}>
                      <img src={job.image} alt={job.company} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -333,7 +371,7 @@ export default function JobDetailPage() {
          </div>
 
          {/* Main 2-column layout */}
-         <div style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: "24px", alignItems: "flex-start" }}>
+         <div className="res-job-detail-layout" style={{ display: "grid", gridTemplateColumns: "1fr 360px", gap: "24px", alignItems: "flex-start" }}>
 
             {/* LEFT: Content */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -487,6 +525,13 @@ export default function JobDetailPage() {
                </div>
             </div>
          )}
+
+         {/* Apply CV Modal */}
+         <ApplyCvModal
+            isOpen={isApplyModalOpen}
+            onClose={() => setIsApplyModalOpen(false)}
+            onConfirm={handleConfirmApply}
+         />
       </div>
    );
 }

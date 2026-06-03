@@ -13,3 +13,26 @@ export const hasCreatedCv = (): boolean => {
       return false;
    }
 };
+
+export const saveCvsToLocalStorage = (cvs: any[]) => {
+   try {
+      localStorage.setItem(MY_CVS_STORAGE_KEY, JSON.stringify(cvs));
+   } catch (err) {
+      console.error("Failed to save CVs to localStorage", err);
+   }
+};
+
+export const getActiveCvId = (): number | null => {
+   try {
+      const raw = localStorage.getItem(MY_CVS_STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+         return parsed[0].id ?? null;
+      }
+      return null;
+   } catch {
+      return null;
+   }
+};
+

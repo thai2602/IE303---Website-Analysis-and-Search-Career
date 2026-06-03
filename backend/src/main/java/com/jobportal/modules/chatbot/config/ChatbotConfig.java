@@ -35,6 +35,7 @@ public class ChatbotConfig {
                 .baseUrl(baseUrl)
                 .apiKey(apiKey)
                 .modelName(modelName)
+                .temperature(0.0)
                 .timeout(java.time.Duration.ofMinutes(5))
                 .build();
     }
