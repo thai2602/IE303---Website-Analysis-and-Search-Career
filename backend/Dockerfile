@@ -28,10 +28,8 @@ ENV LC_ALL=vi_VN.UTF-8
 # Sao chép file JAR đã build từ Stage 1
 COPY --from=build /app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 
-# Tạo các thư mục phục vụ cho RAG (nếu ứng dụng cần ghi file tạm)
-RUN mkdir -p src/main/resources/rag-data/raw \
-    && mkdir -p src/main/resources/rag-data/processed \
-    && mkdir -p src/main/resources/rag-data/embeddings
+# Sao chép dữ liệu RAG (bao gồm các file embeddings đã pre-compute và processed data) từ Stage 1
+COPY --from=build /app/src/main/resources/rag-data ./src/main/resources/rag-data
 
 # Cấu hình cổng chạy mặc định (Render sẽ ghi đè biến PORT này)
 ENV PORT=8080
