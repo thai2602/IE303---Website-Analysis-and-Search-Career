@@ -20,9 +20,13 @@ public class JobController {
     @GetMapping
     public List<Job> getAllJobs(
             @RequestParam(defaultValue = "0") int offset,
-            @RequestParam(defaultValue = "20") int limit) {
+            @RequestParam(defaultValue = "20") int limit,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) String jobType,
+            @RequestParam(required = false) String jobLevel) {
         Pageable pageable = new OffsetBasedPageRequest(offset, limit);
-        return jobRepository.findAll(pageable).getContent();
+        return jobRepository.searchJobs(search, location, jobType, jobLevel, pageable);
     }
 
     @GetMapping("/{id}")

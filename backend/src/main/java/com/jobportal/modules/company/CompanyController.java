@@ -25,8 +25,12 @@ public class CompanyController {
     @GetMapping
     public List<Company> getAllCompanies(
             @RequestParam(defaultValue = "0") int offset,
-            @RequestParam(defaultValue = "10") int limit) {
+            @RequestParam(defaultValue = "10") int limit,
+            @RequestParam(required = false) String search) {
         Pageable pageable = new OffsetBasedPageRequest(offset, limit);
+        if (search != null && !search.trim().isEmpty()) {
+            return companyRepository.searchCompanies(search, pageable);
+        }
         return companyRepository.findAllWithPositions(pageable);
     }
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Building2, MapPin, Star, Users, Wallet, Briefcase, ArrowUpRight, Check } from "lucide-react";
-import { companies, companyAvatars, companyImages } from "./CompaniesPage";
+import { mockCompanies as companies } from "./mockCompanies";
+import { companyAvatars, companyImages } from "./companyAssets";
 import { generateSlug } from "../../utils/slug";
 
 type CompanyPosition = {

@@ -96,6 +96,7 @@ public class Company {
 
     @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     @com.fasterxml.jackson.annotation.JsonIgnoreProperties("company")
+    @org.hibernate.annotations.BatchSize(size = 20)
     private java.util.List<com.jobportal.modules.job.Job> positions;
     
     public java.util.List<com.jobportal.modules.job.Job> getPositions() {

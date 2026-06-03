@@ -2,136 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { generateSlug } from "../../utils/slug";
 import { Clock3, MapPin, Wallet, Search, Flame, Bookmark, X, CalendarClock, SlidersHorizontal, Briefcase, Award, CheckCircle2 } from "lucide-react";
-import image1 from "../../assets/company_logo/image_1.png";
-import image2 from "../../assets/company_logo/image_2.png";
-import image3 from "../../assets/company_logo/image_3.png";
-import { companies as companiesCatalog } from "../companies/CompaniesPage";
+import { companyAvatars as fallbackImages } from "../companies/companyAssets";
+import { mockCompanies as companiesCatalog } from "../companies/mockCompanies";
+import { mockJobs as jobs, Job } from "./mockJobs";
 import { readAuthUser } from "../../utils/auth";
 import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
-
-type Job = {
-   title: string;
-   company: string;
-   companyColor: string;
-   companyDescription: string;
-   description: string;
-   place: string;
-   field: string;
-   type: string;
-   salary: string;
-   tags: string[];
-   hot: boolean;
-   posted: string;
-   image: string;
-   companyUrl: string;
-   slug?: string;
-   requirements?: string;
-   benefits?: string;
-   jobLevel?: string;
-   experienceYears?: string;
-   expiredAt?: string;
-   locationAddress?: string;
-};
-
-const jobs: Job[] = [
-   {
-      title: "Frontend React Developer",
-      company: "NovaTech",
-      companyColor: "#6366f1",
-      companyDescription: "NovaTech là công ty công nghệ hàng đầu, chuyên phát triển phần mềm và giải pháp số cho doanh nghiệp.",
-      description: "Phát triển giao diện người dùng với React, TypeScript và Figma. Tham gia vào các dự án web hiện đại.",
-      place: "TP. HCM",
-      field: "Công nghệ thông tin",
-      type: "Full-time",
-      salary: "25–35 triệu",
-      tags: ["React", "TypeScript", "Figma"],
-      hot: true,
-      posted: "2 ngày trước",
-      image: image1,
-      companyUrl: "/cong-ty",
-   },
-   {
-      title: "UI/UX Designer",
-      company: "BluePixel",
-      companyColor: "#ec4899",
-      companyDescription: "BluePixel chuyên thiết kế trải nghiệm người dùng sáng tạo và giải pháp thiết kế đồ họa.",
-      description: "Thiết kế giao diện và trải nghiệm người dùng cho ứng dụng di động và web. Sử dụng Figma và prototyping.",
-      place: "Hà Nội",
-      field: "Công nghệ thông tin",
-      type: "Hybrid",
-      salary: "18–28 triệu",
-      tags: ["Figma", "Prototyping", "User Research"],
-      hot: false,
-      posted: "1 ngày trước",
-      image: image2,
-      companyUrl: "/cong-ty",
-   },
-   {
-      title: "Backend Node.js Engineer",
-      company: "ScaleHub",
-      companyColor: "#f59e0b",
-      companyDescription: "ScaleHub cung cấp dịch vụ đám mây và hạ tầng kỹ thuật cho các doanh nghiệp quy mô lớn.",
-      description: "Xây dựng hệ thống backend với Node.js, MongoDB và Docker. Đảm bảo hiệu suất và bảo mật.",
-      place: "Đà Nẵng",
-      field: "Công nghệ thông tin",
-      type: "Remote",
-      salary: "30–45 triệu",
-      tags: ["Node.js", "MongoDB", "Docker"],
-      hot: true,
-      posted: "Hôm nay",
-      image: image3,
-      companyUrl: "/cong-ty",
-   },
-   {
-      title: "Chuyên viên Digital Marketing",
-      company: "GrowthBee",
-      companyColor: "#14b8a6",
-      companyDescription: "GrowthBee tập trung vào tăng trưởng thương hiệu thông qua dữ liệu và performance marketing.",
-      description: "Xây dựng chiến dịch quảng cáo đa kênh, tối ưu chuyển đổi và báo cáo hiệu quả theo tuần.",
-      place: "TP. HCM",
-      field: "Marketing/Quảng cáo",
-      type: "Full-time",
-      salary: "18–30 triệu",
-      tags: ["Google Ads", "Meta Ads", "GA4"],
-      hot: false,
-      posted: "3 ngày trước",
-      image: image2,
-      companyUrl: "/cong-ty",
-   },
-   {
-      title: "Nhân viên kinh doanh B2B",
-      company: "SaleSphere",
-      companyColor: "#0ea5e9",
-      companyDescription: "SaleSphere là nền tảng hỗ trợ bán hàng B2B cho doanh nghiệp vừa và nhỏ.",
-      description: "Tìm kiếm khách hàng doanh nghiệp, tư vấn giải pháp và chốt hợp đồng theo chỉ tiêu tháng.",
-      place: "Hà Nội",
-      field: "Kinh doanh/Bán hàng",
-      type: "Full-time",
-      salary: "15–25 triệu",
-      tags: ["Tư vấn", "Đàm phán", "CRM"],
-      hot: true,
-      posted: "Hôm qua",
-      image: image1,
-      companyUrl: "/cong-ty",
-   },
-   {
-      title: "Kế toán tổng hợp",
-      company: "Finverse",
-      companyColor: "#f59e0b",
-      companyDescription: "Finverse cung cấp dịch vụ tài chính số và quản lý tài sản cá nhân.",
-      description: "Theo dõi dòng tiền, lập báo cáo tài chính và phối hợp với kiểm toán nội bộ.",
-      place: "Đà Nẵng",
-      field: "Kế toán",
-      type: "Hybrid",
-      salary: "15–25 triệu",
-      tags: ["Excel", "MISA", "Thuế"],
-      hot: false,
-      posted: "4 ngày trước",
-      image: image3,
-      companyUrl: "/cong-ty",
-   },
-];
 
 const levelMap: Record<string, string> = {
    FRESHER: "Fresher",
@@ -140,8 +16,6 @@ const levelMap: Record<string, string> = {
    LEADER: "Leader",
    DIRECTOR: "Giám đốc",
 };
-
-const fallbackImages = [image1, image2, image3];
 
 const fieldNameMap: Record<string, string> = {
    "Technology": "Công nghệ thông tin",
@@ -231,21 +105,21 @@ const jobArticles = [
       category: "CV & Portfolio",
       readTime: "8 phút đọc",
       summary: "Các mục cần nhấn mạnh trong CV công nghệ để tăng tỉ lệ qua vòng lọc hồ sơ, từ cấu trúc dự án đến cách mô tả impact bằng số liệu. Bài viết kèm ví dụ thực tế cho Fresher và Mid-level.",
-      image: image1,
+      image: fallbackImages[0],
    },
    {
       title: "Checklist chuẩn bị phỏng vấn cho ứng viên trái ngành",
       category: "Phỏng vấn",
       readTime: "6 phút đọc",
       summary: "Danh sách các câu hỏi thường gặp và cách trả lời thuyết phục với recruiter, đặc biệt cho ứng viên chuyển ngành. Có mẫu câu trả lời STAR, checklist luyện tập và lỗi cần tránh trước vòng phỏng vấn cuối.",
-      image: image2,
+      image: fallbackImages[1],
    },
    {
       title: "Xu hướng lương ngành IT, Marketing, Sales năm 2026",
       category: "Báo cáo thị trường",
       readTime: "10 phút đọc",
       summary: "Tổng hợp mức lương theo vị trí và kinh nghiệm tại các thành phố lớn, bao gồm biên độ lương theo cấp bậc và kỹ năng. Dữ liệu cập nhật theo nhóm ngành để bạn đặt kỳ vọng đàm phán phù hợp hơn.",
-      image: image3,
+      image: fallbackImages[2],
    },
 ];
 
@@ -267,6 +141,7 @@ export default function JobsPage() {
     const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
     const [selectedJobType, setSelectedJobType] = useState<string | null>(null);
     const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
     const mapApiJobs = (apiData: any[]): Job[] => {
        return apiData.map((apiItem) => ({
@@ -289,7 +164,7 @@ export default function JobsPage() {
           ].filter((t): t is string => Boolean(t)),
           hot: false,
           posted: "Vừa cập nhật",
-          image: apiItem.company?.logoUrl || image1,
+          image: apiItem.company?.logoUrl || fallbackImages[0],
           companyUrl: `/cong-ty/${apiItem.company?.slug ?? ""}`,
           slug: apiItem.slug,
           jobLevel: apiItem.jobLevel,
@@ -298,23 +173,40 @@ export default function JobsPage() {
        }));
     };
 
-    // Initial load: 20 jobs
+    // Debounce search term change
     useEffect(() => {
+       const timer = setTimeout(() => {
+          setDebouncedSearchTerm(searchTerm);
+       }, 300);
+       return () => clearTimeout(timer);
+    }, [searchTerm]);
+
+    // Fetch jobs when filters change
+    useEffect(() => {
+       if (isUsingFallback) return;
+
        const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
        setLoadingMore(true);
-       fetch(`${apiBase}/api/jobs?offset=0&limit=20`)
+
+       const queryParams = new URLSearchParams();
+       queryParams.set("offset", "0");
+       queryParams.set("limit", "20");
+       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
+       if (selectedLocation) queryParams.set("location", selectedLocation);
+       if (selectedJobType) {
+          const mappedType = selectedJobType.toUpperCase().replace("-", "_");
+          queryParams.set("jobType", mappedType);
+       }
+       if (selectedLevel) {
+          queryParams.set("jobLevel", selectedLevel);
+       }
+
+       fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
           .then((res) => {
              if (!res.ok) throw new Error("API error");
              return res.json() as Promise<Array<any>>;
           })
           .then((apiData) => {
-             if (!apiData || apiData.length === 0) {
-                setApiJobs(companyJobs.slice(0, 20));
-                setHasMore(companyJobs.length > 20);
-                setOffset(20);
-                setIsUsingFallback(true);
-                return;
-             }
              const mapped = mapApiJobs(apiData);
              setApiJobs(mapped);
              setHasMore(apiData.length === 20);
@@ -323,7 +215,8 @@ export default function JobsPage() {
           })
           .catch((err) => {
              console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
-             setApiJobs(companyJobs.slice(0, 20));
+             // When entering fallback, populate apiJobs with the full local list so client-side filter can work on it
+             setApiJobs(companyJobs);
              setHasMore(companyJobs.length > 20);
              setOffset(20);
              setIsUsingFallback(true);
@@ -331,9 +224,9 @@ export default function JobsPage() {
           .finally(() => {
              setLoadingMore(false);
           });
-    }, []);
+    }, [debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
 
-    // Load more: 10 jobs
+    // Load more jobs
     const loadMoreJobs = () => {
        if (loadingMore || !hasMore) return;
        setLoadingMore(true);
@@ -354,7 +247,20 @@ export default function JobsPage() {
        }
 
        const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
-       fetch(`${apiBase}/api/jobs?offset=${offset}&limit=10`)
+       const queryParams = new URLSearchParams();
+       queryParams.set("offset", offset.toString());
+       queryParams.set("limit", "10");
+       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
+       if (selectedLocation) queryParams.set("location", selectedLocation);
+       if (selectedJobType) {
+          const mappedType = selectedJobType.toUpperCase().replace("-", "_");
+          queryParams.set("jobType", mappedType);
+       }
+       if (selectedLevel) {
+          queryParams.set("jobLevel", selectedLevel);
+       }
+
+       fetch(`${apiBase}/api/jobs?${queryParams.toString()}`)
           .then((res) => {
              if (!res.ok) throw new Error("API error");
              return res.json() as Promise<Array<any>>;
@@ -394,34 +300,36 @@ export default function JobsPage() {
        };
        window.addEventListener("scroll", handleScroll);
        return () => window.removeEventListener("scroll", handleScroll);
-    }, [offset, loadingMore, hasMore, isUsingFallback]);
+    }, [offset, loadingMore, hasMore, isUsingFallback, debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
 
     const rawJobsList = apiJobs;
 
-   // --- Instant Filter Logic ---
-   const filteredJobs = rawJobsList.filter(job => {
-      // 1. Search term match (title, company, description, tags)
-      const matchesSearch = searchTerm.trim() === "" ||
-         job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-         job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-         job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-         job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    // --- Instant Filter Logic ---
+    const filteredJobs = isUsingFallback
+       ? rawJobsList.filter(job => {
+          // 1. Search term match (title, company, description, tags)
+          const matchesSearch = searchTerm.trim() === "" ||
+             job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             job.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
 
-      // 2. Location match
-      const matchesLocation = !selectedLocation ||
-         job.place.toLowerCase().includes(selectedLocation.toLowerCase());
+          // 2. Location match
+          const matchesLocation = !selectedLocation ||
+             job.place.toLowerCase().includes(selectedLocation.toLowerCase());
 
-      // 3. Job Type match
-      const matchesJobType = !selectedJobType ||
-         job.type.toLowerCase() === selectedJobType.toLowerCase();
+          // 3. Job Type match
+          const matchesJobType = !selectedJobType ||
+             job.type.toLowerCase() === selectedJobType.toLowerCase();
 
-      // 4. Job Level match
-      const matchesLevel = !selectedLevel ||
-         job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
-         (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
+          // 4. Job Level match
+          const matchesLevel = !selectedLevel ||
+             job.tags.some(tag => tag.toLowerCase().includes(selectedLevel.toLowerCase())) ||
+             (job.jobLevel && job.jobLevel.toLowerCase() === selectedLevel.toLowerCase());
 
-      return matchesSearch && matchesLocation && matchesJobType && matchesLevel;
-   });
+          return matchesSearch && matchesLocation && matchesJobType && matchesLevel;
+       })
+       : rawJobsList; // Already filtered by server!
 
    useEffect(() => {
       const savedApplications = localStorage.getItem("jobpilot_applications");
