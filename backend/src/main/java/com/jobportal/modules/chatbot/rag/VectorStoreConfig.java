@@ -29,6 +29,10 @@ public class VectorStoreConfig {
     @Value("${rag.data.path:src/main/resources/rag-data}")
     private String ragDataPath;
 
+    @Value("${rag.load-job-store:true}")
+    private boolean loadJobStore;
+
+
     /** HR Knowledge Store: tiêu chí HR, ATS guides, red-flags → persist vào hr_store.json */
     @Bean("hrKnowledgeStore")
     public EmbeddingStore<TextSegment> hrKnowledgeStore() {
@@ -44,6 +48,10 @@ public class VectorStoreConfig {
     /** Job Market Store: CSV job descriptions → persist vào job_store.json */
     @Bean("jobMarketStore")
     public EmbeddingStore<TextSegment> jobMarketStore() {
+        if (!loadJobStore) {
+            log.info("[Job Store] Disabled by configuration (rag.load-job-store = false). Returning empty store.");
+            return new InMemoryEmbeddingStore<>();
+        }
         Path storePath = Paths.get(ragDataPath, "embeddings", "job_store.json");
         if (Files.exists(storePath)) {
             log.info("[Job Store] Loading from {}", storePath.toAbsolutePath());

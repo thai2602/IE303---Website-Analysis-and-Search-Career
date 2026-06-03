@@ -54,6 +54,10 @@ public class RagService {
     @Value("${rag.data.path:src/main/resources/rag-data}")
     private String ragDataPath;
 
+    @Value("${rag.load-job-store:true}")
+    private boolean loadJobStore;
+
+
     @Autowired
     public RagService(
             @Qualifier("hrKnowledgeStore")  EmbeddingStore<TextSegment> hrKnowledgeStore,
@@ -126,6 +130,10 @@ public class RagService {
     // ── Job Market Store ──────────────────────────────────────────────────────
 
     private void initJobMarketStore() throws Exception {
+        if (!loadJobStore) {
+            log.info("[Job Store] Ingestion skipped because rag.load-job-store = false");
+            return;
+        }
         Path storePath = Paths.get(ragDataPath, "embeddings", "job_store.json");
 
         if (Files.exists(storePath)) {
