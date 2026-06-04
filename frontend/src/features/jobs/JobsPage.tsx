@@ -8,6 +8,7 @@ import { mockJobs as jobs, Job } from "./mockJobs";
 import { readAuthUser } from "../../utils/auth";
 import { hasCreatedCv } from "../../utils/cv";
 import { toVietnameseJobTitle } from "../../utils/jobTitle";
+import ApplyCvModal from "../../components/ApplyCvModal";
 
 const levelMap: Record<string, string> = {
    FRESHER: "Fresher",
@@ -128,6 +129,19 @@ export default function JobsPage() {
    const [applications, setApplications] = useState<any[]>([]);
    const [savedJobs, setSavedJobs] = useState<any[]>([]);
    const [toast, setToast] = useState<{ kind: "success" | "error"; message: string } | null>(null);
+   const [applyingJob, setApplyingJob] = useState<any | null>(null);
+
+   const API_BASE = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
+
+   const handleLogoError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+      e.currentTarget.src = fallbackImages[0];
+   };
+
+   const getLogoUrl = (imgSrc: string) => {
+      if (!imgSrc) return fallbackImages[0];
+      if (imgSrc.startsWith("http://") || imgSrc.startsWith("https://") || imgSrc.startsWith("data:")) return imgSrc;
+      return `${API_BASE}${imgSrc.startsWith("/") ? "" : "/"}${imgSrc}`;
+   };
 
    // --- API jobs state & Pagination ---
    const [apiJobs, setApiJobs] = useState<Job[]>([]);
@@ -190,7 +204,7 @@ export default function JobsPage() {
 
       const queryParams = new URLSearchParams();
       queryParams.set("offset", "0");
-      queryParams.set("limit", "20");
+      queryParams.set("limit", "6");
       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
       if (selectedLocation) queryParams.set("location", selectedLocation);
       if (selectedJobType) {
@@ -209,16 +223,17 @@ export default function JobsPage() {
          .then((apiData) => {
             const mapped = mapApiJobs(apiData);
             setApiJobs(mapped);
-            setHasMore(apiData.length === 20);
-            setOffset(20);
+            setHasMore(apiData.length === 6);
+            setOffset(6);
             setIsUsingFallback(false);
          })
          .catch((err) => {
             console.error("Lỗi tải API công việc, chuyển sang dữ liệu dự phòng:", err);
             // When entering fallback, populate apiJobs with the full local list so client-side filter can work on it
-            setApiJobs(companyJobs);
-            setHasMore(companyJobs.length > 20);
-            setOffset(20);
+            const initialFallback = companyJobs.slice(0, 6);
+            setApiJobs(initialFallback);
+            setHasMore(companyJobs.length > 6);
+            setOffset(6);
             setIsUsingFallback(true);
          })
          .finally(() => {
@@ -233,11 +248,11 @@ export default function JobsPage() {
 
       if (isUsingFallback) {
          setTimeout(() => {
-            const nextBatch = companyJobs.slice(offset, offset + 10);
+            const nextBatch = companyJobs.slice(offset, offset + 6);
             if (nextBatch.length > 0) {
                setApiJobs((prev) => [...prev, ...nextBatch]);
-               setOffset((prev) => prev + 10);
-               setHasMore(companyJobs.length > offset + 10);
+               setOffset((prev) => prev + 6);
+               setHasMore(companyJobs.length > offset + 6);
             } else {
                setHasMore(false);
             }
@@ -249,7 +264,7 @@ export default function JobsPage() {
       const apiBase = (import.meta.env.VITE_API_URL as string | undefined)?.trim() || (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim() || "http://localhost:8080";
       const queryParams = new URLSearchParams();
       queryParams.set("offset", offset.toString());
-      queryParams.set("limit", "10");
+      queryParams.set("limit", "6");
       if (debouncedSearchTerm) queryParams.set("search", debouncedSearchTerm);
       if (selectedLocation) queryParams.set("location", selectedLocation);
       if (selectedJobType) {
@@ -272,16 +287,16 @@ export default function JobsPage() {
             }
             const mapped = mapApiJobs(apiData);
             setApiJobs((prev) => [...prev, ...mapped]);
-            setOffset((prev) => prev + 10);
-            setHasMore(apiData.length === 10);
+            setOffset((prev) => prev + 6);
+            setHasMore(apiData.length === 6);
          })
          .catch((err) => {
             console.error("Lỗi tải thêm công việc từ API, chuyển sang dữ liệu dự phòng:", err);
-            const nextBatch = companyJobs.slice(offset, offset + 10);
+            const nextBatch = companyJobs.slice(offset, offset + 6);
             if (nextBatch.length > 0) {
                setApiJobs((prev) => [...prev, ...nextBatch]);
-               setOffset((prev) => prev + 10);
-               setHasMore(companyJobs.length > offset + 10);
+               setOffset((prev) => prev + 6);
+               setHasMore(companyJobs.length > offset + 6);
             } else {
                setHasMore(false);
             }
@@ -291,16 +306,7 @@ export default function JobsPage() {
          });
    };
 
-   // Scroll listener
-   useEffect(() => {
-      const handleScroll = () => {
-         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 150) {
-            loadMoreJobs();
-         }
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-   }, [offset, loadingMore, hasMore, isUsingFallback, debouncedSearchTerm, selectedLocation, selectedJobType, selectedLevel]);
+   // Scroll listener removed for button-based loading
 
    const rawJobsList = apiJobs;
 
@@ -381,27 +387,83 @@ export default function JobsPage() {
          return;
       }
 
-      const id = `${job.company}-${job.title}-${Date.now()}`;
-      setApplications([
+      setApplyingJob(job);
+   };
+
+   const handleConfirmApply = async (cvId: number) => {
+      if (!applyingJob) return;
+      const jobToApply = applyingJob;
+      setApplyingJob(null);
+
+      let finalId = `${jobToApply.company}-${jobToApply.title}-${Date.now()}`;
+      if (jobToApply.id) {
+         try {
+            const token = localStorage.getItem("accessToken");
+            const res = await fetch(`${API_BASE}/api/applications`, {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": token ? `Bearer ${token}` : "",
+               },
+               body: JSON.stringify({ jobId: jobToApply.id, cvId }),
+            });
+            if (res.ok) {
+               const savedApp = await res.json();
+               if (savedApp && savedApp.id) {
+                  finalId = `api-${savedApp.id}`;
+               }
+            } else {
+               const errText = await res.text();
+               showToast(`Lỗi ứng tuyển: ${errText}`, "error");
+               return;
+            }
+         } catch (err) {
+            console.error("Backend apply failed:", err);
+            showToast("Lỗi kết nối máy chủ khi ứng tuyển. Vui lòng thử lại sau.", "error");
+            return;
+         }
+      }
+
+      setApplications((prev) => [
          {
-            ...job,
-            id,
+            ...jobToApply,
+            id: finalId,
             appliedAt: new Date().toLocaleString("vi-VN"),
             status: "Đang chờ xác nhận",
             trackingNote: "Hồ sơ đã được ghi nhận và đang đợi nhà tuyển dụng phản hồi.",
          },
-         ...applications,
+         ...prev,
       ]);
-      showToast(`Đã ứng tuyển thành công: ${job.title} tại ${job.company}.`);
+      showToast(`Đã ứng tuyển thành công: ${jobToApply.title} tại ${jobToApply.company}.`);
    };
 
-   const addSavedJob = (job: any, e: React.MouseEvent) => {
+      const addSavedJob = async (job: any, e: React.MouseEvent) => {
       e.stopPropagation(); // Ngăn chặn chuyển trang
       if (savedJobs.some((item) => item.company === job.company && item.title === job.title)) {
          showToast("Công việc này đã có trong mục đã lưu.", "error");
          return;
       }
-      const id = `${job.company}-${job.title}-${Date.now()}`;
+
+      if (job.id && readAuthUser()) {
+         try {
+            const token = localStorage.getItem("accessToken");
+            const res = await fetch(`${API_BASE}/api/saved-jobs`, {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": token ? `Bearer ${token}` : "",
+               },
+               body: JSON.stringify({ jobId: job.id }),
+            });
+            if (!res.ok) {
+               console.warn("Could not save job to server");
+            }
+         } catch (e) {
+            console.error(e);
+         }
+      }
+
+      const id = job.id ? `api-saved-${job.id}` : `${job.company}-${job.title}-${Date.now()}`;
       setSavedJobs([{ ...job, id, savedAt: new Date().toLocaleString("vi-VN") }, ...savedJobs]);
       showToast(`Đã lưu công việc: ${job.title} tại ${job.company}.`);
    };
@@ -474,7 +536,7 @@ export default function JobsPage() {
          </section>
 
          {/* ── Main Layout: Filters sidebar + Jobs List grid ── */}
-         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8 items-start">
+         <div className="grid grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)] gap-8 items-start">
 
             {/* 1. Left Sidebar: Interactive Filters */}
             <aside className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm space-y-6 lg:sticky lg:top-8 z-10">
@@ -610,13 +672,18 @@ export default function JobsPage() {
                               key={`${job.title}-${job.company}`}
                               onClick={() => navigate(`/tim-viec/${jobSlug}`, { state: { job, relatedJobs: rawJobsList.filter((j) => j.title !== job.title || j.company !== job.company).slice(0, 3) } })}
                               className="group relative bg-white border border-slate-100 rounded-[24px] p-5 sm:p-6 shadow-sm hover:border-emerald-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 cursor-pointer flex flex-col sm:flex-row gap-5 items-start sm:items-center"
+                              style={{ borderLeft: `5px solid ${job.companyColor}` }}
                            >
-                              {/* Company Logo wrapper with dynamic color border */}
+                              {/* Company Logo wrapper */}
                               <div
-                                 className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300 group-hover:scale-105"
-                                 style={{ borderLeft: `4px solid ${job.companyColor}` }}
+                                 className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2.5 shrink-0 transition-all duration-300 group-hover:scale-105 overflow-hidden"
                               >
-                                 <img src={job.image} className="w-full h-full object-contain" alt={job.company} />
+                                 <img 
+                                    src={getLogoUrl(job.image)} 
+                                    className="w-full h-full object-contain" 
+                                    alt={job.company} 
+                                    onError={handleLogoError}
+                                 />
                               </div>
 
                               {/* Core Content */}
@@ -689,6 +756,16 @@ export default function JobsPage() {
                            </article>
                         );
                      })
+                  )}
+                  {!loadingMore && hasMore && apiJobs.length > 0 && (
+                     <div className="text-center py-6">
+                        <button
+                           onClick={loadMoreJobs}
+                           className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-extrabold text-[14px] rounded-xl hover:shadow-lg active:scale-95 transition-all cursor-pointer shadow-md"
+                        >
+                           Xem thêm công việc
+                        </button>
+                     </div>
                   )}
                   {loadingMore && (
                      <div className="text-center py-4 text-slate-500 font-extrabold text-sm animate-pulse">
@@ -776,6 +853,12 @@ export default function JobsPage() {
                ))}
             </div>
          </section>
+
+         <ApplyCvModal
+            isOpen={applyingJob !== null}
+            onClose={() => setApplyingJob(null)}
+            onConfirm={handleConfirmApply}
+         />
 
       </div>
    );
